@@ -21,6 +21,7 @@ module.exports = {
       },
       fontSize: {
         topic: '40px',
+        subtopic: '25px',
         topicDescription: '20px',
         normal: '14px',
       }
