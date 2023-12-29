@@ -1,5 +1,13 @@
 import React, {Component} from 'react';
 import bannerBackgroundImg from '../../../images/banner.png'
+import pillow from '../../../images/HomePage/FirstDiv/pillow.png'
+import Offers from '../../../images/HomePage/FirstDiv/Offers.png'
+import Restaurant from '../../../images/HomePage/FirstDiv/Restaurant.png'
+import HotelRoom from '../../../images/HomePage/FirstDiv/HotelRoom.png'
+import BookingIcon from '../../../images/HomePage/SecDiv/booking.png'
+import RestaurantIcon from '../../../images/HomePage/SecDiv/Restaurant.png'
+import PoolIcon from '../../../images/HomePage/SecDiv/pool.png'
+import HelpSupportIcon from '../../../images/HomePage/SecDiv/helpsupport.png'
 
 export class Home extends Component {
     render() {
@@ -12,7 +20,7 @@ export class Home extends Component {
         return (
             <>
                 {/*Banner*/}
-                <div className="flex flex-col items-center justify-center w-full h-[800px] bg-cover bg-center"
+                <div className="flex flex-col items-center justify-center w-full h-[750px] rounded-b-3xl bg-cover bg-center"
                      style={{
                          backgroundImage: `url(${bannerBackgroundImg})`,
                          backgroundSize: 'cover',
@@ -20,15 +28,14 @@ export class Home extends Component {
                      }}>
                     <h1 className="font-Milonga text-bannertopic text-white">Welcome To FiesTo</h1>
                     <div className="flex items-center justify-center gap-4 p-2 ">
-                        <div className="h-0.5 bg-septenary w-32"></div>
+                        <div className="h-0.5 opacity-50 bg-septenary w-32"></div>
                         <h6 className="font-poppins text-subtopic text-nonary">Join With Us</h6>
-                        <div className="h-0.5 bg-septenary w-32"></div>
+                        <div className="h-0.5 opacity-50 bg-septenary w-32"></div>
                     </div>
                 </div>
 
                 {/*first div*/}
-                <div
-                    className="h-44 flex items-center justify-center w-max gap-2 m-auto mt-[-4%] bg-white rounded-3xl shadow-xl p-10">
+                <div className="h-44 hidden flex items-center justify-center w-max gap-2 m-auto mt-[-4%] bg-white rounded-3xl shadow-xl p-10">
                     <div className="flex items-center justify-center gap-5 p-5 font-poppins">
                         <div>
                             <label className="block text-quinary text-sm font-bold mb-2" htmlFor="username">
@@ -103,10 +110,118 @@ export class Home extends Component {
                 </div>
 
                 {/*second div*/}
-                <div className="mt-[120px] mb-[120px] h-80 bg-teal-600"></div>
+                <div className="mt-[120px] mb-[120px] flex justify-center items-center">
+                    <div className="flex flex-wrap justify-center items-center gap-10">
+                        <div className="flex justify-center items-center gap-5 p-5">
+                            <div className="flex flex-col justify-center items-center gap-5">
+                                <div className="flex flex-col text-center justify-center items-center gap-2 w-[240px] h-[240px] bg-white shadow-lg rounded-lg hover:bg-primary">
+                                    <img className="w-16" src={pillow} alt=""/>
+                                    <h1 className="font-Milonga text-topictwo text-quinary">Cozy Room</h1>
+                                    <p className="font-poppins text-smaller text-senary w-[80%]">Far far away, behind the word
+                                        mountains, far from the countries
+                                        Vokalia.</p>
+                                </div>
+
+                                <img className="w-[240px] p-2 drop-shadow-lg object-cover" src={Restaurant} alt=""/>
+                            </div>
+
+                            <div className="flex flex-col justify-center items-center gap-5">
+                                <img className="w-[240px] p-2 drop-shadow-lg object-cover" src={HotelRoom} alt=""/>
+
+                                <div className="flex flex-col text-center justify-center items-center gap-2 w-[240px] h-[240px] bg-white shadow-lg rounded-lg hover:bg-primary">
+                                    <img className="w-16" src={Offers} alt=""/>
+                                    <h1 className="font-Milonga text-topictwo text-quinary">Special Offers</h1>
+                                    <p className="font-poppins text-smaller text-senary w-[80%]">Far far away, behind the word
+                                        mountains, far from the countries
+                                        Vokalia.</p>
+                                </div>
+
+                            </div>
+                        </div>
+
+                        <div className="flex flex-col items-start justify-center p-5">
+                            <h2 className="font-poppins text-topictwo text-secondary">About Us</h2>
+                            <h1 className="font-Milonga text-topic text-quinary">Unwind A Hotel<br/>Booking System</h1>
+
+                            <p className="font-poppins text-normal text-senary w-96 mt-10 leading-7">
+                                Far far away, behind the word mountains, far from the countries
+                                Vokalia and Consonantia, there live the blind texts. Separated
+                                theylive in Bookmarksgrove right at the coast of the Semantics, a
+                                large language ocean.
+                            </p>
+
+                            <button className="bg-tertiary hover:bg-secondary text-smaller text-white py-4 px-6 rounded mt-10">
+                                BOOK YOUR ROOM NOW
+                            </button>
+                        </div>
+                    </div>
+                </div>
+
+                {/*third div*/}
+                <div className="flex justify-center items-center mb-[120px]">
+                    <div className="flex flex-col justify-center items-center gap-5">
+                        <div className="p-5 text-center">
+                            <h2 className="font-poppins text-secondary text-topictwo">UNWIND SERVICES</h2>
+                            <h1 className="font-Milonga text-quinary text-topic">Explore Our Hotel Services</h1>
+                        </div>
+
+                        <div className="flex justify-center items-center text-center gap-5 p-5">
+                            <div className="flex flex-col justify-center items-center w-[210px] h-[220px] font-poppins p-2">
+                                <div className="flex justify-center items-center border-2 border-gray-200 hover:shadow-sm rounded-[100px] h-[100px] w-[100px] p-5">
+                                    <img className="w-16 object-cover" src={BookingIcon} alt=""/>
+                                </div>
+                                <h1 className="text-senary text-topictwo mt-3">Easy Booking</h1>
+                                <p className="text-octonary text-normal">
+                                    A small river named Duden
+                                    flows by their place
+                                    and supplies.
+                                </p>
+                            </div>
+
+                            <div className="flex flex-col justify-center items-center w-[210px] h-[220px] font-poppins p-2">
+                                <div className="flex justify-center items-center border-2 border-gray-200 hover:shadow-sm rounded-[100px] h-[100px] w-[100px] p-5">
+                                    <img className="w-16 object-cover" src={RestaurantIcon} alt=""/>
+                                </div>
+                                <h1 className="text-senary text-topictwo mt-3">Restaurant</h1>
+                                <p className="text-octonary text-normal">
+                                    A small river named Duden
+                                    flows by their place
+                                    and supplies.
+                                </p>
+                            </div>
+
+                            <div className="flex flex-col justify-center items-center w-[210px] h-[220px] font-poppins p-2">
+                                <div className="flex justify-center items-center border-2 border-gray-200 hover:shadow-sm rounded-[100px] h-[100px] w-[100px] p-5">
+                                    <img className="w-16 object-cover" src={PoolIcon} alt=""/>
+                                </div>
+                                <h1 className="text-senary text-topictwo mt-3">Swimming Pool</h1>
+                                <p className="text-octonary text-normal">
+                                    A small river named Duden
+                                    flows by their place
+                                    and supplies.
+                                </p>
+                            </div>
+
+                            <div className="flex flex-col justify-center items-center w-[210px] h-[220px] font-poppins p-2">
+                                <div className="flex justify-center items-center border-2 border-gray-200 hover:shadow-sm rounded-[100px] h-[100px] w-[100px] p-5">
+                                    <img className="w-16 object-cover" src={HelpSupportIcon} alt=""/>
+                                </div>
+                                <h1 className="text-senary text-topictwo mt-3">Help & Support</h1>
+                                <p className="text-octonary text-normal">
+                                    A small river named Duden
+                                    flows by their place
+                                    and supplies.
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                {/*fourth div*/}
+                <div className="flex justify-center items-center mb-[120px] bg-tertiary">s</div>
 
 
-                <div className="w-7/12 h-40 mt-16 bg-stone-700">s</div>
+                <div className="w-full h-40 mt-16 bg-nonary">s</div>
             </>
         );
     }

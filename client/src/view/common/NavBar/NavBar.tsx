@@ -5,7 +5,7 @@ export class NavBar extends Component {
     render() {
         return (
             <>
-                <div className="flex p-3 fixed text-normal text-white font-poppins justify-around w-full top-5">
+                <div className="flex bg-black z-10 bg-opacity-5 p-3 fixed text-normal text-white font-poppins justify-around w-full top-5">
                     <img className="w-16 object-scale-down" src={Logo} alt=""/>
 
                     <ul className="list-none flex gap-5 items-center justify-center">

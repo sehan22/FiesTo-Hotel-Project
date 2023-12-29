@@ -22,9 +22,11 @@ module.exports = {
       fontSize: {
         bannertopic: '60px',
         topic: '40px',
+        topictwo: '20px',
         subtopic: '25px',
         topicDescription: '20px',
         normal: '14px',
+        smaller: '12px',
       }
     },
   },
