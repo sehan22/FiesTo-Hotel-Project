@@ -135,7 +135,21 @@ export class Home extends Component {
                             </div>
                         </div>
 
-                        <div className="p-5"></div>
+                        <div className="flex flex-col items-start justify-center p-5">
+                            <h2 className="font-poppins text-topictwo text-secondary">About Us</h2>
+                            <h1 className="font-Milonga text-topic text-quinary">Unwind A Hotel<br/>Booking System</h1>
+
+                            <p className="font-poppins text-normal text-senary w-96 mt-10 leading-7">
+                                Far far away, behind the word mountains, far from the countries
+                                Vokalia and Consonantia, there live the blind texts. Separated
+                                theylive in Bookmarksgrove right at the coast of the Semantics, a
+                                large language ocean.
+                            </p>
+
+                            <button className="bg-tertiary hover:bg-secondary text-smaller text-white py-4 px-6 rounded mt-10">
+                                BOOK YOUR ROOM NOW
+                            </button>
+                        </div>
                     </div>
                 </div>
 
