@@ -1,5 +1,9 @@
 import React, {Component} from 'react';
 import bannerBackgroundImg from '../../../images/banner.png'
+import pillow from '../../../images/HomePage/FirstDiv/pillow.png'
+import Offers from '../../../images/HomePage/FirstDiv/Offers.png'
+import Restaurant from '../../../images/HomePage/FirstDiv/Restaurant.png'
+import HotelRoom from '../../../images/HomePage/FirstDiv/HotelRoom.png'
 
 export class Home extends Component {
     render() {
@@ -12,7 +16,7 @@ export class Home extends Component {
         return (
             <>
                 {/*Banner*/}
-                <div className="flex flex-col items-center justify-center w-full h-[800px] bg-cover bg-center"
+                <div className="flex flex-col items-center justify-center w-full h-[750px] rounded-b-3xl bg-cover bg-center"
                      style={{
                          backgroundImage: `url(${bannerBackgroundImg})`,
                          backgroundSize: 'cover',
@@ -20,15 +24,14 @@ export class Home extends Component {
                      }}>
                     <h1 className="font-Milonga text-bannertopic text-white">Welcome To FiesTo</h1>
                     <div className="flex items-center justify-center gap-4 p-2 ">
-                        <div className="h-0.5 bg-septenary w-32"></div>
+                        <div className="h-0.5 opacity-50 bg-septenary w-32"></div>
                         <h6 className="font-poppins text-subtopic text-nonary">Join With Us</h6>
-                        <div className="h-0.5 bg-septenary w-32"></div>
+                        <div className="h-0.5 opacity-50 bg-septenary w-32"></div>
                     </div>
                 </div>
 
                 {/*first div*/}
-                <div
-                    className="h-44 flex items-center justify-center w-max gap-2 m-auto mt-[-4%] bg-white rounded-3xl shadow-xl p-10">
+                <div className="h-44 hidden flex items-center justify-center w-max gap-2 m-auto mt-[-4%] bg-white rounded-3xl shadow-xl p-10">
                     <div className="flex items-center justify-center gap-5 p-5 font-poppins">
                         <div>
                             <label className="block text-quinary text-sm font-bold mb-2" htmlFor="username">
@@ -103,7 +106,38 @@ export class Home extends Component {
                 </div>
 
                 {/*second div*/}
-                <div className="mt-[120px] mb-[120px] h-80 bg-teal-600"></div>
+                <div className="mt-[120px] mb-[120px] flex justify-center items-center bg-nonary">
+                    <div className="flex flex-wrap justify-center items-center gap-10 bg-octonary">
+                        <div className="flex gap-5 p-5">
+                            <div className="flex flex-col justify-center items-center gap-5">
+                                <div className="flex flex-col text-center justify-center items-center w-[220px] h-[220px] bg-white shadow-lg rounded-lg">
+                                    <img className="w-16" src={pillow} alt=""/>
+                                    <h1>Cozy Room</h1>
+                                    <p>Far far away, behind the word
+                                        mountains, far from the countries
+                                        Vokalia.</p>
+                                </div>
+
+                                <img className="w-[220px] object-cover" src={Restaurant} alt=""/>
+                            </div>
+
+                            <div className="flex flex-col justify-center items-center gap-5">
+                                <img className="w-[220px] object-cover" src={HotelRoom} alt=""/>
+
+                                <div className="flex flex-col text-center justify-center items-center w-[220px] h-[220px] bg-white shadow-lg rounded-lg">
+                                    <img className="w-16" src={Offers} alt=""/>
+                                    <h1>Special Offers</h1>
+                                    <p>Far far away, behind the word
+                                        mountains, far from the countries
+                                        Vokalia.</p>
+                                </div>
+
+                            </div>
+                        </div>
+
+                        <div className="p-5"></div>
+                    </div>
+                </div>
 
 
                 <div className="w-7/12 h-40 mt-16 bg-stone-700">s</div>
