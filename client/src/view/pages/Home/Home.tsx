@@ -4,6 +4,10 @@ import pillow from '../../../images/HomePage/FirstDiv/pillow.png'
 import Offers from '../../../images/HomePage/FirstDiv/Offers.png'
 import Restaurant from '../../../images/HomePage/FirstDiv/Restaurant.png'
 import HotelRoom from '../../../images/HomePage/FirstDiv/HotelRoom.png'
+import BookingIcon from '../../../images/HomePage/SecDiv/booking.png'
+import RestaurantIcon from '../../../images/HomePage/SecDiv/Restaurant.png'
+import PoolIcon from '../../../images/HomePage/SecDiv/pool.png'
+import HelpSupportIcon from '../../../images/HomePage/SecDiv/helpsupport.png'
 
 export class Home extends Component {
     render() {
@@ -154,36 +158,60 @@ export class Home extends Component {
                 </div>
 
                 {/*third div*/}
-                <div className="flex justify-center items-center mb-[120px] bg-nonary">
-                    <div className="flex flex-col justify-center items-center gap-10 bg-octonary">
-                        <div className="p-5 bg-white text-center">
+                <div className="flex justify-center items-center mb-[120px]">
+                    <div className="flex flex-col justify-center items-center gap-5">
+                        <div className="p-5 text-center">
                             <h2 className="font-poppins text-secondary text-topictwo">UNWIND SERVICES</h2>
                             <h1 className="font-Milonga text-quinary text-topic">Explore Our Hotel Services</h1>
                         </div>
 
-                        <div className="bg-nonary flex justify-center items-center gap-5 p-5">
-                            <div className="flex justify-center items-center w-[160px] h-[200px] bg-white">
-                                <img src="" alt=""/>
-                                <h1></h1>
-                                <p></p>
+                        <div className="flex justify-center items-center text-center gap-5 p-5">
+                            <div className="flex flex-col justify-center items-center w-[210px] h-[220px] font-poppins p-2">
+                                <div className="flex justify-center items-center border-2 border-gray-200 hover:shadow-sm rounded-[100px] h-[100px] w-[100px] p-5">
+                                    <img className="w-16 object-cover" src={BookingIcon} alt=""/>
+                                </div>
+                                <h1 className="text-senary text-topictwo mt-3">Easy Booking</h1>
+                                <p className="text-octonary text-normal">
+                                    A small river named Duden
+                                    flows by their place
+                                    and supplies.
+                                </p>
                             </div>
 
-                            <div className="flex justify-center items-center w-[160px] h-[200px] bg-white">
-                                <img src="" alt=""/>
-                                <h1></h1>
-                                <p></p>
+                            <div className="flex flex-col justify-center items-center w-[210px] h-[220px] font-poppins p-2">
+                                <div className="flex justify-center items-center border-2 border-gray-200 hover:shadow-sm rounded-[100px] h-[100px] w-[100px] p-5">
+                                    <img className="w-16 object-cover" src={RestaurantIcon} alt=""/>
+                                </div>
+                                <h1 className="text-senary text-topictwo mt-3">Restaurant</h1>
+                                <p className="text-octonary text-normal">
+                                    A small river named Duden
+                                    flows by their place
+                                    and supplies.
+                                </p>
                             </div>
 
-                            <div className="flex justify-center items-center w-[160px] h-[200px] bg-white">
-                                <img src="" alt=""/>
-                                <h1></h1>
-                                <p></p>
+                            <div className="flex flex-col justify-center items-center w-[210px] h-[220px] font-poppins p-2">
+                                <div className="flex justify-center items-center border-2 border-gray-200 hover:shadow-sm rounded-[100px] h-[100px] w-[100px] p-5">
+                                    <img className="w-16 object-cover" src={PoolIcon} alt=""/>
+                                </div>
+                                <h1 className="text-senary text-topictwo mt-3">Swimming Pool</h1>
+                                <p className="text-octonary text-normal">
+                                    A small river named Duden
+                                    flows by their place
+                                    and supplies.
+                                </p>
                             </div>
 
-                            <div className="flex justify-center items-center w-[160px] h-[200px] bg-white">
-                                <img src="" alt=""/>
-                                <h1></h1>
-                                <p></p>
+                            <div className="flex flex-col justify-center items-center w-[210px] h-[220px] font-poppins p-2">
+                                <div className="flex justify-center items-center border-2 border-gray-200 hover:shadow-sm rounded-[100px] h-[100px] w-[100px] p-5">
+                                    <img className="w-16 object-cover" src={HelpSupportIcon} alt=""/>
+                                </div>
+                                <h1 className="text-senary text-topictwo mt-3">Help & Support</h1>
+                                <p className="text-octonary text-normal">
+                                    A small river named Duden
+                                    flows by their place
+                                    and supplies.
+                                </p>
                             </div>
 
                         </div>
