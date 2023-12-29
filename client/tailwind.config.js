@@ -20,6 +20,7 @@ module.exports = {
         white: '#FFFFFF',
       },
       fontSize: {
+        bannertopic: '60px',
         topic: '40px',
         subtopic: '25px',
         topicDescription: '20px',
