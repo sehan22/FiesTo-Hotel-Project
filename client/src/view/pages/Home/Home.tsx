@@ -106,7 +106,7 @@ export class Home extends Component {
                 </div>
 
                 {/*second div*/}
-                <div className="mt-[120px] mb-[120px] flex justify-center items-center bg-nonary">
+                <div className="mt-[120px] mb-[120px] flex justify-center items-center">
                     <div className="flex flex-wrap justify-center items-center gap-10">
                         <div className="flex justify-center items-center gap-5 p-5">
                             <div className="flex flex-col justify-center items-center gap-5">
@@ -154,8 +154,40 @@ export class Home extends Component {
                 </div>
 
                 {/*third div*/}
-                <div className="flex flex-col mb-[120px]">
+                <div className="flex justify-center items-center mb-[120px] bg-nonary">
+                    <div className="flex flex-col justify-center items-center gap-10 bg-octonary">
+                        <div className="p-5 bg-white text-center">
+                            <h2 className="font-poppins text-secondary text-topictwo">UNWIND SERVICES</h2>
+                            <h1 className="font-Milonga text-quinary text-topic">Explore Our Hotel Services</h1>
+                        </div>
 
+                        <div className="bg-nonary flex justify-center items-center gap-5 p-5">
+                            <div className="flex justify-center items-center w-[160px] h-[200px] bg-white">
+                                <img src="" alt=""/>
+                                <h1></h1>
+                                <p></p>
+                            </div>
+
+                            <div className="flex justify-center items-center w-[160px] h-[200px] bg-white">
+                                <img src="" alt=""/>
+                                <h1></h1>
+                                <p></p>
+                            </div>
+
+                            <div className="flex justify-center items-center w-[160px] h-[200px] bg-white">
+                                <img src="" alt=""/>
+                                <h1></h1>
+                                <p></p>
+                            </div>
+
+                            <div className="flex justify-center items-center w-[160px] h-[200px] bg-white">
+                                <img src="" alt=""/>
+                                <h1></h1>
+                                <p></p>
+                            </div>
+
+                        </div>
+                    </div>
                 </div>
 
 
