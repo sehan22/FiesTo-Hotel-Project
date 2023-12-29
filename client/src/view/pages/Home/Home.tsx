@@ -91,8 +91,9 @@ export class Home extends Component {
                         </div>
                     </div>
 
-                    <div className="flex flex-col gap-2 text-normal">
-                        <button className="bg-white border-2 border-nonary hover:border-neutral-200 text-senary py-2 px-4 rounded">
+                    <div className="flex flex-col gap-2 text-normal pr-5">
+                        <button
+                            className="bg-white border-2 border-nonary hover:border-neutral-200 text-senary py-2 px-4 rounded">
                             Clear
                         </button>
                         <button className="bg-secondary hover:bg-teal-600 text-white py-2 px-4 rounded">
@@ -103,13 +104,6 @@ export class Home extends Component {
 
                 {/*second div*/}
                 <div className="mt-[120px] mb-[120px] h-80 bg-teal-600"></div>
-
-
-
-
-
-
-
 
 
                 <div className="w-7/12 h-40 mt-16 bg-stone-700">s</div>
