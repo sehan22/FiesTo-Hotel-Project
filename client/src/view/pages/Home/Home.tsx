@@ -213,13 +213,15 @@ export class Home extends Component {
                                     and supplies.
                                 </p>
                             </div>
-
                         </div>
                     </div>
                 </div>
 
+                {/*fourth div*/}
+                <div className="flex justify-center items-center mb-[120px] bg-tertiary">s</div>
 
-                <div className="w-7/12 h-40 mt-16 bg-stone-700">s</div>
+
+                <div className="w-full h-40 mt-16 bg-nonary">s</div>
             </>
         );
     }
