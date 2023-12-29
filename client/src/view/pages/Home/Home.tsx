@@ -153,6 +153,11 @@ export class Home extends Component {
                     </div>
                 </div>
 
+                {/*third div*/}
+                <div className="flex flex-col mb-[120px]">
+
+                </div>
+
 
                 <div className="w-7/12 h-40 mt-16 bg-stone-700">s</div>
             </>
