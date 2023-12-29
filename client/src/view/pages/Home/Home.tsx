@@ -11,6 +11,7 @@ export class Home extends Component {
 
         return (
             <>
+                {/*Banner*/}
                 <div className="flex flex-col items-center justify-center w-full h-[800px] bg-cover bg-center"
                      style={{
                          backgroundImage: `url(${bannerBackgroundImg})`,
@@ -25,6 +26,7 @@ export class Home extends Component {
                     </div>
                 </div>
 
+                {/*first div*/}
                 <div
                     className="h-44 flex items-center justify-center w-max gap-2 m-auto mt-[-4%] bg-white rounded-3xl shadow-xl p-10">
                     <div className="flex items-center justify-center gap-5 p-5 font-poppins">
@@ -90,7 +92,7 @@ export class Home extends Component {
                     </div>
 
                     <div className="flex flex-col gap-2 text-normal">
-                        <button className="bg-white border-2 border-nonary hover:border-neutral-200 text-secondary py-2 px-4 rounded">
+                        <button className="bg-white border-2 border-nonary hover:border-neutral-200 text-senary py-2 px-4 rounded">
                             Clear
                         </button>
                         <button className="bg-secondary hover:bg-teal-600 text-white py-2 px-4 rounded">
@@ -98,6 +100,17 @@ export class Home extends Component {
                         </button>
                     </div>
                 </div>
+
+                {/*second div*/}
+                <div className="mt-[120px] mb-[120px] h-80 bg-teal-600"></div>
+
+
+
+
+
+
+
+
 
                 <div className="w-7/12 h-40 mt-16 bg-stone-700">s</div>
             </>
