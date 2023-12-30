@@ -3,7 +3,7 @@ import './App.css';
 import {Home} from "./view/pages/Home/Home";
 import {BrowserRouter, Route, Routes} from "react-router-dom";
 import {DefaultLayout} from "./view/common/DefaultLayout/DefaultLayout";
-import {Login} from "./view/pages/Login";
+import {Login} from "./view/pages/Login/Login";
 
 function App() {
     return (
