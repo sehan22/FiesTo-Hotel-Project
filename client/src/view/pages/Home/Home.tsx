@@ -239,7 +239,7 @@ export class Home extends Component {
 
                 {/*fourth div*/}
                 <div className="flex justify-center items-center p-16 mb-[120px] " style={{
-                    background: `url(${FourthDivBGImg}) no-repeat center center fixed `,
+                    background: `url(${FourthDivBGImg})`,
                     backgroundSize: 'cover',
                     backgroundPosition: 'center',
                 }}>
@@ -345,7 +345,7 @@ export class Home extends Component {
                 </div>
 
                 {/*sixth div*/}
-                <div className="flex justify-center items-center p-16 mt-[240px] mb-[120px]" style={{
+                <div className="flex justify-center items-center p-16 mt-[120px] mb-[120px]" style={{
                     background: `url(${SixthDivBGImg})`,
                     backgroundSize: 'cover',
                     backgroundPosition: 'center'
@@ -376,6 +376,9 @@ export class Home extends Component {
                         </div>
                     </div>
                 </div>
+
+                {/*seventh div*/}
+                <div className="flex justify-center items-center"></div>
 
                 <div className="w-full h-40 mt-16 bg-nonary"></div>
             </>
