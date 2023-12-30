@@ -11,7 +11,8 @@ import HelpSupportIcon from '../../../images/HomePage/ThirdDiv/helpsupport.png'
 import FourthDivBGImg from '../../../images/HomePage/FourthDiv/fourthdivbgpic.png'
 import SuiteRoomImg from '../../../images/HomePage/FifthDiv/suiteroom.png'
 import FamilyRoomImg from '../../../images/HomePage/FifthDiv/familyroom.png'
-import DeluxRoomImg from '../../../images/HomePage/FifthDiv/deluxroom.png'
+import DeluxeRoomImg from '../../../images/HomePage/FifthDiv/deluxroom.png'
+import SixthDivBGImg from '../../../images/HomePage/SixthDiv/sixthdivbgimg.png'
 
 export class Home extends Component {
     render() {
@@ -318,7 +319,7 @@ export class Home extends Component {
 
                             <div
                                 className="bg-white flex flex-col justify-between items-center rounded-sm shadow-lg w-[320px] h-[430px] hover:bg-primary">
-                                <img className="rounded-sm w-[100%]" src={DeluxRoomImg} alt=""/>
+                                <img className="rounded-sm w-[100%]" src={DeluxeRoomImg} alt=""/>
 
                                 <div className="h-full flex items-center justify-center">
                                     <div className="flex flex-col items-center justify-center text-center gap-5">
@@ -341,6 +342,14 @@ export class Home extends Component {
                             </div>
                         </div>
                     </div>
+                </div>
+
+                {/*sixth div*/}
+                <div className="flex justify-center items-center" style={{
+                    background: `url(${SixthDivBGImg})`,
+                    backgroundSize: 'cover',
+                    backgroundPosition: 'center'
+                }}>d
                 </div>
 
                 <div className="w-full h-40 mt-16 bg-nonary"></div>
