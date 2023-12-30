@@ -9,7 +9,6 @@ import RestaurantIcon from '../../../images/HomePage/ThirdDiv/Restaurant.png'
 import PoolIcon from '../../../images/HomePage/ThirdDiv/pool.png'
 import HelpSupportIcon from '../../../images/HomePage/ThirdDiv/helpsupport.png'
 import FourthDivBGImg from '../../../images/HomePage/FourthDiv/fourthdivbgpic.png'
-import * as url from "url";
 
 export class Home extends Component {
     render() {
