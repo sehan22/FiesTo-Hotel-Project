@@ -385,7 +385,7 @@ export class Home extends Component {
                     <div className="flex flex-col flex-wrap justify-center items-center gap-10">
                         <div className="flex flex-col justify-center items-center p-5">
                             <h2 className="font-poppins text-secondary text-topictwo">TESTIMONIAL</h2>
-                            <h1 className="font-Milonga text-quinary text-topic">Happy Guest Comments</h1>
+                            <h1 className="font-Milonga text-quinary text-topic">Happy Guest Reviews</h1>
                         </div>
 
                         <div className="flex flex-wrap items-center justify-center p-5 gap-8">
@@ -413,7 +413,7 @@ export class Home extends Component {
                                 className="flex flex-col justify-center items-start w-[320px] h-[220px] p-5 rounded-md bg-white hover:scale-105">
                                 <div className="flex flex-col gap-3 font-poppins">
                                     <div className="flex items-center gap-3">
-                                        <img className="w-[80px]" src={FirstManImg} alt=""/>
+                                        <img className="w-[80px]" src={SecondManImg} alt=""/>
 
                                         <div>
                                             <h1 className="text-topictwo text-quinary tracking-[2px]">Roger Scott</h1>
@@ -433,7 +433,7 @@ export class Home extends Component {
                                 className="flex flex-col justify-center items-start w-[320px] h-[220px] p-5 rounded-md bg-white hover:scale-105">
                                 <div className="flex flex-col gap-3 font-poppins">
                                     <div className="flex items-center gap-3">
-                                        <img className="w-[80px]" src={FirstManImg} alt=""/>
+                                        <img className="w-[80px]" src={ThirdManImg} alt=""/>
 
                                         <div>
                                             <h1 className="text-topictwo text-quinary tracking-[2px]">Roger Scott</h1>
