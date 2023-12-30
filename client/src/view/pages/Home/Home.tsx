@@ -238,10 +238,10 @@ export class Home extends Component {
                 </div>
 
                 {/*fourth div*/}
-                <div className="flex justify-center items-center p-16 mb-[120px]" style={{
-                    background: `url(${FourthDivBGImg})`,
+                <div className="flex justify-center items-center p-16 mb-[120px] " style={{
+                    background: `url(${FourthDivBGImg}) no-repeat center center fixed `,
                     backgroundSize: 'cover',
-                    backgroundPosition: 'center'
+                    backgroundPosition: 'center',
                 }}>
                     <div className="flex flex-wrap justify-center items-center gap-10 text-white p-5">
                         <div className="flex flex-col justify-center items-start">
@@ -345,11 +345,36 @@ export class Home extends Component {
                 </div>
 
                 {/*sixth div*/}
-                <div className="flex justify-center items-center" style={{
+                <div className="flex justify-center items-center p-16 mb-[120px]" style={{
                     background: `url(${SixthDivBGImg})`,
                     backgroundSize: 'cover',
                     backgroundPosition: 'center'
-                }}>d
+                }}>
+                    <div className="flex flex-wrap items-center justify-center text-white font-poppins gap-20 p-5">
+                        <div
+                            className="flex flex-col justify-center items-center backdrop-blur-sm shadow-xl rounded-xl hover:shadow-lg p-5 w-[150px]">
+                            <h1 className="text-subtopic">28,550+</h1>
+                            <h4 className="text-smaller text-nonary">Happy Guests</h4>
+                        </div>
+
+                        <div
+                            className="flex flex-col justify-center items-center backdrop-blur-sm shadow-xl rounded-xl hover:shadow-lg p-5 w-[150px]">
+                            <h1 className="text-subtopic">250+</h1>
+                            <h4 className="text-smaller text-nonary">Happy Guests</h4>
+                        </div>
+
+                        <div
+                            className="flex flex-col justify-center items-center backdrop-blur-sm shadow-xl rounded-xl hover:shadow-lg p-5 w-[150px]">
+                            <h1 className="text-subtopic">600+</h1>
+                            <h4 className="text-smaller text-nonary">Staffs</h4>
+                        </div>
+
+                        <div
+                            className="flex flex-col justify-center items-center backdrop-blur-sm shadow-xl rounded-xl hover:shadow-lg p-5 w-[150px]">
+                            <h1 className="text-subtopic">345+</h1>
+                            <h4 className="text-smaller text-nonary">Destination</h4>
+                        </div>
+                    </div>
                 </div>
 
                 <div className="w-full h-40 mt-16 bg-nonary"></div>
