@@ -378,7 +378,20 @@ export class Home extends Component {
                 </div>
 
                 {/*seventh div*/}
-                <div className="flex justify-center items-center"></div>
+                <div className="flex justify-center items-center mb-[120px] bg-octonary">
+                    <div className="flex flex-col flex-wrap justify-center items-center gap-10 p-10 bg-nonary">
+                        <div className="flex flex-col justify-center items-center bg-black p-5">
+                            <h2 className="font-poppins text-secondary text-topictwo">TESTIMONIAL</h2>
+                            <h1 className="font-Milonga text-quinary text-topic">Happy Guest Comments</h1>
+                        </div>
+
+                        <div className="flex flex-wrap items-center justify-center bg-black p-5 gap-5">
+                            <div className="w-[320px] h-[220px] bg-white shadow-xl"></div>
+                            <div className="w-[320px] h-[220px] bg-white shadow-xl"></div>
+                            <div className="w-[320px] h-[220px] bg-white shadow-xl"></div>
+                        </div>
+                    </div>
+                </div>
 
                 <div className="w-full h-40 mt-16 bg-nonary"></div>
             </>
