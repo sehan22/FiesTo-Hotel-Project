@@ -24,7 +24,7 @@ module.exports = {
         topic: '40px',
         topictwo: '20px',
         subtopic: '25px',
-        topicDescription: '20px',
+        topicDescription: '16px',
         normal: '14px',
         smaller: '12px',
       }
