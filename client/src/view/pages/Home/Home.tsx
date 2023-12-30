@@ -176,7 +176,7 @@ export class Home extends Component {
                             <h1 className="font-Milonga text-quinary text-topic">Explore Our Hotel Services</h1>
                         </div>
 
-                        <div className="flex justify-center items-center text-center gap-5 p-5">
+                        <div className="flex flex-wrap justify-center items-center text-center gap-5 p-5">
                             <div
                                 className="flex flex-col justify-center items-center w-[210px] h-[220px] font-poppins p-2">
                                 <div
@@ -260,14 +260,14 @@ export class Home extends Component {
                 </div>
 
                 {/*fifth div*/}
-                <div className="bg-nonary flex items-center justify-center mt-[120px] mb-[120px]">
-                    <div className="bg-white flex flex-col gap-10 justify-center items-center">
+                <div className="flex items-center justify-center mt-[120px] mb-[120px]">
+                    <div className="flex flex-col gap-10 justify-center items-center">
                         <div className="flex flex-col justify-center items-center p-5">
                             <h2 className="font-poppins text-secondary text-topictwo">OUR ROOMS</h2>
                             <h1 className="font-Milonga text-quinary text-topic">Featured Rooms</h1>
                         </div>
 
-                        <div className="flex justify-center items-center bg-nonary p-5 gap-5">
+                        <div className="flex flex-wrap justify-center items-center p-5 gap-5">
                             <div
                                 className="bg-white flex flex-col justify-between items-center rounded-sm shadow-lg w-[320px] h-[430px] hover:bg-primary">
                                 <img className="rounded-sm w-[100%]" src={SuiteRoomImg} alt=""/>
@@ -296,7 +296,7 @@ export class Home extends Component {
                                 className="bg-white flex flex-col justify-between items-center rounded-sm shadow-lg w-[320px] h-[430px] hover:bg-primary">
                                 <div className="h-full flex items-center justify-center">
                                     <div className="flex flex-col items-center justify-center text-center gap-5">
-                                        <h1 className="font-Milonga text-quinary text-subtopic">Suite Room</h1>
+                                        <h1 className="font-Milonga text-quinary text-subtopic">Family Room</h1>
                                         <p className="font-poppins text-senary text-smaller w-[85%]">
                                             Far far away, behind the word mountains, far
                                             from the countries Vokalia and Consonantia,
@@ -313,16 +313,16 @@ export class Home extends Component {
                                     </div>
                                 </div>
 
-                                <img className="rounded-sm w-[100%]" src={SuiteRoomImg} alt=""/>
+                                <img className="rounded-sm w-[100%]" src={FamilyRoomImg} alt=""/>
                             </div>
 
                             <div
                                 className="bg-white flex flex-col justify-between items-center rounded-sm shadow-lg w-[320px] h-[430px] hover:bg-primary">
-                                <img className="rounded-sm w-[100%]" src={SuiteRoomImg} alt=""/>
+                                <img className="rounded-sm w-[100%]" src={DeluxRoomImg} alt=""/>
 
                                 <div className="h-full flex items-center justify-center">
                                     <div className="flex flex-col items-center justify-center text-center gap-5">
-                                        <h1 className="font-Milonga text-quinary text-subtopic">Suite Room</h1>
+                                        <h1 className="font-Milonga text-quinary text-subtopic">Deluxe Room</h1>
                                         <p className="font-poppins text-senary text-smaller w-[85%]">
                                             Far far away, behind the word mountains, far
                                             from the countries Vokalia and Consonantia,
