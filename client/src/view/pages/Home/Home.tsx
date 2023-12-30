@@ -388,9 +388,49 @@ export class Home extends Component {
                             <h1 className="font-Milonga text-quinary text-topic">Happy Guest Comments</h1>
                         </div>
 
-                        <div className="flex flex-wrap items-center justify-center p-5 gap-5">
+                        <div className="flex flex-wrap items-center justify-center p-5 gap-8">
                             <div
-                                className="flex flex-col justify-center items-start w-[320px] h-[220px] p-5 rounded-md bg-white">
+                                className="flex flex-col justify-center items-start w-[320px] h-[220px] p-5 rounded-md bg-white hover:scale-105">
+                                <div className="flex flex-col gap-3 font-poppins">
+                                    <div className="flex items-center gap-3">
+                                        <img className="w-[80px]" src={FirstManImg} alt=""/>
+
+                                        <div>
+                                            <h1 className="text-topictwo text-quinary tracking-[2px]">Roger Scott</h1>
+                                            <h6 className="text-smaller text-secondary">Marketing Manager</h6>
+                                        </div>
+                                    </div>
+
+                                    <p className="text-smaller text-senary leading-5">
+                                        Far far away, behind the word mountains, far
+                                        from the countries Vokalia and Consonantia,
+                                        there live the blind texts.
+                                    </p>
+                                </div>
+                            </div>
+
+                            <div
+                                className="flex flex-col justify-center items-start w-[320px] h-[220px] p-5 rounded-md bg-white hover:scale-105">
+                                <div className="flex flex-col gap-3 font-poppins">
+                                    <div className="flex items-center gap-3">
+                                        <img className="w-[80px]" src={FirstManImg} alt=""/>
+
+                                        <div>
+                                            <h1 className="text-topictwo text-quinary tracking-[2px]">Roger Scott</h1>
+                                            <h6 className="text-smaller text-secondary">Marketing Manager</h6>
+                                        </div>
+                                    </div>
+
+                                    <p className="text-smaller text-senary leading-5">
+                                        Far far away, behind the word mountains, far
+                                        from the countries Vokalia and Consonantia,
+                                        there live the blind texts.
+                                    </p>
+                                </div>
+                            </div>
+
+                            <div
+                                className="flex flex-col justify-center items-start w-[320px] h-[220px] p-5 rounded-md bg-white hover:scale-105">
                                 <div className="flex flex-col gap-3 font-poppins">
                                     <div className="flex items-center gap-3">
                                         <img className="w-[80px]" src={FirstManImg} alt=""/>
