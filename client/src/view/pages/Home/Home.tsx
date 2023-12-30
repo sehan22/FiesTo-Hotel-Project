@@ -45,7 +45,7 @@ export class Home extends Component {
 
                 {/*first div*/}
                 <div
-                    className="h-44 hidden flex items-center justify-center w-max gap-2 m-auto mt-[-4%] bg-white rounded-3xl shadow-xl p-10">
+                    className="flex items-center justify-center w-max gap-2 m-auto mt-[-4%] bg-white rounded-3xl shadow-xl p-5">
                     <div className="flex items-center justify-center gap-5 p-5 font-poppins">
                         <div>
                             <label className="block text-quinary text-sm font-bold mb-2" htmlFor="username">
@@ -273,7 +273,7 @@ export class Home extends Component {
 
                         <div className="flex flex-wrap justify-center items-center p-5 gap-5">
                             <div
-                                className="bg-white flex flex-col justify-between items-center rounded-sm shadow-xl w-[320px] h-[430px] hover:bg-primary">
+                                className="bg-white flex flex-col justify-between items-center rounded-lg shadow-xl w-[320px] h-[430px] hover:bg-primary">
                                 <img className="rounded-sm w-[100%]" src={SuiteRoomImg} alt=""/>
 
                                 <div className="h-full flex items-center justify-center">
@@ -297,7 +297,7 @@ export class Home extends Component {
                             </div>
 
                             <div
-                                className="bg-white flex flex-col justify-between items-center rounded-sm shadow-xl w-[320px] h-[430px] hover:bg-primary">
+                                className="bg-white flex flex-col justify-between items-center rounded-lg shadow-xl w-[320px] h-[430px] hover:bg-primary">
                                 <div className="h-full flex items-center justify-center">
                                     <div className="flex flex-col items-center justify-center text-center gap-5">
                                         <h1 className="font-Milonga text-quinary text-subtopic">Family Room</h1>
@@ -321,7 +321,7 @@ export class Home extends Component {
                             </div>
 
                             <div
-                                className="bg-white flex flex-col justify-between items-center rounded-sm shadow-xl w-[320px] h-[430px] hover:bg-primary">
+                                className="bg-white flex flex-col justify-between items-center rounded-lg shadow-xl w-[320px] h-[430px] hover:bg-primary">
                                 <img className="rounded-sm w-[100%]" src={DeluxeRoomImg} alt=""/>
 
                                 <div className="h-full flex items-center justify-center">
