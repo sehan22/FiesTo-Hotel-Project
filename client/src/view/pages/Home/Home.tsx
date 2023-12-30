@@ -451,8 +451,6 @@ export class Home extends Component {
                         </div>
                     </div>
                 </div>
-
-                <div className="w-full h-40 mt-16 bg-nonary"></div>
             </>
         );
     }
