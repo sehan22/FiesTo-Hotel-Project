@@ -261,7 +261,7 @@ export class Home extends Component {
                 </div>
 
                 {/*fifth div*/}
-                <div className="flex items-center justify-center mt-[120px] mb-[120px]">
+                <div className="flex items-center justify-center mt-[120px]">
                     <div className="flex flex-col gap-10 justify-center items-center">
                         <div className="flex flex-col justify-center items-center p-5">
                             <h2 className="font-poppins text-secondary text-topictwo">OUR ROOMS</h2>
@@ -270,7 +270,7 @@ export class Home extends Component {
 
                         <div className="flex flex-wrap justify-center items-center p-5 gap-5">
                             <div
-                                className="bg-white flex flex-col justify-between items-center rounded-sm shadow-lg w-[320px] h-[430px] hover:bg-primary">
+                                className="bg-white flex flex-col justify-between items-center rounded-sm shadow-xl w-[320px] h-[430px] hover:bg-primary">
                                 <img className="rounded-sm w-[100%]" src={SuiteRoomImg} alt=""/>
 
                                 <div className="h-full flex items-center justify-center">
@@ -294,7 +294,7 @@ export class Home extends Component {
                             </div>
 
                             <div
-                                className="bg-white flex flex-col justify-between items-center rounded-sm shadow-lg w-[320px] h-[430px] hover:bg-primary">
+                                className="bg-white flex flex-col justify-between items-center rounded-sm shadow-xl w-[320px] h-[430px] hover:bg-primary">
                                 <div className="h-full flex items-center justify-center">
                                     <div className="flex flex-col items-center justify-center text-center gap-5">
                                         <h1 className="font-Milonga text-quinary text-subtopic">Family Room</h1>
@@ -314,11 +314,11 @@ export class Home extends Component {
                                     </div>
                                 </div>
 
-                                <img className="rounded-sm w-[100%]" src={FamilyRoomImg} alt=""/>
+                                <img className="rounded-sm w-[100%] shadow-xl" src={FamilyRoomImg} alt=""/>
                             </div>
 
                             <div
-                                className="bg-white flex flex-col justify-between items-center rounded-sm shadow-lg w-[320px] h-[430px] hover:bg-primary">
+                                className="bg-white flex flex-col justify-between items-center rounded-sm shadow-xl w-[320px] h-[430px] hover:bg-primary">
                                 <img className="rounded-sm w-[100%]" src={DeluxeRoomImg} alt=""/>
 
                                 <div className="h-full flex items-center justify-center">
@@ -345,7 +345,7 @@ export class Home extends Component {
                 </div>
 
                 {/*sixth div*/}
-                <div className="flex justify-center items-center p-16 mb-[120px]" style={{
+                <div className="flex justify-center items-center p-16 mt-[240px] mb-[120px]" style={{
                     background: `url(${SixthDivBGImg})`,
                     backgroundSize: 'cover',
                     backgroundPosition: 'center'
