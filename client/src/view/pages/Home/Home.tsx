@@ -1,13 +1,15 @@
 import React, {Component} from 'react';
 import bannerBackgroundImg from '../../../images/banner.png'
-import pillow from '../../../images/HomePage/FirstDiv/pillow.png'
-import Offers from '../../../images/HomePage/FirstDiv/Offers.png'
-import Restaurant from '../../../images/HomePage/FirstDiv/Restaurant.png'
-import HotelRoom from '../../../images/HomePage/FirstDiv/HotelRoom.png'
-import BookingIcon from '../../../images/HomePage/SecDiv/booking.png'
-import RestaurantIcon from '../../../images/HomePage/SecDiv/Restaurant.png'
-import PoolIcon from '../../../images/HomePage/SecDiv/pool.png'
-import HelpSupportIcon from '../../../images/HomePage/SecDiv/helpsupport.png'
+import pillow from '../../../images/HomePage/SecDiv/pillow.png'
+import Offers from '../../../images/HomePage/SecDiv/Offers.png'
+import Restaurant from '../../../images/HomePage/SecDiv/Restaurant.png'
+import HotelRoom from '../../../images/HomePage/SecDiv/HotelRoom.png'
+import BookingIcon from '../../../images/HomePage/ThirdDiv/booking.png'
+import RestaurantIcon from '../../../images/HomePage/ThirdDiv/Restaurant.png'
+import PoolIcon from '../../../images/HomePage/ThirdDiv/pool.png'
+import HelpSupportIcon from '../../../images/HomePage/ThirdDiv/helpsupport.png'
+import FourthDivBGImg from '../../../images/HomePage/FourthDiv/fourthdivbgpic.png'
+import * as url from "url";
 
 export class Home extends Component {
     render() {
@@ -218,10 +220,25 @@ export class Home extends Component {
                 </div>
 
                 {/*fourth div*/}
-                <div className="flex justify-center items-center mb-[120px] bg-tertiary">s</div>
+                <div className="flex justify-center items-center p-16 mb-[120px]" style={{background: `url(${FourthDivBGImg})`, backgroundSize: 'cover', backgroundPosition: 'center'}}>
+                    <div className="flex flex-wrap justify-center items-center gap-10 text-white p-5">
+                        <div className="flex flex-col justify-center items-start">
+                            <h2 className="font-poppins text-topictwo">FIND BEST HOTEL FOR LEAVING</h2>
+                            <h1 className="font-Milonga text-topic w-[500px]">Find the Best Hotel in Your
+                                Next Vacation
+                            </h1>
+                        </div>
+
+                        <div className="flex justify-center items-center">
+                            <button className="bg-secondary hover:bg-teal-600 py-4 px-6 text-smaller rounded animate-bounce">
+                                BOOK NOW
+                            </button>
+                        </div>
+                    </div>
+                </div>
 
 
-                <div className="w-full h-40 mt-16 bg-nonary">s</div>
+                <div className="w-full h-40 mt-16 bg-nonary"></div>
             </>
         );
     }
