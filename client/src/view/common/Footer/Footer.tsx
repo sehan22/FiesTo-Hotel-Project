@@ -9,7 +9,8 @@ import TelegramIcon from '../../../images/Footer/Telegram.png'
 export class Footer extends Component {
     render() {
         return (
-            <div className="flex justify-center items-center bg-gradient-to-t from-black to-primary font-poppins rounded-t-3xl">
+            <div
+                className="flex justify-center items-center bg-gradient-to-t from-black to-primary font-poppins rounded-t-3xl">
                 <div className="flex flex-col items-center justify-center g-10 text-white">
                     <div className="flex flex-col justify-center items-center gap-5 p-5">
                         <div className="flex flex-wrap items-start justify-center text-normal p-10 gap-20">
@@ -68,7 +69,8 @@ export class Footer extends Component {
                         </div>
 
                         <div>
-                            <h3 className="text-normal font-bold text-octonary">DEVELOPED BY SEHAN RANAWEERA 2023</h3>
+                            <h3 className="text-normal font-bold text-octonary">DEVELOPED BY SEHAN RANAWEERA
+                                2023</h3>
                         </div>
                     </div>
                 </div>
