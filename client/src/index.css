@@ -12,6 +12,25 @@ body {
     background-color: #F8F8F8;
 }
 
+/*ScrollBar Customize*/
+::-webkit-scrollbar {
+    width: 12px;
+}
+
+::-webkit-scrollbar-thumb {
+    background-color: #072227;
+}
+
+::-webkit-scrollbar-thumb:hover {
+    background-color: #0b343b;
+}
+
+::-webkit-scrollbar-track {
+    background-color: #FFFFFF;
+}
+
+
+/*SignUp Page ScrollBar Customize*/
 .custom-scrollbar::-webkit-scrollbar {
     width: 5px;
 }
