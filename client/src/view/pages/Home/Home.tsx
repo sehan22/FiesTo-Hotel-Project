@@ -23,7 +23,7 @@ export class Home extends Component {
             <>
                 {/*Banner*/}
                 <div
-                    className="flex flex-col items-center justify-center w-full h-[750px] rounded-b-3xl bg-cover bg-center"
+                    className="flex flex-col items-center justify-center w-full h-[800px] rounded-b-3xl bg-cover bg-center"
                     style={{
                         backgroundImage: `url(${bannerBackgroundImg})`,
                         backgroundSize: 'cover',

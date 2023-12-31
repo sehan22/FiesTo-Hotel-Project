@@ -1,5 +1,5 @@
 import React, {Component} from 'react';
-import bannerBackgroundImg from "../../../images/banner.png";
+import bannerBackgroundImg from "../../../images/RoomsPage/bgimg.png";
 
 export class Room extends Component {
     render() {
@@ -7,7 +7,7 @@ export class Room extends Component {
             <>
                 {/*Banner*/}
                 <div
-                    className="flex flex-col items-center justify-center w-full h-[750px] rounded-b-3xl bg-cover bg-center"
+                    className="flex flex-col items-center justify-center w-full h-[800px] rounded-b-3xl bg-cover bg-center"
                     style={{
                         backgroundImage: `url(${bannerBackgroundImg})`,
                         backgroundSize: 'cover',
