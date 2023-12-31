@@ -45,11 +45,11 @@ export class NavBar extends Component {
                     <img className="w-16 object-scale-down" src={Logo} alt=""/>
 
                     <ul className="list-none flex gap-5 items-center justify-center">
-                        <li>Home</li>
-                        <li>Room</li>
-                        <li>Restaurant</li>
-                        <li>About</li>
-                        <li>Contact</li>
+                        <li><Link to="/">Home</Link></li>
+                        <li><Link to="/room">Room</Link></li>
+                        <li><Link to="/restaurant">Restaurant</Link></li>
+                        <li><Link to="/about">About</Link></li>
+                        <li><Link to="/contact">Contact</Link></li>
                     </ul>
 
                     <div className="flex justify-center items-center gap-2">

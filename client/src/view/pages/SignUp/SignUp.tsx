@@ -153,7 +153,7 @@ export class SignUp extends Component {
 
                     <div className="flex items-center justify-center gap-2 m-auto">
                         <div className="h-0.5 w-10 bg-gray-200"></div>
-                        <h6 className="text-smaller">Or connect with</h6>
+                        <h6 className="text-smaller">Connect with Us</h6>
                         <div className="h-0.5 w-10 bg-gray-200"></div>
                     </div>
 
