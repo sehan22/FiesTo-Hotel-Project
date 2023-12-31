@@ -23,6 +23,7 @@ export class Home extends Component {
             backgroundImage: `url(${bannerBackgroundImg})`,
             backgroundSize: 'cover',
             backgroundPosition: 'center',
+            background: 'rgba(0, 0, 0, 0.5)'
         };
 
         return (
