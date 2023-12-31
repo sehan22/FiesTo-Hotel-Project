@@ -27,6 +27,7 @@ module.exports = {
         topicDescription: '16px',
         normal: '14px',
         smaller: '12px',
+        loginpagetopic: '18px',
       }
     },
   },

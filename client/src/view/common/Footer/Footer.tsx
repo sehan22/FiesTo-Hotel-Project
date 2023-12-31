@@ -16,7 +16,7 @@ export class Footer extends Component {
                         <div className="flex flex-wrap items-start justify-center text-normal p-10 gap-20">
                             <div className="flex flex-col items-start justify-center p-5 gap-2">
                                 <h1 className="text-secondary">Navigation</h1>
-                                <div>
+                                <div className="flex flex-col gap-2">
                                     <h1>Home</h1>
                                     <h1>Restaurant</h1>
                                     <h1>About</h1>
@@ -26,7 +26,7 @@ export class Footer extends Component {
 
                             <div className="flex flex-col items-start justify-center p-5 gap-2">
                                 <h1 className="text-secondary">Practice Area</h1>
-                                <div>
+                                <div className="flex flex-col gap-2">
                                     <h1>Travel</h1>
                                     <h1>Popular Places</h1>
                                     <h1>Destination</h1>
@@ -37,7 +37,7 @@ export class Footer extends Component {
 
                             <div className="flex flex-col items-start justify-center p-5 gap-2">
                                 <h1 className="text-secondary">Services</h1>
-                                <div>
+                                <div className="flex flex-col gap-2">
                                     <h1>Easy to Booking</h1>
                                     <h1>Free Wi-Fi</h1>
                                     <h1>Swimming Pool</h1>
@@ -48,7 +48,7 @@ export class Footer extends Component {
 
                             <div className="flex flex-col items-start justify-center p-5 gap-3">
                                 <h1 className="text-secondary">Contact</h1>
-                                <div>
+                                <div className="flex flex-col gap-2">
                                     <h1>Colombo, Sri Lanka.</h1>
                                     <h1>+94-41-22 33 365</h1>
                                     <h1>fiestohotel@gmail.com</h1>
