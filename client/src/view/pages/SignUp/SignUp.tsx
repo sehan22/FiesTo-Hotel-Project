@@ -1,6 +1,6 @@
 import React, {Component} from 'react';
 import LoginPageBGImg from "../../../images/LoginPage/LoginPageBGImg.png";
-import Logo from "../../../images/LoginPage/Logo.png";
+import Logo from "../../../images/LoginPage/Logo2.png";
 import {Link} from "react-router-dom";
 
 export class SignUp extends Component {
@@ -29,7 +29,7 @@ export class SignUp extends Component {
                         </div>
                     </div>
 
-                    <form className="flex flex-col justify-center items-center gap-6">
+                    <form className="flex flex-col justify-center items-center mt-2 gap-6">
                         <div className="w-80 border-gray-400">
                             <div className="relative w-full min-w-[200px] h-10">
                                 <input
