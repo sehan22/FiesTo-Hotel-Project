@@ -1,25 +1,24 @@
 import React, {Component} from 'react';
-import LoginPageBGImg from '../../../images/LoginPage/LoginPageBGImg.png'
-import Logo from '../../../images/LoginPage/Logo2.png'
+import LoginPageBGImg from "../../../images/LoginPage/LoginPageBGImg.png";
+import Logo from "../../../images/LoginPage/Logo2.png";
 import {Link} from "react-router-dom";
 
-export class Login extends Component {
+export class SignUp extends Component {
     render() {
         return (
             <div className="h-screen flex justify-center items-center "
                  style={{background: `url(${LoginPageBGImg})`, backgroundPosition: 'center', backgroundSize: 'cover'}}>
                 <div
-                    className="flex flex-col items-start justify-center gap-5 p-10 py-14 bg-white font-poppins rounded-lg shadow-lg">
+                    className="flex flex-col items-start justify-center gap-5 p-10 bg-white font-poppins rounded-lg shadow-lg">
                     <img className="w-28" src={Logo} alt=""/>
 
                     <div>
-                        <h1 className="text-loginpagetopic text-primary font-semibold">Sign in to your account</h1>
+                        <h1 className="text-loginpagetopic text-primary font-semibold">Create your account</h1>
                         <div className="flex justify-start items-center text-smaller gap-1">
-                            <h6 className="text-primary">Not a member? </h6>
+                            <h6 className="text-primary">Already have an account? </h6>
 
                             <div className="flex items-center justify-center gap-1">
-                                <h6 className="text-secondary cursor-pointer" style={{fontWeight: '600'}}><Link
-                                    to="/signup">Click here to Register Now</Link></h6>
+                                <h6 className="text-secondary cursor-pointer" style={{fontWeight: '600'}}><Link to="/login">Sign In Now</Link></h6>
                                 <svg xmlns="http://www.w3.org/2000/svg" width="9" height="9" viewBox="0 0 6 6"
                                      fill="none">
                                     <path
@@ -30,7 +29,7 @@ export class Login extends Component {
                         </div>
                     </div>
 
-                    <form className="flex flex-col justify-center items-center gap-6 mt-2">
+                    <form className="flex flex-col justify-center items-center mt-2 gap-6">
                         <div className="w-80 border-gray-400">
                             <div className="relative w-full min-w-[200px] h-10">
                                 <input
@@ -53,18 +52,6 @@ export class Login extends Component {
                                 className="flex w-full h-full select-none pointer-events-none absolute left-0 font-normal !overflow-visible truncate peer-placeholder-shown:text-blue-gray-500 leading-tight peer-focus:leading-tight peer-disabled:text-transparent peer-disabled:peer-placeholder-shown:text-blue-gray-500 transition-all -top-1.5 peer-placeholder-shown:text-normal text-[11px] peer-focus:text-[11px] before:content[' '] before:block before:box-border before:w-2.5 before:h-1.5 before:mt-[6.5px] before:mr-1 peer-placeholder-shown:before:border-transparent before:rounded-tl-md before:border-t peer-focus:before:border-t-2 before:border-l peer-focus:before:border-l-2 before:pointer-events-none before:transition-all peer-disabled:before:border-transparent after:content[' '] after:block after:flex-grow after:box-border after:w-2.5 after:h-1.5 after:mt-[6.5px] after:ml-1 peer-placeholder-shown:after:border-transparent after:rounded-tr-md after:border-t peer-focus:after:border-t-2 after:border-r peer-focus:after:border-r-2 after:pointer-events-none after:transition-all peer-disabled:after:border-transparent peer-placeholder-shown:leading-[3.75] text-gray-500 peer-focus:text-gray-900 before:border-blue-gray-200 peer-focus:before:!border-gray-900 after:border-blue-gray-200 peer-focus:after:!border-gray-900">Password
                             </label>
                             </div>
-                        </div>
-
-                        <div className="flex text-smaller justify-around gap-14 mt-[-15px] items-center w-full">
-                            <div className="flex items-center">
-                                <input id="default-checkbox" type="checkbox" value=""
-                                       className="w-3.5 h-3.5 text-secondary bg-gray-100 border-gray-300 rounded focus:ring-secondary dark:focus:ring-transparent dark:ring-offset-gray-800 focus:ring-2 dark:bg-gray-700 dark:border-gray-600"/>
-                                <label htmlFor="default-checkbox"
-                                       className="ms-2 text-smaller font-medium text-gray-900 dark:text-gray-300">Remember
-                                    me</label>
-                            </div>
-
-                            <h6 className="text-secondary">Forgot password?</h6>
                         </div>
 
                         <div className="flex w-full">
@@ -118,8 +105,7 @@ export class Login extends Component {
                     </div>
                 </div>
 
-                <div
-                    className="absolute top-0 right-0 p-2 m-5 bg-black bg-opacity-10 hover:bg-opacity-15 cursor-pointer rounded-sm">
+                <div className="absolute top-0 right-0 p-2 m-5 bg-black bg-opacity-10 cursor-pointer rounded-sm">
                     <Link to="/">
                         <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none">
                             <path d="M16 16L12 12M12 12L8 8M12 12L16 8M12 12L8 16" stroke="white" stroke-width="2"

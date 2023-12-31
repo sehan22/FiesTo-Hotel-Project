@@ -1,5 +1,7 @@
 import React, {Component} from 'react';
 import Logo from '../../../images/NavBar/Logo.png';
+import SecondManImg from '../../../images/NavBar/usericon.jpg'
+import BookingICon from '../../../images/NavBar/calendar-image-png-29539.png'
 import {Link} from "react-router-dom";
 
 export class NavBar extends Component {
@@ -50,9 +52,23 @@ export class NavBar extends Component {
                         <li>Contact</li>
                     </ul>
 
-                    <button className="bg-secondary text-smaller hover:bg-teal-600 py-2 px-4 rounded">
-                        <Link to="/login">Sign In | Sign Up</Link>
-                    </button>
+                    <div className="flex justify-center items-center gap-2">
+                        <button className="bg-secondary text-smaller hover:bg-teal-600 py-2 px-4 rounded">
+                            <Link to="/login">Sign In</Link>
+                        </button>
+                        <button className="bg-black bg-opacity-10 border-2 border-nonary text-smaller hover:bg-opacity-15 py-2 px-4 rounded">
+                            <Link to="/signup">Sign Up</Link>
+                        </button>
+
+                        <hr className="rotate-90 opacity-50" style={{height: '10px', width:'20px',}}/>
+
+                        <div className="h-8 w-8 rounded-full bg-octonary" style={{background: `url(${SecondManImg})`, backgroundSize: 'cover', backgroundPosition: 'center'}}></div>
+                        <h6>Sehan Ranaweera</h6>
+
+                        <hr className="rotate-90 opacity-50" style={{height: '10px', width:'20px',}}/>
+
+                        <div className="h-8 w-8 hover:shadow-md rounded-full bg-octonary" style={{background: `url(${BookingICon})`, backgroundSize: 'cover', backgroundPosition: 'center'}}></div>
+                    </div>
                 </div>
             </>
         );
