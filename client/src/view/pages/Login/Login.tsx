@@ -9,7 +9,7 @@ export class Login extends Component {
             <div className="h-screen flex justify-center items-center "
                  style={{background: `url(${LoginPageBGImg})`, backgroundPosition: 'center', backgroundSize: 'cover'}}>
                 <div
-                    className="flex flex-col items-start justify-center gap-5 p-10 bg-white font-poppins rounded-lg shadow-lg">
+                    className="flex flex-col items-start justify-center gap-5 p-10 py-14 bg-white font-poppins rounded-lg shadow-lg">
                     <img className="w-28" src={Logo} alt=""/>
 
                     <div>
@@ -18,8 +18,7 @@ export class Login extends Component {
                             <h6 className="text-primary">Not a member? </h6>
 
                             <div className="flex items-center justify-center gap-1">
-                                <h6 className="text-secondary" style={{fontWeight: '600'}}>Click here to Register
-                                    Now</h6>
+                                <h6 className="text-secondary cursor-pointer" style={{fontWeight: '600'}}><Link to="/signup">Click here to Register Now</Link></h6>
                                 <svg xmlns="http://www.w3.org/2000/svg" width="9" height="9" viewBox="0 0 6 6"
                                      fill="none">
                                     <path
@@ -104,6 +103,15 @@ export class Login extends Component {
                             GitHub
                         </button>
                     </div>
+                </div>
+
+                <div className="absolute top-0 right-0 p-2 m-5 bg-black bg-opacity-10 hover:bg-opacity-15 cursor-pointer rounded-sm">
+                    <Link to="/">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none">
+                            <path d="M16 16L12 12M12 12L8 8M12 12L16 8M12 12L8 16" stroke="white" stroke-width="2"
+                                  stroke-linecap="round" stroke-linejoin="round"/>
+                        </svg>
+                    </Link>
                 </div>
             </div>
         );
