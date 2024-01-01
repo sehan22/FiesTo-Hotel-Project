@@ -25,6 +25,24 @@ export class Room extends Component {
                 <div className="flex justify-center items-center mt-[120px] mb-[120px] bg-white font-poppins">
                     <h5 className="text-quinary text-topictwo">Room Section</h5>
                 </div>
+
+                {/*second div*/}
+                <div className="flex justify-center items-center gap-5 p-5 mt-[120px] mb-[120px]
+                                xs:flex-col
+                                md:flex-row
+                                lg:flex-row
+                ">
+                    <div className="flex flex-col justify-center gap-2 text-white w-1/4 p-5 bg-secondary overflow-hidden
+                                xs:w-full xs:p-10 xs:max-sm:bg-black
+                    ">
+                        <h1 className="text-topictwo overflow-hidden overflow-ellipsis whitespace-nowrap">lorem lorem
+                            lorem lorem
+                        </h1>
+                        <h1 className="text-topicDescription">lorem lorem lorem lorem
+                            lorem lorem
+                        </h1>
+                    </div>
+                </div>
             </>
         );
     }
