@@ -33,7 +33,7 @@ export class SignUp extends Component {
                     <div className="overflow-hidden h-full">
                         <form
                             className="flex flex-col justify-center h-96 items-center mt-2 overflow-y-scroll pe-5 custom-scrollbar">
-                            <div className="flex flex-col justify-center items-center gap-6 mt-[327px]">
+                            <div className="flex flex-col justify-center items-center gap-6 mt-[330px]">
                                 <div className="w-96 border-gray-400">
                                     <div className="relative w-full min-w-[200px] h-10">
                                         <input

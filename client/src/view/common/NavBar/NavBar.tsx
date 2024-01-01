@@ -65,9 +65,9 @@ export class NavBar extends Component {
                         <div className="h-8 w-8 rounded-full bg-octonary" style={{background: `url(${SecondManImg})`, backgroundSize: 'cover', backgroundPosition: 'center'}}></div>
                         <h6>Sehan Ranaweera</h6>
 
-                        <hr className="rotate-90 opacity-50" style={{height: '10px', width:'20px',}}/>
+                        {/*<hr className="rotate-90 opacity-50" style={{height: '10px', width:'20px',}}/>*/}
 
-                        <div className="h-8 w-8 hover:shadow-md rounded-full bg-octonary" style={{background: `url(${BookingICon})`, backgroundSize: 'cover', backgroundPosition: 'center'}}></div>
+                        {/*<div className="h-8 w-8 hover:shadow-md rounded-full bg-octonary" style={{background: `url(${BookingICon})`, backgroundSize: 'cover', backgroundPosition: 'center'}}></div>*/}
                     </div>
                 </div>
             </>
