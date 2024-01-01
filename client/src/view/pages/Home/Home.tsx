@@ -19,18 +19,11 @@ import ThirdManImg from '../../../images/HomePage/SeventhDiv/3rdman.png'
 
 export class Home extends Component {
     render() {
-        const backgroundStyle = {
-            backgroundImage: `url(${bannerBackgroundImg})`,
-            backgroundSize: 'cover',
-            backgroundPosition: 'center',
-            background: 'rgba(0, 0, 0, 0.5)'
-        };
-
         return (
             <>
                 {/*Banner*/}
                 <div
-                    className="flex flex-col items-center justify-center w-full h-[750px] rounded-b-3xl bg-cover bg-center"
+                    className="flex flex-col items-center justify-center w-full h-[800px] rounded-b-3xl bg-cover bg-center"
                     style={{
                         backgroundImage: `url(${bannerBackgroundImg})`,
                         backgroundSize: 'cover',
