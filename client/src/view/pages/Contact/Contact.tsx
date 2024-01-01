@@ -26,10 +26,10 @@ export class Contact extends Component {
                 </div>
 
                 {/*first div*/}
-                <div className="flex items-center justify-center mt-[120px] mb-[120px] bg-white">
-                    <div className="flex items-center justify-center gap-5">
+                <div className="flex items-center justify-center mt-[120px] mb-[120px]">
+                    <div className="flex flex-wrap items-center justify-center gap-5">{/*remove padding*/}
 
-                        <div className="flex flex-col items-start justify-center gap-5 p-5 bg-nonary">
+                        <div className="flex flex-col items-start justify-center gap-5 p-5">
                             <div className="flex flex-col justify-center items-start">
                                 <h1 className="font-Milonga text-quinary text-topic">Contact Us</h1>
 
@@ -41,7 +41,7 @@ export class Contact extends Component {
                             </div>
 
                             <div className="flex flex-col justify-center items-start gap-3">
-                                <div className="flex items-center justify-center p-3 bg-white shadow-lg rounded-lg">
+                                <div className="flex items-center justify-center p-3 bg-white rounded-lg">
                                     <div className="flex justify-center items-center gap-2">
                                         <img className="w-[80px]" src={PhoneIcon} alt=""/>
 
@@ -57,7 +57,7 @@ export class Contact extends Component {
                                     </div>
                                 </div>
 
-                                <div className="flex items-center justify-center p-3 bg-white shadow-lg rounded-lg">
+                                <div className="flex items-center justify-center p-3 bg-white rounded-lg">
                                     <div className="flex justify-center items-center gap-2">
                                         <img className="w-[80px]" src={LocationIcon} alt=""/>
 
@@ -73,7 +73,7 @@ export class Contact extends Component {
                                     </div>
                                 </div>
 
-                                <div className="flex items-center justify-center p-3 bg-white shadow-lg rounded-lg">
+                                <div className="flex items-center justify-center p-3 bg-white rounded-lg">
                                     <div className="flex justify-center items-center gap-2">
                                         <img className="w-[80px]" src={WorkinghoursIcon} alt=""/>
 
@@ -89,7 +89,7 @@ export class Contact extends Component {
                                     </div>
                                 </div>
 
-                                <div className="flex items-center justify-center p-3 bg-white shadow-lg rounded-lg">
+                                <div className="flex items-center justify-center p-3 bg-white rounded-lg">
                                     <div className="flex justify-center items-center gap-2">
                                         <img className="w-[80px]" src={EmailIcon} alt=""/>
 
@@ -107,7 +107,62 @@ export class Contact extends Component {
                             </div>
                         </div>
 
-                        <div className="flex items-center justify-center bg-tertiary">a</div>
+                        {/*hr line from div*/}
+                        <div className="h-96 w-0.5 bg-opacity-10 bg-octonary ms-10 me-10"></div>
+
+                        <div className="flex flex-col items-center justify-center gap-5 p-5 bg-nonary">
+                            <form className="flex flex-col justify-center items-center gap-5">
+                                <div className="mb-4">
+                                    <label htmlFor="myInput" className="block text-sm font-medium text-gray-600">
+                                    </label>
+                                    <input
+                                        id="myInput"
+                                        className="bg-transparent bg-white font-poppins text-smaller text-quinary rounded-lg focus:outline-none w-[500px] p-4"
+                                        type="text"
+                                        placeholder="Full Name"
+                                    />
+                                </div>
+
+                                <div className="mb-4">
+                                    <label htmlFor="myInput" className="block text-sm font-medium text-gray-600">
+                                    </label>
+                                    <input
+                                        id="myInput"
+                                        className="bg-transparent bg-white font-poppins text-smaller text-quinary rounded-lg focus:outline-none w-[500px] p-4"
+                                        type="email"
+                                        placeholder="Email"
+                                    />
+                                </div>
+
+                                <div className="mb-4">
+                                    <label htmlFor="myInput" className="block text-sm font-medium text-gray-600">
+                                    </label>
+                                    <input
+                                        id="myInput"
+                                        className="bg-transparent bg-white font-poppins text-smaller text-quinary rounded-lg focus:outline-none w-[500px] p-4"
+                                        type="text"
+                                        placeholder="Subject"
+                                    />
+                                </div>
+
+                                <div className="mb-4">
+                                    <label htmlFor="myInput" className="block text-sm font-medium text-gray-600">
+                                    </label>
+                                    <textarea
+                                        id="myInput"
+                                        className="bg-transparent bg-white font-poppins text-smaller text-quinary rounded-lg focus:outline-none w-[500px] h-52 p-4"
+                                        placeholder="Message"
+                                    />
+                                </div>
+                            </form>
+
+                            <div className="flex w-full">
+                                <button
+                                    className="bg-secondary font-bold text-normal text-white hover:bg-teal-600 py-4 px-4 w-full rounded">
+                                    SUBMIT
+                                </button>
+                            </div>
+                        </div>
                     </div>
                 </div>
             </>
