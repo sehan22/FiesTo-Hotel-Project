@@ -10,7 +10,7 @@ export class Footer extends Component {
     render() {
         return (
             <div
-                className="flex justify-center items-center bg-gradient-to-t from-black to-primary font-poppins rounded-t-3xl">
+                className="hidden flex justify-center items-center bg-gradient-to-t from-black to-primary font-poppins rounded-t-3xl">
                 <div className="flex flex-col items-center justify-center g-10 text-white">
                     <div className="flex flex-col justify-center items-center gap-5 p-5">
                         <div className="flex flex-wrap items-start justify-center text-normal p-10 gap-20">
