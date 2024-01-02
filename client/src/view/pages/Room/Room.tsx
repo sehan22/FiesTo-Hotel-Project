@@ -3,15 +3,16 @@ import bannerBackgroundImg from "../../../images/RoomsPage/bgimg.png";
 import FilterIcon from "../../../images/RoomsPage/filtericon.png";
 import RoomCardImg from "../../../images/RoomsPage/roomcardimg.png";
 import TvIcon from "../../../images/RoomsPage/eoomfacilities/tv.png";
-import FireIcon from "../../../images/RoomsPage/eoomfacilities/fire.png";
 import AcfanIcon from "../../../images/RoomsPage/eoomfacilities/acfan.png";
 import SecurityIcon from "../../../images/RoomsPage/eoomfacilities/security.png";
 import WashroomIcon from "../../../images/RoomsPage/eoomfacilities/washroom.png";
 import RoomserviceIcon from "../../../images/RoomsPage/eoomfacilities/roomservice.png";
 import WifiIcon from "../../../images/RoomsPage/eoomfacilities/wifi.png";
-import {Link} from "react-router-dom";
+import NarrowDown from "../../../images/icons8-down-arrow.gif";
 
 export class Room extends Component {
+
+
     render() {
         return (
             <>
@@ -29,13 +30,22 @@ export class Room extends Component {
                         <h6 className="font-poppins text-subtopic text-nonary">Join With Us</h6>
                         <div className="h-0.5 opacity-50 bg-septenary w-32"></div>
                     </div>
+
+                    <a href="#dropDownIcon">
+                        <svg className="animate-bounce mt-10" xmlns="http://www.w3.org/2000/svg" height="25" width="22"
+                             viewBox="0 0 384 512">
+                            <path fill="#ffffff"
+                                  d="M169.4 470.6c12.5 12.5 32.8 12.5 45.3 0l160-160c12.5-12.5 12.5-32.8 0-45.3s-32.8-12.5-45.3 0L224 370.8 224 64c0-17.7-14.3-32-32-32s-32 14.3-32 32l0 306.7L54.6 265.4c-12.5-12.5-32.8-12.5-45.3 0s-12.5 32.8 0 45.3l160 160z"/>
+                        </svg>
+                    </a>
                 </div>
 
                 {/*first div*/}
                 <div
                     className="flex flex-col justify-center items-center mt-[120px] mb-[60px] bg-white font-poppins">
                     <div className="flex flex-wrap justify-between items-center font-poppins gap-16">
-                        <h1 className="text-topictwo text-quinary p-5">Room Section</h1>
+                        <h1 className="text-topictwo text-quinary p-5"><dfn id="dropDownIcon" className="not-italic">Room
+                            Section</dfn></h1>
 
                         <div className="flex justify-center items-center p-3">
                             <div className=" flex justify-center items-center gap-5">
@@ -87,7 +97,8 @@ export class Room extends Component {
                 <div className="flex justify-center items-center mb-[120px] transition-all mx-auto">
                     <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 p-5">
                         {/*card*/}
-                        <div className="rounded-2xl shadow-md hover:shadow-sm transition-all xs:max-w-[480px] md:max-w-[380px] bg-white">
+                        <div
+                            className="rounded-2xl shadow-md hover:shadow-sm transition-all xs:max-w-[480px] md:max-w-[380px] bg-white">
                             <div className="p-3 flex flex-col gap-2 font-poppins">
                                 <div className="rounded-xl overflow-hidden shadow-xl hover:shadow-sm">
                                     <img className="h-[150px] xs:h-[220px] w-full object-cover" src={RoomCardImg}
@@ -167,7 +178,8 @@ export class Room extends Component {
                             </div>
                         </div>
 
-                        <div className="rounded-2xl shadow-md hover:shadow-sm transition-all xs:max-w-[480px] md:max-w-[380px] bg-white">
+                        <div
+                            className="rounded-2xl shadow-md hover:shadow-sm transition-all xs:max-w-[480px] md:max-w-[380px] bg-white">
                             <div className="p-3 flex flex-col gap-2 font-poppins">
                                 <div className="rounded-xl overflow-hidden shadow-xl hover:shadow-sm">
                                     <img className="h-[150px] xs:h-[220px] w-full object-cover" src={RoomCardImg}
@@ -247,7 +259,8 @@ export class Room extends Component {
                             </div>
                         </div>
 
-                        <div className="rounded-2xl shadow-md hover:shadow-sm transition-all xs:max-w-[480px] md:max-w-[380px] bg-white">
+                        <div
+                            className="rounded-2xl shadow-md hover:shadow-sm transition-all xs:max-w-[480px] md:max-w-[380px] bg-white">
                             <div className="p-3 flex flex-col gap-2 font-poppins">
                                 <div className="rounded-xl overflow-hidden shadow-xl hover:shadow-sm">
                                     <img className="h-[150px] xs:h-[220px] w-full object-cover" src={RoomCardImg}
@@ -327,7 +340,8 @@ export class Room extends Component {
                             </div>
                         </div>
 
-                        <div className="rounded-2xl shadow-md hover:shadow-sm transition-all xs:max-w-[480px] md:max-w-[380px] bg-white">
+                        <div
+                            className="rounded-2xl shadow-md hover:shadow-sm transition-all xs:max-w-[480px] md:max-w-[380px] bg-white">
                             <div className="p-3 flex flex-col gap-2 font-poppins">
                                 <div className="rounded-xl overflow-hidden shadow-xl hover:shadow-sm">
                                     <img className="h-[150px] xs:h-[220px] w-full object-cover" src={RoomCardImg}
@@ -407,7 +421,8 @@ export class Room extends Component {
                             </div>
                         </div>
 
-                        <div className="rounded-2xl shadow-md hover:shadow-sm transition-all xs:max-w-[480px] md:max-w-[380px] bg-white">
+                        <div
+                            className="rounded-2xl shadow-md hover:shadow-sm transition-all xs:max-w-[480px] md:max-w-[380px] bg-white">
                             <div className="p-3 flex flex-col gap-2 font-poppins">
                                 <div className="rounded-xl overflow-hidden shadow-xl hover:shadow-sm">
                                     <img className="h-[150px] xs:h-[220px] w-full object-cover" src={RoomCardImg}
@@ -487,7 +502,8 @@ export class Room extends Component {
                             </div>
                         </div>
 
-                        <div className="rounded-2xl shadow-md hover:shadow-sm transition-all xs:max-w-[480px] md:max-w-[380px] bg-white">
+                        <div
+                            className="rounded-2xl shadow-md hover:shadow-sm transition-all xs:max-w-[480px] md:max-w-[380px] bg-white">
                             <div className="p-3 flex flex-col gap-2 font-poppins">
                                 <div className="rounded-xl overflow-hidden shadow-xl hover:shadow-sm">
                                     <img className="h-[150px] xs:h-[220px] w-full object-cover" src={RoomCardImg}

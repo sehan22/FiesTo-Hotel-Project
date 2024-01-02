@@ -23,6 +23,14 @@ export class Contact extends Component {
                         <h6 className="font-poppins text-subtopic text-nonary">Join With Us</h6>
                         <div className="h-0.5 opacity-50 bg-septenary w-32"></div>
                     </div>
+
+                    <a href="#dropDownIcon">
+                        <svg className="animate-bounce mt-10" xmlns="http://www.w3.org/2000/svg" height="25" width="22"
+                             viewBox="0 0 384 512">
+                            <path fill="#ffffff"
+                                  d="M169.4 470.6c12.5 12.5 32.8 12.5 45.3 0l160-160c12.5-12.5 12.5-32.8 0-45.3s-32.8-12.5-45.3 0L224 370.8 224 64c0-17.7-14.3-32-32-32s-32 14.3-32 32l0 306.7L54.6 265.4c-12.5-12.5-32.8-12.5-45.3 0s-12.5 32.8 0 45.3l160 160z"/>
+                        </svg>
+                    </a>
                 </div>
 
                 {/*first div*/}
@@ -31,7 +39,9 @@ export class Contact extends Component {
 
                         <div className="flex flex-col items-start justify-center gap-5 p-5">
                             <div className="flex flex-col justify-center items-start">
-                                <h1 className="font-Milonga text-quinary text-topic">Contact Us</h1>
+                                <h1 className="font-Milonga text-quinary text-topic">
+                                    <dfn id="dropDownIcon" className="not-italic">Contact Us</dfn>
+                                </h1>
 
                                 <p className="font-poppins text-senary text-normal w-[300px]">
                                     If you have any questions or inquiries,
