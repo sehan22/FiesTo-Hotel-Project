@@ -1,5 +1,6 @@
 import React, {Component} from 'react';
 import bannerBackgroundImg from "../../../images/RestaurantPage/bgimg.png";
+import {Link} from "react-router-dom";
 
 export class Restaurant extends Component {
     render() {
@@ -29,8 +30,31 @@ export class Restaurant extends Component {
                     </a>
                 </div>
 
-                <div className="mt-[120px] mb-[120px]">
-                    <dfn id="dropDownIcon" className="not-italic">hi</dfn>
+                {/*second div*/}
+                <div className="flex justify-center items-center mx-auto mt-[120px] mb-[120px]">
+                    <div className="grid grid-cols-1 md:grid-cols-2 gap-0 md:gap-5 p-5">
+                        <div className="flex flex-col justify-center bg-octonary items-start p-5">
+                            <h1 className="font-Milonga text-topic text-quinary">Most Popular Dishes</h1>
+                            <p className="font-poppins text-normal max-w-[450px]">
+                                Making a reservation at Délicious restaurant is easy and takes
+                                just a couple of minutes.
+                            </p>
+                        </div>
+
+                        <div className="flex flex-col justify-center bg-octonary items-center md:items-end p-5">
+                            <div className="flex gap-2">
+                                <button
+                                    className="bg-secondary text-smaller hover:bg-teal-600 py-4 px-6 text-white font-bold tracking-widest transition-all rounded">
+                                    View Full Menu
+                                </button>
+
+                                <button
+                                    className="bg-secondary text-smaller hover:bg-teal-600 py-4 px-6 text-white font-bold tracking-widest transition-all rounded">
+                                    View Full Menu
+                                </button>
+                            </div>
+                        </div>
+                    </div>
                 </div>
             </>
         );
