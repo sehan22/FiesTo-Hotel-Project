@@ -100,6 +100,7 @@ export class Room extends Component {
                         <div
                             className="rounded-2xl shadow-md hover:shadow-sm transition-all xs:max-w-[480px] md:max-w-[380px] bg-white">
                             <div className="p-3 flex flex-col gap-2 font-poppins">
+
                                 <div className="rounded-xl overflow-hidden shadow-xl hover:shadow-sm">
                                     <img className="h-[150px] xs:h-[220px] w-full object-cover" src={RoomCardImg}
                                          alt=""/>
