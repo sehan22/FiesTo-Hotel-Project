@@ -35,6 +35,14 @@ export class Home extends Component {
                         <h6 className="font-poppins text-subtopic text-nonary">Join With Us</h6>
                         <div className="h-0.5 opacity-50 bg-septenary w-32"></div>
                     </div>
+
+                    <a href="#dropDownIcon">
+                        <svg className="animate-bounce mt-10" xmlns="http://www.w3.org/2000/svg" height="25" width="22"
+                             viewBox="0 0 384 512">
+                            <path fill="#ffffff"
+                                  d="M169.4 470.6c12.5 12.5 32.8 12.5 45.3 0l160-160c12.5-12.5 12.5-32.8 0-45.3s-32.8-12.5-45.3 0L224 370.8 224 64c0-17.7-14.3-32-32-32s-32 14.3-32 32l0 306.7L54.6 265.4c-12.5-12.5-32.8-12.5-45.3 0s-12.5 32.8 0 45.3l160 160z"/>
+                        </svg>
+                    </a>
                 </div>
 
                 {/*first div*/}
@@ -43,7 +51,7 @@ export class Home extends Component {
                     <div className="flex items-center justify-center gap-5 p-5 font-poppins">
                         <div>
                             <label className="block text-quinary text-sm font-bold mb-2" htmlFor="username">
-                                Check-In Date
+                                <dfn id="dropDownIcon" className="not-italic">Check-In Date</dfn>
                             </label>
                             <input
                                 className="appearance-auto border rounded w-full py-4 px-10 text-quinary leading-tight focus:outline-none focus:shadow-sm"
@@ -170,7 +178,9 @@ export class Home extends Component {
                 <div className="flex justify-center items-center mb-[120px]">
                     <div className="flex flex-col justify-center items-center gap-5">
                         <div className="p-5 text-center">
-                            <h2 className="font-poppins text-secondary text-topictwo">UNWIND SERVICES</h2>
+                            <h2 className="font-poppins text-secondary text-topictwo">
+                                UNWIND SERVICES
+                            </h2>
                             <h1 className="font-Milonga text-quinary text-topic">Explore Our Hotel Services</h1>
                         </div>
 
