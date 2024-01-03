@@ -47,7 +47,7 @@ export class Home extends Component {
 
                 {/*first div*/}
                 <div
-                    className="flex items-center justify-center w-max gap-2 m-auto mt-[-4%] bg-white rounded-3xl shadow-xl p-5">
+                    className="hidden flex items-center justify-center w-max gap-2 m-auto mt-[-4%] bg-white rounded-3xl shadow-xl p-5">
                     <div className="flex items-center justify-center gap-5 p-5 font-poppins">
                         <div>
                             <label className="block text-quinary text-sm font-bold mb-2" htmlFor="username">
