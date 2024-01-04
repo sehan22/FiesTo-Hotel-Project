@@ -228,12 +228,15 @@ export class Home extends Component {
                     </div>
                 </div>
 
-                <div className="flex items-center justify-center mt-[120px] mb-[120px] mx-auto">
-                    <div className="grid grid-cols-1 gap-2 p-5">
+                <div className="flex items-center justify-center mt-[60px] mb-[120px] mx-auto">
+                    <div className="grid grid-cols-1 p-5">
 
                         <div>
-                            <div className="flex bg-secondary flex-col justify-center items-center gap-5">
-                                <div className="flex flex-col text-center justify-center items-center gap-2 min-w-[240px] min-h-[240px] bg-white shadow-lg rounded-lg hover:bg-primary">
+                            <div className="flex bg-secondary flex-col justify-center items-center">
+                                <img className="max-h-[240px] drop-shadow-lg object-cover rounded-t-lg" src={Restaurant} alt=""/>
+
+                                <div
+                                    className="flex flex-col text-center justify-center items-center gap-2 bg-white shadow-lg">
                                     <img className="w-16" src={pillow} alt=""/>
                                     <h1 className="font-Milonga text-topictwo text-quinary">Cozy Room</h1>
                                     <p className="font-poppins text-smaller text-senary w-[80%]">Far far away, behind
@@ -241,17 +244,16 @@ export class Home extends Component {
                                         mountains, far from the countries
                                         Vokalia.</p>
                                 </div>
-
-                                <img className="w-[240px] p-2 drop-shadow-lg object-cover" src={Restaurant} alt=""/>
                             </div>
                         </div>
 
                         <div>
-                            <div className="hidden flex bg-secondary flex-col justify-center items-center gap-5">
-                                <img className="w-[240px] p-2 drop-shadow-lg object-cover" src={HotelRoom} alt=""/>
+                        <div className="flex bg-secondary flex-col justify-center items-center">
+                                <img className="max-h-[240px] drop-shadow-lg object-cover" src={HotelRoom} alt=""/>
 
                                 <div
-                                    className="flex flex-col text-center justify-center items-center gap-2 w-[240px] h-[240px] bg-white shadow-lg rounded-lg hover:bg-primary">
+                                    className="flex flex-col text-center justify-center items-center gap-2 bg-white shadow-lg rounded-b-lg">
+
                                     <img className="w-16" src={Offers} alt=""/>
                                     <h1 className="font-Milonga text-topictwo text-quinary">Special Offers</h1>
                                     <p className="font-poppins text-smaller text-senary w-[80%]">Far far away, behind
@@ -259,7 +261,6 @@ export class Home extends Component {
                                         mountains, far from the countries
                                         Vokalia.</p>
                                 </div>
-
                             </div>
                         </div>
 
@@ -274,7 +275,7 @@ export class Home extends Component {
                                 </h1>
 
                                 <p className="font-poppins text-normal text-senary w-96 mt-10 leading-7">
-                                    Far far away, behind the word mountains, far from the countries
+                                Far far away, behind the word mountains, far from the countries
                                     Vokalia and Consonantia, there live the blind texts. Separated
                                     theylive in Bookmarksgrove right at the coast of the Semantics, a
                                     large language ocean.
