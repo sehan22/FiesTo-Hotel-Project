@@ -170,7 +170,8 @@ export class Home extends Component {
                                     Clear
                                 </button>
 
-                                <button className="bg-secondary transition-all w-full hover:bg-teal-600 text-white py-2 px-4 rounded">
+                                <button
+                                    className="bg-secondary transition-all w-full hover:bg-teal-600 text-white py-2 px-4 rounded">
                                     Search
                                 </button>
                             </div>
@@ -179,15 +180,19 @@ export class Home extends Component {
                 </div>
 
                 {/*second div*/}
-                <div className="flex flex-col items-center justify-center mt-[60px] md:mt-[120px] mb-[60px] md:mb-[120px] mx-auto">
+                <div
+                    className="flex flex-col items-center justify-center mt-[60px] md:mt-[120px] mb-[60px] md:mb-[120px] mx-auto">
                     <div className="grid grid-cols-1 md:grid-cols-2 p-5 gap-5">
                         <div className="grid grid-cols-1 sm:grid-cols-2 sm:gap-5 p-5">
 
                             <div className="sm:max-w-[320px] md:max-w-[240px]">
                                 <div className="flex flex-col justify-center items-center sm:gap-5">
-                                    <img className="min-h-[150px] xs:h-[250px] w-full lmd:max-w-[479px] object-cover rounded-t-lg sm:h-[160px] sm:rounded-none sm:p-2" src={Restaurant} alt=""/>
+                                    <img
+                                        className="min-h-[150px] xs:h-[250px] w-full lmd:max-w-[479px] object-cover rounded-t-lg sm:h-[160px] sm:rounded-none sm:p-2"
+                                        src={Restaurant} alt=""/>
 
-                                    <div className="flex secdivitem hover:bg-[#1E1E1E] transition-all duration-300 ease-linear flex-col text-center justify-center items-center md:min-h-[240px] p-6 gap-2 bg-white shadow-lg sm:rounded-lg">
+                                    <div
+                                        className="flex secdivitem hover:bg-[#1E1E1E] transition-all duration-300 ease-linear flex-col text-center justify-center items-center md:min-h-[240px] p-6 gap-2 bg-white shadow-lg sm:rounded-lg">
                                         <img className="w-16" src={pillow} alt=""/>
                                         <h1 className="font-Milonga text-topictwo text-quinary">Elegant Room</h1>
                                         <p className="font-poppins text-smaller text-senary w-[80%]">Far far away,
@@ -201,9 +206,12 @@ export class Home extends Component {
 
                             <div className="sm:max-w-[320px] md:max-w-[240px]">
                                 <div className="flex flex-col justify-center items-center sm:gap-5">
-                                    <img className="min-h-[150px] xs:h-[250px] w-full lmd:max-w-[479px] object-cover sm:order-2 sm:h-[160px] sm:rounded-none sm:p-2" src={HotelRoom} alt=""/>
+                                    <img
+                                        className="min-h-[150px] xs:h-[250px] w-full lmd:max-w-[479px] object-cover sm:order-2 sm:h-[160px] sm:rounded-none sm:p-2"
+                                        src={HotelRoom} alt=""/>
 
-                                    <div className="flex secdivitem hover:bg-[#1E1E1E] transition-all duration-300 ease-linear flex-col text-center justify-center items-center md:min-h-[240px] p-6 gap-2 bg-white shadow-lg rounded-b-lg sm:rounded-lg">
+                                    <div
+                                        className="flex secdivitem hover:bg-[#1E1E1E] transition-all duration-300 ease-linear flex-col text-center justify-center items-center md:min-h-[240px] p-6 gap-2 bg-white shadow-lg rounded-b-lg sm:rounded-lg">
 
                                         <img className="w-16" src={Offers} alt=""/>
                                         <h1 className="font-Milonga text-topictwo text-quinary">Special Offers</h1>
@@ -250,14 +258,16 @@ export class Home extends Component {
                         <h2 className="font-poppins text-secondary text-topictwo">
                             UNWIND SERVICES
                         </h2>
-                        <h1 className="font-Milonga text-quinary text-subtopic md:text-topic">Explore Our Hotel Services</h1>
+                        <h1 className="font-Milonga text-quinary text-subtopic md:text-topic">Explore Our Hotel
+                            Services</h1>
                     </div>
 
                     <div className="grid grid-cols-1 lmd:grid-cols-2 md:grid-cols-4 gap-2 lg:gap-5 p-5 text-center">
 
                         <div
                             className="bg-white thirddivitem rounded-lg md:bg-transparent flex flex-col justify-center items-center min-w-[150px] min-h-[150px] md:max-w-[220px] max-h-[220px] font-poppins p-2">
-                            <div className="flex justify-center items-center border-2 border-gray-200 hover:shadow-sm rounded-[100px] h-[100px] w-[100px] p-0 lmd:p-5">
+                            <div
+                                className="flex justify-center items-center border-2 border-gray-200 hover:shadow-sm rounded-[100px] h-[100px] w-[100px] p-0 lmd:p-5">
                                 <img className="w-16 object-cover transition-all" src={BookingIcon} alt=""/>
                             </div>
                             <h1 className="text-senary text-loginpagetopic md:text-topictwo mt-3">Easy Booking</h1>
@@ -270,7 +280,8 @@ export class Home extends Component {
 
                         <div
                             className="bg-white thirddivitem rounded-lg md:bg-transparent flex flex-col justify-center items-center min-w-[150px] min-h-[150px] md:max-w-[220px] max-h-[220px] font-poppins p-2">
-                            <div className="flex justify-center items-center border-2 border-gray-200 hover:shadow-sm rounded-[100px] h-[100px] w-[100px] p-0 lmd:p-5">
+                            <div
+                                className="flex justify-center items-center border-2 border-gray-200 hover:shadow-sm rounded-[100px] h-[100px] w-[100px] p-0 lmd:p-5">
                                 <img className="w-16 object-cover transition-all" src={RestaurantIcon} alt=""/>
                             </div>
                             <h1 className="text-senary text-loginpagetopic md:text-topictwo mt-3">Restaurant</h1>
@@ -283,7 +294,8 @@ export class Home extends Component {
 
                         <div
                             className="bg-white thirddivitem rounded-lg md:bg-transparent flex flex-col justify-center items-center min-w-[150px] min-h-[150px] md:max-w-[220px] max-h-[220px] font-poppins p-2">
-                            <div className="flex justify-center items-center border-2 border-gray-200 hover:shadow-sm rounded-[100px] h-[100px] w-[100px] p-0 lmd:p-5">
+                            <div
+                                className="flex justify-center items-center border-2 border-gray-200 hover:shadow-sm rounded-[100px] h-[100px] w-[100px] p-0 lmd:p-5">
                                 <img className="w-16 object-cover transition-all" src={PoolIcon} alt=""/>
                             </div>
                             <h1 className="text-senary text-loginpagetopic md:text-topictwo mt-3">Swimming Pool</h1>
@@ -296,7 +308,8 @@ export class Home extends Component {
 
                         <div
                             className="bg-white thirddivitem rounded-lg md:bg-transparent flex flex-col justify-center items-center min-w-[150px] min-h-[150px] md:max-w-[220px] max-h-[220px] font-poppins p-2">
-                            <div className="flex justify-center items-center border-2 border-gray-200 hover:shadow-sm rounded-[100px] h-[100px] w-[100px] p-0 lmd:p-5">
+                            <div
+                                className="flex justify-center items-center border-2 border-gray-200 hover:shadow-sm rounded-[100px] h-[100px] w-[100px] p-0 lmd:p-5">
                                 <img className="w-16 object-cover transition-all" src={HelpSupportIcon} alt=""/>
                             </div>
                             <h1 className="text-senary text-loginpagetopic md:text-topictwo mt-3">Help & Support</h1>
@@ -311,16 +324,19 @@ export class Home extends Component {
                 </div>
 
                 {/*fourth div*/}
-                <div className="flex items-center justify-center mx-auto pt-32 pb-32 md:pt-20 md:pb-20 mb-[60px] md:mb-[120px]" style={{
-                    background: `url(${FourthDivBGImg})`,
-                    backgroundSize: 'cover',
-                    backgroundPosition: 'center',
-                }}>
+                <div
+                    className="flex items-center justify-center mx-auto pt-32 pb-32 md:pt-20 md:pb-20 mb-[60px] md:mb-[120px]"
+                    style={{
+                        background: `url(${FourthDivBGImg})`,
+                        backgroundSize: 'cover',
+                        backgroundPosition: 'center',
+                    }}>
                     <div className="grid grid-cols-1 sm:grid-cols-2 p-5 sm:p-16 gap-5">
 
                         <div className="flex flex-col justify-center items-start">
                             <h2 className="font-poppins md:text-topictwo text-nonary">FIND BEST HOTEL FOR LEAVING</h2>
-                            <h1 className="font-Milonga text-subtopic md:text-topic text-white max-w-[360px] sm:min-w-[320px] md:min-w-[400px] lg:min-w-[500px]">Find the Best Hotel in Your
+                            <h1 className="font-Milonga text-subtopic md:text-topic text-white max-w-[360px] sm:min-w-[320px] md:min-w-[400px] lg:min-w-[500px]">Find
+                                the Best Hotel in Your
                                 Next Vacation
                             </h1>
                         </div>
@@ -335,8 +351,8 @@ export class Home extends Component {
                     </div>
                 </div>
 
-                {/*fifth div*/}
-                <div className="hidden flex items-center justify-center mt-[120px]">
+                {/*fifth div - grid - responsive*/}
+                <div className="flex items-center justify-center mt-[120px]">
                     <div className="flex flex-col gap-10 justify-center items-center">
                         <div className="flex flex-col justify-center items-center p-5">
                             <h2 className="font-poppins text-secondary text-topictwo">OUR ROOMS</h2>
@@ -420,12 +436,14 @@ export class Home extends Component {
                 </div>
 
                 {/*sixth div*/}
-                <div className="flex items-center justify-center mx-auto mb-[60px] md:mb-[120px] pt-16 pb-16" style={{
-                    background: `url(${SixthDivBGImg})`,
-                    backgroundSize: 'cover',
-                    backgroundPosition: 'center'
-                }}>
-                    <div className="grid grid-cols-1 lmd:grid-cols-2 md:grid-cols-4 p-5 gap-2 md:gap-5 xl:gap-16 text-white">
+                <div className="flex items-center justify-center mx-auto mb-[60px] md:mb-[120px] pt-16 pb-16"
+                     style={{
+                         background: `url(${SixthDivBGImg})`,
+                         backgroundSize: 'cover',
+                         backgroundPosition: 'center'
+                     }}>
+                    <div
+                        className="grid grid-cols-1 lmd:grid-cols-2 md:grid-cols-4 p-5 gap-2 md:gap-5 xl:gap-16 text-white">
                         <div
                             className="flex flex-col justify-center items-center backdrop-blur-sm shadow-xl rounded-xl hover:shadow-lg p-5 max-h-48 w-[80vw] lmd:w-[40vw] max-w-[300px] md:max-w-[150px] min-w-[100px]">
                             <h1 className="text-subtopic">28,550+</h1>
@@ -452,88 +470,111 @@ export class Home extends Component {
                     </div>
                 </div>
 
-
                 {/*seventh div*/}
-                <div className="hidden flex justify-center items-center mb-[120px]">
-                    <div className="flex flex-col flex-wrap justify-center items-center gap-10">
-                        <div className="flex flex-col justify-center items-center p-5">
-                            <h2 className="font-poppins text-secondary text-topictwo">TESTIMONIAL</h2>
-                            <h1 className="font-Milonga text-quinary text-topic">Happy Guest Reviews</h1>
-                        </div>
+                <div className="flex flex-col justify-center items-center mx-auto mb-[60px] md:mb-[120px]">
+                    <div className="p-5 text-start xs:text-center">
+                        <h2 className="font-poppins text-secondary text-topictwo">TESTIMONIAL</h2>
+                        <h1 className="font-Milonga text-quinary text-subtopic md:text-topic">Happy Guest Reviews </h1>
+                    </div>
 
-                        <div className="flex flex-wrap items-center justify-center p-5 gap-8">
-                            <div
-                                className="flex flex-col justify-center items-start w-[320px] h-[220px] p-5 rounded-md bg-white hover:scale-105">
-                                <div className="flex flex-col gap-3 font-poppins">
-                                    <div className="flex items-center gap-3">
-                                        <img className="w-[80px]" src={FirstManImg} alt=""/>
+                    <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-2 xl:gap-5 p-5 lg:px-10">
 
-                                        <div>
-                                            <h1 className="text-topictwo text-quinary tracking-[2px]">Roger Scott</h1>
-                                            <h6 className="text-smaller text-secondary">Marketing Manager</h6>
-                                        </div>
+                        <div
+                            className="flex flex-col justify-center items-start  p-5 rounded-md bg-white hover:scale-105 lg:min-h-[220px] transition-all duration-300">
+                            <div className="flex flex-col gap-3 font-poppins">
+                                <div className="flex items-center gap-3">
+                                    <img className="w-[80px]" src={FirstManImg} alt=""/>
+
+                                    <div>
+                                        <h1 className="text-loginpagetopic md:text-topictwo text-quinary tracking-[2px]">Roger
+                                            Scott</h1>
+                                        <h6 className="text-smaller text-secondary">Marketing Manager</h6>
                                     </div>
-
-                                    <p className="text-smaller text-senary leading-5">
-                                        Far far away, behind the word mountains, far
-                                        from the countries Vokalia and Consonantia,
-                                        there live the blind texts.
-                                    </p>
                                 </div>
-                            </div>
 
-                            <div
-                                className="flex flex-col justify-center items-start w-[320px] h-[220px] p-5 rounded-md bg-white hover:scale-105">
-                                <div className="flex flex-col gap-3 font-poppins">
-                                    <div className="flex items-center gap-3">
-                                        <img className="w-[80px]" src={SecondManImg} alt=""/>
-
-                                        <div>
-                                            <h1 className="text-topictwo text-quinary tracking-[2px]">Roger Scott</h1>
-                                            <h6 className="text-smaller text-secondary">Marketing Manager</h6>
-                                        </div>
-                                    </div>
-
-                                    <p className="text-smaller text-senary leading-5">
-                                        Far far away, behind the word mountains, far
-                                        from the countries Vokalia and Consonantia,
-                                        there live the blind texts.
-                                    </p>
-                                </div>
-                            </div>
-
-                            <div
-                                className="flex flex-col justify-center items-start w-[320px] h-[220px] p-5 rounded-md bg-white hover:scale-105">
-                                <div className="flex flex-col gap-3 font-poppins">
-                                    <div className="flex items-center gap-3">
-                                        <img className="w-[80px]" src={ThirdManImg} alt=""/>
-
-                                        <div>
-                                            <h1 className="text-topictwo text-quinary tracking-[2px]">Roger Scott</h1>
-                                            <h6 className="text-smaller text-secondary">Marketing Manager</h6>
-                                        </div>
-                                    </div>
-
-                                    <p className="text-smaller text-senary leading-5">
-                                        Far far away, behind the word mountains, far
-                                        from the countries Vokalia and Consonantia,
-                                        there live the blind texts.
-                                    </p>
-                                </div>
+                                <p className="text-smaller text-senary leading-5 w-[95%] max-w-[400px] md:max-w-[305px]">
+                                    Far far away, behind the word mountains, far
+                                    from the countries Vokalia and Consonantia,
+                                    there live the blind texts.
+                                </p>
                             </div>
                         </div>
+
+                        <div
+                            className="flex flex-col justify-center items-start  p-5 rounded-md bg-white hover:scale-105 lg:min-h-[220px] transition-all duration-300">
+                            <div className="flex flex-col gap-3 font-poppins">
+                                <div className="flex items-center gap-3">
+                                    <img className="w-[80px]" src={SecondManImg} alt=""/>
+
+                                    <div>
+                                        <h1 className="text-loginpagetopic md:text-topictwo text-quinary tracking-[2px]">Roger
+                                            Scott</h1>
+                                        <h6 className="text-smaller text-secondary">Marketing Manager</h6>
+                                    </div>
+                                </div>
+
+                                <p className="text-smaller text-senary leading-5 w-[95%] max-w-[400px] md:max-w-[305px]">
+                                    Far far away, behind the word mountains, far
+                                    from the countries Vokalia and Consonantia,
+                                    there live the blind texts.
+                                </p>
+                            </div>
+                        </div>
+
+                        <div
+                            className="flex flex-col justify-center items-start  p-5 rounded-md bg-white hover:scale-105 lg:min-h-[220px] transition-all duration-300">
+                            <div className="flex flex-col gap-3 font-poppins">
+                                <div className="flex items-center gap-3">
+                                    <img className="w-[80px]" src={ThirdManImg} alt=""/>
+
+                                    <div>
+                                        <h1 className="text-loginpagetopic md:text-topictwo text-quinary tracking-[2px]">Roger
+                                            Scott</h1>
+                                        <h6 className="text-smaller text-secondary">Marketing Manager</h6>
+                                    </div>
+                                </div>
+
+                                <p className="text-smaller text-senary leading-5 w-[95%] max-w-[400px] md:max-w-[305px]">
+                                    Far far away, behind the word mountains, far
+                                    from the countries Vokalia and Consonantia,
+                                    there live the blind texts.
+                                </p>
+                            </div>
+                        </div>
+
+                        <div
+                            className="flex flex-col justify-center items-start  p-5 rounded-md bg-white hover:scale-105 lg:min-h-[220px] transition-all duration-300">
+                            <div className="flex flex-col gap-3 font-poppins">
+                                <div className="flex items-center gap-3">
+                                    <img className="w-[80px]" src={SecondManImg} alt=""/>
+
+                                    <div>
+                                        <h1 className="text-loginpagetopic md:text-topictwo text-quinary tracking-[2px]">Roger
+                                            Scott</h1>
+                                        <h6 className="text-smaller text-secondary">Marketing Manager</h6>
+                                    </div>
+                                </div>
+
+                                <p className="text-smaller text-senary leading-5 w-[95%] max-w-[400px] md:max-w-[305px]">
+                                    Far far away, behind the word mountains, far
+                                    from the countries Vokalia and Consonantia,
+                                    there live the blind texts.
+                                </p>
+                            </div>
+                        </div>
+
                     </div>
                 </div>
 
                 {/*gallery*/}
-                <div className="hidden flex justify-center items-center object-cover">
-                    <div className="flex flex-col justify-center items-center gap-5 p-5 m-auto">
+                <div className="hidden md:flex justify-center items-center object-cover">
+                    <div className="flex flex-col justify-center items-center gap-2 p-2 m-auto">
                         <div>
                             <img className="h-auto w-full max-w-full rounded-lg object-cover object-center md:h-[480px]"
                                  src="https://images.unsplash.com/photo-1499696010180-025ef6e1a8f9?ixlib=rb-4.0.3&amp;ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&amp;auto=format&amp;fit=crop&amp;w=1470&amp;q=80"
                                  alt=""/>
                         </div>
-                        <div className="flex justify-center items-center gap-4">
+                        <div className="flex justify-center items-center gap-2">
                             <div>
                                 <img
                                     src="https://images.unsplash.com/photo-1499696010180-025ef6e1a8f9?ixlib=rb-4.0.3&amp;ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&amp;auto=format&amp;fit=crop&amp;w=1470&amp;q=80"
@@ -566,13 +607,14 @@ export class Home extends Component {
                             </div>
                         </div>
                     </div>
-                    <div className="flex flex-col justify-center items-center gap-5 p-5 m-auto">
+
+                    <div className="flex flex-col justify-center items-center gap-2 p-2 m-auto">
                         <div>
                             <img className="h-auto w-full max-w-full rounded-lg object-cover object-center md:h-[480px]"
                                  src="https://images.unsplash.com/photo-1499696010180-025ef6e1a8f9?ixlib=rb-4.0.3&amp;ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&amp;auto=format&amp;fit=crop&amp;w=1470&amp;q=80"
                                  alt=""/>
                         </div>
-                        <div className="flex justify-center items-center gap-4">
+                        <div className="flex justify-center items-center gap-2">
                             <div>
                                 <img
                                     src="https://images.unsplash.com/photo-1499696010180-025ef6e1a8f9?ixlib=rb-4.0.3&amp;ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&amp;auto=format&amp;fit=crop&amp;w=1470&amp;q=80"
@@ -605,13 +647,14 @@ export class Home extends Component {
                             </div>
                         </div>
                     </div>
-                    <div className="flex flex-col justify-center items-center gap-5 p-5 m-auto">
+
+                    <div className="flex flex-col justify-center items-center gap-2 p-2 m-auto">
                         <div>
                             <img className="h-auto w-full max-w-full rounded-lg object-cover object-center md:h-[480px]"
                                  src="https://images.unsplash.com/photo-1499696010180-025ef6e1a8f9?ixlib=rb-4.0.3&amp;ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&amp;auto=format&amp;fit=crop&amp;w=1470&amp;q=80"
                                  alt=""/>
                         </div>
-                        <div className="flex justify-center items-center gap-4">
+                        <div className="flex justify-center items-center gap-2">
                             <div>
                                 <img
                                     src="https://images.unsplash.com/photo-1499696010180-025ef6e1a8f9?ixlib=rb-4.0.3&amp;ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&amp;auto=format&amp;fit=crop&amp;w=1470&amp;q=80"
