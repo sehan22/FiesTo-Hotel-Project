@@ -74,252 +74,269 @@ export class Home extends Component {
 
                 {/*Banner*/}
                 <div
-                    className="flex flex-col items-center justify-center w-full h-[800px] rounded-b-3xl bg-cover bg-center"
+                    className="flex flex-col items-start justify-center lmd:items-center lmd:justify-center w-full h-screen md:max-h-[800px] md:rounded-b-3xl bg-cover bg-center"
                     style={{
                         backgroundImage: `url(${bannerBackgroundImg})`,
                         backgroundSize: 'cover',
                         backgroundPosition: 'center'
                     }}>
-                    <h1 className="font-Milonga text-bannertopic text-white">Welcome To FiesTo</h1>
-                    <div className="flex items-center justify-center gap-4 p-2 ">
-                        <div className="h-0.5 opacity-50 bg-septenary w-32"></div>
-                        <h6 className="font-poppins text-subtopic text-nonary">Join With Us</h6>
-                        <div className="h-0.5 opacity-50 bg-septenary w-32"></div>
+                    <h1 className="font-Milonga text-topic md:text-bannertopic text-white p-2">Welcome To
+                        FiesTo</h1>
+                    <div className="flex flex-col lmd:items-center lmd:justify-center gap-4 p-2 ">
+                        <div className="h-0.5 opacity-50 bg-septenary w-44"></div>
+                        <h6 className="font-poppins text-topictwo md:text-subtopic text-nonary">Join With Us</h6>
+                        <div className="hidden lmd:block h-0.5 opacity-50 bg-septenary w-32"></div>
                     </div>
-
-                    <a href="#dropDownIcon">
-                        <svg className="animate-bounce mt-10" xmlns="http://www.w3.org/2000/svg" height="25" width="22"
-                             viewBox="0 0 384 512">
-                            <path fill="#ffffff"
-                                  d="M169.4 470.6c12.5 12.5 32.8 12.5 45.3 0l160-160c12.5-12.5 12.5-32.8 0-45.3s-32.8-12.5-45.3 0L224 370.8 224 64c0-17.7-14.3-32-32-32s-32 14.3-32 32l0 306.7L54.6 265.4c-12.5-12.5-32.8-12.5-45.3 0s-12.5 32.8 0 45.3l160 160z"/>
-                        </svg>
-                    </a>
                 </div>
 
                 {/*first div*/}
-                <div
-                    className="hidden flex items-center justify-center w-max gap-2 m-auto mt-[-4%] bg-white rounded-3xl shadow-xl p-5">
-                    <div className="flex items-center justify-center gap-5 p-5 font-poppins">
-                        <div>
-                            <label className="block text-quinary text-sm font-bold mb-2" htmlFor="username">
-                                <dfn id="dropDownIcon" className="not-italic">Check-In Date</dfn>
-                            </label>
-                            <input
-                                className="appearance-auto border rounded w-full py-4 px-10 text-quinary leading-tight focus:outline-none focus:shadow-sm"
-                                id="username" type="date"/>
+                <div className="flex justify-center items-center mx-auto">
+                    <div
+                        className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-5 gap-5 p-2 sm:p-5 lg:p-10 mt-16 sm:mt-[-100px] lg:mt-[-80px] transition-all sm:bg-white sm:rounded-xl sm:shadow-xl">
+
+                        <div
+                            className="col-span-2 lmd:col-span-1 max-w-[400px] lmd:max-w-[280px] sm:min-w-[250px] md:min-w-[200px] lg:min-w-[160px] lg:max-w-[180px] min-w-[140px] w-[90vw] lmd:w-[35vw] md:w-[25vw] lg:w-[12vw]">
+                            <div>
+                                <label className="block text-quinary text-sm font-bold mb-2" htmlFor="username">
+                                    Check-In Date
+                                </label>
+                                <input
+                                    className="appearance-auto border rounded py-4 px-3 w-full text-quinary leading-tight focus:outline-none focus:shadow-sm"
+                                    id="username" type="date"/>
+                            </div>
                         </div>
 
-                        <div>
+                        <div
+                            className="col-span-2 lmd:col-span-1 max-w-[400px] lmd:max-w-[280px] sm:min-w-[250px] md:min-w-[200px] lg:min-w-[160px] lg:max-w-[180px] min-w-[140px] w-[90vw] lmd:w-[35vw] md:w-[25vw] lg:w-[12vw]">
                             <label className="block text-quinary text-sm font-bold mb-2" htmlFor="username">
                                 Check-Out Date
                             </label>
                             <input
-                                className="appearance-auto border rounded w-full py-4 px-10 text-quinary leading-tight focus:outline-none focus:shadow-sm"
+                                className="appearance-auto border rounded w-full py-4 px-3 text-quinary leading-tight focus:outline-none focus:shadow-sm"
                                 id="username" type="date"/>
                         </div>
 
-                        <div>
-                            <h5 className="text-sm font-bold text-quinary mb-[8px] mt-[-2px]">Room</h5>
+                        <div className="col-span-2 xs:col-span-1 max-w-[400px]">
+                            <div>
+                                <h5 className="text-sm font-bold text-quinary mb-[8px] mt-[-2px]">Room</h5>
 
-                            <div className="inline-block relative w-44">
-                                <select
-                                    className="block text-sm text-quinary appearance-none w-full py-4 bg-white border border-gray-200 hover:border-gray-500 px-4 pr-8 rounded leading-tight focus:outline-none focus:shadow-outline">
-                                    <option>Example</option>
-                                    <option>Option 2</option>
-                                    <option>Option 3</option>
-                                </select>
-                                <div
-                                    className="pointer-events-none absolute inset-y-0 right-0 flex items-center px-2 text-gray-700">
-                                    <svg className="fill-current h-4 w-4" xmlns="http://www.w3.org/2000/svg"
-                                         viewBox="0 0 20 20">
-                                        <path
-                                            d="M9.293 12.95l.707.707L15.657 8l-1.414-1.414L10 10.828 5.757 6.586 4.343 8z"/>
-                                    </svg>
+                                <div className="inline-block relative w-full">
+                                    <select
+                                        className="block text-sm text-quinary appearance-none w-full py-[18.25px] bg-white border border-gray-200 hover:border-gray-500 px-4 pr-8 rounded leading-tight focus:outline-none focus:shadow-outline">
+                                        <option>Example</option>
+                                        <option>Option 2</option>
+                                        <option>Option 3</option>
+                                    </select>
+                                    <div
+                                        className="pointer-events-none absolute inset-y-0 right-0 flex items-center px-2 text-gray-700">
+                                        <svg className="fill-current h-4 w-4" xmlns="http://www.w3.org/2000/svg"
+                                             viewBox="0 0 20 20">
+                                            <path
+                                                d="M9.293 12.95l.707.707L15.657 8l-1.414-1.414L10 10.828 5.757 6.586 4.343 8z"/>
+                                        </svg>
+                                    </div>
                                 </div>
                             </div>
                         </div>
 
-                        <div>
-                            <h5 className="text-sm font-bold text-quinary mb-[8px] mt-[-2px]">Guests</h5>
+                        <div className="col-span-2 xs:col-span-1 max-w-[400px]">
+                            <div>
+                                <h5 className="text-sm font-bold text-quinary mb-[8px] mt-[-2px]">Guests</h5>
 
-                            <div className="inline-block relative w-16">
-                                <select
-                                    className="block text-sm text-quinary appearance-none w-full py-4 bg-white border border-gray-200 hover:border-gray-500 px-4 pr-8 rounded leading-tight focus:outline-none focus:shadow-outline">
-                                    <option>1</option>
-                                    <option>2</option>
-                                    <option>3</option>
-                                </select>
-                                <div
-                                    className="pointer-events-none absolute inset-y-0 right-0 flex items-center px-2 text-gray-700">
-                                    <svg className="fill-current h-4 w-4" xmlns="http://www.w3.org/2000/svg"
-                                         viewBox="0 0 20 20">
-                                        <path
-                                            d="M9.293 12.95l.707.707L15.657 8l-1.414-1.414L10 10.828 5.757 6.586 4.343 8z"/>
-                                    </svg>
+                                <div className="inline-block relative w-full">
+                                    <select
+                                        className="block text-sm text-quinary appearance-none w-full py-[18.25px] bg-white border border-gray-200 hover:border-gray-500 px-4 pr-8 rounded leading-tight focus:outline-none focus:shadow-outline">
+                                        <option>1 Guest</option>
+                                        <option>2 Guests</option>
+                                        <option>3 Guests</option>
+                                        <option>3 Guests</option>
+                                    </select>
+                                    <div
+                                        className="pointer-events-none absolute inset-y-0 right-0 flex items-center px-2 text-gray-700">
+                                        <svg className="fill-current h-4 w-4" xmlns="http://www.w3.org/2000/svg"
+                                             viewBox="0 0 20 20">
+                                            <path
+                                                d="M9.293 12.95l.707.707L15.657 8l-1.414-1.414L10 10.828 5.757 6.586 4.343 8z"/>
+                                        </svg>
+                                    </div>
                                 </div>
                             </div>
                         </div>
-                    </div>
 
-                    <div className="flex flex-col gap-2 text-normal pr-5">
-                        <button
-                            className="bg-white border-2 border-nonary hover:border-neutral-200 text-senary py-2 px-4 rounded">
-                            Clear
-                        </button>
-                        <button className="bg-secondary hover:bg-teal-600 text-white py-2 px-4 rounded">
-                            Search
-                        </button>
+                        <div className="col-span-2 lg:col-span-1">
+                            <div className="flex flex-wrap h-full lmd:flex-nowrap md:flex-wrap gap-2">
+                                <button
+                                    className="hidden lmd:block transition-all bg-white w-full border-2 border-nonary hover:border-neutral-200 text-senary py-1 px-4 rounded">
+                                    Clear
+                                </button>
+
+                                <button className="bg-secondary transition-all w-full hover:bg-teal-600 text-white py-2 px-4 rounded">
+                                    Search
+                                </button>
+                            </div>
+                        </div>
                     </div>
                 </div>
 
                 {/*second div*/}
-                <div className="mt-[120px] mb-[120px] flex justify-center items-center">
-                    <div className="flex flex-wrap justify-center items-center gap-10">
-                        <div className="flex justify-center items-center gap-5 p-5">
-                            <div className="flex flex-col justify-center items-center gap-5">
-                                <div
-                                    className="flex flex-col text-center justify-center items-center gap-2 w-[240px] h-[240px] bg-white shadow-lg rounded-lg hover:bg-primary">
-                                    <img className="w-16" src={pillow} alt=""/>
-                                    <h1 className="font-Milonga text-topictwo text-quinary">Cozy Room</h1>
-                                    <p className="font-poppins text-smaller text-senary w-[80%]">Far far away, behind
-                                        the word
-                                        mountains, far from the countries
-                                        Vokalia.</p>
-                                </div>
+                <div className="flex flex-col items-center justify-center mt-[60px] md:mt-[120px] mb-[60px] md:mb-[120px] mx-auto">
+                    <div className="grid grid-cols-1 md:grid-cols-2 p-5 gap-5">
+                        <div className="grid grid-cols-1 sm:grid-cols-2 sm:gap-5 p-5">
 
-                                <img className="w-[240px] p-2 drop-shadow-lg object-cover" src={Restaurant} alt=""/>
+                            <div className="sm:max-w-[320px] md:max-w-[240px]">
+                                <div className="flex flex-col justify-center items-center sm:gap-5">
+                                    <img className="min-h-[150px] xs:h-[250px] w-full lmd:max-w-[479px] object-cover rounded-t-lg sm:h-[160px] sm:rounded-none sm:p-2" src={Restaurant} alt=""/>
+
+                                    <div className="flex secdivitem hover:bg-[#1E1E1E] transition-all duration-300 ease-linear flex-col text-center justify-center items-center md:min-h-[240px] p-6 gap-2 bg-white shadow-lg sm:rounded-lg">
+                                        <img className="w-16" src={pillow} alt=""/>
+                                        <h1 className="font-Milonga text-topictwo text-quinary">Elegant Room</h1>
+                                        <p className="font-poppins text-smaller text-senary w-[80%]">Far far away,
+                                            behind
+                                            the word
+                                            mountains, far from the countries
+                                            Vokalia.</p>
+                                    </div>
+                                </div>
                             </div>
 
-                            <div className="flex flex-col justify-center items-center gap-5">
-                                <img className="w-[240px] p-2 drop-shadow-lg object-cover" src={HotelRoom} alt=""/>
+                            <div className="sm:max-w-[320px] md:max-w-[240px]">
+                                <div className="flex flex-col justify-center items-center sm:gap-5">
+                                    <img className="min-h-[150px] xs:h-[250px] w-full lmd:max-w-[479px] object-cover sm:order-2 sm:h-[160px] sm:rounded-none sm:p-2" src={HotelRoom} alt=""/>
 
-                                <div
-                                    className="flex flex-col text-center justify-center items-center gap-2 w-[240px] h-[240px] bg-white shadow-lg rounded-lg hover:bg-primary">
-                                    <img className="w-16" src={Offers} alt=""/>
-                                    <h1 className="font-Milonga text-topictwo text-quinary">Special Offers</h1>
-                                    <p className="font-poppins text-smaller text-senary w-[80%]">Far far away, behind
-                                        the word
-                                        mountains, far from the countries
-                                        Vokalia.</p>
+                                    <div className="flex secdivitem hover:bg-[#1E1E1E] transition-all duration-300 ease-linear flex-col text-center justify-center items-center md:min-h-[240px] p-6 gap-2 bg-white shadow-lg rounded-b-lg sm:rounded-lg">
+
+                                        <img className="w-16" src={Offers} alt=""/>
+                                        <h1 className="font-Milonga text-topictwo text-quinary">Special Offers</h1>
+                                        <p className="font-poppins text-smaller text-senary w-[80%]">Far far away,
+                                            behind
+                                            the word
+                                            mountains, far from the countries
+                                            Vokalia.</p>
+                                    </div>
                                 </div>
-
                             </div>
+
                         </div>
 
-                        <div className="flex flex-col items-start justify-center p-5">
-                            <h2 className="font-poppins text-topictwo text-secondary">About Us</h2>
-                            <h1 className="font-Milonga text-topic text-quinary">Unwind A Hotel<br/>Booking System</h1>
+                        <div className="flex justify-center w-full">
+                            <div className="flex flex-col items-start justify-center gap-5 md:gap-0 p-5">
+                                <h2 className="font-poppins text-topictwo text-secondary">About Us</h2>
+                                <h1 className="font-Milonga text-subtopic md:text-topic text-quinary mt-[-20px] md:mt-0">Unwind
+                                    A Hotel <br
+                                        className="hidden  md:block"/>Booking System
+                                </h1>
 
-                            <p className="font-poppins text-normal text-senary w-96 mt-10 leading-7">
-                                Far far away, behind the word mountains, far from the countries
-                                Vokalia and Consonantia, there live the blind texts. Separated
-                                theylive in Bookmarksgrove right at the coast of the Semantics, a
-                                large language ocean.
-                            </p>
+                                <p className="font-poppins text-smaller text-senary leading-7 md:mt-10">
+                                    Far far away, behind the word mountains, far from the countries
+                                    Vokalia and<br
+                                    className="hidden xl:block"/> Consonantia, there live the blind texts. Separated
+                                    theylive in Bookmarksgrove right at <br className="hidden xl:block"/> the coast of
+                                    the Semantics, a
+                                    large language ocean.
+                                </p>
 
-                            <button
-                                className="bg-tertiary hover:bg-secondary text-smaller text-white py-4 px-6 rounded mt-10">
-                                BOOK YOUR ROOM NOW
-                            </button>
+                                <button
+                                    className="bg-tertiary transition-all hover:bg-secondary text-smaller text-white py-4 px-6 rounded md:mt-10">
+                                    BOOK YOUR ROOM NOW
+                                </button>
+                            </div>
                         </div>
                     </div>
                 </div>
 
                 {/*third div*/}
-                <div className="flex justify-center items-center mb-[120px]">
-                    <div className="flex flex-col justify-center items-center gap-5">
-                        <div className="p-5 text-center">
-                            <h2 className="font-poppins text-secondary text-topictwo">
-                                UNWIND SERVICES
-                            </h2>
-                            <h1 className="font-Milonga text-quinary text-topic">Explore Our Hotel Services</h1>
+                <div className="flex flex-col justify-center items-center mx-auto mb-[60px] md:mb-[120px]">
+                    <div className="p-5 text-start lmd:text-center">
+                        <h2 className="font-poppins text-secondary text-topictwo">
+                            UNWIND SERVICES
+                        </h2>
+                        <h1 className="font-Milonga text-quinary text-subtopic md:text-topic">Explore Our Hotel Services</h1>
+                    </div>
+
+                    <div className="grid grid-cols-1 lmd:grid-cols-2 md:grid-cols-4 gap-2 lg:gap-5 p-5 text-center">
+
+                        <div
+                            className="bg-white thirddivitem rounded-lg md:bg-transparent flex flex-col justify-center items-center min-w-[150px] min-h-[150px] md:max-w-[220px] max-h-[220px] font-poppins p-2">
+                            <div className="flex justify-center items-center border-2 border-gray-200 hover:shadow-sm rounded-[100px] h-[100px] w-[100px] p-0 lmd:p-5">
+                                <img className="w-16 object-cover transition-all" src={BookingIcon} alt=""/>
+                            </div>
+                            <h1 className="text-senary text-loginpagetopic md:text-topictwo mt-3">Easy Booking</h1>
+                            <p className="text-octonary text-smaller md:text-normal w-[80%] md:w-[95%]">
+                                A small river named Duden
+                                flows by their place
+                                and supplies.
+                            </p>
                         </div>
 
-                        <div className="flex flex-wrap justify-center items-center text-center gap-5 p-5">
-                            <div
-                                className="flex flex-col justify-center items-center w-[210px] h-[220px] font-poppins p-2">
-                                <div
-                                    className="flex justify-center items-center border-2 border-gray-200 hover:shadow-sm rounded-[100px] h-[100px] w-[100px] p-5">
-                                    <img className="w-16 object-cover" src={BookingIcon} alt=""/>
-                                </div>
-                                <h1 className="text-senary text-topictwo mt-3">Easy Booking</h1>
-                                <p className="text-octonary text-normal">
-                                    A small river named Duden
-                                    flows by their place
-                                    and supplies.
-                                </p>
+                        <div
+                            className="bg-white thirddivitem rounded-lg md:bg-transparent flex flex-col justify-center items-center min-w-[150px] min-h-[150px] md:max-w-[220px] max-h-[220px] font-poppins p-2">
+                            <div className="flex justify-center items-center border-2 border-gray-200 hover:shadow-sm rounded-[100px] h-[100px] w-[100px] p-0 lmd:p-5">
+                                <img className="w-16 object-cover transition-all" src={RestaurantIcon} alt=""/>
                             </div>
-
-                            <div
-                                className="flex flex-col justify-center items-center w-[210px] h-[220px] font-poppins p-2">
-                                <div
-                                    className="flex justify-center items-center border-2 border-gray-200 hover:shadow-sm rounded-[100px] h-[100px] w-[100px] p-5">
-                                    <img className="w-16 object-cover" src={RestaurantIcon} alt=""/>
-                                </div>
-                                <h1 className="text-senary text-topictwo mt-3">Restaurant</h1>
-                                <p className="text-octonary text-normal">
-                                    A small river named Duden
-                                    flows by their place
-                                    and supplies.
-                                </p>
-                            </div>
-
-                            <div
-                                className="flex flex-col justify-center items-center w-[210px] h-[220px] font-poppins p-2">
-                                <div
-                                    className="flex justify-center items-center border-2 border-gray-200 hover:shadow-sm rounded-[100px] h-[100px] w-[100px] p-5">
-                                    <img className="w-16 object-cover" src={PoolIcon} alt=""/>
-                                </div>
-                                <h1 className="text-senary text-topictwo mt-3">Swimming Pool</h1>
-                                <p className="text-octonary text-normal">
-                                    A small river named Duden
-                                    flows by their place
-                                    and supplies.
-                                </p>
-                            </div>
-
-                            <div
-                                className="flex flex-col justify-center items-center w-[210px] h-[220px] font-poppins p-2">
-                                <div
-                                    className="flex justify-center items-center border-2 border-gray-200 hover:shadow-sm rounded-[100px] h-[100px] w-[100px] p-5">
-                                    <img className="w-16 object-cover" src={HelpSupportIcon} alt=""/>
-                                </div>
-                                <h1 className="text-senary text-topictwo mt-3">Help & Support</h1>
-                                <p className="text-octonary text-normal">
-                                    A small river named Duden
-                                    flows by their place
-                                    and supplies.
-                                </p>
-                            </div>
+                            <h1 className="text-senary text-loginpagetopic md:text-topictwo mt-3">Restaurant</h1>
+                            <p className="text-octonary text-smaller md:text-normal w-[80%] md:w-[95%]">
+                                A small river named Duden
+                                flows by their place
+                                and supplies.
+                            </p>
                         </div>
+
+                        <div
+                            className="bg-white thirddivitem rounded-lg md:bg-transparent flex flex-col justify-center items-center min-w-[150px] min-h-[150px] md:max-w-[220px] max-h-[220px] font-poppins p-2">
+                            <div className="flex justify-center items-center border-2 border-gray-200 hover:shadow-sm rounded-[100px] h-[100px] w-[100px] p-0 lmd:p-5">
+                                <img className="w-16 object-cover transition-all" src={PoolIcon} alt=""/>
+                            </div>
+                            <h1 className="text-senary text-loginpagetopic md:text-topictwo mt-3">Swimming Pool</h1>
+                            <p className="text-octonary text-smaller md:text-normal w-[80%] md:w-[95%]">
+                                A small river named Duden
+                                flows by their place
+                                and supplies.
+                            </p>
+                        </div>
+
+                        <div
+                            className="bg-white thirddivitem rounded-lg md:bg-transparent flex flex-col justify-center items-center min-w-[150px] min-h-[150px] md:max-w-[220px] max-h-[220px] font-poppins p-2">
+                            <div className="flex justify-center items-center border-2 border-gray-200 hover:shadow-sm rounded-[100px] h-[100px] w-[100px] p-0 lmd:p-5">
+                                <img className="w-16 object-cover transition-all" src={HelpSupportIcon} alt=""/>
+                            </div>
+                            <h1 className="text-senary text-loginpagetopic md:text-topictwo mt-3">Help & Support</h1>
+                            <p className="text-octonary text-smaller md:text-normal w-[80%] md:w-[95%]">
+                                A small river named Duden
+                                flows by their place
+                                and supplies.
+                            </p>
+                        </div>
+
                     </div>
                 </div>
 
                 {/*fourth div*/}
-                <div className="flex justify-center items-center p-16 mb-[120px] " style={{
+                <div className="flex items-center justify-center mx-auto pt-32 pb-32 md:pt-20 md:pb-20 mb-[60px] md:mb-[120px]" style={{
                     background: `url(${FourthDivBGImg})`,
                     backgroundSize: 'cover',
                     backgroundPosition: 'center',
                 }}>
-                    <div className="flex flex-wrap justify-center items-center gap-10 text-white p-5">
+                    <div className="grid grid-cols-1 sm:grid-cols-2 p-5 sm:p-16 gap-5">
+
                         <div className="flex flex-col justify-center items-start">
-                            <h2 className="font-poppins text-topictwo">FIND BEST HOTEL FOR LEAVING</h2>
-                            <h1 className="font-Milonga text-topic w-[500px]">Find the Best Hotel in Your
+                            <h2 className="font-poppins md:text-topictwo text-nonary">FIND BEST HOTEL FOR LEAVING</h2>
+                            <h1 className="font-Milonga text-subtopic md:text-topic text-white max-w-[360px] sm:min-w-[320px] md:min-w-[400px] lg:min-w-[500px]">Find the Best Hotel in Your
                                 Next Vacation
                             </h1>
                         </div>
 
-                        <div className="flex justify-center items-center">
+                        <div className="flex justify-start items-center sm:justify-end">
                             <button
-                                className="bg-secondary hover:bg-teal-600 py-4 px-6 text-smaller rounded animate-bounce">
+                                className="bg-secondary hover:bg-teal-600 py-4 px-6 text-smaller rounded text-white animate-pulse transition-all hover:animate-none">
                                 BOOK NOW
                             </button>
                         </div>
+
                     </div>
                 </div>
 
                 {/*fifth div*/}
-                <div className="flex items-center justify-center mt-[120px]">
+                <div className="hidden flex items-center justify-center mt-[120px]">
                     <div className="flex flex-col gap-10 justify-center items-center">
                         <div className="flex flex-col justify-center items-center p-5">
                             <h2 className="font-poppins text-secondary text-topictwo">OUR ROOMS</h2>
@@ -403,40 +420,41 @@ export class Home extends Component {
                 </div>
 
                 {/*sixth div*/}
-                <div className="flex justify-center items-center p-16 mt-[120px] mb-[120px]" style={{
+                <div className="flex items-center justify-center mx-auto mb-[60px] md:mb-[120px] pt-16 pb-16" style={{
                     background: `url(${SixthDivBGImg})`,
                     backgroundSize: 'cover',
                     backgroundPosition: 'center'
                 }}>
-                    <div className="flex flex-wrap items-center justify-center text-white font-poppins gap-20 p-5">
+                    <div className="grid grid-cols-1 lmd:grid-cols-2 md:grid-cols-4 p-5 gap-2 md:gap-5 xl:gap-16 text-white">
                         <div
-                            className="flex flex-col justify-center items-center backdrop-blur-sm shadow-xl rounded-xl hover:shadow-lg p-5 w-[150px]">
+                            className="flex flex-col justify-center items-center backdrop-blur-sm shadow-xl rounded-xl hover:shadow-lg p-5 max-h-48 w-[80vw] lmd:w-[40vw] max-w-[300px] md:max-w-[150px] min-w-[100px]">
                             <h1 className="text-subtopic">28,550+</h1>
                             <h4 className="text-smaller text-nonary">Happy Guests</h4>
                         </div>
 
                         <div
-                            className="flex flex-col justify-center items-center backdrop-blur-sm shadow-xl rounded-xl hover:shadow-lg p-5 w-[150px]">
+                            className="flex flex-col justify-center items-center backdrop-blur-sm shadow-xl rounded-xl hover:shadow-lg p-5 max-h-48 w-[80vw] lmd:w-[40vw] max-w-[300px] md:max-w-[150px] min-w-[100px]">
                             <h1 className="text-subtopic">250+</h1>
                             <h4 className="text-smaller text-nonary">Happy Guests</h4>
                         </div>
 
                         <div
-                            className="flex flex-col justify-center items-center backdrop-blur-sm shadow-xl rounded-xl hover:shadow-lg p-5 w-[150px]">
+                            className="flex flex-col justify-center items-center backdrop-blur-sm shadow-xl rounded-xl hover:shadow-lg p-5 max-h-48 w-[80vw] lmd:w-[40vw] max-w-[300px] md:max-w-[150px] min-w-[100px]">
                             <h1 className="text-subtopic">600+</h1>
                             <h4 className="text-smaller text-nonary">Staffs</h4>
                         </div>
 
                         <div
-                            className="flex flex-col justify-center items-center backdrop-blur-sm shadow-xl rounded-xl hover:shadow-lg p-5 w-[150px]">
+                            className="flex flex-col justify-center items-center backdrop-blur-sm shadow-xl rounded-xl hover:shadow-lg p-5 max-h-48 w-[80vw] lmd:w-[40vw] max-w-[300px] md:max-w-[150px] min-w-[100px]">
                             <h1 className="text-subtopic">345+</h1>
                             <h4 className="text-smaller text-nonary">Destination</h4>
                         </div>
                     </div>
                 </div>
 
+
                 {/*seventh div*/}
-                <div className="flex justify-center items-center mb-[120px]">
+                <div className="hidden flex justify-center items-center mb-[120px]">
                     <div className="flex flex-col flex-wrap justify-center items-center gap-10">
                         <div className="flex flex-col justify-center items-center p-5">
                             <h2 className="font-poppins text-secondary text-topictwo">TESTIMONIAL</h2>
@@ -508,7 +526,7 @@ export class Home extends Component {
                 </div>
 
                 {/*gallery*/}
-                <div className="flex justify-center items-center object-cover">
+                <div className="hidden flex justify-center items-center object-cover">
                     <div className="flex flex-col justify-center items-center gap-5 p-5 m-auto">
                         <div>
                             <img className="h-auto w-full max-w-full rounded-lg object-cover object-center md:h-[480px]"
