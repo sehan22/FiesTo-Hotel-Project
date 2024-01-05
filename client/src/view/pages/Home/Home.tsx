@@ -91,9 +91,11 @@ export class Home extends Component {
 
                 {/*first div*/}
                 <div className="flex justify-center items-center mx-auto">
-                    <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-5 gap-5 p-2 sm:p-5 lg:p-10 mt-16 sm:mt-[-100px] lg:mt-[-80px] transition-all sm:bg-white sm:rounded-xl sm:shadow-xl">
+                    <div
+                        className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-5 gap-5 p-2 sm:p-5 lg:p-10 mt-16 sm:mt-[-100px] lg:mt-[-80px] transition-all sm:bg-white sm:rounded-xl sm:shadow-xl">
 
-                        <div className="col-span-2 lmd:col-span-1 max-w-[400px] lmd:max-w-[280px] sm:min-w-[250px] md:min-w-[200px] lg:min-w-[160px] lg:max-w-[180px] min-w-[140px] w-[90vw] lmd:w-[35vw] md:w-[25vw] lg:w-[12vw]">
+                        <div
+                            className="col-span-2 lmd:col-span-1 max-w-[400px] lmd:max-w-[280px] sm:min-w-[250px] md:min-w-[200px] lg:min-w-[160px] lg:max-w-[180px] min-w-[140px] w-[90vw] lmd:w-[35vw] md:w-[25vw] lg:w-[12vw]">
                             <div>
                                 <label className="block text-quinary text-sm font-bold mb-2" htmlFor="username">
                                     Check-In Date
@@ -104,7 +106,8 @@ export class Home extends Component {
                             </div>
                         </div>
 
-                        <div className="col-span-2 lmd:col-span-1 max-w-[400px] lmd:max-w-[280px] sm:min-w-[250px] md:min-w-[200px] lg:min-w-[160px] lg:max-w-[180px] min-w-[140px] w-[90vw] lmd:w-[35vw] md:w-[25vw] lg:w-[12vw]">
+                        <div
+                            className="col-span-2 lmd:col-span-1 max-w-[400px] lmd:max-w-[280px] sm:min-w-[250px] md:min-w-[200px] lg:min-w-[160px] lg:max-w-[180px] min-w-[140px] w-[90vw] lmd:w-[35vw] md:w-[25vw] lg:w-[12vw]">
                             <label className="block text-quinary text-sm font-bold mb-2" htmlFor="username">
                                 Check-Out Date
                             </label>
@@ -176,118 +179,68 @@ export class Home extends Component {
                 </div>
 
                 {/*second div*/}
-                <div className="hidden mt-[120px] mb-[120px] flex justify-center items-center">
-                    <div className="flex flex-wrap justify-center items-center gap-10">
-                        <div className="flex justify-center items-center gap-5 p-5">
-                            <div className="flex flex-col justify-center items-center gap-5">
-                                <div
-                                    className="flex flex-col text-center justify-center items-center gap-2 w-[240px] h-[240px] bg-white shadow-lg rounded-lg hover:bg-primary">
-                                <img className="w-16" src={pillow} alt=""/>
-                                    <h1 className="font-Milonga text-topictwo text-quinary">Cozy Room</h1>
-                                    <p className="font-poppins text-smaller text-senary w-[80%]">Far far away, behind
-                                        the word
-                                        mountains, far from the countries
-                                        Vokalia.</p>
-                                </div>
+                <div className="flex flex-col items-center justify-center mt-[60px] md:mt-[120px] mb-[60px] md:mb-[120px] mx-auto">
+                    <div className="grid grid-cols-1 md:grid-cols-2 p-5 gap-5">
+                        <div className="grid grid-cols-1 sm:grid-cols-2 sm:gap-5 p-5">
 
-                                <img className="w-[240px] p-2 drop-shadow-lg object-cover" src={Restaurant} alt=""/>
-                            </div>
+                            <div className="sm:max-w-[320px] md:max-w-[240px]">
+                                <div className="flex flex-col justify-center items-center sm:gap-5">
+                                    <img className="min-h-[150px] xs:h-[250px] w-full lmd:max-w-[479px] object-cover rounded-t-lg sm:h-[160px] sm:rounded-none sm:p-2" src={Restaurant} alt=""/>
 
-                            <div className="flex flex-col justify-center items-center gap-5">
-                                <img className="w-[240px] p-2 drop-shadow-lg object-cover" src={HotelRoom} alt=""/>
-
-                                <div
-                                    className="flex flex-col text-center justify-center items-center gap-2 w-[240px] h-[240px] bg-white shadow-lg rounded-lg hover:bg-primary">
-                                    <img className="w-16" src={Offers} alt=""/>
-                                    <h1 className="font-Milonga text-topictwo text-quinary">Special Offers</h1>
-                                    <p className="font-poppins text-smaller text-senary w-[80%]">Far far away, behind
-                                        the word
-                                        mountains, far from the countries
-                                        Vokalia.</p>
-                                </div>
-
-                            </div>
-                        </div>
-
-                        <div className="flex flex-col items-start justify-center p-5">
-                            <h2 className="font-poppins text-topictwo text-secondary">About Us</h2>
-                            <h1 className="font-Milonga text-topic text-quinary">Unwind A Hotel<br/>Booking System</h1>
-
-                            <p className="font-poppins text-normal text-senary w-96 mt-10 leading-7">
-                                Far far away, behind the word mountains, far from the countries
-                                Vokalia and Consonantia, there live the blind texts. Separated
-                                theylive in Bookmarksgrove right at the coast of the Semantics, a
-                                large language ocean.
-                            </p>
-
-                            <button
-                                className="bg-tertiary hover:bg-secondary text-smaller text-white py-4 px-6 rounded mt-10">
-                                BOOK YOUR ROOM NOW
-                            </button>
-                        </div>
-                    </div>
-                </div>
-
-                <div className="flex items-center justify-center mt-[60px] mb-[120px] mx-auto">
-                    <div className="grid grid-cols-1 p-5">
-
-                        <div>
-                            <div className="flex bg-secondary flex-col justify-center items-center">
-                                <img className="max-h-[240px] drop-shadow-lg object-cover rounded-t-lg" src={Restaurant} alt=""/>
-
-                                <div
-                                    className="flex flex-col text-center justify-center items-center gap-2 bg-white shadow-lg">
-                                    <img className="w-16" src={pillow} alt=""/>
-                                    <h1 className="font-Milonga text-topictwo text-quinary">Cozy Room</h1>
-                                    <p className="font-poppins text-smaller text-senary w-[80%]">Far far away, behind
-                                        the word
-                                        mountains, far from the countries
-                                        Vokalia.</p>
+                                    <div className="flex flex-col text-center justify-center items-center md:min-h-[240px] p-6 gap-2 bg-white shadow-lg sm:rounded-lg">
+                                        <img className="w-16" src={pillow} alt=""/>
+                                        <h1 className="font-Milonga text-topictwo text-quinary">Elegant Room</h1>
+                                        <p className="font-poppins text-smaller text-senary w-[80%]">Far far away,
+                                            behind
+                                            the word
+                                            mountains, far from the countries
+                                            Vokalia.</p>
+                                    </div>
                                 </div>
                             </div>
-                        </div>
 
-                        <div>
-                        <div className="flex bg-secondary flex-col justify-center items-center">
-                                <img className="max-h-[240px] drop-shadow-lg object-cover" src={HotelRoom} alt=""/>
+                            <div className="sm:max-w-[320px] md:max-w-[240px]">
+                                <div className="flex flex-col justify-center items-center sm:gap-5">
+                                    <img className="min-h-[150px] xs:h-[250px] w-full lmd:max-w-[479px] object-cover sm:order-2 sm:h-[160px] sm:rounded-none sm:p-2" src={HotelRoom} alt=""/>
 
-                                <div
-                                    className="flex flex-col text-center justify-center items-center gap-2 bg-white shadow-lg rounded-b-lg">
+                                    <div className="flex flex-col text-center justify-center items-center md:min-h-[240px] p-6 gap-2 bg-white shadow-lg rounded-b-lg sm:rounded-lg">
 
-                                    <img className="w-16" src={Offers} alt=""/>
-                                    <h1 className="font-Milonga text-topictwo text-quinary">Special Offers</h1>
-                                    <p className="font-poppins text-smaller text-senary w-[80%]">Far far away, behind
-                                        the word
-                                        mountains, far from the countries
-                                        Vokalia.</p>
+                                        <img className="w-16" src={Offers} alt=""/>
+                                        <h1 className="font-Milonga text-topictwo text-quinary">Special Offers</h1>
+                                        <p className="font-poppins text-smaller text-senary w-[80%]">Far far away,
+                                            behind
+                                            the word
+                                            mountains, far from the countries
+                                            Vokalia.</p>
+                                    </div>
                                 </div>
                             </div>
+
                         </div>
 
-                    </div>
-
-                    <div className="hidden grid grid-cols-1 gap-2 p-5">
-
-                        <div>
-                            <div className="flex bg-secondary flex-col items-start justify-center p-5">
+                        <div className="flex justify-center w-full">
+                            <div className="flex flex-col items-start justify-center gap-5 md:gap-0 p-5">
                                 <h2 className="font-poppins text-topictwo text-secondary">About Us</h2>
-                                <h1 className="font-Milonga text-topic text-quinary">Unwind A Hotel<br/>Booking System
+                                <h1 className="font-Milonga text-subtopic md:text-topic text-quinary mt-[-20px] md:mt-0">Unwind
+                                    A Hotel <br
+                                        className="hidden  md:block"/>Booking System
                                 </h1>
 
-                                <p className="font-poppins text-normal text-senary w-96 mt-10 leading-7">
-                                Far far away, behind the word mountains, far from the countries
-                                    Vokalia and Consonantia, there live the blind texts. Separated
-                                    theylive in Bookmarksgrove right at the coast of the Semantics, a
+                                <p className="font-poppins text-smaller text-senary leading-7 md:mt-10">
+                                    Far far away, behind the word mountains, far from the countries
+                                    Vokalia and<br
+                                    className="hidden xl:block"/> Consonantia, there live the blind texts. Separated
+                                    theylive in Bookmarksgrove right at <br className="hidden xl:block"/> the coast of
+                                    the Semantics, a
                                     large language ocean.
                                 </p>
 
                                 <button
-                                    className="bg-tertiary hover:bg-secondary text-smaller text-white py-4 px-6 rounded mt-10">
+                                    className="bg-tertiary hover:bg-secondary text-smaller text-white py-4 px-6 rounded md:mt-10">
                                     BOOK YOUR ROOM NOW
                                 </button>
                             </div>
                         </div>
-
                     </div>
                 </div>
 
