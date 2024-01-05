@@ -187,7 +187,7 @@ export class Home extends Component {
                                 <div className="flex flex-col justify-center items-center sm:gap-5">
                                     <img className="min-h-[150px] xs:h-[250px] w-full lmd:max-w-[479px] object-cover rounded-t-lg sm:h-[160px] sm:rounded-none sm:p-2" src={Restaurant} alt=""/>
 
-                                    <div className="flex flex-col text-center justify-center items-center md:min-h-[240px] p-6 gap-2 bg-white shadow-lg sm:rounded-lg">
+                                    <div className="flex secdivitem hover:bg-[#1E1E1E] transition-all duration-300 ease-linear flex-col text-center justify-center items-center md:min-h-[240px] p-6 gap-2 bg-white shadow-lg sm:rounded-lg">
                                         <img className="w-16" src={pillow} alt=""/>
                                         <h1 className="font-Milonga text-topictwo text-quinary">Elegant Room</h1>
                                         <p className="font-poppins text-smaller text-senary w-[80%]">Far far away,
@@ -203,7 +203,7 @@ export class Home extends Component {
                                 <div className="flex flex-col justify-center items-center sm:gap-5">
                                     <img className="min-h-[150px] xs:h-[250px] w-full lmd:max-w-[479px] object-cover sm:order-2 sm:h-[160px] sm:rounded-none sm:p-2" src={HotelRoom} alt=""/>
 
-                                    <div className="flex flex-col text-center justify-center items-center md:min-h-[240px] p-6 gap-2 bg-white shadow-lg rounded-b-lg sm:rounded-lg">
+                                    <div className="flex secdivitem hover:bg-[#1E1E1E] transition-all duration-300 ease-linear flex-col text-center justify-center items-center md:min-h-[240px] p-6 gap-2 bg-white shadow-lg rounded-b-lg sm:rounded-lg">
 
                                         <img className="w-16" src={Offers} alt=""/>
                                         <h1 className="font-Milonga text-topictwo text-quinary">Special Offers</h1>
@@ -236,7 +236,7 @@ export class Home extends Component {
                                 </p>
 
                                 <button
-                                    className="bg-tertiary hover:bg-secondary text-smaller text-white py-4 px-6 rounded md:mt-10">
+                                    className="bg-tertiary transition-all hover:bg-secondary text-smaller text-white py-4 px-6 rounded md:mt-10">
                                     BOOK YOUR ROOM NOW
                                 </button>
                             </div>
@@ -256,9 +256,9 @@ export class Home extends Component {
                     <div className="grid grid-cols-1 lmd:grid-cols-2 md:grid-cols-4 gap-2 lg:gap-5 p-5 text-center">
 
                         <div
-                            className="bg-white rounded-lg md:bg-transparent flex flex-col justify-center items-center min-w-[150px] min-h-[150px] md:max-w-[220px] max-h-[220px] font-poppins p-2">
+                            className="bg-white thirddivitem rounded-lg md:bg-transparent flex flex-col justify-center items-center min-w-[150px] min-h-[150px] md:max-w-[220px] max-h-[220px] font-poppins p-2">
                             <div className="flex justify-center items-center border-2 border-gray-200 hover:shadow-sm rounded-[100px] h-[100px] w-[100px] p-0 lmd:p-5">
-                                <img className="w-16 object-cover" src={BookingIcon} alt=""/>
+                                <img className="w-16 object-cover transition-all" src={BookingIcon} alt=""/>
                             </div>
                             <h1 className="text-senary text-loginpagetopic md:text-topictwo mt-3">Easy Booking</h1>
                             <p className="text-octonary text-smaller md:text-normal w-[80%] md:w-[95%]">
@@ -269,9 +269,9 @@ export class Home extends Component {
                         </div>
 
                         <div
-                            className="bg-white rounded-lg md:bg-transparent flex flex-col justify-center items-center min-w-[150px] min-h-[150px] md:max-w-[220px] max-h-[220px] font-poppins p-2">
+                            className="bg-white thirddivitem rounded-lg md:bg-transparent flex flex-col justify-center items-center min-w-[150px] min-h-[150px] md:max-w-[220px] max-h-[220px] font-poppins p-2">
                             <div className="flex justify-center items-center border-2 border-gray-200 hover:shadow-sm rounded-[100px] h-[100px] w-[100px] p-0 lmd:p-5">
-                                <img className="w-16 object-cover" src={RestaurantIcon} alt=""/>
+                                <img className="w-16 object-cover transition-all" src={RestaurantIcon} alt=""/>
                             </div>
                             <h1 className="text-senary text-loginpagetopic md:text-topictwo mt-3">Restaurant</h1>
                             <p className="text-octonary text-smaller md:text-normal w-[80%] md:w-[95%]">
@@ -282,9 +282,9 @@ export class Home extends Component {
                         </div>
 
                         <div
-                            className="bg-white rounded-lg md:bg-transparent flex flex-col justify-center items-center min-w-[150px] min-h-[150px] md:max-w-[220px] max-h-[220px] font-poppins p-2">
+                            className="bg-white thirddivitem rounded-lg md:bg-transparent flex flex-col justify-center items-center min-w-[150px] min-h-[150px] md:max-w-[220px] max-h-[220px] font-poppins p-2">
                             <div className="flex justify-center items-center border-2 border-gray-200 hover:shadow-sm rounded-[100px] h-[100px] w-[100px] p-0 lmd:p-5">
-                                <img className="w-16 object-cover" src={PoolIcon} alt=""/>
+                                <img className="w-16 object-cover transition-all" src={PoolIcon} alt=""/>
                             </div>
                             <h1 className="text-senary text-loginpagetopic md:text-topictwo mt-3">Swimming Pool</h1>
                             <p className="text-octonary text-smaller md:text-normal w-[80%] md:w-[95%]">
@@ -295,9 +295,9 @@ export class Home extends Component {
                         </div>
 
                         <div
-                            className="bg-white rounded-lg md:bg-transparent flex flex-col justify-center items-center min-w-[150px] min-h-[150px] md:max-w-[220px] max-h-[220px] font-poppins p-2">
+                            className="bg-white thirddivitem rounded-lg md:bg-transparent flex flex-col justify-center items-center min-w-[150px] min-h-[150px] md:max-w-[220px] max-h-[220px] font-poppins p-2">
                             <div className="flex justify-center items-center border-2 border-gray-200 hover:shadow-sm rounded-[100px] h-[100px] w-[100px] p-0 lmd:p-5">
-                                <img className="w-16 object-cover" src={HelpSupportIcon} alt=""/>
+                                <img className="w-16 object-cover transition-all" src={HelpSupportIcon} alt=""/>
                             </div>
                             <h1 className="text-senary text-loginpagetopic md:text-topictwo mt-3">Help & Support</h1>
                             <p className="text-octonary text-smaller md:text-normal w-[80%] md:w-[95%]">
@@ -311,7 +311,7 @@ export class Home extends Component {
                 </div>
 
                 {/*fourth div*/}
-                <div className="flex items-center justify-center mx-auto pt-32 pb-32 md:pt-20 md:pb-20" style={{
+                <div className="flex items-center justify-center mx-auto pt-32 pb-32 md:pt-20 md:pb-20 mb-[60px] md:mb-[120px]" style={{
                     background: `url(${FourthDivBGImg})`,
                     backgroundSize: 'cover',
                     backgroundPosition: 'center',
@@ -420,37 +420,38 @@ export class Home extends Component {
                 </div>
 
                 {/*sixth div*/}
-                <div className="hidden flex justify-center items-center p-16 mt-[120px] mb-[120px]" style={{
+                <div className="flex items-center justify-center mx-auto mb-[60px] md:mb-[120px] pt-16 pb-16" style={{
                     background: `url(${SixthDivBGImg})`,
                     backgroundSize: 'cover',
                     backgroundPosition: 'center'
                 }}>
-                    <div className="flex flex-wrap items-center justify-center text-white font-poppins gap-20 p-5">
+                    <div className="grid grid-cols-1 lmd:grid-cols-2 md:grid-cols-4 p-5 gap-2 md:gap-5 xl:gap-16 text-white">
                         <div
-                            className="flex flex-col justify-center items-center backdrop-blur-sm shadow-xl rounded-xl hover:shadow-lg p-5 w-[150px]">
+                            className="flex flex-col justify-center items-center backdrop-blur-sm shadow-xl rounded-xl hover:shadow-lg p-5 max-h-48 w-[80vw] lmd:w-[40vw] max-w-[300px] md:max-w-[150px] min-w-[100px]">
                             <h1 className="text-subtopic">28,550+</h1>
                             <h4 className="text-smaller text-nonary">Happy Guests</h4>
                         </div>
 
                         <div
-                            className="flex flex-col justify-center items-center backdrop-blur-sm shadow-xl rounded-xl hover:shadow-lg p-5 w-[150px]">
+                            className="flex flex-col justify-center items-center backdrop-blur-sm shadow-xl rounded-xl hover:shadow-lg p-5 max-h-48 w-[80vw] lmd:w-[40vw] max-w-[300px] md:max-w-[150px] min-w-[100px]">
                             <h1 className="text-subtopic">250+</h1>
                             <h4 className="text-smaller text-nonary">Happy Guests</h4>
                         </div>
 
                         <div
-                            className="flex flex-col justify-center items-center backdrop-blur-sm shadow-xl rounded-xl hover:shadow-lg p-5 w-[150px]">
+                            className="flex flex-col justify-center items-center backdrop-blur-sm shadow-xl rounded-xl hover:shadow-lg p-5 max-h-48 w-[80vw] lmd:w-[40vw] max-w-[300px] md:max-w-[150px] min-w-[100px]">
                             <h1 className="text-subtopic">600+</h1>
                             <h4 className="text-smaller text-nonary">Staffs</h4>
                         </div>
 
                         <div
-                            className="flex flex-col justify-center items-center backdrop-blur-sm shadow-xl rounded-xl hover:shadow-lg p-5 w-[150px]">
+                            className="flex flex-col justify-center items-center backdrop-blur-sm shadow-xl rounded-xl hover:shadow-lg p-5 max-h-48 w-[80vw] lmd:w-[40vw] max-w-[300px] md:max-w-[150px] min-w-[100px]">
                             <h1 className="text-subtopic">345+</h1>
                             <h4 className="text-smaller text-nonary">Destination</h4>
                         </div>
                     </div>
                 </div>
+
 
                 {/*seventh div*/}
                 <div className="hidden flex justify-center items-center mb-[120px]">

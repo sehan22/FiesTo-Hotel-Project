@@ -64,3 +64,15 @@ html {
     background-color: #F8F8F8;
     border-radius: 6px;
 }
+
+.secdivitem:hover > p {
+    color: #C1C1C1;
+}
+
+.secdivitem:hover > h1 {
+    color: #F8F8F8;
+}
+
+.thirddivitem:hover > div {
+    transform: scale(1.1);
+}
