@@ -166,11 +166,11 @@ export class Home extends Component {
                         <div className="col-span-2 lg:col-span-1">
                             <div className="flex flex-wrap h-full lmd:flex-nowrap md:flex-wrap gap-2">
                                 <button
-                                    className="hidden lmd:block bg-white w-full border-2 border-nonary hover:border-neutral-200 text-senary py-1 px-4 rounded">
+                                    className="hidden lmd:block transition-all bg-white w-full border-2 border-nonary hover:border-neutral-200 text-senary py-1 px-4 rounded">
                                     Clear
                                 </button>
 
-                                <button className="bg-secondary w-full hover:bg-teal-600 text-white py-2 px-4 rounded">
+                                <button className="bg-secondary transition-all w-full hover:bg-teal-600 text-white py-2 px-4 rounded">
                                     Search
                                 </button>
                             </div>
@@ -311,25 +311,27 @@ export class Home extends Component {
                 </div>
 
                 {/*fourth div*/}
-                <div className="flex justify-center items-center p-16 mb-[120px] " style={{
+                <div className="flex items-center justify-center mx-auto pt-32 pb-32 md:pt-20 md:pb-20" style={{
                     background: `url(${FourthDivBGImg})`,
                     backgroundSize: 'cover',
                     backgroundPosition: 'center',
                 }}>
-                    <div className="flex flex-wrap justify-center items-center gap-10 text-white p-5">
+                    <div className="grid grid-cols-1 sm:grid-cols-2 p-5 sm:p-16 gap-5">
+
                         <div className="flex flex-col justify-center items-start">
-                            <h2 className="font-poppins text-topictwo">FIND BEST HOTEL FOR LEAVING</h2>
-                            <h1 className="font-Milonga text-topic w-[500px]">Find the Best Hotel in Your
+                            <h2 className="font-poppins md:text-topictwo text-nonary">FIND BEST HOTEL FOR LEAVING</h2>
+                            <h1 className="font-Milonga text-subtopic md:text-topic text-white max-w-[360px] sm:min-w-[320px] md:min-w-[400px] lg:min-w-[500px]">Find the Best Hotel in Your
                                 Next Vacation
                             </h1>
                         </div>
 
-                        <div className="flex justify-center items-center">
+                        <div className="flex justify-start items-center sm:justify-end">
                             <button
-                                className="bg-secondary hover:bg-teal-600 py-4 px-6 text-smaller rounded animate-bounce">
+                                className="bg-secondary hover:bg-teal-600 py-4 px-6 text-smaller rounded text-white animate-pulse transition-all hover:animate-none">
                                 BOOK NOW
                             </button>
                         </div>
+
                     </div>
                 </div>
 
