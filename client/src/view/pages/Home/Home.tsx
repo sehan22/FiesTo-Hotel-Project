@@ -352,7 +352,7 @@ export class Home extends Component {
                 </div>
 
                 {/*fifth div - grid - responsive*/}
-                <div className="flex items-center justify-center mt-[120px]">
+                <div className="flex items-center justify-center mb-[60px] md:mb-[120px]">
                     <div className="flex flex-col gap-10 justify-center items-center">
                         <div className="flex flex-col justify-center items-center p-5">
                             <h2 className="font-poppins text-secondary text-topictwo">OUR ROOMS</h2>
@@ -361,7 +361,7 @@ export class Home extends Component {
 
                         <div className="flex flex-wrap justify-center items-center p-5 gap-5">
                             <div
-                                className="bg-white flex flex-col justify-between items-center rounded-lg shadow-xl w-[320px] h-[430px] hover:bg-primary">
+                                className="fifthdivitem bg-white flex flex-col justify-between items-center rounded-lg shadow-xl w-[320px] h-[430px] transition-all duration-300 ease-linear hover:bg-[#1E1E1E]">
                                 <img className="rounded-sm w-[100%]" src={SuiteRoomImg} alt=""/>
 
                                 <div className="h-full flex items-center justify-center">
@@ -385,7 +385,7 @@ export class Home extends Component {
                             </div>
 
                             <div
-                                className="bg-white flex flex-col justify-between items-center rounded-lg shadow-xl w-[320px] h-[430px] hover:bg-primary">
+                                className="fifthdivitem bg-white flex flex-col justify-between items-center rounded-lg shadow-xl w-[320px] h-[430px] transition-all duration-300 ease-linear hover:bg-[#1E1E1E]">
                                 <div className="h-full flex items-center justify-center">
                                     <div className="flex flex-col items-center justify-center text-center gap-5">
                                         <h1 className="font-Milonga text-quinary text-subtopic">Family Room</h1>
@@ -409,7 +409,7 @@ export class Home extends Component {
                             </div>
 
                             <div
-                                className="bg-white flex flex-col justify-between items-center rounded-lg shadow-xl w-[320px] h-[430px] hover:bg-primary">
+                                className="fifthdivitem bg-white flex flex-col justify-between items-center rounded-lg shadow-xl w-[320px] h-[430px] transition-all duration-300 ease-linear hover:bg-[#1E1E1E]">
                                 <img className="rounded-sm w-[100%]" src={DeluxeRoomImg} alt=""/>
 
                                 <div className="h-full flex items-center justify-center">

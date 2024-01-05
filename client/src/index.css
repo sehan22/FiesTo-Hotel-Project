@@ -76,3 +76,11 @@ html {
 .thirddivitem:hover > div {
     transform: scale(1.1);
 }
+
+.fifthdivitem:hover > div > div > h1 {
+    color: #F8F8F8;
+}
+
+.fifthdivitem:hover > div > div > p {
+    color: #C1C1C1;
+}
