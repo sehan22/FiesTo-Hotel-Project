@@ -435,6 +435,15 @@ export class Home extends Component {
                     </div>
                 </div>
 
+
+                <div className="flex items-center justify-center mx-auto">
+
+                    <div></div>
+
+                    <div></div>
+                </div>
+
+
                 {/*sixth div*/}
                 <div className="flex items-center justify-center mx-auto mb-[60px] md:mb-[120px] pt-16 pb-16"
                      style={{
