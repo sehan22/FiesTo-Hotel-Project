@@ -438,9 +438,18 @@ export class Home extends Component {
 
                 <div className="flex items-center justify-center mx-auto">
 
+                    {/*topic & description*/}
                     <div></div>
 
-                    <div></div>
+                    {/*grid*/}
+                    <div className="grid grid-cols-1 gap-2 p-5">
+
+                        {/*gris items room card*/}
+                        <div></div>
+                        <div></div>
+                        <div></div>
+
+                    </div>
                 </div>
 
 
