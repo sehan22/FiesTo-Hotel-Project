@@ -351,104 +351,87 @@ export class Home extends Component {
                     </div>
                 </div>
 
-                {/*fifth div - grid - responsive*/}
-                <div className="flex items-center justify-center mb-[60px] md:mb-[120px]">
-                    <div className="flex flex-col gap-10 justify-center items-center">
-                        <div className="flex flex-col justify-center items-center p-5">
-                            <h2 className="font-poppins text-secondary text-topictwo">OUR ROOMS</h2>
-                            <h1 className="font-Milonga text-quinary text-topic">Featured Rooms</h1>
-                        </div>
 
-                        <div className="flex flex-wrap justify-center items-center p-5 gap-5">
-                            <div
-                                className="fifthdivitem bg-white flex flex-col justify-between items-center rounded-lg shadow-xl w-[320px] h-[430px] transition-all duration-300 ease-linear hover:bg-[#1E1E1E]">
-                                <img className="rounded-sm w-[100%]" src={SuiteRoomImg} alt=""/>
-
-                                <div className="h-full flex items-center justify-center">
-                                    <div className="flex flex-col items-center justify-center text-center gap-5">
-                                        <h1 className="font-Milonga text-quinary text-subtopic">Suite Room</h1>
-                                        <p className="font-poppins text-senary text-smaller w-[85%]">
-                                            Far far away, behind the word mountains, far
-                                            from the countries Vokalia and Consonantia,
-                                            there live the blind texts.
-                                        </p>
-
-                                        <div className="flex justify-center items-center font-poppins gap-5">
-                                            <h6 className="text-secondary text-normal">$450./NIGHT</h6>
-                                            <button
-                                                className="bg-secondary text-white text-smaller hover:bg-teal-600 py-2 px-4 rounded">
-                                                BOOK NOW
-                                            </button>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-
-                            <div
-                                className="fifthdivitem bg-white flex flex-col justify-between items-center rounded-lg shadow-xl w-[320px] h-[430px] transition-all duration-300 ease-linear hover:bg-[#1E1E1E]">
-                                <div className="h-full flex items-center justify-center">
-                                    <div className="flex flex-col items-center justify-center text-center gap-5">
-                                        <h1 className="font-Milonga text-quinary text-subtopic">Family Room</h1>
-                                        <p className="font-poppins text-senary text-smaller w-[85%]">
-                                            Far far away, behind the word mountains, far
-                                            from the countries Vokalia and Consonantia,
-                                            there live the blind texts.
-                                        </p>
-
-                                        <div className="flex justify-center items-center font-poppins gap-5">
-                                            <h6 className="text-secondary text-normal">$450./NIGHT</h6>
-                                            <button
-                                                className="bg-secondary text-white text-smaller hover:bg-teal-600 py-2 px-4 rounded">
-                                                BOOK NOW
-                                            </button>
-                                        </div>
-                                    </div>
-                                </div>
-
-                                <img className="rounded-sm w-[100%] shadow-xl" src={FamilyRoomImg} alt=""/>
-                            </div>
-
-                            <div
-                                className="fifthdivitem bg-white flex flex-col justify-between items-center rounded-lg shadow-xl w-[320px] h-[430px] transition-all duration-300 ease-linear hover:bg-[#1E1E1E]">
-                                <img className="rounded-sm w-[100%]" src={DeluxeRoomImg} alt=""/>
-
-                                <div className="h-full flex items-center justify-center">
-                                    <div className="flex flex-col items-center justify-center text-center gap-5">
-                                        <h1 className="font-Milonga text-quinary text-subtopic">Deluxe Room</h1>
-                                        <p className="font-poppins text-senary text-smaller w-[85%]">
-                                            Far far away, behind the word mountains, far
-                                            from the countries Vokalia and Consonantia,
-                                            there live the blind texts.
-                                        </p>
-
-                                        <div className="flex justify-center items-center font-poppins gap-5">
-                                            <h6 className="text-secondary text-normal">$450./NIGHT</h6>
-                                            <button
-                                                className="bg-secondary text-white text-smaller hover:bg-teal-600 py-2 px-4 rounded">
-                                                BOOK NOW
-                                            </button>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
+                {/*fifth div*/}
+                <div className="flex flex-col items-center justify-center mx-auto mb-[60px] md:mb-[120px]">
+                    <div className="text-center">
+                        <h2 className="font-poppins text-secondary text-topictwo">OUR ROOMS</h2>
+                        <h1 className="font-Milonga text-quinary text-subtopic md:text-topic">Featured Rooms</h1>
                     </div>
-                </div>
-
-
-                <div className="flex items-center justify-center mx-auto">
-
-                    {/*topic & description*/}
-                    <div></div>
-
-                    {/*grid*/}
-                    <div className="grid grid-cols-1 gap-2 p-5">
+                    <div className="grid grid-cols-1 md:grid-cols-3 gap-5 p-5">
 
                         {/*gris items room card*/}
-                        <div></div>
-                        <div></div>
-                        <div></div>
+                        <div
+                            className="fifthdivitem bg-white flex flex-col justify-between items-center rounded-lg shadow-xl min-w-[150px] md:max-w-[320px] transition-all duration-300 ease-linear hover:bg-[#1E1E1E]">
+                            <img className="rounded-sm w-[100%]" src={SuiteRoomImg} alt=""/>
 
+                            <div className="h-full py-5 flex items-center justify-center">
+                                <div className="flex flex-col items-center justify-center text-center gap-5">
+                                    <h1 className="font-Milonga text-quinary text-subtopic">Suite Room</h1>
+                                    <p className="font-poppins text-senary text-smaller w-[85%]">
+                                        Far far away, behind the word mountains, far
+                                        from the countries Vokalia and Consonantia,
+                                        there live the blind texts.
+                                    </p>
+
+                                    <div className="flex justify-center items-center font-poppins gap-5">
+                                        <h6 className="text-secondary text-normal">$450./NIGHT</h6>
+                                        <button
+                                            className="bg-secondary text-white text-smaller hover:bg-teal-600 py-2 px-4 rounded">
+                                            BOOK NOW
+                                        </button>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div
+                            className="fifthdivitem bg-white flex flex-col justify-between items-center rounded-lg shadow-xl min-w-[150px] md:max-w-[320px] transition-all duration-300 ease-linear hover:bg-[#1E1E1E]">
+                            <img className="rounded-sm w-[100%] shadow-xl" src={FamilyRoomImg} alt=""/>
+
+                            <div className="h-full py-5 flex items-center justify-center">
+                                <div className="flex flex-col items-center justify-center text-center gap-5">
+                                    <h1 className="font-Milonga text-quinary text-subtopic">Family Room</h1>
+                                    <p className="font-poppins text-senary text-smaller w-[85%]">
+                                        Far far away, behind the word mountains, far
+                                        from the countries Vokalia and Consonantia,
+                                        there live the blind texts.
+                                    </p>
+
+                                    <div className="flex justify-center items-center font-poppins gap-5">
+                                        <h6 className="text-secondary text-normal">$450./NIGHT</h6>
+                                        <button
+                                            className="bg-secondary text-white text-smaller hover:bg-teal-600 py-2 px-4 rounded">
+                                            BOOK NOW
+                                        </button>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div
+                            className="fifthdivitem bg-white flex flex-col justify-between items-center rounded-lg shadow-xl min-w-[150px] md:max-w-[320px] transition-all duration-300 ease-linear hover:bg-[#1E1E1E]">
+                            <img className="rounded-sm w-[100%]" src={DeluxeRoomImg} alt=""/>
+
+                            <div className="h-full py-5 flex items-center justify-center">
+                                <div className="flex flex-col items-center justify-center text-center gap-5">
+                                    <h1 className="font-Milonga text-quinary text-subtopic">Deluxe Room</h1>
+                                    <p className="font-poppins text-senary text-smaller w-[85%]">
+                                        Far far away, behind the word mountains, far
+                                        from the countries Vokalia and Consonantia,
+                                        there live the blind texts.
+                                    </p>
+
+                                    <div className="flex justify-center items-center font-poppins gap-5">
+                                        <h6 className="text-secondary text-normal">$450./NIGHT</h6>
+                                        <button
+                                            className="bg-secondary text-white text-smaller hover:bg-teal-600 py-2 px-4 rounded">
+                                            BOOK NOW
+                                        </button>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
                     </div>
                 </div>
 
