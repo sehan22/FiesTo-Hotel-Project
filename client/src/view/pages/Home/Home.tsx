@@ -387,7 +387,7 @@ export class Home extends Component {
 
                         <div
                             className="fifthdivitem bg-white flex flex-col justify-between items-center rounded-lg shadow-xl min-w-[150px] md:max-w-[320px] transition-all duration-300 ease-linear hover:bg-[#1E1E1E]">
-                            <img className="rounded-sm w-[100%] shadow-xl" src={FamilyRoomImg} alt=""/>
+                            <img className="rounded-sm w-[100%] shadow-xl md:order-3" src={FamilyRoomImg} alt=""/>
 
                             <div className="h-full py-5 flex items-center justify-center">
                                 <div className="flex flex-col items-center justify-center text-center gap-5">
