@@ -35,7 +35,7 @@ export class Restaurant extends Component {
                 </div>
 
                 {/*second div*/}
-                <div className="hidden flex justify-center items-center mx-auto mt-[60px] mb-[60px]">
+                <div className="flex justify-center items-center mx-auto mt-[60px] mb-[60px]">
                     <div className="grid grid-cols-1 md:grid-cols-2 gap-0 md:gap-5 p-5">
                         <div className="flex flex-col justify-center items-start p-5">
                             <h1 className="font-Milonga text-topic text-quinary">Most Popular Dishes</h1>
@@ -61,8 +61,12 @@ export class Restaurant extends Component {
                 </div>
 
                 {/*third div*/}
-                <div className="flex justify-center items-center mx-auto mt-[60px] mb-[60px] bg-white">
-                    <div className="grid grid-cols-1 sm:grid-cols-2 lg:gap-[200px] p-5 font-poppins">
+                <div className="flex justify-around items-center mx-auto mt-[60px] mb-[60px] bg-white">
+                    <div>
+                        <h6 className="font-poppins text-top text-primary">Daily Dining Delights</h6>
+                    </div>
+
+                    <div className="grid grid-cols-1 lg:gap-[200px] p-5 font-poppins">
                         <div
                             className="col-span-2 md:col-span-1 flex gap-5 items-center text-normal text-quinary transition-all">
                             <h6 className="hover:text-secondary text-secondary cursor-pointer border-b-secondary border-b-2 hover:border-b-2 p-2 hover:border-b-secondary">Breakfast</h6>
@@ -71,13 +75,13 @@ export class Restaurant extends Component {
                             <h6 className="hover:text-secondary cursor-pointer border-b-transparent border-b-2 hover:border-b-2 p-2 hover:border-b-secondary">Fast-food</h6>
                             <h6 className="hover:text-secondary cursor-pointer border-b-transparent border-b-2 hover:border-b-2 p-2 hover:border-b-secondary">Beverages</h6>
 
-                            <div className="flex items-center justify-center bg-red-500">
+                            <div className="flex items-center justify-center text-secondary">
                                 <button type="button" id="mobileMenuButton"
-                                        className="relative inline-flex items-center justify-center rounded-md p-2 text-gray-400 hover:bg-gray-700 hover:text-white focus:outline-none focus:ring-2 focus:ring-inset focus:ring-white">
+                                        className="relative inline-flex items-center justify-center transition-all md:hidden rounded-md p-2 text-gray-400 hover:bg-gray-100 hover:text-white focus:outline-none focus:ring-2 focus:ring-inset focus:ring-white">
                                     <span className="absolute -inset-0.5"></span>
                                     <span className="sr-only">Open main menu</span>
 
-                                    <svg className="block h-6 w-6 text-white" fill="" viewBox="0 0 24 24" stroke-width="1.5"
+                                    <svg className="block h-6 w-6 text-primary" fill="" viewBox="0 0 24 24" stroke-width="1.5"
                                          stroke="currentColor" aria-hidden="true">
                                         <path stroke-linecap="round" stroke-linejoin="round"
                                               d="M3.75 6.75h16.5M3.75 12h16.5m-16.5 5.25h16.5"/>
@@ -89,37 +93,11 @@ export class Restaurant extends Component {
                                     </svg>
                                 </button></div>
                         </div>
-
-                        <div className="md:flex items-center flex justify-center md:justify-end">
-                            <form className="max-w-sm px-4 transition-all">
-                                <div className="relative">
-                                    <svg
-                                        xmlns="http://www.w3.org/2000/svg"
-                                        className="absolute top-0 bottom-0 w-6 h-6 my-auto text-gray-400 left-3"
-                                        fill="none"
-                                        viewBox="0 0 24 24"
-                                        stroke="currentColor"
-                                    >
-                                        <path
-                                            strokeLinecap="round"
-                                            strokeLinejoin="round"
-                                            strokeWidth={2}
-                                            d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z"
-                                        />
-                                    </svg>
-                                    <input
-                                        type="text"
-                                        placeholder="Search"
-                                        className="w-full py-3 pl-12 pr-4 text-quinary border rounded-full outline-none bg-gray-50 focus:bg-white focus:border-secondary"
-                                    />
-                                </div>
-                            </form>
-                        </div>
                     </div>
                 </div>
 
                 {/*fourth div*/}
-                <div className="hidden lex justify-center items-center mb-[120px] mx-auto">
+                <div className="flex justify-center items-center mb-[120px] mx-auto">
                     <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-5 p-5">
 
                         {/*card*/}

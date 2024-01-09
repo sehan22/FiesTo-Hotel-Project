@@ -92,7 +92,7 @@ export class Home extends Component {
                 {/*first div*/}
                 <div className="flex justify-center items-center mx-auto">
                     <div
-                        className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-5 gap-5 p-2 sm:p-5 lg:p-10 mt-16 sm:mt-[-100px] lg:mt-[-80px] transition-all sm:bg-white sm:rounded-xl sm:shadow-xl">
+                        className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-5 gap-5 p-2 bg-white lmd:p-5 sm:p-5 lg:p-10 mt-[-50px] sm:mt-[-100px] lg:mt-[-80px] transition-all sm:bg-white rounded-xl sm:rounded-xl shadow-lg sm:shadow-xl">
 
                         <div
                             className="col-span-2 lmd:col-span-1 max-w-[400px] lmd:max-w-[280px] sm:min-w-[250px] md:min-w-[200px] lg:min-w-[160px] lg:max-w-[180px] min-w-[140px] w-[90vw] lmd:w-[35vw] md:w-[25vw] lg:w-[12vw]">
@@ -188,7 +188,7 @@ export class Home extends Component {
                             <div className="sm:max-w-[320px] md:max-w-[240px]">
                                 <div className="flex flex-col justify-center items-center sm:gap-5">
                                     <img
-                                        className="min-h-[150px] xs:h-[250px] w-full lmd:max-w-[479px] object-cover rounded-t-lg sm:h-[160px] sm:rounded-none sm:p-2"
+                                        className="min-h-[150px] xs:h-[250px] w-full lmd:max-w-[479px] object-cover rounded-t-lg sm:h-[160px] sm:p-2 sm:rounded-lg"
                                         src={Restaurant} alt=""/>
 
                                     <div
@@ -207,7 +207,7 @@ export class Home extends Component {
                             <div className="sm:max-w-[320px] md:max-w-[240px]">
                                 <div className="flex flex-col justify-center items-center sm:gap-5">
                                     <img
-                                        className="min-h-[150px] xs:h-[250px] w-full lmd:max-w-[479px] object-cover sm:order-2 sm:h-[160px] sm:rounded-none sm:p-2"
+                                        className="min-h-[150px] xs:h-[250px] w-full lmd:max-w-[479px] object-cover sm:order-2 sm:h-[160px] sm:p-2 sm:rounded-lg"
                                         src={HotelRoom} alt=""/>
 
                                     <div
