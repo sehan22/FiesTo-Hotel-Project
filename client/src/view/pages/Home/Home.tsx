@@ -447,25 +447,25 @@ export class Home extends Component {
                         className="grid grid-cols-1 lmd:grid-cols-2 md:grid-cols-4 p-5 gap-2 md:gap-5 xl:gap-16 text-white">
                         <div
                             className="flex flex-col justify-center items-center backdrop-blur-sm shadow-xl rounded-xl hover:shadow-lg p-5 max-h-48 w-[80vw] lmd:w-[40vw] max-w-[300px] md:max-w-[150px] min-w-[100px]">
-                            <h1 className="text-subtopic">28,550+</h1>
+                            <h1 className="text-3xl font-bold">28,550+</h1>
                             <h4 className="text-smaller text-nonary">Happy Guests</h4>
                         </div>
 
                         <div
                             className="flex flex-col justify-center items-center backdrop-blur-sm shadow-xl rounded-xl hover:shadow-lg p-5 max-h-48 w-[80vw] lmd:w-[40vw] max-w-[300px] md:max-w-[150px] min-w-[100px]">
-                            <h1 className="text-subtopic">250+</h1>
+                            <h1 className="text-3xl font-bold">250+</h1>
                             <h4 className="text-smaller text-nonary">Happy Guests</h4>
                         </div>
 
                         <div
                             className="flex flex-col justify-center items-center backdrop-blur-sm shadow-xl rounded-xl hover:shadow-lg p-5 max-h-48 w-[80vw] lmd:w-[40vw] max-w-[300px] md:max-w-[150px] min-w-[100px]">
-                            <h1 className="text-subtopic">600+</h1>
+                            <h1 className="text-3xl font-bold">600+</h1>
                             <h4 className="text-smaller text-nonary">Staffs</h4>
                         </div>
 
                         <div
                             className="flex flex-col justify-center items-center backdrop-blur-sm shadow-xl rounded-xl hover:shadow-lg p-5 max-h-48 w-[80vw] lmd:w-[40vw] max-w-[300px] md:max-w-[150px] min-w-[100px]">
-                            <h1 className="text-subtopic">345+</h1>
+                            <h1 className="text-3xl font-bold">345+</h1>
                             <h4 className="text-smaller text-nonary">Destination</h4>
                         </div>
                     </div>

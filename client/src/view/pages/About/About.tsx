@@ -1,5 +1,5 @@
 import React, {Component} from 'react';
-import bannerBackgroundImg from "../../../images/AboutPage/bgimg.png";
+import bannerBackgroundImg from "../../../images/RoomsPage/bgimg.png";
 import FirstDivImg from "../../../images/AboutPage/firstdivimg1.png";
 
 export class About extends Component {
@@ -8,26 +8,18 @@ export class About extends Component {
             <>
                 {/*Banner*/}
                 <div
-                    className="flex flex-col items-center justify-center w-full h-[800px] rounded-b-3xl bg-cover bg-center"
+                    className="flex flex-col items-start justify-center lmd:items-center lmd:justify-center w-full h-screen md:max-h-[500px] md:rounded-b-3xl bg-cover bg-center"
                     style={{
                         backgroundImage: `url(${bannerBackgroundImg})`,
                         backgroundSize: 'cover',
                         backgroundPosition: 'center'
                     }}>
-                    <h1 className="font-Milonga text-bannertopic text-white">About Fiesto Hotel & Restaurant</h1>
-                    <div className="flex items-center justify-center gap-4 p-2 ">
-                        <div className="h-0.5 opacity-50 bg-septenary w-32"></div>
-                        <h6 className="font-poppins text-subtopic text-nonary">Join With Us</h6>
-                        <div className="h-0.5 opacity-50 bg-septenary w-32"></div>
+                    <h1 className="font-Milonga text-topic md:text-bannertopic text-white p-2">About Fiesto Hotel</h1>
+                    <div className="flex flex-col lmd:items-center lmd:justify-center gap-4 p-2 ">
+                        <div className="h-0.5 opacity-50 bg-septenary w-44"></div>
+                        <h6 className="font-poppins text-topictwo md:text-subtopic text-nonary">Join With Us</h6>
+                        <div className="hidden lmd:block h-0.5 opacity-50 bg-septenary w-32"></div>
                     </div>
-
-                    <a href="#dropDownIcon">
-                        <svg className="animate-bounce mt-10" xmlns="http://www.w3.org/2000/svg" height="25" width="22"
-                             viewBox="0 0 384 512">
-                            <path fill="#ffffff"
-                                  d="M169.4 470.6c12.5 12.5 32.8 12.5 45.3 0l160-160c12.5-12.5 12.5-32.8 0-45.3s-32.8-12.5-45.3 0L224 370.8 224 64c0-17.7-14.3-32-32-32s-32 14.3-32 32l0 306.7L54.6 265.4c-12.5-12.5-32.8-12.5-45.3 0s-12.5 32.8 0 45.3l160 160z"/>
-                        </svg>
-                    </a>
                 </div>
 
                 {/*first div*/}
@@ -42,7 +34,7 @@ export class About extends Component {
                         </h1>
 
                         <p className="font-poppins text-normal mt-10 text-senary w-[550px] leading-8">
-                        Welcome to Fiesto, where culinary excellence
+                            Welcome to Fiesto, where culinary excellence
                             meets unparalleled hospitality.
                             Nestled in the
                             heart of [City/Area], Fiesto Hotel & Restaurant
@@ -159,7 +151,8 @@ export class About extends Component {
                 </div>
 
                 {/*third div*/}
-                <div className="flex justify-center items-center mt-[120px] gap-2 mb-[120px] font-poppins text-quinary text-normal">
+                <div
+                    className="flex justify-center items-center mt-[120px] gap-2 mb-[120px] font-poppins text-quinary text-normal">
                     © 2023 Fiesto Hotel & Restaurant. All rights reserved.
                 </div>
             </>
