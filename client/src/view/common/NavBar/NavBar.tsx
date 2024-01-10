@@ -74,12 +74,14 @@ export class NavBar extends Component {
 
                         <hr className="rotate-90 opacity-50" style={{height: '10px', width: '20px',}}/>
 
-                        <div className="h-8 w-8 rounded-full bg-octonary" style={{
-                            background: `url(${SecondManImg})`,
-                            backgroundSize: 'cover',
-                            backgroundPosition: 'center'
-                        }}></div>
-                        <h6 className="hidden lg:block">Sehan</h6>
+                        <Link to="myAccount">
+                            <div className="h-8 w-8 rounded-full bg-octonary" style={{
+                                background: `url(${SecondManImg})`,
+                                backgroundSize: 'cover',
+                                backgroundPosition: 'center'
+                            }}></div>
+                            <h6 className="hidden lg:block">Sehan</h6>
+                        </Link>
                     </div>
 
                     <div className="md:hidden flex items-center justify-center">
