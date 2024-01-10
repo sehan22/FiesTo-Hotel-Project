@@ -171,7 +171,7 @@ export class Contact extends Component {
 
                 <div className="flex items-center justify-center mx-auto">
 
-                    <div className="grid grid-cols-1 sm:grid-cols-2 gap-5 lmd:w-full">
+                    <div className="grid grid-cols-1 sm:grid-cols-2 gap-5 lmd:w-full md:w-auto">
 
                         {/*Contact Info*/}
                         <div className="grid grid-cols-1 gap-2 p-5 bg-gray-400">
@@ -189,7 +189,7 @@ export class Contact extends Component {
                             </div>
 
                             <div
-                                className="flex items-center justify-start p-3 bg-white w-full max-w-[400px] lmd:min-w-full rounded-lg">
+                                className="flex items-center justify-start p-3 bg-white w-full max-w-[400px] lmd:min-w-full lmd:max-w-[330px] rounded-lg">
                                 <div className="flex justify-center items-center gap-2">
                                     <img className="w-[80px]" src={PhoneIcon} alt=""/>
 
@@ -206,7 +206,7 @@ export class Contact extends Component {
                             </div>
 
                             <div
-                                className="flex items-center justify-start p-3 bg-white w-full max-w-[400px] lmd:min-w-full rounded-lg">
+                                className="flex items-center justify-start p-3 bg-white w-full max-w-[400px] lmd:min-w-full lmd:max-w-[330px] rounded-lg">
                                 <div className="flex justify-center items-center gap-2">
                                     <img className="w-[80px]" src={LocationIcon} alt=""/>
 
@@ -223,7 +223,7 @@ export class Contact extends Component {
                             </div>
 
                             <div
-                                className="flex items-center justify-start p-3 bg-white w-full max-w-[400px] lmd:min-w-full rounded-lg">
+                                className="flex items-center justify-start p-3 bg-white w-full max-w-[400px] lmd:min-w-full lmd:max-w-[330px] rounded-lg">
                                 <div className="flex justify-center items-center gap-2">
                                     <img className="w-[80px]" src={WorkinghoursIcon} alt=""/>
 
@@ -240,7 +240,7 @@ export class Contact extends Component {
                             </div>
 
                             <div
-                                className="flex items-center justify-start p-3 bg-white w-full max-w-[400px] lmd:min-w-full rounded-lg">
+                                className="flex items-center justify-start p-3 bg-white w-full max-w-[400px] lmd:min-w-full lmd:max-w-[330px] rounded-lg">
                                 <div className="flex justify-center items-center gap-2">
                                     <img className="w-[80px]" src={EmailIcon} alt=""/>
 
@@ -260,7 +260,7 @@ export class Contact extends Component {
 
                         {/*Contact Form*/}
                         <form className="grid grid-cols-1 gap-5 p-5 bg-gray-400">
-                            <div className="mb-4 max-w-[500px] lmd:min-w-full">
+                            <div className="mb-4 max-w-[500px] lmd:min-w-full lg:w-[400px] xl:w-[500px]">
                                 <label htmlFor="myInput" className="block text-sm font-medium text-gray-600">
                                 </label>
                                 <input
@@ -271,7 +271,7 @@ export class Contact extends Component {
                                 />
                             </div>
 
-                            <div className="mb-4 max-w-[500px] lmd:min-w-full">
+                            <div className="mb-4 max-w-[500px] lmd:min-w-full lg:w-[400px] xl:w-[500px]">
                                 <label htmlFor="myInput" className="block text-sm font-medium text-gray-600">
                                 </label>
                                 <input
@@ -282,7 +282,7 @@ export class Contact extends Component {
                                 />
                             </div>
 
-                            <div className="mb-4 max-w-[500px] lmd:min-w-full">
+                            <div className="mb-4 max-w-[500px] lmd:min-w-full lg:w-[400px] xl:w-[500px]">
                                 <label htmlFor="myInput" className="block text-sm font-medium text-gray-600">
                                 </label>
                                 <input
@@ -293,7 +293,7 @@ export class Contact extends Component {
                                 />
                             </div>
 
-                            <div className="mb-4 max-w-[500px] lmd:min-w-full">
+                            <div className="mb-4 max-w-[500px] lmd:min-w-full lg:w-[400px] xl:w-[500px]">
                                 <label htmlFor="myInput" className="block text-sm font-medium text-gray-600">
                                 </label>
                                 <textarea
