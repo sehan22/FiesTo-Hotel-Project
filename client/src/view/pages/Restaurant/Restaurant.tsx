@@ -12,26 +12,18 @@ export class Restaurant extends Component {
             <>
                 {/*Banner*/}
                 <div
-                    className="flex flex-col items-center justify-center w-full h-[800px] rounded-b-3xl bg-cover bg-center"
+                    className="flex flex-col items-start justify-center lmd:items-center lmd:justify-center w-full h-screen md:max-h-[500px] md:rounded-b-3xl bg-cover bg-center"
                     style={{
                         backgroundImage: `url(${bannerBackgroundImg})`,
                         backgroundSize: 'cover',
                         backgroundPosition: 'center'
                     }}>
-                    <h1 className="font-Milonga text-bannertopic text-white">Restaurant & Bar</h1>
-                    <div className="flex items-center justify-center gap-4 p-2 ">
-                        <div className="h-0.5 opacity-50 bg-septenary w-32"></div>
-                        <h6 className="font-poppins text-subtopic text-nonary">Join With Us</h6>
-                        <div className="h-0.5 opacity-50 bg-septenary w-32"></div>
+                    <h1 className="font-Milonga text-topic md:text-bannertopic text-white p-2">Fiesto Restaurant</h1>
+                    <div className="flex flex-col lmd:items-center lmd:justify-center gap-4 p-2 ">
+                        <div className="h-0.5 opacity-50 bg-septenary w-44"></div>
+                        <h6 className="font-poppins text-topictwo md:text-subtopic text-nonary">Join With Us</h6>
+                        <div className="hidden lmd:block h-0.5 opacity-50 bg-septenary w-32"></div>
                     </div>
-
-                    <a href="#dropDownIcon">
-                        <svg className="animate-bounce mt-10" xmlns="http://www.w3.org/2000/svg" height="25" width="22"
-                             viewBox="0 0 384 512">
-                            <path fill="#ffffff"
-                                  d="M169.4 470.6c12.5 12.5 32.8 12.5 45.3 0l160-160c12.5-12.5 12.5-32.8 0-45.3s-32.8-12.5-45.3 0L224 370.8 224 64c0-17.7-14.3-32-32-32s-32 14.3-32 32l0 306.7L54.6 265.4c-12.5-12.5-32.8-12.5-45.3 0s-12.5 32.8 0 45.3l160 160z"/>
-                        </svg>
-                    </a>
                 </div>
 
                 {/*second div*/}
@@ -66,32 +58,29 @@ export class Restaurant extends Component {
                         <h6 className="font-poppins text-top text-primary">Daily Dining Delights</h6>
                     </div>
 
-                    <div className="grid grid-cols-1 lg:gap-[200px] p-5 font-poppins">
+                    <div className="grid grid-cols-1 p-5 font-poppins">
                         <div
-                            className="col-span-2 md:col-span-1 flex gap-5 items-center text-normal text-quinary transition-all">
+                            className="hidden md:flex col-span-2 md:col-span-1 gap-5 items-center text-normal text-quinary transition-all">
                             <h6 className="hover:text-secondary text-secondary cursor-pointer border-b-secondary border-b-2 hover:border-b-2 p-2 hover:border-b-secondary">Breakfast</h6>
                             <h6 className="hover:text-secondary cursor-pointer border-b-transparent border-b-2 hover:border-b-2 p-2 hover:border-b-secondary">Lunches</h6>
                             <h6 className="hover:text-secondary cursor-pointer border-b-transparent border-b-2 hover:border-b-2 p-2 hover:border-b-secondary">Dinner</h6>
                             <h6 className="hover:text-secondary cursor-pointer border-b-transparent border-b-2 hover:border-b-2 p-2 hover:border-b-secondary">Fast-food</h6>
                             <h6 className="hover:text-secondary cursor-pointer border-b-transparent border-b-2 hover:border-b-2 p-2 hover:border-b-secondary">Beverages</h6>
+                        </div>
 
-                            <div className="flex items-center justify-center text-secondary">
-                                <button type="button" id="mobileMenuButton"
-                                        className="relative inline-flex items-center justify-center transition-all md:hidden rounded-md p-2 text-gray-400 hover:bg-gray-100 hover:text-white focus:outline-none focus:ring-2 focus:ring-inset focus:ring-white">
-                                    <span className="absolute -inset-0.5"></span>
-                                    <span className="sr-only">Open main menu</span>
+                        <div className="md:hidden flex items-center justify-center text-secondary">
+                            <button type="button" id="mobileMenuButton"
+                                    className="relative inline-flex items-center justify-center transition-all rounded-md p-2 text-gray-400 hover:bg-gray-100 hover:text-white focus:outline-none focus:ring-2 focus:ring-inset focus:ring-white">
+                                <span className="absolute -inset-0.5"></span>
+                                <span className="sr-only">Open main menu</span>
 
-                                    <svg className="block h-6 w-6 text-primary" fill="" viewBox="0 0 24 24" stroke-width="1.5"
-                                         stroke="currentColor" aria-hidden="true">
-                                        <path stroke-linecap="round" stroke-linejoin="round"
-                                              d="M3.75 6.75h16.5M3.75 12h16.5m-16.5 5.25h16.5"/>
-                                    </svg>
-
-                                    <svg className="hidden h-6 w-6" fill="none" viewBox="0 0 24 24" stroke-width="1.5"
-                                         stroke="currentColor" aria-hidden="true">
-                                        <path stroke-linecap="round" stroke-linejoin="round" d="M6 18L18 6M6 6l12 12"/>
-                                    </svg>
-                                </button></div>
+                                <svg className="block h-6 w-6 text-primary" fill="" viewBox="0 0 24 24"
+                                     strokeWidth="1.5"
+                                     stroke="currentColor" aria-hidden="true">
+                                    <path strokeLinecap="round" strokeLinejoin="round"
+                                          d="M3.75 6.75h16.5M3.75 12h16.5m-16.5 5.25h16.5"/>
+                                </svg>
+                            </button>
                         </div>
                     </div>
                 </div>
@@ -494,7 +483,7 @@ export class Restaurant extends Component {
                 </div>
 
                 {/*fifth div*/}
-                <div className="flex flex-col w-[100%] items-center justify-center mb-[120px] mx-auto">
+                <div className="hidden flex flex-col w-[100%] items-center justify-center mb-[120px] mx-auto">
                     <img className="w-[70%] object-cover" src={FifthDivBgImg} alt=""/>
                 </div>
             </>
