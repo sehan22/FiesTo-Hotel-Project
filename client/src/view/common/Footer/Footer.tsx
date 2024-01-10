@@ -11,13 +11,13 @@ export class Footer extends Component {
         return (
             <>
                 <div
-                    className="flex justify-center items-center mx-auto bg-gradient-to-t from-black to-primary text-white">
+                    className="flex justify-center items-center mx-auto bg-gradient-to-t from-black to-primary text-white font-poppins">
 
                     <div className="grid grid-cols-1 lmd:grid-cols-2 lg:grid-cols-3 xl:grid-cols-5 gap-5 p-5 pt-20">
 
                         <div className="flex flex-col items-start justify-start p-5 gap-3 ">
                             <h1 className="text-secondary">Fiesto Hotel & Restaurant</h1>
-                            <p className="min-w-[50px] lmd:max-w-[220px] sm:max-w-[220px]">
+                            <p className="text-normal min-w-[50px] lmd:max-w-[220px] sm:max-w-[220px]">
                                 Lorem ipsum dolor sit amet, consectetur adipisicing elit. Alias incidunt
                                 natus nihil officia repudiandae.
                             </p>
