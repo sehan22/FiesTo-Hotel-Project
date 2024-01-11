@@ -27,7 +27,7 @@ export class Contact extends Component {
 
                 {/*first div*/}
                 <div
-                    className="flex items-center justify-center mx-auto transition-all mb-[60px] md:mb-[120px] mt-[60px] mt:mb-[120px]">
+                    className="flex items-center justify-center mx-auto transition-all mb-[60px] md:mb-[120px] mt-[60px] md:mt-[120px]">
 
                     <div className="grid grid-cols-1 sm:grid-cols-2 gap-2 md:gap-5 lg:gap-16 lmd:w-full md:w-auto">
 
@@ -163,7 +163,7 @@ export class Contact extends Component {
 
                             <div>
                                 <button
-                                    className="bg-secondary font-bold text-normal text-white hover:bg-teal-600 py-4 px-4 w-full rounded">
+                                    className="bg-secondary font-bold text-normal transition-all text-white hover:bg-teal-600 py-4 px-4 w-full rounded">
                                     SUBMIT
                                 </button>
                             </div>

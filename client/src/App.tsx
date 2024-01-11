@@ -4,6 +4,7 @@ import {BrowserRouter, Route, Routes} from "react-router-dom";
 import {DefaultLayout} from "./view/common/DefaultLayout/DefaultLayout";
 import {Login} from "./view/pages/Login/Login";
 import {SignUp} from "./view/pages/SignUp/SignUp";
+import MyAccount from "./view/pages/UserAccount/MyAccount";
 
 function App() {
     return (
