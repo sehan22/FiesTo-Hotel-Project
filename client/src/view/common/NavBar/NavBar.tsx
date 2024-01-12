@@ -34,8 +34,8 @@ export class NavBar extends Component {
         const {scrollPosition} = this.state;
 
         const navBarStyle = {
-            top: scrollPosition > 250 ? '0' : '',
-            backgroundColor: scrollPosition > 250 ? '#072227' : 'transparent', transition: '0.2s',
+            top: scrollPosition > 50 ? '0' : '',
+            backgroundColor: scrollPosition > 50 ? '#072227' : 'transparent', transition: '0.2s',
             borderBottomRightRadius: '5px',
             borderBottomLeftRadius: '5px'
         };
@@ -57,9 +57,9 @@ export class NavBar extends Component {
 
                     <div className="hidden md:flex justify-center items-center gap-2">
                         <button className="bg-secondary text-smaller hover:bg-teal-600 py-3 px-4 flex gap-2 rounded">
-                            <Link className="text-white text-normal hover:text-neutral-300" to="/login">Sign In</Link>
+                            <Link className="text-text-neutral-300 text-normal hover:text-black transition-all" to="/login">Sign In</Link>
                             <div className="h-fit w-0.5 bg-gray-300 text-gray-300">|</div>
-                            <Link className="text-white text-normal hover:text-neutral-300" to="/signup">Sign Up</Link>
+                            <Link className="text-text-neutral-300 text-normal hover:text-black transition-all" to="/signup">Sign Up</Link>
                         </button>
 
                         <hr className="rotate-90 opacity-50" style={{height: '10px', width: '20px',}}/>
@@ -75,12 +75,14 @@ export class NavBar extends Component {
                         <hr className="rotate-90 opacity-50" style={{height: '10px', width: '20px',}}/>
 
                         <Link to="myAccount">
-                            <div className="h-8 w-8 rounded-full bg-octonary" style={{
-                                background: `url(${SecondManImg})`,
-                                backgroundSize: 'cover',
-                                backgroundPosition: 'center'
-                            }}></div>
-                            <h6 className="hidden lg:block">Sehan</h6>
+                            <div className="flex items-center justify-center gap-2">
+                                <div className="h-8 w-8 rounded-full bg-octonary" style={{
+                                    background: `url(${SecondManImg})`,
+                                    backgroundSize: 'cover',
+                                    backgroundPosition: 'center'
+                                }}></div>
+                                <h6 className="hidden lg:block">Sehan</h6>
+                            </div>
                         </Link>
                     </div>
 
