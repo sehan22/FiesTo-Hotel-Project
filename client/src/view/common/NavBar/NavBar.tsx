@@ -25,7 +25,6 @@ export class NavBar extends Component {
 
     handleScroll() {
         this.setState({scrollPosition: window.scrollY});
-        console.log(window.scrollY)
     }
 
     render() {
@@ -37,7 +36,8 @@ export class NavBar extends Component {
             top: scrollPosition > 50 ? '0' : '',
             backgroundColor: scrollPosition > 50 ? '#072227' : 'transparent', transition: '0.2s',
             borderBottomRightRadius: '5px',
-            borderBottomLeftRadius: '5px'
+            borderBottomLeftRadius: '5px',
+
         };
         return (
             <>
