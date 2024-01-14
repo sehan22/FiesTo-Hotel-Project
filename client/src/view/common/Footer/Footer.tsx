@@ -233,7 +233,7 @@ export class Footer extends Component {
                     </div>
                 </div>
 
-                <div className="hidden bg-black text-white text-center">
+                <div className="bg-black text-white text-center">
                     <h3 className="text-smaller p-5 font-bold text-octonary">DEVELOPED BY SEHAN RANAWEERA
                         2023</h3>
                 </div>
