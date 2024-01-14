@@ -8,7 +8,7 @@ class MyAccount extends Component {
             <>
                 {/*Banner*/}
                 <div
-                    className="hidden flex flex-col items-start justify-center lmd:items-center lmd:justify-center w-full h-screen md:max-h-[500px] md:rounded-b-3xl bg-cover bg-center"
+                    className="flex flex-col items-start justify-center lmd:items-center lmd:justify-center w-full h-screen md:max-h-[500px] md:rounded-b-3xl bg-cover bg-center"
                     style={{
                         backgroundImage: `url(${bannerBackgroundImg})`,
                         backgroundSize: 'cover',
@@ -153,7 +153,7 @@ class MyAccount extends Component {
 
                                 <div className="flex gap-2 w-full">
                                     <button
-                                        className="bg-[#365EC7] transition-all text-smaller font-bold tracking-wider text-white hover:bg-teal-600 py-3 px-4 w-full rounded">
+                                        className="bg-[#365EC7] transition-all text-smaller font-bold tracking-wider text-white hover:bg-[#2D56BF] py-3 px-4 w-full rounded">
                                         Update Profile
                                     </button>
                                 </div>
@@ -170,7 +170,7 @@ class MyAccount extends Component {
 
                                 <div className="flex gap-2 w-full">
                                     <button
-                                        className="bg-[#D82424] transition-all text-smaller font-bold tracking-wider text-white hover:bg-[#B92424] py-3 px-4 w-full rounded">
+                                        className="bg-[#D82424] transition-all text-smaller font-bold tracking-wider text-white hover:bg-[#CE1919] py-3 px-4 w-full rounded">
                                         Delete Your Account
                                     </button>
                                 </div>

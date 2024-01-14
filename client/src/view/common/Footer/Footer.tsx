@@ -11,7 +11,7 @@ export class Footer extends Component {
         return (
             <>
                 <div
-                    className="hidden flex justify-center items-center mx-auto bg-gradient-to-t from-black to-primary text-white font-poppins">
+                    className="flex justify-center items-center mx-auto bg-gradient-to-t from-black to-primary text-white font-poppins">
 
                     <div className="grid grid-cols-1 lmd:grid-cols-2 lg:grid-cols-3 xl:grid-cols-5 gap-5 p-5 pt-20">
 
@@ -233,7 +233,7 @@ export class Footer extends Component {
                     </div>
                 </div>
 
-                <div className="hidden bg-black text-white text-center">
+                <div className="bg-black text-white text-center">
                     <h3 className="text-smaller p-5 font-bold text-octonary">DEVELOPED BY SEHAN RANAWEERA
                         2023</h3>
                 </div>
