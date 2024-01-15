@@ -4,8 +4,21 @@ import CarItemImgRice
 import WishListIcon from "../../../../images/RestaurantPage/cardwhistlist.png";
 import AddToCartIcon from "../../../../images/RestaurantPage/addtocarticon.png";
 
-class RestaurantItem extends Component {
+interface RestaurantItemsProps {
+    data: any,
+}
+
+class RestaurantItem extends Component<RestaurantItemsProps> {
+
+    constructor(props: RestaurantItemsProps) {
+        super(props);
+    }
+
     render() {
+
+        const {data} = this.props;
+        const image = require('../../../../images/RestaurantPage/CardItemsImg/' + data.image);
+
         return (
             <div
                 className="xs:max-w-[450px] sm:max-w-[520px] md:max-w-[380px] rounded-2xl shadow-sm transition-all">
@@ -13,7 +26,7 @@ class RestaurantItem extends Component {
 
                     <div className="overflow-hidden relative">
                         <img className="h-[150px] xs:h-[220px] rounded-lg w-full object-cover"
-                             src={CarItemImgRice}
+                             src={image}
                              alt=""/>
 
                         <div
@@ -24,8 +37,7 @@ class RestaurantItem extends Component {
 
                     <div className="flex flex-col p-2 gap-3">
                         <div className="flex justify-between">
-                            <h1 className="text-topictwo overflow-hidden overflow-ellipsis whitespace-nowrap">Classic
-                                Comfort Room</h1>
+                            <h1 className="text-topictwo overflow-hidden overflow-ellipsis whitespace-nowrap">{data.name}</h1>
 
                             <div className="flex justify-center items-center">
                                 <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18"
@@ -35,18 +47,14 @@ class RestaurantItem extends Component {
                                         fill="#FFD700"/>
                                 </svg>
 
-                                <h6 className="text-quinary text-normal">4.8</h6>
+                                <h6 className="text-quinary text-normal">{data.rating}</h6>
                             </div>
                         </div>
 
-                        <p className="romCardPara text-quinary text-smaller overflow-hidden overflow-y-visible whitespace-pre-wrap h-[55px]">
-                            Enter a freshly updated and thoughtfully furnished
-                            peaceful home surrounded by ancient trees, stone
-                            walls, and open meadows.
-                        </p>
+                        <p className="romCardPara text-quinary text-smaller overflow-hidden overflow-y-visible whitespace-pre-wrap h-[55px]">{data.description}</p>
 
                         <div className="flex justify-between items-center p-1">
-                            <h1 className="text-topicDescription text-gray-800">250$</h1>
+                            <h1 className="text-topicDescription text-gray-800">{data.price} $</h1>
 
                             <div className="flex justify-center items-center">
                                 <div

@@ -22,7 +22,7 @@ export class Home extends Component {
         return (
             <>
                 {/*navbar*/}
-                <nav
+{/*                <nav
                     className="hidden bg-white dark:bg-gray-900 fixed w-full z-20 top-0 start-0 border-b border-gray-200 dark:border-gray-600">
                     <div className="max-w-screen-xl flex flex-wrap items-center justify-between mx-auto p-4">
                         <a href="https://flowbite.com/" className="flex items-center space-x-3 rtl:space-x-reverse">
@@ -69,7 +69,7 @@ export class Home extends Component {
                             </ul>
                         </div>
                     </div>
-                </nav>
+                </nav>*/}
 
 
                 {/*Banner*/}
@@ -580,31 +580,31 @@ export class Home extends Component {
                                 <img
                                     src="https://images.unsplash.com/photo-1499696010180-025ef6e1a8f9?ixlib=rb-4.0.3&amp;ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&amp;auto=format&amp;fit=crop&amp;w=1470&amp;q=80"
                                     className="object-cover object-center h-20 max-w-full rounded-lg cursor-pointer"
-                                    alt="gallery-image"/>
+                                    alt="gallery-image1"/>
                             </div>
                             <div>
                                 <img
                                     src="https://images.unsplash.com/photo-1432462770865-65b70566d673?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&amp;ixlib=rb-1.2.1&amp;auto=format&amp;fit=crop&amp;w=1950&amp;q=80"
                                     className="object-cover object-center h-20 max-w-full rounded-lg cursor-pointer"
-                                    alt="gallery-image"/>
+                                    alt="gallery-image2"/>
                             </div>
                             <div>
                                 <img
                                     src="https://images.unsplash.com/photo-1493246507139-91e8fad9978e?ixlib=rb-4.0.3&amp;ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&amp;auto=format&amp;fit=crop&amp;w=2940&amp;q=80"
                                     className="object-cover object-center h-20 max-w-full rounded-lg cursor-pointer"
-                                    alt="gallery-image"/>
+                                    alt="gallery-image3"/>
                             </div>
                             <div>
                                 <img
                                     src="https://images.unsplash.com/photo-1518623489648-a173ef7824f3?ixlib=rb-4.0.3&amp;ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&amp;auto=format&amp;fit=crop&amp;w=2762&amp;q=80"
                                     className="object-cover object-center h-20 max-w-full rounded-lg cursor-pointer"
-                                    alt="gallery-image"/>
+                                    alt="gallery-image4"/>
                             </div>
                             <div>
                                 <img
                                     src="https://images.unsplash.com/photo-1682407186023-12c70a4a35e0?ixlib=rb-4.0.3&amp;ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&amp;auto=format&amp;fit=crop&amp;w=2832&amp;q=80"
                                     className="object-cover object-center h-20 max-w-full rounded-lg cursor-pointer"
-                                    alt="gallery-image"/>
+                                    alt="gallery-image5"/>
                             </div>
                         </div>
                     </div>
@@ -613,38 +613,38 @@ export class Home extends Component {
                         <div>
                             <img className="h-auto w-full max-w-full rounded-lg object-cover object-center md:h-[480px]"
                                  src="https://images.unsplash.com/photo-1499696010180-025ef6e1a8f9?ixlib=rb-4.0.3&amp;ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&amp;auto=format&amp;fit=crop&amp;w=1470&amp;q=80"
-                                 alt=""/>
+                                 alt="gallery-image6"/>
                         </div>
                         <div className="flex justify-center items-center gap-2">
                             <div>
                                 <img
                                     src="https://images.unsplash.com/photo-1499696010180-025ef6e1a8f9?ixlib=rb-4.0.3&amp;ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&amp;auto=format&amp;fit=crop&amp;w=1470&amp;q=80"
                                     className="object-cover object-center h-20 max-w-full rounded-lg cursor-pointer"
-                                    alt="gallery-image"/>
+                                    alt="gallery-image7"/>
                             </div>
                             <div>
                                 <img
                                     src="https://images.unsplash.com/photo-1432462770865-65b70566d673?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&amp;ixlib=rb-1.2.1&amp;auto=format&amp;fit=crop&amp;w=1950&amp;q=80"
                                     className="object-cover object-center h-20 max-w-full rounded-lg cursor-pointer"
-                                    alt="gallery-image"/>
+                                    alt="gallery-image8"/>
                             </div>
                             <div>
                                 <img
                                     src="https://images.unsplash.com/photo-1493246507139-91e8fad9978e?ixlib=rb-4.0.3&amp;ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&amp;auto=format&amp;fit=crop&amp;w=2940&amp;q=80"
                                     className="object-cover object-center h-20 max-w-full rounded-lg cursor-pointer"
-                                    alt="gallery-image"/>
+                                    alt="gallery-image9"/>
                             </div>
                             <div>
                                 <img
                                     src="https://images.unsplash.com/photo-1518623489648-a173ef7824f3?ixlib=rb-4.0.3&amp;ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&amp;auto=format&amp;fit=crop&amp;w=2762&amp;q=80"
                                     className="object-cover object-center h-20 max-w-full rounded-lg cursor-pointer"
-                                    alt="gallery-image"/>
+                                    alt="gallery-image10"/>
                             </div>
                             <div>
                                 <img
                                     src="https://images.unsplash.com/photo-1682407186023-12c70a4a35e0?ixlib=rb-4.0.3&amp;ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&amp;auto=format&amp;fit=crop&amp;w=2832&amp;q=80"
                                     className="object-cover object-center h-20 max-w-full rounded-lg cursor-pointer"
-                                    alt="gallery-image"/>
+                                    alt="gallery-image11"/>
                             </div>
                         </div>
                     </div>
@@ -653,38 +653,38 @@ export class Home extends Component {
                         <div>
                             <img className="h-auto w-full max-w-full rounded-lg object-cover object-center md:h-[480px]"
                                  src="https://images.unsplash.com/photo-1499696010180-025ef6e1a8f9?ixlib=rb-4.0.3&amp;ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&amp;auto=format&amp;fit=crop&amp;w=1470&amp;q=80"
-                                 alt=""/>
+                                 alt="gallery-image12"/>
                         </div>
                         <div className="flex justify-center items-center gap-2">
                             <div>
                                 <img
                                     src="https://images.unsplash.com/photo-1499696010180-025ef6e1a8f9?ixlib=rb-4.0.3&amp;ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&amp;auto=format&amp;fit=crop&amp;w=1470&amp;q=80"
                                     className="object-cover object-center h-20 max-w-full rounded-lg cursor-pointer"
-                                    alt="gallery-image"/>
+                                    alt="gallery-image13"/>
                             </div>
                             <div>
                                 <img
                                     src="https://images.unsplash.com/photo-1432462770865-65b70566d673?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&amp;ixlib=rb-1.2.1&amp;auto=format&amp;fit=crop&amp;w=1950&amp;q=80"
                                     className="object-cover object-center h-20 max-w-full rounded-lg cursor-pointer"
-                                    alt="gallery-image"/>
+                                    alt="gallery-image14"/>
                             </div>
                             <div>
                                 <img
                                     src="https://images.unsplash.com/photo-1493246507139-91e8fad9978e?ixlib=rb-4.0.3&amp;ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&amp;auto=format&amp;fit=crop&amp;w=2940&amp;q=80"
                                     className="object-cover object-center h-20 max-w-full rounded-lg cursor-pointer"
-                                    alt="gallery-image"/>
+                                    alt="gallery-image15"/>
                             </div>
                             <div>
                                 <img
                                     src="https://images.unsplash.com/photo-1518623489648-a173ef7824f3?ixlib=rb-4.0.3&amp;ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&amp;auto=format&amp;fit=crop&amp;w=2762&amp;q=80"
                                     className="object-cover object-center h-20 max-w-full rounded-lg cursor-pointer"
-                                    alt="gallery-image"/>
+                                    alt="gallery-image16"/>
                             </div>
                             <div>
                                 <img
                                     src="https://images.unsplash.com/photo-1682407186023-12c70a4a35e0?ixlib=rb-4.0.3&amp;ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&amp;auto=format&amp;fit=crop&amp;w=2832&amp;q=80"
                                     className="object-cover object-center h-20 max-w-full rounded-lg cursor-pointer"
-                                    alt="gallery-image"/>
+                                    alt="gallery-image17"/>
                             </div>
                         </div>
                     </div>

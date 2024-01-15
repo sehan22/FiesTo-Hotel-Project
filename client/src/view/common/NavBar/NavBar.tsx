@@ -64,13 +64,15 @@ export class NavBar extends Component {
 
                         <hr className="rotate-90 opacity-50" style={{height: '10px', width: '20px',}}/>
 
-                        <button>
-                            <svg xmlns="http://www.w3.org/2000/svg" height="18" width="20"
-                                 viewBox="0 0 576 512">
-                                <path fill="#ffffff"
-                                      d="M0 24C0 10.7 10.7 0 24 0H69.5c22 0 41.5 12.8 50.6 32h411c26.3 0 45.5 25 38.6 50.4l-41 152.3c-8.5 31.4-37 53.3-69.5 53.3H170.7l5.4 28.5c2.2 11.3 12.1 19.5 23.6 19.5H488c13.3 0 24 10.7 24 24s-10.7 24-24 24H199.7c-34.6 0-64.3-24.6-70.7-58.5L77.4 54.5c-.7-3.8-4-6.5-7.9-6.5H24C10.7 48 0 37.3 0 24zM128 464a48 48 0 1 1 96 0 48 48 0 1 1 -96 0zm336-48a48 48 0 1 1 0 96 48 48 0 1 1 0-96z"/>
-                            </svg>
-                        </button>
+                        <Link to="addToCart">
+                            <button>
+                                <svg xmlns="http://www.w3.org/2000/svg" height="18" width="20"
+                                     viewBox="0 0 576 512">
+                                    <path fill="#ffffff"
+                                          d="M0 24C0 10.7 10.7 0 24 0H69.5c22 0 41.5 12.8 50.6 32h411c26.3 0 45.5 25 38.6 50.4l-41 152.3c-8.5 31.4-37 53.3-69.5 53.3H170.7l5.4 28.5c2.2 11.3 12.1 19.5 23.6 19.5H488c13.3 0 24 10.7 24 24s-10.7 24-24 24H199.7c-34.6 0-64.3-24.6-70.7-58.5L77.4 54.5c-.7-3.8-4-6.5-7.9-6.5H24C10.7 48 0 37.3 0 24zM128 464a48 48 0 1 1 96 0 48 48 0 1 1 -96 0zm336-48a48 48 0 1 1 0 96 48 48 0 1 1 0-96z"/>
+                                </svg>
+                            </button>
+                        </Link>
 
                         <hr className="rotate-90 opacity-50" style={{height: '10px', width: '20px',}}/>
 
@@ -92,15 +94,15 @@ export class NavBar extends Component {
                             <span className="absolute -inset-0.5"></span>
                             <span className="sr-only">Open main menu</span>
 
-                            <svg className="block h-6 w-6 text-white" fill="" viewBox="0 0 24 24" stroke-width="1.5"
+                            <svg className="block h-6 w-6 text-white" fill="" viewBox="0 0 24 24" strokeWidth="1.5"
                                  stroke="currentColor" aria-hidden="true">
-                                <path stroke-linecap="round" stroke-linejoin="round"
+                                <path strokeLinecap="round" strokeLinejoin="round"
                                       d="M3.75 6.75h16.5M3.75 12h16.5m-16.5 5.25h16.5"/>
                             </svg>
 
-                            <svg className="hidden h-6 w-6" fill="none" viewBox="0 0 24 24" stroke-width="1.5"
+                            <svg className="hidden h-6 w-6" fill="none" viewBox="0 0 24 24" strokeWidth="1.5"
                                  stroke="currentColor" aria-hidden="true">
-                                <path stroke-linecap="round" stroke-linejoin="round" d="M6 18L18 6M6 6l12 12"/>
+                                <path strokeLinecap="round" strokeLinejoin="round" d="M6 18L18 6M6 6l12 12"/>
                             </svg>
                         </button>
 

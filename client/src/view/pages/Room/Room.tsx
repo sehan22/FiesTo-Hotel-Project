@@ -1,8 +1,7 @@
 import React, {Component} from 'react';
 import bannerBackgroundImg from "../../../images/AboutPage/bgimg.png";
-import RoomItem from "../../common/Product/Room/RoomItem";
+import RoomItem from "../../common/Product/RoomItem/RoomItem";
 import axios from "axios";
-import {log} from "node:util";
 
 export class Room extends Component {
 
@@ -20,17 +19,18 @@ export class Room extends Component {
         this.fetchData()
             .then(r => console.log("Data fetch completed!" + r)); // Callback Function
     }
-    fetchData = async ()=> {
+
+    fetchData = async () => {
         try {
             this.api.get('/restaurant/all')
                 .then((res: { data: any }) => {
                     const jsonData = res.data;
                     this.setState({data: jsonData});
-                }).catch((error: any)=> {
+                }).catch((error: any) => {
                 console.error('Axios Error:', error)
             });
         } catch (error) {
-            console.log('Error fetching data: ', error)
+            console.log('Error fetching data: ', error);
         }
     }
 
@@ -42,7 +42,13 @@ export class Room extends Component {
         return (
             <>
                 {/*Banner*/}
-                <div className="flex flex-col items-start justify-center lmd:items-center lmd:justify-center w-full h-screen md:max-h-[500px] md:rounded-b-3xl bg-cover bg-center" style={{backgroundImage: `url(${bannerBackgroundImg})`,backgroundSize: 'cover',backgroundPosition: 'center'}}>
+                <div
+                    className="flex flex-col items-start justify-center lmd:items-center lmd:justify-center w-full h-screen md:max-h-[500px] md:rounded-b-3xl bg-cover bg-center"
+                    style={{
+                        backgroundImage: `url(${bannerBackgroundImg})`,
+                        backgroundSize: 'cover',
+                        backgroundPosition: 'center'
+                    }}>
                     <h1 className="font-Milonga text-topic md:text-bannertopic text-white p-2">Fiesto Hotel Rooms</h1>
                     <div className="flex flex-col lmd:items-center lmd:justify-center gap-4 p-2 ">
                         <div className="h-0.5 opacity-50 bg-septenary w-44"></div>
@@ -68,7 +74,6 @@ export class Room extends Component {
                                 Rooms</h6>
                             <h6 className="hover:text-secondary cursor-pointer border-b-transparent border-b-2 hover:border-b-2 p-2 hover:border-b-secondary">Suite
                                 Rooms</h6>
-                            <h6 className="hover:text-secondary cursor-pointer border-b-transparent border-b-2 hover:border-b-2 p-2 hover:border-b-secondary"></h6>
                         </div>
 
                         <div className="md:hidden flex items-center justify-center text-secondary">
@@ -96,7 +101,7 @@ export class Room extends Component {
                         {/*card*/}
                         {
                             data.map((product: any) => (
-                                <RoomItem data={product} />
+                                <RoomItem data={product}/>
                             ))
                         }
 

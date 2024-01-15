@@ -1,5 +1,4 @@
 import React, {Component} from 'react';
-import RoomCardImg from "../../../../images/RoomsPage/roomcardimg.png";
 import WifiIcon from "../../../../images/RoomsPage/eoomfacilities/wifi.png";
 import RoomserviceIcon from "../../../../images/RoomsPage/eoomfacilities/roomservice.png";
 import WashroomIcon from "../../../../images/RoomsPage/eoomfacilities/washroom.png";

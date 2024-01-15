@@ -1,14 +1,47 @@
 import React, {Component} from 'react';
 import bannerBackgroundImg from "../../../images/RestaurantPage/bgimg.png";
-import CarItemImgRice
-    from "../../../images/RestaurantPage/CardItemsImg/american-shrimp-fried-rice-served-with-chili-fish-sauce-thai-food.jpg"
-import AddToCartIcon from "../../../images/RestaurantPage/addtocarticon.png"
-import WishListIcon from "../../../images/RestaurantPage/cardwhistlist.png"
 import FifthDivBgImg from "../../../images/RestaurantPage/Group 166.png"
 import RestaurantItem from "../../common/Product/RestaurantItem/RestaurantItem";
+import axios from "axios";
+import * as http2 from "http2";
 
 export class Restaurant extends Component {
+
+    private api: any;
+
+    constructor(props: {} | Readonly<{}>) {
+        super(props);
+        this.api = axios.create({baseURL: `http://localhost:4000`});
+        this.state = {
+            data: [],
+        }
+    }
+
+    componentDidMount() {
+        this.fetchData()
+            .then(r => console.log("Data fetch completed!" + r)); // Callback Function
+    }
+
+    fetchData = async () => {
+        try {
+            this.api.get('/restaurant/all')
+                .then((res: { data: any }) => {
+                    const jsonData = res.data;
+                    this.setState({data: jsonData});
+                }).catch((error: any) => {
+                console.error('Axios Error:', error)
+            });
+        } catch (error) {
+            console.log('Error fetching data: ', error);
+        }
+    }
+
+
     render() {
+
+        // @ts-ignore
+        const {data} = this.state;
+
         return (
             <>
                 {/*Banner*/}
@@ -91,9 +124,11 @@ export class Restaurant extends Component {
                     <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-5 p-5">
 
                         {/*card*/}
-                        <RestaurantItem/>
-                        <RestaurantItem/>
-                        <RestaurantItem/>
+                        {
+                            data.map((product: any) => (
+                                <RestaurantItem key={product.id} data={product}/>
+                            ))
+                        }
 
                     </div>
                 </div>
