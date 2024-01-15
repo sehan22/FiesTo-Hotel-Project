@@ -2,8 +2,40 @@ import React, {Component} from 'react';
 import LoginPageBGImg from "../../../images/LoginPage/LoginPageBGImg.png";
 import Logo from "../../../images/LoginPage/Logo2.png";
 import {Link} from "react-router-dom";
+import axios from "axios";
 
-export class SignUp extends Component {
+interface UserProps {
+    data: any;
+}
+
+interface UserState {
+    fullName: string;
+    email: string;
+    address: string;
+    contact: number;
+    username: string;
+    password: string;
+    profileImgUrl: string;
+}
+
+export class SignUp extends Component<UserProps, UserState> {
+
+    private api: any;
+
+    constructor(props: any) {
+        super(props);
+        this.api = axios.create({baseURL: `http://localhost:4000`});
+        this.state = {
+            fullName: '',
+            email: '',
+            address: '',
+            contact: 0,
+            username: '',
+            password: '',
+            profileImgUrl: ''
+        }
+    }
+
     render() {
         return (
             <div className="h-screen flex justify-center items-center "
@@ -30,10 +62,12 @@ export class SignUp extends Component {
                         </div>
                     </div>
 
+                    {/*Form*/}
                     <div className="overflow-hidden h-full">
                         <form
                             className="flex flex-col justify-center h-96 items-center mt-2  overflow-y-scroll pe-5 custom-scrollbar">
-                            <div className="flex flex-col justify-center items-center gap-6 mt-[265px]"> {/*mt-[330px]*/}
+                            <div
+                                className="flex flex-col justify-center items-center gap-6 mt-[265px]"> {/*mt-[330px]*/}
                                 <div className="w-96 border-gray-400">
                                     <div className="relative w-full min-w-[200px] h-10">
                                         <input
@@ -144,6 +178,7 @@ export class SignUp extends Component {
                         </form>
                     </div>
 
+                    {/*Button*/}
                     <div className="flex w-full">
                         <button
                             className="bg-secondary text-smaller text-white hover:bg-teal-600 py-2 px-4 w-full rounded">
