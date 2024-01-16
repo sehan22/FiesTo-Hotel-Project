@@ -6,6 +6,7 @@ var logger = require('morgan');
 const cors = require('cors');
 const DBConnection = require('./db/DBConnection');
 
+
 DBConnection()
     .then(r => console.log(r));
 
@@ -20,6 +21,8 @@ var app = express();
 // view engine setup
 app.set('views', path.join(__dirname, 'views'));
 app.set('view engine', 'pug');
+
+
 
 app.use(logger('dev'));
 app.use(express.json());

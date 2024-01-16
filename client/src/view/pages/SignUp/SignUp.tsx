@@ -12,10 +12,10 @@ interface UserState {
     fullName: string;
     email: string;
     address: string;
-    contact: number;
+    contact: number | string;
     username: string;
     password: string;
-    profileImgUrl: string;
+    profileImgUrl: any;
 }
 
 export class SignUp extends Component<UserProps, UserState> {
@@ -29,14 +29,109 @@ export class SignUp extends Component<UserProps, UserState> {
             fullName: '',
             email: '',
             address: '',
-            contact: 0,
+            contact: '',
             username: '',
             password: '',
-            profileImgUrl: ''
+            profileImgUrl: null,
         }
+
+        this.handleImgSelectOnChange = this.handleImgSelectOnChange.bind(this);
+        this.handleUserInputOnChange = this.handleUserInputOnChange.bind(this);
     }
 
+    handleImgSelectOnChange(e: React.ChangeEvent<HTMLInputElement>) {
+        console.log(e.target.files)
+        // @ts-ignore
+        const imgFile = e.target.files[0];
+        this.setState({profileImgUrl: imgFile})
+    }
+
+    handleUserInputOnChange(event: { target: { value: any; name: any; } }) {
+        const target = event.target;
+        const name = target.name;
+        const value = target.value;
+        //@ts-ignore
+        this.setState({
+                [name]: value,
+            }
+        );
+    }
+
+    /*Working*/
+    /*private onCreateAccountBtnClick = () => {
+        try {
+            this.api.post('/users/save', {
+                fullName: this.state.fullName,
+                email: this.state.email,
+                address: this.state.address,
+                contact: this.state.contact,
+                username: this.state.username,
+                password: this.state.password,
+                profileImgUrl: this.state.profileImgUrl
+            }).then((res: {data: any}) => {
+                const jsonData = res.data;
+                console.log(jsonData);
+                alert("User Registration successfully!");
+            }).catch((err: any) => {
+                console.error('Axios Error' + err);
+                alert(err);
+            })
+        } catch (err) {
+            console.error('Error submitting data:', err);
+        }
+    }*/
+
+    private onCreateAccountBtnClick = () => {
+        try {
+            const formData = new FormData();
+            formData.append('fullName', this.state.fullName);
+            formData.append('email', this.state.email);
+            formData.append('address', this.state.address);
+            formData.append('contact', String(this.state.contact));
+            formData.append('username', this.state.username);
+            formData.append('password', this.state.password);
+            formData.append('profileImgUrl', this.state.profileImgUrl);
+
+            this.api
+                .post('/users/save', formData, {headers: {'Content-Type': 'multipart/form-data'}})
+                .then((res: { data: any }) => {
+                    const jsonData = res.data;
+                    console.log(jsonData);
+                    alert('User Registration successfully!');
+                })
+                .catch((err: any) => {
+                    console.error('Axios Error' + err);
+                    alert(err);
+                });
+        } catch (err) {
+            console.error('Error submitting data:', err);
+        }
+    };
+
+/*    const handleSubmit = async (e) => {
+        e.preventDefault();
+
+        const formData = new FormData();
+        formData.append('image', image);
+        formData.append('text', textValue);
+
+        try {
+            const response = await axios.post('http://your-backend-endpoint', formData, {
+                headers: {
+                    'Content-Type': 'multipart/form-data',
+                },
+            });
+
+            // Handle the response from the backend
+            console.log('Response:', response.data);
+        } catch (error) {
+            console.error('Error uploading data:', error);
+        }
+    };*/
+
+
     render() {
+        // @ts-ignore
         return (
             <div className="h-screen flex justify-center items-center "
                  style={{background: `url(${LoginPageBGImg})`, backgroundPosition: 'center', backgroundSize: 'cover'}}>
@@ -62,6 +157,9 @@ export class SignUp extends Component<UserProps, UserState> {
                         </div>
                     </div>
 
+                    <button className="px-5 py-2 bg-gray-400" onClick={() => {alert(this.state.profileImgUrl);
+                        console.log(this.state.profileImgUrl)}}>Check Img URL</button>
+
                     {/*Form*/}
                     <div className="overflow-hidden h-full">
                         <form
@@ -74,6 +172,9 @@ export class SignUp extends Component<UserProps, UserState> {
                                             className="peer w-full h-full bg-transparent text-blue-gray-700 font-normal outline outline-0 focus:outline-0 disabled:bg-blue-gray-50 disabled:border-0 transition-all placeholder-shown:border placeholder-shown:border-blue-gray-200 placeholder-shown:border-t-blue-gray-200 border focus:border-2 border-t-transparent focus:border-t-transparent text-smaller px-3 py-2.5 rounded-[7px] border-blue-gray-200 focus:border-gray-900"
                                             placeholder=" "
                                             type="text"
+                                            name="fullName"
+                                            value={this.state.fullName}
+                                            onChange={this.handleUserInputOnChange}
                                             required/><label
                                         className="flex w-full h-full select-none pointer-events-none absolute left-0 font-normal !overflow-visible truncate peer-placeholder-shown:text-blue-gray-500 leading-tight peer-focus:leading-tight peer-disabled:text-transparent peer-disabled:peer-placeholder-shown:text-blue-gray-500 transition-all -top-1.5 peer-placeholder-shown:text-normal text-[11px] peer-focus:text-[11px] before:content[' '] before:block before:box-border before:w-2.5 before:h-1.5 before:mt-[6.5px] before:mr-1 peer-placeholder-shown:before:border-transparent before:rounded-tl-md before:border-t peer-focus:before:border-t-2 before:border-l peer-focus:before:border-l-2 before:pointer-events-none before:transition-all peer-disabled:before:border-transparent after:content[' '] after:block after:flex-grow after:box-border after:w-2.5 after:h-1.5 after:mt-[6.5px] after:ml-1 peer-placeholder-shown:after:border-transparent after:rounded-tr-md after:border-t peer-focus:after:border-t-2 after:border-r peer-focus:after:border-r-2 after:pointer-events-none after:transition-all peer-disabled:after:border-transparent peer-placeholder-shown:leading-[3.75] text-gray-500 peer-focus:text-gray-900 before:border-blue-gray-200 peer-focus:before:!border-gray-900 after:border-blue-gray-200 peer-focus:after:!border-gray-900">Full
                                         Name
@@ -87,6 +188,9 @@ export class SignUp extends Component<UserProps, UserState> {
                                             className="peer w-full h-full bg-transparent text-blue-gray-700 font-normal outline outline-0 focus:outline-0 disabled:bg-blue-gray-50 disabled:border-0 transition-all placeholder-shown:border placeholder-shown:border-blue-gray-200 placeholder-shown:border-t-blue-gray-200 border focus:border-2 border-t-transparent focus:border-t-transparent text-smaller px-3 py-2.5 rounded-[7px] border-blue-gray-200 focus:border-gray-900"
                                             placeholder=" "
                                             type="email"
+                                            name="email"
+                                            value={this.state.email}
+                                            onChange={this.handleUserInputOnChange}
                                             required/><label
                                         className="flex w-full h-full select-none pointer-events-none absolute left-0 font-normal !overflow-visible truncate peer-placeholder-shown:text-blue-gray-500 leading-tight peer-focus:leading-tight peer-disabled:text-transparent peer-disabled:peer-placeholder-shown:text-blue-gray-500 transition-all -top-1.5 peer-placeholder-shown:text-normal text-[11px] peer-focus:text-[11px] before:content[' '] before:block before:box-border before:w-2.5 before:h-1.5 before:mt-[6.5px] before:mr-1 peer-placeholder-shown:before:border-transparent before:rounded-tl-md before:border-t peer-focus:before:border-t-2 before:border-l peer-focus:before:border-l-2 before:pointer-events-none before:transition-all peer-disabled:before:border-transparent after:content[' '] after:block after:flex-grow after:box-border after:w-2.5 after:h-1.5 after:mt-[6.5px] after:ml-1 peer-placeholder-shown:after:border-transparent after:rounded-tr-md after:border-t peer-focus:after:border-t-2 after:border-r peer-focus:after:border-r-2 after:pointer-events-none after:transition-all peer-disabled:after:border-transparent peer-placeholder-shown:leading-[3.75] text-gray-500 peer-focus:text-gray-900 before:border-blue-gray-200 peer-focus:before:!border-gray-900 after:border-blue-gray-200 peer-focus:after:!border-gray-900">Email
                                     </label>
@@ -99,6 +203,9 @@ export class SignUp extends Component<UserProps, UserState> {
                                             className="peer w-full h-full bg-transparent text-blue-gray-700 font-normal outline outline-0 focus:outline-0 disabled:bg-blue-gray-50 disabled:border-0 transition-all placeholder-shown:border placeholder-shown:border-blue-gray-200 placeholder-shown:border-t-blue-gray-200 border focus:border-2 border-t-transparent focus:border-t-transparent text-smaller px-3 py-2.5 rounded-[7px] border-blue-gray-200 focus:border-gray-900"
                                             placeholder=" "
                                             type="text"
+                                            name="address"
+                                            value={this.state.address}
+                                            onChange={this.handleUserInputOnChange}
                                             required/><label
                                         className="flex w-full h-full select-none pointer-events-none absolute left-0 font-normal !overflow-visible truncate peer-placeholder-shown:text-blue-gray-500 leading-tight peer-focus:leading-tight peer-disabled:text-transparent peer-disabled:peer-placeholder-shown:text-blue-gray-500 transition-all -top-1.5 peer-placeholder-shown:text-normal text-[11px] peer-focus:text-[11px] before:content[' '] before:block before:box-border before:w-2.5 before:h-1.5 before:mt-[6.5px] before:mr-1 peer-placeholder-shown:before:border-transparent before:rounded-tl-md before:border-t peer-focus:before:border-t-2 before:border-l peer-focus:before:border-l-2 before:pointer-events-none before:transition-all peer-disabled:before:border-transparent after:content[' '] after:block after:flex-grow after:box-border after:w-2.5 after:h-1.5 after:mt-[6.5px] after:ml-1 peer-placeholder-shown:after:border-transparent after:rounded-tr-md after:border-t peer-focus:after:border-t-2 after:border-r peer-focus:after:border-r-2 after:pointer-events-none after:transition-all peer-disabled:after:border-transparent peer-placeholder-shown:leading-[3.75] text-gray-500 peer-focus:text-gray-900 before:border-blue-gray-200 peer-focus:before:!border-gray-900 after:border-blue-gray-200 peer-focus:after:!border-gray-900">Address
                                     </label>
@@ -110,7 +217,10 @@ export class SignUp extends Component<UserProps, UserState> {
                                         <input
                                             className="peer w-full h-full bg-transparent text-blue-gray-700 font-normal outline outline-0 focus:outline-0 disabled:bg-blue-gray-50 disabled:border-0 transition-all placeholder-shown:border placeholder-shown:border-blue-gray-200 placeholder-shown:border-t-blue-gray-200 border focus:border-2 border-t-transparent focus:border-t-transparent text-smaller px-3 py-2.5 rounded-[7px] border-blue-gray-200 focus:border-gray-900"
                                             placeholder=" "
-                                            type="tel"
+                                            type="text"
+                                            name="contact"
+                                            value={this.state.contact}
+                                            onChange={this.handleUserInputOnChange}
                                             required/><label
                                         className="flex w-full h-full select-none pointer-events-none absolute left-0 font-normal !overflow-visible truncate peer-placeholder-shown:text-blue-gray-500 leading-tight peer-focus:leading-tight peer-disabled:text-transparent peer-disabled:peer-placeholder-shown:text-blue-gray-500 transition-all -top-1.5 peer-placeholder-shown:text-normal text-[11px] peer-focus:text-[11px] before:content[' '] before:block before:box-border before:w-2.5 before:h-1.5 before:mt-[6.5px] before:mr-1 peer-placeholder-shown:before:border-transparent before:rounded-tl-md before:border-t peer-focus:before:border-t-2 before:border-l peer-focus:before:border-l-2 before:pointer-events-none before:transition-all peer-disabled:before:border-transparent after:content[' '] after:block after:flex-grow after:box-border after:w-2.5 after:h-1.5 after:mt-[6.5px] after:ml-1 peer-placeholder-shown:after:border-transparent after:rounded-tr-md after:border-t peer-focus:after:border-t-2 after:border-r peer-focus:after:border-r-2 after:pointer-events-none after:transition-all peer-disabled:after:border-transparent peer-placeholder-shown:leading-[3.75] text-gray-500 peer-focus:text-gray-900 before:border-blue-gray-200 peer-focus:before:!border-gray-900 after:border-blue-gray-200 peer-focus:after:!border-gray-900">Contact
                                         Number
@@ -124,6 +234,9 @@ export class SignUp extends Component<UserProps, UserState> {
                                             className="peer w-full h-full bg-transparent text-blue-gray-700 font-normal outline outline-0 focus:outline-0 disabled:bg-blue-gray-50 disabled:border-0 transition-all placeholder-shown:border placeholder-shown:border-blue-gray-200 placeholder-shown:border-t-blue-gray-200 border focus:border-2 border-t-transparent focus:border-t-transparent text-smaller px-3 py-2.5 rounded-[7px] border-blue-gray-200 focus:border-gray-900"
                                             placeholder=" "
                                             type="text"
+                                            name="username"
+                                            value={this.state.username}
+                                            onChange={this.handleUserInputOnChange}
                                             required/><label
                                         className="flex w-full h-full select-none pointer-events-none absolute left-0 font-normal !overflow-visible truncate peer-placeholder-shown:text-blue-gray-500 leading-tight peer-focus:leading-tight peer-disabled:text-transparent peer-disabled:peer-placeholder-shown:text-blue-gray-500 transition-all -top-1.5 peer-placeholder-shown:text-normal text-[11px] peer-focus:text-[11px] before:content[' '] before:block before:box-border before:w-2.5 before:h-1.5 before:mt-[6.5px] before:mr-1 peer-placeholder-shown:before:border-transparent before:rounded-tl-md before:border-t peer-focus:before:border-t-2 before:border-l peer-focus:before:border-l-2 before:pointer-events-none before:transition-all peer-disabled:before:border-transparent after:content[' '] after:block after:flex-grow after:box-border after:w-2.5 after:h-1.5 after:mt-[6.5px] after:ml-1 peer-placeholder-shown:after:border-transparent after:rounded-tr-md after:border-t peer-focus:after:border-t-2 after:border-r peer-focus:after:border-r-2 after:pointer-events-none after:transition-all peer-disabled:after:border-transparent peer-placeholder-shown:leading-[3.75] text-gray-500 peer-focus:text-gray-900 before:border-blue-gray-200 peer-focus:before:!border-gray-900 after:border-blue-gray-200 peer-focus:after:!border-gray-900">Username
                                     </label>
@@ -136,6 +249,9 @@ export class SignUp extends Component<UserProps, UserState> {
                                             className="peer w-full h-full bg-transparent text-blue-gray-700 font-sans font-normal outline outline-0 focus:outline-0 disabled:bg-blue-gray-50 disabled:border-0 transition-all placeholder-shown:border placeholder-shown:border-blue-gray-200 placeholder-shown:border-t-blue-gray-200 border focus:border-2 border-t-transparent focus:border-t-transparent text-sm px-3 py-2.5 rounded-[7px] border-blue-gray-200 focus:border-gray-900"
                                             placeholder=" "
                                             type="password"
+                                            name="password"
+                                            value={this.state.password}
+                                            onChange={this.handleUserInputOnChange}
                                             required/><label
                                         className="flex w-full h-full select-none pointer-events-none absolute left-0 font-normal !overflow-visible truncate peer-placeholder-shown:text-blue-gray-500 leading-tight peer-focus:leading-tight peer-disabled:text-transparent peer-disabled:peer-placeholder-shown:text-blue-gray-500 transition-all -top-1.5 peer-placeholder-shown:text-normal text-[11px] peer-focus:text-[11px] before:content[' '] before:block before:box-border before:w-2.5 before:h-1.5 before:mt-[6.5px] before:mr-1 peer-placeholder-shown:before:border-transparent before:rounded-tl-md before:border-t peer-focus:before:border-t-2 before:border-l peer-focus:before:border-l-2 before:pointer-events-none before:transition-all peer-disabled:before:border-transparent after:content[' '] after:block after:flex-grow after:box-border after:w-2.5 after:h-1.5 after:mt-[6.5px] after:ml-1 peer-placeholder-shown:after:border-transparent after:rounded-tr-md after:border-t peer-focus:after:border-t-2 after:border-r peer-focus:after:border-r-2 after:pointer-events-none after:transition-all peer-disabled:after:border-transparent peer-placeholder-shown:leading-[3.75] text-gray-500 peer-focus:text-gray-900 before:border-blue-gray-200 peer-focus:before:!border-gray-900 after:border-blue-gray-200 peer-focus:after:!border-gray-900">Password
                                     </label>
@@ -171,7 +287,10 @@ export class SignUp extends Component<UserProps, UserState> {
                                             </p>
                                             <p className="text-xs text-gray-500">Profile Picture(Optional)</p>
                                         </div>
-                                        <input id="dropzone-file" type="file" className="hidden"/>
+                                        <input id="dropzone-file" type="file"
+                                               name="profileImgUrl"
+                                               onChange={(e) => {this.handleImgSelectOnChange(e)}}
+                                               className="hidden"/>
                                     </label>
                                 </div>
                             </div>
@@ -181,7 +300,10 @@ export class SignUp extends Component<UserProps, UserState> {
                     {/*Button*/}
                     <div className="flex w-full">
                         <button
-                            className="bg-secondary text-smaller text-white hover:bg-teal-600 py-2 px-4 w-full rounded">
+                            className="bg-secondary text-smaller text-white hover:bg-teal-600 py-2 px-4 w-full rounded font-poppins"
+                            type="button"
+                            onClick={this.onCreateAccountBtnClick}
+                        >
                             Create Account
                         </button>
                     </div>
