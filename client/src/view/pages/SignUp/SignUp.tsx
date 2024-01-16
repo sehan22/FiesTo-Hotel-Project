@@ -3,6 +3,7 @@ import LoginPageBGImg from "../../../images/LoginPage/LoginPageBGImg.png";
 import Logo from "../../../images/LoginPage/Logo2.png";
 import {Link} from "react-router-dom";
 import axios from "axios";
+import RestaurantItem from "../../common/Product/RestaurantItem/RestaurantItem";
 
 interface UserProps {
     data: any;
@@ -110,10 +111,12 @@ export class SignUp extends Component<UserProps, UserState> {
 
 
     render() {
+
         // @ts-ignore
         return (
             <div className="h-screen flex justify-center items-center "
                  style={{background: `url(${LoginPageBGImg})`, backgroundPosition: 'center', backgroundSize: 'cover'}}>
+
                 <div
                     className="flex flex-col items-start justify-center gap-5 p-10 bg-white font-poppins rounded-lg shadow-lg">
                     <img className="w-28" src={Logo} alt=""/>
@@ -265,7 +268,9 @@ export class SignUp extends Component<UserProps, UserState> {
                                         </div>
                                         <input id="dropzone-file" type="file"
                                                name="profileImgUrl"
-                                               onChange={(e) => {this.handleImgSelectOnChange(e)}}
+                                               onChange={(e) => {
+                                                   this.handleImgSelectOnChange(e)
+                                               }}
                                                className="hidden"/>
                                     </label>
                                 </div>
