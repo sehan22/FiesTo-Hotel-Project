@@ -1,3 +1,5 @@
+const multer = require('multer');
+const upload = multer();
 const User = require('../model/User');
 
 const UsersController = {
@@ -13,9 +15,15 @@ const UsersController = {
     },
 
     saveUser: async function (req, res, next) {
-        console.log(req.body);
         try {
             const userData = req.body;
+
+            // Check if a file was uploaded
+            if (req.file) {
+                // Assuming profileImgUrl is a file field
+                userData.profileImgUrl = req.file.buffer.toString('base64'); // Store the file as base64 string
+            }
+
             const user = await User.create(userData);
             res.status(200).json(user);
         } catch (err) {
@@ -24,23 +32,16 @@ const UsersController = {
         }
     },
 
+    /*working*/
     /*    saveUser: async function (req, res, next) {
-            console.log("Req : " + req.body)
-            console.log("Res : " + res.body)
+            console.log(req.body);
             try {
                 const userData = req.body;
-
-                // Check if a file was uploaded
-                if (req.file) {
-                    // Assuming profileImgUrl is a file field
-                    userData.profileImgUrl = req.file.buffer.toString('base64'); // Store the file as base64 string
-                }
-
                 const user = await User.create(userData);
                 res.status(200).json(user);
             } catch (err) {
                 console.error(err);
-                res.status(500).json({ error: 'Something Went Wrong!' + err });
+                res.status(500).json({error: 'Something Went Wrong!' + err});
             }
         },*/
 

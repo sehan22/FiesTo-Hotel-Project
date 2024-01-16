@@ -3,6 +3,7 @@ import LoginPageBGImg from "../../../images/LoginPage/LoginPageBGImg.png";
 import Logo from "../../../images/LoginPage/Logo2.png";
 import {Link} from "react-router-dom";
 import axios from "axios";
+import RestaurantItem from "../../common/Product/RestaurantItem/RestaurantItem";
 
 interface UserProps {
     data: any;
@@ -108,33 +109,14 @@ export class SignUp extends Component<UserProps, UserState> {
         }
     };
 
-/*    const handleSubmit = async (e) => {
-        e.preventDefault();
-
-        const formData = new FormData();
-        formData.append('image', image);
-        formData.append('text', textValue);
-
-        try {
-            const response = await axios.post('http://your-backend-endpoint', formData, {
-                headers: {
-                    'Content-Type': 'multipart/form-data',
-                },
-            });
-
-            // Handle the response from the backend
-            console.log('Response:', response.data);
-        } catch (error) {
-            console.error('Error uploading data:', error);
-        }
-    };*/
-
 
     render() {
+
         // @ts-ignore
         return (
             <div className="h-screen flex justify-center items-center "
                  style={{background: `url(${LoginPageBGImg})`, backgroundPosition: 'center', backgroundSize: 'cover'}}>
+
                 <div
                     className="flex flex-col items-start justify-center gap-5 p-10 bg-white font-poppins rounded-lg shadow-lg">
                     <img className="w-28" src={Logo} alt=""/>
@@ -156,9 +138,6 @@ export class SignUp extends Component<UserProps, UserState> {
                             </div>
                         </div>
                     </div>
-
-                    <button className="px-5 py-2 bg-gray-400" onClick={() => {alert(this.state.profileImgUrl);
-                        console.log(this.state.profileImgUrl)}}>Check Img URL</button>
 
                     {/*Form*/}
                     <div className="overflow-hidden h-full">
@@ -277,9 +256,9 @@ export class SignUp extends Component<UserProps, UserState> {
                                         <div className="flex flex-col items-center justify-center pt-5 pb-6">
                                             <svg className="w-8 h-8 mb-4 text-gray-500" aria-hidden="true"
                                                  xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 20 16">
-                                                <path stroke="currentColor" stroke-linecap="round"
-                                                      stroke-linejoin="round"
-                                                      stroke-width="2"
+                                                <path stroke="currentColor" strokeLinecap="round"
+                                                      strokeLinejoin="round"
+                                                      strokeWidth="2"
                                                       d="M13 13h3a3 3 0 0 0 0-6h-.025A5.56 5.56 0 0 0 16 6.5 5.5 5.5 0 0 0 5.207 5.021C5.137 5.017 5.071 5 5 5a4 4 0 0 0 0 8h2.167M10 15V6m0 0L8 8m2-2 2 2"/>
                                             </svg>
                                             <p className="mb-2 text-sm text-gray-500"><span
@@ -289,7 +268,9 @@ export class SignUp extends Component<UserProps, UserState> {
                                         </div>
                                         <input id="dropzone-file" type="file"
                                                name="profileImgUrl"
-                                               onChange={(e) => {this.handleImgSelectOnChange(e)}}
+                                               onChange={(e) => {
+                                                   this.handleImgSelectOnChange(e)
+                                               }}
                                                className="hidden"/>
                                     </label>
                                 </div>
@@ -330,8 +311,8 @@ export class SignUp extends Component<UserProps, UserState> {
                                     <radialGradient id="paint0_radial_61_13" cx="0" cy="0" r="1"
                                                     gradientUnits="userSpaceOnUse"
                                                     gradientTransform="translate(1.95225 14.6004) scale(18.9449 18.9336)">
-                                        <stop offset="0.09" stop-color="#FA8F21"/>
-                                        <stop offset="0.78" stop-color="#D82D7E"/>
+                                        <stop offset="0.09" stopColor="#FA8F21"/>
+                                        <stop offset="0.78" stopColor="#D82D7E"/>
                                     </radialGradient>
                                 </defs>
                             </svg>
@@ -342,7 +323,7 @@ export class SignUp extends Component<UserProps, UserState> {
                             type="button">
                             <svg xmlns="http://www.w3.org/2000/svg" width="16" height="15" viewBox="0 0 16 15"
                                  fill="none">
-                                <path fill-rule="evenodd" clip-rule="evenodd"
+                                <path fillRule="evenodd" clipRule="evenodd"
                                       d="M8.27321 0.0916138C4.1451 0.0916138 0.801514 3.41894 0.801514 7.52698C0.801514 10.8171 2.94029 13.5961 5.91028 14.5813C6.28387 14.6463 6.42396 14.4233 6.42396 14.2281C6.42396 14.0515 6.41462 13.466 6.41462 12.8433C4.53736 13.1872 4.0517 12.3879 3.90227 11.9696C3.81821 11.7558 3.45396 11.096 3.13642 10.9194C2.87491 10.78 2.50132 10.4361 3.12708 10.4268C3.71547 10.4175 4.13576 10.9658 4.27585 11.1889C4.9483 12.3135 6.02236 11.9975 6.45198 11.8023C6.51736 11.319 6.71349 10.9937 6.9283 10.8078C5.26585 10.622 3.52868 9.98065 3.52868 7.13662C3.52868 6.32803 3.81821 5.65884 4.29453 5.13837C4.21981 4.95249 3.9583 4.19036 4.36925 3.168C4.36925 3.168 4.995 2.97282 6.42396 3.93012C7.0217 3.76283 7.65679 3.67918 8.29189 3.67918C8.92698 3.67918 9.56208 3.76283 10.1598 3.93012C11.5888 2.96352 12.2145 3.168 12.2145 3.168C12.6255 4.19036 12.364 4.95249 12.2892 5.13837C12.7656 5.65884 13.0551 6.31873 13.0551 7.13662C13.0551 9.98995 11.3086 10.622 9.64613 10.8078C9.91698 11.0402 10.1505 11.4863 10.1505 12.1834C10.1505 13.1779 10.1411 13.9772 10.1411 14.2281C10.1411 14.4233 10.2812 14.6556 10.6548 14.5813C13.6061 13.5961 15.7449 10.8078 15.7449 7.52698C15.7449 3.41894 12.4013 0.0916138 8.27321 0.0916138Z"
                                       fill="white"/>
                             </svg>
@@ -354,8 +335,8 @@ export class SignUp extends Component<UserProps, UserState> {
                 <div className="absolute top-0 right-0 p-2 m-5 bg-black bg-opacity-10 cursor-pointer rounded-sm">
                     <Link to="/">
                         <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none">
-                            <path d="M16 16L12 12M12 12L8 8M12 12L16 8M12 12L8 16" stroke="white" stroke-width="2"
-                                  stroke-linecap="round" stroke-linejoin="round"/>
+                            <path d="M16 16L12 12M12 12L8 8M12 12L16 8M12 12L8 16" stroke="white" strokeWidth="2"
+                                  strokeLinecap="round" strokeLinejoin="round"/>
                         </svg>
                     </Link>
                 </div>
