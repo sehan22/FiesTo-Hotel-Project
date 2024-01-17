@@ -4,6 +4,7 @@ import {BrowserRouter, Route, Routes} from "react-router-dom";
 import {DefaultLayout} from "./view/common/DefaultLayout/DefaultLayout";
 import {Login} from "./view/pages/Login/Login";
 import {SignUp} from "./view/pages/SignUp/SignUp";
+import Dashboard from "./view/pages/Dashboard/Dashboard";
 
 function App() {
     return (
@@ -38,6 +39,10 @@ function App() {
 
                 <Route path="/signup"
                        Component={SignUp}>
+                </Route>
+
+                <Route path="/dashboard"
+                       Component={Dashboard}>
                 </Route>
             </Routes>
         </BrowserRouter>
