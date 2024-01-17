@@ -1,10 +1,11 @@
 import React, {Component} from 'react';
+import {RxAvatar} from "react-icons/rx";
 
 class Dashboard extends Component {
     render() {
         return (
             <div>
-                <h1>Dashboard</h1>
+                <RxAvatar >dsoihjd</RxAvatar>
             </div>
         );
     }
