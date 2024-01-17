@@ -1,11 +1,9 @@
 import React, {Component} from 'react';
 import bannerBackgroundImg from "../../../images/AddToCartPage/bgImg.png";
-
 class AddToCart extends Component {
     render() {
         return (
             <>
-
                 {/*Banner*/}
                 <div
                     className="flex flex-col items-start justify-center lmd:items-center lmd:justify-center w-full h-screen md:max-h-[500px] md:rounded-b-3xl bg-cover bg-center"
@@ -20,11 +18,9 @@ class AddToCart extends Component {
                         <h6 className="font-poppins text-topictwo md:text-subtopic text-nonary">Join With Us</h6>
                         <div className="hidden lmd:block h-0.5 opacity-50 bg-septenary w-32"></div>
                     </div>
+
+                    {/*<img src="data:image/png;base64, " alt=""/>*/}
                 </div>
-
-
-                {/*first div*/}
-
             </>
         );
     }

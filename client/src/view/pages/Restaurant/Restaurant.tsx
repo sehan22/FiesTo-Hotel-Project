@@ -3,7 +3,6 @@ import bannerBackgroundImg from "../../../images/RestaurantPage/bgimg.png";
 import FifthDivBgImg from "../../../images/RestaurantPage/Group 166.png"
 import RestaurantItem from "../../common/Product/RestaurantItem/RestaurantItem";
 import axios from "axios";
-import * as http2 from "http2";
 
 export class Restaurant extends Component {
 
@@ -126,7 +125,7 @@ export class Restaurant extends Component {
                         {/*card*/}
                         {
                             data.map((product: any) => (
-                                <RestaurantItem key={product.id} data={product}/>
+                                <RestaurantItem data={product}/>
                             ))
                         }
 
