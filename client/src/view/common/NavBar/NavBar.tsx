@@ -1,13 +1,11 @@
 import React, {Component} from 'react';
 import Logo from '../../../images/NavBar/Logo.png';
-import SecondManImg from '../../../images/NavBar/usericon.jpg'
 import {Link} from "react-router-dom";
-import {Login} from "../../pages/Login/Login";
 
 
 let content: JSX.Element;
 
-if (localStorage.getItem('isUserLoggedIn') == "false") {
+if (localStorage.getItem('isUserLoggedIn') === "false") {
     content = <button
         className="bg-secondary text-smaller hover:bg-teal-600 py-2 px-4 flex justify-center items-center gap-2 rounded">
         <Link className="text-gray-200 text-smaller hover:text-gray-50 transition-all" to="/login">Sign In</Link>
@@ -79,10 +77,6 @@ export class NavBar extends Component {
 
     handleScroll() {
         this.setState({scrollPosition: window.scrollY});
-    }
-
-    private click = () => {
-        alert(localStorage.getItem('isUserLoggedIn'))
     }
 
     render() {

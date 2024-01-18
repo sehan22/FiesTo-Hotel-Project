@@ -45,7 +45,7 @@ class AddToCart extends Component<{}, UserListState> {
 
     render() {
 
-        const { userList, error } = this.state;
+        const {userList, error} = this.state;
 
         return (
             <>
@@ -63,7 +63,6 @@ class AddToCart extends Component<{}, UserListState> {
                         <h6 className="font-poppins text-topictwo md:text-subtopic text-nonary">Join With Us</h6>
                         <div className="hidden lmd:block h-0.5 opacity-50 bg-septenary w-32"></div>
                     </div>
-
 
 
                     <button className="px-5 py-3 bg-gray-400"
