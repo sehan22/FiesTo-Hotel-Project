@@ -1,7 +1,52 @@
 import React, {Component} from 'react';
 import bannerBackgroundImg from "../../../images/AddToCartPage/bgImg.png";
-class AddToCart extends Component {
+import axios from "axios";
+
+interface User {
+    fullName: string;
+    email: string;
+    address: string;
+    contact: number;
+    username: string;
+    password: string;
+    profileImgUrl: string;
+}
+
+interface UserListState {
+    userList: User[];
+    error: string | null;
+}
+
+class AddToCart extends Component<{}, UserListState> {
+
+    constructor(props: {}) {
+        super(props);
+
+        this.state = {
+            userList: [],
+            error: null,
+        };
+    }
+
+    componentDidMount() {
+        this.fetchUsers();
+    }
+
+    fetchUsers = async () => {
+        try {
+            const response = await axios.get<User[]>('http://localhost:4000/users/all');
+            this.setState({userList: response.data});
+        } catch (err) {
+            console.error('Error fetching users:', err);
+            this.setState({error: 'Something went wrong while fetching users.'});
+        }
+    };
+
+
     render() {
+
+        const {userList, error} = this.state;
+
         return (
             <>
                 {/*Banner*/}
@@ -19,10 +64,26 @@ class AddToCart extends Component {
                         <div className="hidden lmd:block h-0.5 opacity-50 bg-septenary w-32"></div>
                     </div>
 
-                    {/*<img src="data:image/png;base64, " alt=""/>*/}
+
+                    <button className="px-5 py-3 bg-gray-400"
+                            onClick={this.buttonClick}
+                    >check state
+                    </button>
+
+                    <ul>
+                        {userList.map((user) => (
+                            <img src={`data:image/png;base64, ${user.profileImgUrl}`} alt=""/>
+                        ))}
+                    </ul>
                 </div>
             </>
         );
+    }
+
+    private buttonClick() {
+        //@ts-ignore
+        const {data} = this.state;
+        console.log(data[0]);
     }
 }
 

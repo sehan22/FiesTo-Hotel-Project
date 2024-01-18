@@ -2,11 +2,55 @@ import React, {Component} from 'react';
 import LoginPageBGImg from '../../../images/LoginPage/LoginPageBGImg.png'
 import Logo from '../../../images/LoginPage/Logo2.png'
 import {Link} from "react-router-dom";
+import axios from "axios";
 
-export class Login extends Component {
+interface UserLoginDetailsState {
+    userInputUsername: string;
+    userInputPassword: string;
+}
+
+export class Login extends Component<{}, UserLoginDetailsState> {
+    private api: any;
+
+    constructor(props: {}) {
+        super(props);
+        this.api = axios.create({baseURL: `http://localhost:4000`});
+
+        this.state = {
+            userInputUsername: '',
+            userInputPassword: '',
+        }
+    }
+
+    private signInOnAction = () => {
+
+        try {
+            this.api.get(`/users/find/${this.state.userInputUsername}`)
+                .then((res: { data: any }) => {
+
+                    /*set loginStatus,username and profileImg local storage*/
+                    localStorage.setItem('isUserLoggedIn', 'true');
+                    localStorage.setItem('username', `${res.data.username}`);
+                    localStorage.setItem('profileImg', `${res.data.profileImgUrl}`);
+
+                    this.state.userInputPassword === res.data.password ? window.location.href = '/'
+                        : alert("Username or Password Incorrect!");
+                    /*, localStorage.setItem('isUserLoggedIn', 'false')*/
+
+                }).catch((err: any) => {
+                console.error('Axios Error' + err);
+                alert("Username or Password Incorrect!");
+            });
+        } catch (err) {
+            console.error('Error submitting data:', err);
+        }
+    }
+
+    /*/find/:username*/
+
     render() {
         return (
-            <div className="h-screen flex justify-center items-center "
+            <div className="h-screen flex justify-center items-center transition-all"
                  style={{background: `url(${LoginPageBGImg})`, backgroundPosition: 'center', backgroundSize: 'cover'}}>
                 <div
                     className="flex flex-col items-start justify-center gap-5 p-10 py-14 bg-white font-poppins rounded-lg shadow-lg">
@@ -37,6 +81,8 @@ export class Login extends Component {
                                     className="peer w-full h-full bg-transparent text-blue-gray-700 font-normal outline outline-0 focus:outline-0 disabled:bg-blue-gray-50 disabled:border-0 transition-all placeholder-shown:border placeholder-shown:border-blue-gray-200 placeholder-shown:border-t-blue-gray-200 border focus:border-2 border-t-transparent focus:border-t-transparent text-smaller px-3 py-2.5 rounded-[7px] border-blue-gray-200 focus:border-gray-900"
                                     placeholder=" "
                                     type="text"
+                                    value={this.state.userInputUsername}
+                                    onChange={(e) => this.setState({userInputUsername: e.target.value})}
                                     required/><label
                                 className="flex w-full h-full select-none pointer-events-none absolute left-0 font-normal !overflow-visible truncate peer-placeholder-shown:text-blue-gray-500 leading-tight peer-focus:leading-tight peer-disabled:text-transparent peer-disabled:peer-placeholder-shown:text-blue-gray-500 transition-all -top-1.5 peer-placeholder-shown:text-normal text-[11px] peer-focus:text-[11px] before:content[' '] before:block before:box-border before:w-2.5 before:h-1.5 before:mt-[6.5px] before:mr-1 peer-placeholder-shown:before:border-transparent before:rounded-tl-md before:border-t peer-focus:before:border-t-2 before:border-l peer-focus:before:border-l-2 before:pointer-events-none before:transition-all peer-disabled:before:border-transparent after:content[' '] after:block after:flex-grow after:box-border after:w-2.5 after:h-1.5 after:mt-[6.5px] after:ml-1 peer-placeholder-shown:after:border-transparent after:rounded-tr-md after:border-t peer-focus:after:border-t-2 after:border-r peer-focus:after:border-r-2 after:pointer-events-none after:transition-all peer-disabled:after:border-transparent peer-placeholder-shown:leading-[3.75] text-gray-500 peer-focus:text-gray-900 before:border-blue-gray-200 peer-focus:before:!border-gray-900 after:border-blue-gray-200 peer-focus:after:!border-gray-900">Username
                             </label>
@@ -49,6 +95,8 @@ export class Login extends Component {
                                     className="peer w-full h-full bg-transparent text-blue-gray-700 font-sans font-normal outline outline-0 focus:outline-0 disabled:bg-blue-gray-50 disabled:border-0 transition-all placeholder-shown:border placeholder-shown:border-blue-gray-200 placeholder-shown:border-t-blue-gray-200 border focus:border-2 border-t-transparent focus:border-t-transparent text-sm px-3 py-2.5 rounded-[7px] border-blue-gray-200 focus:border-gray-900"
                                     placeholder=" "
                                     type="password"
+                                    value={this.state.userInputPassword}
+                                    onChange={(e) => this.setState({userInputPassword: e.target.value})}
                                     required/><label
                                 className="flex w-full h-full select-none pointer-events-none absolute left-0 font-normal !overflow-visible truncate peer-placeholder-shown:text-blue-gray-500 leading-tight peer-focus:leading-tight peer-disabled:text-transparent peer-disabled:peer-placeholder-shown:text-blue-gray-500 transition-all -top-1.5 peer-placeholder-shown:text-normal text-[11px] peer-focus:text-[11px] before:content[' '] before:block before:box-border before:w-2.5 before:h-1.5 before:mt-[6.5px] before:mr-1 peer-placeholder-shown:before:border-transparent before:rounded-tl-md before:border-t peer-focus:before:border-t-2 before:border-l peer-focus:before:border-l-2 before:pointer-events-none before:transition-all peer-disabled:before:border-transparent after:content[' '] after:block after:flex-grow after:box-border after:w-2.5 after:h-1.5 after:mt-[6.5px] after:ml-1 peer-placeholder-shown:after:border-transparent after:rounded-tr-md after:border-t peer-focus:after:border-t-2 after:border-r peer-focus:after:border-r-2 after:pointer-events-none after:transition-all peer-disabled:after:border-transparent peer-placeholder-shown:leading-[3.75] text-gray-500 peer-focus:text-gray-900 before:border-blue-gray-200 peer-focus:before:!border-gray-900 after:border-blue-gray-200 peer-focus:after:!border-gray-900">Password
                             </label>
@@ -69,7 +117,10 @@ export class Login extends Component {
 
                         <div className="flex w-full">
                             <button
-                                className="bg-secondary text-smaller text-white hover:bg-teal-600 py-2 px-4 w-full rounded">
+                                className="bg-secondary text-smaller text-white hover:bg-teal-600 py-2 px-4 w-full rounded"
+                                type="button"
+                                onClick={this.signInOnAction}
+                            >
                                 Sign In
                             </button>
                         </div>
@@ -97,8 +148,8 @@ export class Login extends Component {
                                     <radialGradient id="paint0_radial_61_13" cx="0" cy="0" r="1"
                                                     gradientUnits="userSpaceOnUse"
                                                     gradientTransform="translate(1.95225 14.6004) scale(18.9449 18.9336)">
-                                        <stop offset="0.09" stop-color="#FA8F21"/>
-                                        <stop offset="0.78" stop-color="#D82D7E"/>
+                                        <stop offset="0.09" stopColor="#FA8F21"/>
+                                        <stop offset="0.78" stopColor="#D82D7E"/>
                                     </radialGradient>
                                 </defs>
                             </svg>
@@ -109,7 +160,7 @@ export class Login extends Component {
                             type="button">
                             <svg xmlns="http://www.w3.org/2000/svg" width="16" height="15" viewBox="0 0 16 15"
                                  fill="none">
-                                <path fill-rule="evenodd" clip-rule="evenodd"
+                                <path fillRule="evenodd" clipRule="evenodd"
                                       d="M8.27321 0.0916138C4.1451 0.0916138 0.801514 3.41894 0.801514 7.52698C0.801514 10.8171 2.94029 13.5961 5.91028 14.5813C6.28387 14.6463 6.42396 14.4233 6.42396 14.2281C6.42396 14.0515 6.41462 13.466 6.41462 12.8433C4.53736 13.1872 4.0517 12.3879 3.90227 11.9696C3.81821 11.7558 3.45396 11.096 3.13642 10.9194C2.87491 10.78 2.50132 10.4361 3.12708 10.4268C3.71547 10.4175 4.13576 10.9658 4.27585 11.1889C4.9483 12.3135 6.02236 11.9975 6.45198 11.8023C6.51736 11.319 6.71349 10.9937 6.9283 10.8078C5.26585 10.622 3.52868 9.98065 3.52868 7.13662C3.52868 6.32803 3.81821 5.65884 4.29453 5.13837C4.21981 4.95249 3.9583 4.19036 4.36925 3.168C4.36925 3.168 4.995 2.97282 6.42396 3.93012C7.0217 3.76283 7.65679 3.67918 8.29189 3.67918C8.92698 3.67918 9.56208 3.76283 10.1598 3.93012C11.5888 2.96352 12.2145 3.168 12.2145 3.168C12.6255 4.19036 12.364 4.95249 12.2892 5.13837C12.7656 5.65884 13.0551 6.31873 13.0551 7.13662C13.0551 9.98995 11.3086 10.622 9.64613 10.8078C9.91698 11.0402 10.1505 11.4863 10.1505 12.1834C10.1505 13.1779 10.1411 13.9772 10.1411 14.2281C10.1411 14.4233 10.2812 14.6556 10.6548 14.5813C13.6061 13.5961 15.7449 10.8078 15.7449 7.52698C15.7449 3.41894 12.4013 0.0916138 8.27321 0.0916138Z"
                                       fill="white"/>
                             </svg>
@@ -122,8 +173,8 @@ export class Login extends Component {
                     className="absolute top-0 right-0 p-2 m-5 bg-black bg-opacity-10 hover:bg-opacity-15 cursor-pointer rounded-sm">
                     <Link to="/">
                         <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none">
-                            <path d="M16 16L12 12M12 12L8 8M12 12L16 8M12 12L8 16" stroke="white" stroke-width="2"
-                                  stroke-linecap="round" stroke-linejoin="round"/>
+                            <path d="M16 16L12 12M12 12L8 8M12 12L16 8M12 12L8 16" stroke="white" strokeWidth="2"
+                                  strokeLinecap="round" strokeLinejoin="round"/>
                         </svg>
                     </Link>
                 </div>

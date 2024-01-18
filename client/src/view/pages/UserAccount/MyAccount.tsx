@@ -1,9 +1,80 @@
 import React, {Component} from 'react';
 import bannerBackgroundImg from "../../../images/MyAccount/bgImg.jpg";
 import ProfileImg from "../../../images/MyAccount/ProfileImg.png";
+import axios from "axios";
 
-class MyAccount extends Component {
+
+
+interface UserListState {
+    fullName: string;
+    email: string;
+    address: string;
+    contact: string;
+    username: string;
+    password: string;
+    profileImgUrl: string;
+}
+
+interface User {
+    data: UserListState[];
+}
+
+class MyAccount extends Component<{}, User> {
+    private api: any;
+
+    constructor(props: {}) {
+        super(props);
+        this.api = axios.create({baseURL: `http://localhost:4000`});
+
+        this.state = {
+            data: []
+        }
+    }
+
+    private deleteAccountOnAction = () => {
+        try {
+            this.api.delete(`/users/delete/${localStorage.getItem('username')}`)
+                .then((res: { data: any }) => {
+                    localStorage.setItem('isUserLoggedIn', "false")
+                    alert('account deleted successfully!');
+                    window.location.href = '/';
+
+                }).catch((err: any) => {
+                console.error('Axios Error' + err);
+                alert("Front End Error" + err);
+            });
+        } catch (err) {
+            console.log("Front End Error" + err);
+            alert("Front End Error" + err);
+        }
+    }
+
+    componentDidMount() {
+        this.fetchUsers();
+    }
+
+    fetchUsers = async () => {
+        try {
+            this.api.get(`/users/find/${localStorage.getItem('username')}`)
+                .then((res: { data: any }) => {
+                    this.setState({data: res.data});
+                }).catch((err: any) => {
+                console.error('Axios Error' + err);
+            });
+        } catch (err) {
+            console.error('Error submitting data:', err);
+        }
+    };
+
+    private updateProfileOnAction = () => {
+        console.log(this.state.data)
+    }
+
     render() {
+
+        const data = this.state.data[0];
+        const fullName = data?.fullName || '';
+
         return (
             <>
                 {/*Banner*/}
@@ -26,7 +97,8 @@ class MyAccount extends Component {
                 {/*First Div*/}
                 <div className="flex justify-center items-center mx-auto p-2">
 
-                    <div className="grid grid-cols-1 sm:grid-cols-2 gap-10 p-5 2xl:p-10 bg-white shadow-lg mb-[60px] md:mb-[120px] mt-[60px] md:mt-[120px] rounded-xl">
+                    <div
+                        className="grid grid-cols-1 sm:grid-cols-2 gap-10 p-5 2xl:p-10 bg-white shadow-lg mb-[60px] md:mb-[120px] mt-[60px] md:mt-[120px] rounded-xl">
 
                         {/*first grid item*/}
                         <div className="flex justify-center items-center bg-white rounded-xl p-2">
@@ -57,6 +129,7 @@ class MyAccount extends Component {
                                         className="bg-transparent bg-nonary font-poppins text-smaller text-quinary rounded-lg focus:outline-none p-4 w-full"
                                         type="text"
                                         placeholder="Full Name"
+                                        value={fullName}
                                     />
                                 </div>
 
@@ -99,9 +172,9 @@ class MyAccount extends Component {
                                         Logout
                                     </button>
 
-                                    <button
-                                        className="bg-secondary transition-all text-smaller font-bold tracking-wider text-white hover:bg-teal-600 py-3 px-4 w-full rounded">
-                                        Update Profile
+                                    <button type="button" onClick={this.updateProfileOnAction}
+                                            className="bg-secondary transition-all text-smaller font-bold tracking-wider text-white hover:bg-teal-600 py-3 px-4 w-full rounded">
+                                        Update Password
                                     </button>
                                 </div>
                             </form>
@@ -112,7 +185,8 @@ class MyAccount extends Component {
                         <div
                             className="flex flex-col justify-center items-center bg-white rounded-xl gap-10 p-2">
 
-                            <form className="flex flex-col justify-center items-center sm:border-2 sm:p-5 sm:border-nonary rounded-xl bg-white gap-5 w-full">
+                            <form
+                                className="flex flex-col justify-center items-center sm:border-2 sm:p-5 sm:border-nonary rounded-xl bg-white gap-5 w-full">
 
                                 <div className="flex justify-start w-full text-loginpagetopic">
                                     <h1 className="text-start font-bold text-quinary">Update Account Password</h1>
@@ -159,7 +233,8 @@ class MyAccount extends Component {
                                 </div>
                             </form>
 
-                            <div className="flex flex-col justify-center items-center sm:border-2 sm:p-5 sm:border-nonary rounded-xl bg-white gap-5">
+                            <div
+                                className="flex flex-col justify-center items-center sm:border-2 sm:p-5 sm:border-nonary rounded-xl bg-white gap-5">
 
                                 <div className="flex flex-col justify-center text-loginpagetopic">
                                     <h1 className="text-start font-bold text-quinary">Delete Your Account</h1>
@@ -170,7 +245,9 @@ class MyAccount extends Component {
 
                                 <div className="flex gap-2 w-full">
                                     <button
-                                        className="bg-[#D82424] transition-all text-smaller font-bold tracking-wider text-white hover:bg-[#CE1919] py-3 px-4 w-full rounded">
+                                        className="bg-[#D82424] transition-all text-smaller font-bold tracking-wider text-white hover:bg-[#CE1919] py-3 px-4 w-full rounded"
+                                        onClick={this.deleteAccountOnAction}
+                                    >
                                         Delete Your Account
                                     </button>
                                 </div>
