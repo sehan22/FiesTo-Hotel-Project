@@ -4,8 +4,7 @@ import ProfileImg from "../../../images/MyAccount/ProfileImg.png";
 import axios from "axios";
 
 
-
-interface UserListState {
+interface User {
     fullName: string;
     email: string;
     address: string;
@@ -15,11 +14,11 @@ interface UserListState {
     profileImgUrl: string;
 }
 
-interface User {
-    data: UserListState[];
+interface ListState {
+    data: User[];
 }
 
-class MyAccount extends Component<{}, User> {
+class MyAccount extends Component<{}, ListState> {
     private api: any;
 
     constructor(props: {}) {
@@ -55,12 +54,8 @@ class MyAccount extends Component<{}, User> {
 
     fetchUsers = async () => {
         try {
-            this.api.get(`/users/find/${localStorage.getItem('username')}`)
-                .then((res: { data: any }) => {
-                    this.setState({data: res.data});
-                }).catch((err: any) => {
-                console.error('Axios Error' + err);
-            });
+            const response = await axios.get<User[]>(`http://localhost:4000/users/find/${localStorage.getItem('username')}`);
+            this.setState({data: response.data});
         } catch (err) {
             console.error('Error submitting data:', err);
         }
@@ -72,8 +67,7 @@ class MyAccount extends Component<{}, User> {
 
     render() {
 
-        const data = this.state.data[0];
-        const fullName = data?.fullName || '';
+        const {data} = this.state;
 
         return (
             <>
@@ -129,7 +123,6 @@ class MyAccount extends Component<{}, User> {
                                         className="bg-transparent bg-nonary font-poppins text-smaller text-quinary rounded-lg focus:outline-none p-4 w-full"
                                         type="text"
                                         placeholder="Full Name"
-                                        value={fullName}
                                     />
                                 </div>
 
@@ -257,7 +250,9 @@ class MyAccount extends Component<{}, User> {
                     </div>
                 </div>
 
-
+                {data.map((user) => (
+                    <img src={`data:image/png;base64, ${user.profileImgUrl}`} alt=""/>
+                ))}
             </>
         );
     }
