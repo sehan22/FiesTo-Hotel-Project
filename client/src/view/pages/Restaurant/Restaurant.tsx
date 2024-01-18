@@ -3,6 +3,7 @@ import bannerBackgroundImg from "../../../images/RestaurantPage/bgimg.png";
 import FifthDivBgImg from "../../../images/RestaurantPage/Group 166.png"
 import RestaurantItem from "../../common/Product/RestaurantItem/RestaurantItem";
 import axios from "axios";
+import AddToCart from "../AddToCart/AddToCart";
 
 export class Restaurant extends Component {
 

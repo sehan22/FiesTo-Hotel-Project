@@ -10,22 +10,22 @@ const UsersController = {
             res.status(200).json(userList);
         } catch (err) {
             console.error(err);
-            res.status(500).json({error: 'Something Went Wring!' + err});
+            res.status(500).json({error: 'Something Went Wrong!' + err});
         }
     },
 
-/*    getdetail:async function (req, res, next) {
-        try {
-            const email = req.params.email;
+    /*    getdetail:async function (req, res, next) {
+            try {
+                const email = req.params.email;
 
-            const customer = await Customer.find({email: email});
+                const customer = await Customer.find({email: email});
 
-            res.status(200).json(customer);
-        } catch (err) {
-            console.error(err);
-            res.status(500).json({error: 'something went wrong !'});
-        }
-    },*/
+                res.status(200).json(customer);
+            } catch (err) {
+                console.error(err);
+                res.status(500).json({error: 'something went wrong !'});
+            }
+        },*/
 
     saveUser: async function (req, res, next) {
         try {
