@@ -27,8 +27,11 @@ export class Login extends Component<{}, UserLoginDetailsState> {
         try {
             this.api.get(`/users/find/${this.state.userInputUsername}`)
                 .then((res: { data: any }) => {
-                    localStorage.setItem('isUserLoggedIn', 'true');
 
+                    /*set loginStatus,username and profileImg local storage*/
+                    localStorage.setItem('isUserLoggedIn', 'true');
+                    localStorage.setItem('username', `${res.data.username}`);
+                    localStorage.setItem('profileImg', `${res.data.profileImgUrl}`);
 
                     this.state.userInputPassword === res.data.password ? window.location.href = '/'
                         : alert("Username or Password Incorrect!");
