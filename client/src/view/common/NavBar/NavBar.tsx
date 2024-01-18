@@ -2,12 +2,33 @@ import React, {Component} from 'react';
 import Logo from '../../../images/NavBar/Logo.png';
 import SecondManImg from '../../../images/NavBar/usericon.jpg'
 import {Link} from "react-router-dom";
+import {Login} from "../../pages/Login/Login";
 
+let isUserLogin = localStorage.getItem('isUserLoggedIn');
+
+let content: JSX.Element;
+
+
+
+if (isUserLogin == "false") {
+    content = <button
+        className="bg-secondary text-smaller hover:bg-teal-600 py-3 px-4 flex justify-center items-center gap-2 rounded">
+        <Link className="text-gray-200 text-normal hover:text-gray-50 transition-all" to="/login">Sign In</Link>
+        <div className="h-4 w-0.5 bg-gray-300"></div>
+        <Link className="text-gray-200 text-normal hover:text-gray-50 transition-all" to="/signup">Sign Up</Link>
+    </button>;
+} else {
+    content = <button className="px-5 py-2 bg-secondary" onClick={onLogoutAction}>LogOut</button>
+}
+
+function onLogoutAction() {
+    localStorage.setItem('isUserLoggedIn',"false");
+    window.location.reload();
+}
 
 export class NavBar extends Component {
     constructor(props: {}) {
         super(props);
-
         this.state = {
             scrollPosition: 0,
         };
@@ -25,6 +46,10 @@ export class NavBar extends Component {
 
     handleScroll() {
         this.setState({scrollPosition: window.scrollY});
+    }
+
+    private click = () => {
+        alert(localStorage.getItem('isUserLoggedIn'))
     }
 
     render() {
@@ -57,11 +82,8 @@ export class NavBar extends Component {
                     </ul>
 
                     <div className="hidden md:flex justify-center items-center gap-2">
-                        <button className="bg-secondary text-smaller hover:bg-teal-600 py-3 px-4 flex gap-2 rounded">
-                            <Link className="text-text-neutral-300 text-normal hover:text-black transition-all" to="/login">Sign In</Link>
-                            <div className="h-fit w-0.5 bg-gray-300 text-gray-300">|</div>
-                            <Link className="text-text-neutral-300 text-normal hover:text-black transition-all" to="/signup">Sign Up</Link>
-                        </button>
+
+                            {content}
 
                         <hr className="rotate-90 opacity-50" style={{height: '10px', width: '20px',}}/>
 

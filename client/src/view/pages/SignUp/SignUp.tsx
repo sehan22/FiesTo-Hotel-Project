@@ -1,9 +1,8 @@
 import React, {Component} from 'react';
 import LoginPageBGImg from "../../../images/LoginPage/LoginPageBGImg.png";
 import Logo from "../../../images/LoginPage/Logo2.png";
-import {Link} from "react-router-dom";
 import axios from "axios";
-import RestaurantItem from "../../common/Product/RestaurantItem/RestaurantItem";
+import {Link} from "react-router-dom";
 
 interface UserProps {
     data: any;
@@ -20,7 +19,6 @@ interface UserState {
 }
 
 export class SignUp extends Component<UserProps, UserState> {
-
     private api: any;
 
     constructor(props: any) {
@@ -98,7 +96,12 @@ export class SignUp extends Component<UserProps, UserState> {
                 .then((res: { data: any }) => {
                     const jsonData = res.data;
                     console.log(jsonData);
+
                     alert('User Registration successfully!');
+
+                    setInterval(() => {
+                        window.location.href = '/login';
+                    }, 1000);
                 })
                 .catch((err: any) => {
                     console.error('Axios Error' + err);

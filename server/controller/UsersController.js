@@ -14,7 +14,7 @@ const UsersController = {
         }
     },
 
-    /*    getdetail:async function (req, res, next) {
+    /*    getUser:async function (req, res, next) {
             try {
                 const email = req.params.email;
 
@@ -113,7 +113,7 @@ const UsersController = {
             return res.status(200).json(user);
         } catch (err) {
             console.error(err);
-            res.status(500).json({error: 'Something Went Wrong!'});
+            res.status(500).json({error: 'Something Went Wrong!' + err});
         }
     },
 }
