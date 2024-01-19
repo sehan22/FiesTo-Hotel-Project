@@ -30,6 +30,8 @@ export class Login extends Component<{}, UserLoginDetailsState> {
 
                     /*set loginStatus,username and profileImg local storage*/
                     localStorage.setItem('isUserLoggedIn', 'true');
+                    localStorage.setItem('username', '');
+                    localStorage.setItem('profileImg', '');
                     localStorage.setItem('username', `${res.data.username}`);
                     localStorage.setItem('profileImg', `${res.data.profileImgUrl}`);
 

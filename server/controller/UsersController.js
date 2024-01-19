@@ -47,12 +47,18 @@ const UsersController = {
 
     updateUser: async function (req, res, next) {
         try {
-            const userName = req.params.username;
+            const username = req.params.username;
             const userData = req.body;
+
+            // Check if a file was uploaded
+            if (req.file) {
+                // Assuming profileImgUrl is a file field
+                userData.profileImgUrl = req.file.buffer.toString('base64'); // Store the file as base64 string
+            }
 
             const updatedUser = await User.findOneAndUpdate(
                 {
-                    username: userName
+                    username: username
                 },
                 userData, {new: true}
             );
