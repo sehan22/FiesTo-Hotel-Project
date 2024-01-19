@@ -71,7 +71,7 @@ class MyAccount extends Component<{}, UserDetailsList> {
 
     fetchUsers = async () => {
         try {
-            const response = await this.api.get(`/users/find/${'sehan'}`);
+            const response = await this.api.get(`/users/find/${localStorage.getItem('username')}`);
             this.setState({username: response.data.username});
             this.setState({fullName: response.data.fullName});
             this.setState({email: response.data.email});
@@ -199,7 +199,7 @@ class MyAccount extends Component<{}, UserDetailsList> {
 
 
                                     <div className="flex flex-col text-center lg:text-start">
-                                        <h1 className="text-loginpagetopic font-bold text-quinary">Sehan Ranaweera</h1>
+                                        <h1 className="text-loginpagetopic font-bold text-quinary">{this.state.fullName}</h1>
                                         <h6 className="text-smaller text-senary">Your Account Details</h6>
                                     </div>
                                 </div>

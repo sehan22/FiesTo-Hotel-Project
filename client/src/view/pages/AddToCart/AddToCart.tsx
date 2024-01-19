@@ -2,29 +2,31 @@ import React, {Component} from 'react';
 import bannerBackgroundImg from "../../../images/AddToCartPage/bgImg.png";
 import axios from "axios";
 
-interface User {
-    fullName: string;
-    email: string;
-    address: string;
-    contact: number;
-    username: string;
-    password: string;
-    profileImgUrl: string;
+interface addToCartItemDetail {
+    itemId: string;
+    itemName: string;
+    itemRating: number;
+    itemDescription: string;
+    itemQTY: number;
+    itemPrice: number;
+    itemImgUrl: string;
+    selectedItemQTY: number;
 }
 
-interface UserListState {
-    userList: User[];
-    error: string | null;
-}
-
-class AddToCart extends Component<{}, UserListState> {
+class AddToCart extends Component<{}, addToCartItemDetail> {
 
     constructor(props: {}) {
         super(props);
 
         this.state = {
-            userList: [],
-            error: null,
+            itemDescription: "",
+            itemId: "",
+            itemImgUrl: "",
+            itemName: "",
+            itemPrice: 0,
+            itemQTY: 0,
+            itemRating: 0,
+            selectedItemQTY: 0,
         };
     }
 
@@ -34,18 +36,20 @@ class AddToCart extends Component<{}, UserListState> {
 
     fetchUsers = async () => {
         try {
-            const response = await axios.get<User[]>('http://localhost:4000/users/all');
-            this.setState({userList: response.data});
+            const response = await axios.get('http://localhost:4000/users/all');
+            // this.setState({userList: response.data});
         } catch (err) {
             console.error('Error fetching users:', err);
-            this.setState({error: 'Something went wrong while fetching users.'});
+            // this.setState({error: 'Something went wrong while fetching users.'});
         }
     };
 
+    private checkStateOnAction = () => {
+
+    }
+
 
     render() {
-
-        const {userList, error} = this.state;
 
         return (
             <>
@@ -61,29 +65,21 @@ class AddToCart extends Component<{}, UserListState> {
                     <div className="flex flex-col lmd:items-center lmd:justify-center gap-4 p-2 ">
                         <div className="h-0.5 opacity-50 bg-septenary w-44"></div>
                         <h6 className="font-poppins text-topictwo md:text-subtopic text-nonary">Join With Us</h6>
+
+                        <button
+                            className="px-5 py-2 bg-secondary rounded-xl text-white"
+                            onClick={this.checkStateOnAction}
+                        >
+                            Check State
+                        </button>
+
                         <div className="hidden lmd:block h-0.5 opacity-50 bg-septenary w-32"></div>
                     </div>
-
-
-                    <button className="px-5 py-3 bg-gray-400"
-                            onClick={this.buttonClick}
-                    >check state
-                    </button>
-
-                    <ul>
-                        {userList.map((user) => (
-                            <img src={`data:image/png;base64, ${user.profileImgUrl}`} alt=""/>
-                        ))}
-                    </ul>
                 </div>
+
+                <div className="flex justify-center items-center mx-auto"></div>
             </>
         );
-    }
-
-    private buttonClick() {
-        //@ts-ignore
-        const {data} = this.state;
-        console.log(data[0]);
     }
 }
 
