@@ -1,6 +1,6 @@
 import React, {Component} from 'react';
-import bannerBackgroundImg from "../../../images/AddToCartPage/bgImg.png";
-import axios from "axios";
+import bgImg from "../../../images/AddToCartPage/bgImg.png";
+import ResITem from "../../../images/RestaurantPage/CardItemsImg/mixrice.png"
 
 interface addToCartItemDetail {
     itemId: string;
@@ -30,7 +30,7 @@ class AddToCart extends Component<{}, addToCartItemDetail> {
         };
     }
 
-    componentDidMount() {
+/*    componentDidMount() {
         this.fetchUsers();
     }
 
@@ -42,7 +42,7 @@ class AddToCart extends Component<{}, addToCartItemDetail> {
             console.error('Error fetching users:', err);
             // this.setState({error: 'Something went wrong while fetching users.'});
         }
-    };
+    };*/
 
     private checkStateOnAction = () => {
 
@@ -55,9 +55,9 @@ class AddToCart extends Component<{}, addToCartItemDetail> {
             <>
                 {/*Banner*/}
                 <div
-                    className="flex flex-col items-start justify-center lmd:items-center lmd:justify-center w-full h-screen md:max-h-[500px] md:rounded-b-3xl bg-cover bg-center"
+                    className="hidden flex flex-col items-start justify-center lmd:items-center lmd:justify-center w-full h-screen md:max-h-[500px] md:rounded-b-3xl bg-cover bg-center"
                     style={{
-                        backgroundImage: `url(${bannerBackgroundImg})`,
+                        backgroundImage: `url(${""})`,
                         backgroundSize: 'cover',
                         backgroundPosition: 'center'
                     }}>
@@ -99,7 +99,7 @@ class AddToCart extends Component<{}, addToCartItemDetail> {
                             <div className="grid grid-cols-1 lmd:grid-cols-2 gap-2">
 
                                 <div className="flex flex-col justify-center items-start w-full font-poppins bg-secondary">
-                                    <img src={bannerBackgroundImg} alt=""/>
+                                    <img src={ResITem} alt=""/>
 
                                     <div>
                                         <h1 className='text-normal'>Vegetable Fried Rice</h1>
