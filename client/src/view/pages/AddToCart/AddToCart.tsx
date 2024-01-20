@@ -95,11 +95,17 @@ class AddToCart extends Component<{}, addToCartItemDetail> {
                             <hr className=" w-full bg-secondary"/>
 
                             {/*sub flex items*/} {/*cart items main div*/}
-                            <div className="flex justify-center items-center p-5 w-full">
-                                <div className="flex flex-col justify-center items-center w-full h-32 bg-secondary">
+                            {/*<div className="flex justify-center items-center p-5 w-full bg-secondary font-poppins">*/}
+                            <div className="grid grid-cols-1 lmd:grid-cols-2 gap-2">
+
+                                <div className="flex flex-col justify-center items-start w-full font-poppins bg-secondary">
                                     <img src={bannerBackgroundImg} alt=""/>
-                                    addToCart
-                                    <h1>Vegetable Fried Rice</h1>
+
+                                    <div>
+                                        <h1 className='text-normal'>Vegetable Fried Rice</h1>
+                                        <h6 className="text-smaller">Rs: 3000/=</h6>
+                                        <h6 className="text-smaller">Total: 9000/=</h6>
+                                    </div>
 
                                 </div>
                             </div>
