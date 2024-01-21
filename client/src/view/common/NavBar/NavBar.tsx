@@ -94,7 +94,7 @@ export class NavBar extends Component {
         return (
             <>
                 <div
-                    className="flex bg-black z-20 bg-opacity-5 p-3 rounded-none fixed text-normal text-white font-poppins justify-around w-full top-5"
+                    className="hidden flex bg-black z-20 bg-opacity-5 p-3 rounded-none fixed text-normal text-white font-poppins justify-around w-full top-5"
                     style={navBarStyle} id="NavBar">
 
                     <img className="w-[80px] object-scale-down" src={Logo} alt=""/>
