@@ -480,7 +480,7 @@ class AddToCart extends Component<{}, addToCartItemDetail> {
                 </div>
 
 
-                <div className="flex items-center justify-center mx-auto">
+                <div className="flex items-center justify-center mx-auto mb-[60px] mt-[60px] md:mt-[120px] md:mb-[120px]">
 
                     {/*main flex div*/}
                     <div
@@ -488,7 +488,7 @@ class AddToCart extends Component<{}, addToCartItemDetail> {
 
                         {/*main flex item 1*/}
                         <div
-                            className="flex flex-col justify-center items-center w-full bg-white p-2 lg:p-5 max-w-[890px]">
+                            className="flex flex-col justify-center items-center w-full bg-white p-2 lg:p-5 max-w-[890px] rounded-xl">
 
                             <div className="flex items-center justify-between font-poppins w-full">
                                 <h1 className="text-quinary text-topictwo">Your Order Cart</h1>
@@ -501,7 +501,7 @@ class AddToCart extends Component<{}, addToCartItemDetail> {
 
                             {/*cart item - restaurant items*/}
                             <div
-                                className="grid grid-cols-1 gap-5 max-w-[820px] w-full rounded-xl h-[500px] overflow-y-scroll overflow-x-hidden scroll-auto custom-scrollbar">
+                                className="grid grid-cols-1 gap-5 max-w-[820px] w-full rounded-xl h-[50vh] xl:h-[70vh] overflow-y-scroll overflow-x-hidden scroll-auto custom1-scrollbar">
 
                                 <div className="flex items-center justify-between p-2">
 
@@ -757,9 +757,9 @@ class AddToCart extends Component<{}, addToCartItemDetail> {
 
                         </div>
 
-                        {/*main flex item 1*/}
+                        {/*main flex item 2*/}
                         <div
-                            className="flex flex-col justify-center items-center max-w-[890px] bg-white p-2 lg:p-5 xl:w-[500px]">
+                            className="flex flex-col justify-center items-center shadow-lg max-w-[890px] p-2 lg:p-5 xl:w-[500px] bg-white rounded-xl w-full">
 
                             <div className="flex items-center justify-between font-poppins w-full">
                                 <h1 className="text-quinary text-topictwo">Proceed to Checkout</h1>
@@ -769,16 +769,23 @@ class AddToCart extends Component<{}, addToCartItemDetail> {
                                 <hr className="bg-octonary bg-opacity-50 rounded-full w-full"/>
                             </div>
 
-                            <form className="grid grid-cols-1 gap2 md:gap-5 p-2 w-full bg-nonary">
-                                <div className="mb-4 w-full lmd:min-w-full">
-                                    <label htmlFor="myInput" className="block text-sm font-medium text-gray-600">
-                                    </label>
-                                    <input
-                                        id="myInput"
-                                        className="bg-transparent bg-white font-poppins text-smaller text-quinary rounded-lg focus:outline-none p-4 w-full"
-                                        type="date"
-                                        placeholder="date"
-                                    />
+                            <form className="grid grid-cols-1 gap2 md:gap-3 p-2 w-full">
+
+                                <div className="flex justify-start gap-5 items-center w-full font-poppins">
+                                    <h1 className="text-normal text-senary">Delivery:</h1>
+
+                                    <div className="flex items-center justify-center gap-5">
+
+                                        <div className="flex items-center">
+                                            <input id="default-checkbox" type="checkbox" value=""
+                                                   className="w-3.5 h-3.5 text-secondary bg-gray-100 border-gray-300 rounded focus:ring-secondary dark:focus:ring-transparent dark:ring-offset-gray-800 focus:ring-2 dark:bg-gray-700 dark:border-gray-600"/>
+                                            <label htmlFor="default-checkbox"
+                                                   className="ms-2 text-smaller font-medium text-gray-900 dark:text-gray-300">
+                                                Yes
+                                            </label>
+                                        </div>
+
+                                    </div>
                                 </div>
 
                                 <div className="mb-4 w-full lmd:min-w-full">
@@ -786,18 +793,7 @@ class AddToCart extends Component<{}, addToCartItemDetail> {
                                     </label>
                                     <input
                                         id="myInput"
-                                        className="bg-transparent bg-white font-poppins text-smaller text-quinary rounded-lg focus:outline-none p-4 w-full"
-                                        type="time"
-                                        placeholder="time"
-                                    />
-                                </div>
-
-                                <div className="mb-4 w-full lmd:min-w-full">
-                                    <label htmlFor="myInput" className="block text-sm font-medium text-gray-600">
-                                    </label>
-                                    <input
-                                        id="myInput"
-                                        className="bg-transparent bg-white font-poppins text-smaller text-quinary rounded-lg focus:outline-none p-4 w-full"
+                                        className="bg-nonary font-poppins text-smaller text-quinary rounded-lg focus:outline-none p-4 w-full"
                                         type="number"
                                         placeholder="Shipping Address"
                                     />
@@ -808,21 +804,57 @@ class AddToCart extends Component<{}, addToCartItemDetail> {
                                         Payment Slip</label>
                                     <input
                                         id="myInput"
-                                        className="file:bg-secondary file:text-white file:border-none file:py-1 file:rounded-lg bg-transparent bg-white font-poppins text-smaller text-quinary rounded-lg focus:outline-none p-4 w-full"
+                                        className="file:bg-secondary file:text-white file:border-none file:py-1 file:rounded-lg bg-nonary font-poppins text-smaller text-quinary rounded-lg focus:outline-none p-4 w-full"
                                         type="file"
                                         placeholder="Sub Total"
                                     />
                                 </div>
 
                                 <div className="flex justify-between items-center w-full font-poppins">
-                                    <h1 className="text-topicDescription text-quinary">Total:</h1>
+                                    <h1 className="text-normal text-senary">SubTotal:</h1>
                                     <h1 className="text-topicDescription text-quinary">Rs: 9500/=</h1>
+                                </div>
+
+                                <div className="flex justify-between items-center w-full font-poppins">
+                                    <h1 className="text-normal text-senary">Discount:</h1>
+                                    <h1 className="text-topicDescription text-lime-600">Rs: -500/=</h1>
+                                </div>
+
+                                <div className="flex justify-between items-center w-full font-poppins">
+                                    <h1 className="text-normal text-senary">Delivery cost:</h1>
+                                    <h1 className="text-topicDescription text-rose-700">Rs: +250/=</h1>
+                                </div>
+
+                                <div className="w-full py-0.5 px-5">
+                                    <hr className="bg-octonary bg-opacity-50 rounded-full w-full"/>
+                                </div>
+
+                                <div className="flex justify-between items-center w-full font-poppins">
+                                    <h1 className="text-normal text-senary">Total:</h1>
+                                    <h1 className="text-loginpagetopic text-quinary">Rs: 9250/=</h1>
+                                </div>
+
+                                <div className="w-full py-0.5 px-5">
+                                    <hr className="bg-octonary bg-opacity-50 rounded-full w-full"/>
+                                </div>
+
+                                <div className="w-full py-0.5 px-5">
+                                    <h1 className="text-center">Payhere</h1>
+                                </div>
+
+                                <div className="w-full py-0.5 px-5">
+                                    <hr className="bg-octonary bg-opacity-50 rounded-full w-full"/>
                                 </div>
 
                                 <div>
                                     <button
                                         className="bg-secondary mt-2 font-bold text-normal transition-all text-white hover:bg-teal-600 py-2 px-4 w-full rounded">
-                                        Order Now
+                                        Purchase Now
+                                    </button>
+
+                                    <button
+                                        className="bg-white border-[1px] border-gray-600 border-opacity-20 mt-2 font-bold text-normal transition-all text-quinary hover:bg-gray-100 hover:bg-opacity-10 py-2 px-4 w-full rounded">
+                                        Back to shop
                                     </button>
                                 </div>
                             </form>

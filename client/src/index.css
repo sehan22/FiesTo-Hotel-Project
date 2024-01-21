@@ -50,6 +50,21 @@ html {
     border-radius: 6px;
 }
 
+/*AddToCart Page ScrollBar Customize*/
+.custom1-scrollbar::-webkit-scrollbar {
+    width: 3px;
+}
+
+.custom1-scrollbar::-webkit-scrollbar-thumb {
+    background-color: #C1C1C1;
+    border-radius: 6px;
+}
+
+.custom1-scrollbar::-webkit-scrollbar-track {
+    background-color: #F8F8F8;
+    border-radius: 6px;
+}
+
 /*Room Card Para Scrollbar*/
 .romCardPara::-webkit-scrollbar {
     width: 5px;
