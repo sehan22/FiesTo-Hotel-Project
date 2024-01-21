@@ -1,17 +1,25 @@
 import React, {Component} from 'react';
 import CarItemImgRice
-    from "../../../../images/RestaurantPage/CardItemsImg/american-shrimp-fried-rice-served-with-chili-fish-sauce-thai-food.jpg";
+    from "../../../../images/RestaurantPage/CardItemsImg/vegirice.jpg";
 import WishListIcon from "../../../../images/RestaurantPage/cardwhistlist.png";
 import AddToCartIcon from "../../../../images/RestaurantPage/addtocarticon.png";
+import ModifyCart from "../../ModifyCart/ModifyCart";
 
 interface RestaurantItemsProps {
     data: any,
 }
 
-class RestaurantItem extends Component<RestaurantItemsProps> {
+interface ProductState {
+    isActive: boolean
+}
+
+class RestaurantItem extends Component<RestaurantItemsProps, ProductState> {
 
     constructor(props: RestaurantItemsProps) {
         super(props);
+        this.state = {
+            isActive: false
+        }
     }
 
     render() {
@@ -57,16 +65,7 @@ class RestaurantItem extends Component<RestaurantItemsProps> {
                             <h1 className="text-topicDescription text-gray-800">{data.price} $</h1>
 
                             <div className="flex justify-center items-center">
-                                <div
-                                    className="flex me-[-4px] justify-center items-center border-septenary rounded-s-xl border-[.5px] gap-1 px-3 py-1.5">
-                                    <button
-                                        className="text-quinary text-smaller hover:bg-black hover:rounded-full hover:bg-opacity-10 px-2 py-0.5">-
-                                    </button>
-                                    <h6 className="text-quinary text-smaller min-w-6 text-center">5</h6>
-                                    <button
-                                        className="text-quinary text-smaller hover:bg-black hover:rounded-full hover:bg-opacity-10 px-2 py-0.5">+
-                                    </button>
-                                </div>
+                                <ModifyCart/>
 
                                 <button
                                     className="bg-secondary transition-all tracking-wide  flex items-center justify-center gap-1 text-smaller hover:bg-teal-600 py-2.5 px-3 rounded-xl text-white">

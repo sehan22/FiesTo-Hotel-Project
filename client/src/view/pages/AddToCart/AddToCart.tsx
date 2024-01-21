@@ -55,7 +55,7 @@ class AddToCart extends Component<{}, addToCartItemDetail> {
             <>
                 {/*Banner*/}
                 <div
-                    className="hidden flex flex-col items-start justify-center lmd:items-center lmd:justify-center w-full h-screen md:max-h-[400px] md:rounded-b-3xl bg-cover bg-center"
+                    className="flex flex-col items-start justify-center lmd:items-center lmd:justify-center w-full h-screen md:max-h-[400px] md:rounded-b-3xl bg-cover bg-center"
                     style={{
                         backgroundImage: `url(${bgImg})`,
                         backgroundSize: 'cover',
@@ -759,7 +759,7 @@ class AddToCart extends Component<{}, addToCartItemDetail> {
 
                         {/*main flex item 2*/}
                         <div
-                            className="flex flex-col justify-center items-center shadow-lg max-w-[890px] p-2 lg:p-5 xl:w-[500px] bg-white rounded-xl w-full">
+                            className="flex flex-col justify-center items-center max-w-[890px] p-2 lg:p-5 xl:w-[500px] bg-white w-full">
 
                             <div className="flex items-center justify-between font-poppins w-full">
                                 <h1 className="text-quinary text-topictwo">Proceed to Checkout</h1>

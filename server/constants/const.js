@@ -1,7 +1,7 @@
 const productsList = [
     {
         "id": 1,
-        "image": "vegirice.jpg",
+        "image": "negi.jpg",
         "name": "Vegetable Fried Rice",
         "price": "50",
         "currency": "$",
@@ -19,7 +19,7 @@ const productsList = [
     },
     {
         "id": 3,
-        "image": "beefrice.jpg",
+        "image": "rice.png",
         "name": "Beef Fried Rice",
         "price": "75",
         "currency": "$",
