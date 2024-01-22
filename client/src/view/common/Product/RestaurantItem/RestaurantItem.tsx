@@ -65,13 +65,18 @@ class RestaurantItem extends Component<RestaurantItemsProps, ProductState> {
                             <h1 className="text-topicDescription text-gray-800">{data.price} $</h1>
 
                             <div className="flex justify-center items-center">
-                                <ModifyCart/>
+                                {
+                                    this.state.isActive
+                                        ? <ModifyCart data={{product: data, isAdded: this.state.isActive}}/>
 
-                                <button
-                                    className="bg-secondary transition-all tracking-wide  flex items-center justify-center gap-1 text-smaller hover:bg-teal-600 py-2.5 px-3 rounded-xl text-white">
-                                    Add To Cart
-                                    <img className="w-5" src={AddToCartIcon} alt=""/>
-                                </button>
+                                        : <button
+                                            className="bg-secondary transition-all tracking-wide  flex items-center justify-center gap-1 text-smaller hover:bg-teal-600 py-2.5 px-3 rounded-xl text-white"
+                                            onClick={this.addToCartOnClick}
+                                        >
+                                            Add To Cart
+                                            <img className="w-5" src={AddToCartIcon} alt=""/>
+                                        </button>
+                                }
                             </div>
                         </div>
                     </div>
@@ -79,6 +84,10 @@ class RestaurantItem extends Component<RestaurantItemsProps, ProductState> {
                 </div>
             </div>
         );
+    }
+
+    private addToCartOnClick = () => {
+        this.setState({isActive: !this.state.isActive}, () => {})
     }
 }
 
