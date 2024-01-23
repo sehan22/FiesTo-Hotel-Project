@@ -2,6 +2,7 @@ import React, {Component} from 'react';
 import bgImg from '../../../images/RestaurantPage/bgimg.png'
 import ResITem from "../../../images/RestaurantPage/CardItemsImg/mixrice.png"
 import {CartItem} from "../../../model/CartItem";
+import axios from "axios";
 
 interface ShoppingCartProps {
     itemsList: CartItem[];
@@ -20,24 +21,72 @@ interface OrderState {
 }
 
 class AddToCart extends Component<ShoppingCartProps, OrderState> {
+    private api: any;
 
     constructor(props: ShoppingCartProps) {
         super(props);
+        this.api = axios.create({baseURL: `http://localhost:4000`});
         this.state = {
+            orderId: "",
             customer: "",
             deliveryCost: 0,
             discount: 0,
             items: undefined,
-            orderId: "",
             paymentSlipImg: undefined,
             shippingAddress: "",
             subTotal: 0,
             total: 0
         }
+
+        this.handleImgSelectOnChange = this.handleImgSelectOnChange.bind(this);
+    }
+
+    handleImgSelectOnChange(e: React.ChangeEvent<HTMLInputElement>) {
+        console.log(e.target.files)
+
+        // @ts-ignore
+        const imgFile = e.target.files[0];
+        this.setState({paymentSlipImg: imgFile})
     }
 
     orderOnAction = () => {
+        try {
+            const formData = new FormData();
+            formData.append('shippingAddress', this.state.shippingAddress);
+            formData.append('paymentSlipImg', this.state.paymentSlipImg);
 
+            const orderJsonData = {
+                orderId: this.state.orderId,
+                customer: this.state.customer,
+                items: this.state.items,
+                subTotal: this.state.subTotal,
+                deliveryCost: this.state.deliveryCost,
+                discount: this.state.discount,
+                total: this.state.total
+            }
+
+            formData.append('json', JSON.stringify(orderJsonData));
+
+            this.api
+                .post('/orders/save', formData, {headers: {'Content-Type': 'multipart/form-data'}})
+                .then((res: { data: any }) => {
+                    const jsonData = res.data;
+                    console.log(jsonData);
+
+                    alert('Ordered successfully!');
+
+                    /*setInterval(() => {
+                        window.location.href = '/login';
+                    }, 1000);*/
+                })
+                .catch((err: any) => {
+                    console.error('Axios Error' + err);
+                    alert(err);
+                });
+        } catch (err) {
+            console.error('Error submitting data:', err);
+            alert("Client Error" + err);
+        }
     }
 
     render() {
@@ -199,8 +248,9 @@ class AddToCart extends Component<ShoppingCartProps, OrderState> {
                                         id="myInput"
                                         className="bg-nonary font-poppins text-smaller text-quinary rounded-lg focus:outline-none p-4 w-full"
                                         type="number"
-                                        name="paymentSlipImg"
+                                        name="shippingAddress"
                                         placeholder="Shipping Address"
+                                        onChange={(e) => this.setState({shippingAddress: e.target.value})}
                                     />
                                 </div>
 
@@ -212,6 +262,9 @@ class AddToCart extends Component<ShoppingCartProps, OrderState> {
                                         className="file:bg-secondary file:text-white file:border-none file:py-1 file:rounded-lg bg-nonary font-poppins text-smaller text-quinary rounded-lg focus:outline-none p-4 w-full"
                                         type="file"
                                         name="paymentSlipImg"
+                                        onChange={(e) => {
+                                            this.handleImgSelectOnChange(e)
+                                        }}
                                     />
                                 </div>
 
@@ -222,12 +275,14 @@ class AddToCart extends Component<ShoppingCartProps, OrderState> {
 
                                 <div className="flex justify-between items-center w-full font-poppins">
                                     <h1 className="text-smaller md:text-normal text-senary">Discount:</h1>
-                                    <h1 className="text-smaller md:text-normal text-lime-600">Rs: -{this.state.discount}/=</h1>
+                                    <h1 className="text-smaller md:text-normal text-lime-600">Rs:
+                                        -{this.state.discount}/=</h1>
                                 </div>
 
                                 <div className="flex justify-between items-center w-full font-poppins">
                                     <h1 className="text-smaller md:text-normal text-senary">Delivery cost:</h1>
-                                    <h1 className="text-smaller md:text-normal text-rose-700">Rs: +{this.state.deliveryCost}/=</h1>
+                                    <h1 className="text-smaller md:text-normal text-rose-700">Rs:
+                                        +{this.state.deliveryCost}/=</h1>
                                 </div>
 
                                 <div className="w-full py-0.5 px-5">
