@@ -1,33 +1,47 @@
-const mongoose=require('mongoose');
+const mongoose = require('mongoose');
 
-const OrderModel=mongoose.Schema(
+const OrderModel = mongoose.Schema(
     {
+        "orderId": {
+            require: true,
+            type: String,
+            unique: true,
+            index: true
+        },
         "customer": {
-            require:true,
-            type:String
+            require: true,
+            type: String
         },
         "items": {
-            require:true,
-            type:[],
+            require: true,
+            type: [],
         },
-        "subtotal":{
-            require:true,
-            type:Number,
+        "shippingAddress": {
+            require: false,
+            type: String
         },
-        "deliveryCharge": {
-            type:Number
+        "paymentSlipImg": {
+            require: false,
+            type: String
+        },
+        "subTotal": {
+            require: true,
+            type: Number,
+        },
+        "deliveryCost": {
+            type: Number
         },
         "discount": {
-            type:Number
+            type: Number
         },
-        "totalToPay": {
-            require:true,
-            type:Number
+        "total": {
+            require: true,
+            type: Number
         }
     },
-    {versionKey:false}
+    {versionKey: false}
 );
 
-const Order = mongoose.model('Order',OrderModel);
+const Order = mongoose.model('Order', OrderModel);
 
-module.exports=Order;
+module.exports = Order;

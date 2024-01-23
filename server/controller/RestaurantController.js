@@ -5,29 +5,29 @@ const RestaurantItem = require('../model/RestaurantItem')
 const ProductController = {
 
     // const {productList}
-    /*
-        const {productsList} = require("../constants/const");
-        const Order = require('../model/Order');
+/*
+    const {productsList} = require("../constants/const");
+    const Order = require('../model/Order');
 
-        const orderController={
+    const orderController={
 
-            saveOrder: async function (req, res, next) {
-                try {
-                    const orderData = req.body;
+        saveOrder: async function (req, res, next) {
+            try {
+                const orderData = req.body;
 
-                    const order = await Order.create(orderData);
+                const order = await Order.create(orderData);
 
-                    res.status(200).json(order);
+                res.status(200).json(order);
 
-                }catch (err){
-                    console.error(err);
-                    res.status(500).json({error: 'something went wrong !'});
-                }
-            },
+            }catch (err){
+                console.error(err);
+                res.status(500).json({error: 'something went wrong !'});
+            }
+        },
 
-        }
+    }
 
-        module.exports=orderController;*/
+    module.exports=orderController;*/
 
     getAllRestaurantItem: async function (req, res, next) {
         try {

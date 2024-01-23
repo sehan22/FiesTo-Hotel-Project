@@ -7,8 +7,38 @@ interface ShoppingCartProps {
     itemsList: CartItem[];
 }
 
-class AddToCart extends Component<ShoppingCartProps> {
+interface OrderState {
+    orderId: string;
+    customer: string;
+    items: any;
+    shippingAddress: string;
+    paymentSlipImg: any;
+    subTotal: number;
+    deliveryCost: number;
+    discount: number;
+    total: number;
+}
 
+class AddToCart extends Component<ShoppingCartProps, OrderState> {
+
+    constructor(props: ShoppingCartProps) {
+        super(props);
+        this.state = {
+            customer: "",
+            deliveryCost: 0,
+            discount: 0,
+            items: undefined,
+            orderId: "",
+            paymentSlipImg: undefined,
+            shippingAddress: "",
+            subTotal: 0,
+            total: 0
+        }
+    }
+
+    orderOnAction = () => {
+
+    }
 
     render() {
 
@@ -169,6 +199,7 @@ class AddToCart extends Component<ShoppingCartProps> {
                                         id="myInput"
                                         className="bg-nonary font-poppins text-smaller text-quinary rounded-lg focus:outline-none p-4 w-full"
                                         type="number"
+                                        name="paymentSlipImg"
                                         placeholder="Shipping Address"
                                     />
                                 </div>
@@ -180,23 +211,23 @@ class AddToCart extends Component<ShoppingCartProps> {
                                         id="myInput"
                                         className="file:bg-secondary file:text-white file:border-none file:py-1 file:rounded-lg bg-nonary font-poppins text-smaller text-quinary rounded-lg focus:outline-none p-4 w-full"
                                         type="file"
-                                        placeholder="Sub Total"
+                                        name="paymentSlipImg"
                                     />
                                 </div>
 
                                 <div className="flex justify-between items-center w-full font-poppins">
                                     <h1 className="text-smaller md:text-normal text-senary">SubTotal:</h1>
-                                    <h1 className="text-smaller md:text-normal text-quinary">Rs: 9500/=</h1>
+                                    <h1 className="text-smaller md:text-normal text-quinary">Rs: {this.state.subTotal}/=</h1>
                                 </div>
 
                                 <div className="flex justify-between items-center w-full font-poppins">
                                     <h1 className="text-smaller md:text-normal text-senary">Discount:</h1>
-                                    <h1 className="text-smaller md:text-normal text-lime-600">Rs: -500/=</h1>
+                                    <h1 className="text-smaller md:text-normal text-lime-600">Rs: -{this.state.discount}/=</h1>
                                 </div>
 
                                 <div className="flex justify-between items-center w-full font-poppins">
                                     <h1 className="text-smaller md:text-normal text-senary">Delivery cost:</h1>
-                                    <h1 className="text-smaller md:text-normal text-rose-700">Rs: +250/=</h1>
+                                    <h1 className="text-smaller md:text-normal text-rose-700">Rs: +{this.state.deliveryCost}/=</h1>
                                 </div>
 
                                 <div className="w-full py-0.5 px-5">
@@ -205,7 +236,7 @@ class AddToCart extends Component<ShoppingCartProps> {
 
                                 <div className="flex justify-between items-center w-full font-poppins">
                                     <h1 className="text-smaller md:text-normal text-senary">Total:</h1>
-                                    <h1 className="text-smaller md:text-normal text-quinary">Rs: 9250/=</h1>
+                                    <h1 className="text-smaller md:text-normal text-quinary">Rs: {this.state.total}/=</h1>
                                 </div>
 
                                 <div className="w-full py-0.5 px-5">
@@ -222,7 +253,10 @@ class AddToCart extends Component<ShoppingCartProps> {
 
                                 <div>
                                     <button
-                                        className="bg-secondary mt-2 font-bold text-normal transition-all text-white hover:bg-teal-600 py-2 px-4 w-full rounded">
+                                        className="bg-secondary mt-2 font-bold text-normal transition-all text-white hover:bg-teal-600 py-2 px-4 w-full rounded"
+                                        type="button"
+                                        onClick={this.orderOnAction}
+                                    >
                                         Purchase Now
                                     </button>
 
