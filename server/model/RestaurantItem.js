@@ -4,11 +4,23 @@ const ProductModel = mongoose.Schema(
     {
         "id": {
             require: true,
-            type: Number,
+            type: String,
             unique: true,
-            index: true // For better performance
+            index: true
+        },
+        "image": {
+            require: true,
+            type: String
         },
         "name": {
+            require: true,
+            type: String
+        },
+        "rating": {
+            require: true,
+            type: Number
+        },
+        "description": {
             require: true,
             type: String
         },
@@ -20,16 +32,15 @@ const ProductModel = mongoose.Schema(
             require: true,
             type: String
         },
-        "image": {
+        "itemQTY": {
             require: true,
-            type: String
+            type: Number
         }
-    },
-    {versionKey: false}
+    }
 );
 
 const Product = mongoose
-    .model('Product',
+    .model('Restaurant',
         ProductModel);
 
 module.exports = Product;

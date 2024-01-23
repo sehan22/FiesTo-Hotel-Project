@@ -5,7 +5,11 @@ import RestaurantItem from "../../common/Product/RestaurantItem/RestaurantItem";
 import axios from "axios";
 import AddToCart from "../AddToCart/AddToCart";
 
-export class Restaurant extends Component {
+interface RestaurantItemState {
+    data: any;
+}
+
+export class Restaurant extends Component<{}, RestaurantItemState> {
 
     private api: any;
 
@@ -24,7 +28,7 @@ export class Restaurant extends Component {
 
     fetchData = async () => {
         try {
-            this.api.get('/restaurant/all')
+            await this.api.get('/restaurant/all')
                 .then((res: { data: any }) => {
                     const jsonData = res.data;
                     this.setState({data: jsonData});
@@ -39,7 +43,6 @@ export class Restaurant extends Component {
 
     render() {
 
-        // @ts-ignore
         const {data} = this.state;
 
         return (
@@ -57,6 +60,8 @@ export class Restaurant extends Component {
                         <div className="h-0.5 opacity-50 bg-septenary w-44"></div>
                         <h6 className="font-poppins text-topictwo md:text-subtopic text-nonary">Join With Us</h6>
                         <div className="hidden lmd:block h-0.5 opacity-50 bg-septenary w-32"></div>
+                        <button type="button" className="text-white bg-secondary p-2" onClick={() => {
+                            console.log(data[0].image)}}>check status</button>
                     </div>
                 </div>
 
@@ -126,7 +131,7 @@ export class Restaurant extends Component {
                         {/*card*/}
                         {
                             data.map((product: any) => (
-                                <RestaurantItem data={product}/>
+                                <RestaurantItem key={product.id} data={product}/>
                             ))
                         }
 

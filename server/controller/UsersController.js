@@ -64,7 +64,7 @@ const UsersController = {
             );
 
             if (!updatedUser) {
-                return res.status(404).json({error: "Product Not Found!"});
+                return res.status(404).json({error: "User Not Found!"});
             }
 
             res.status(200).json(updatedUser);

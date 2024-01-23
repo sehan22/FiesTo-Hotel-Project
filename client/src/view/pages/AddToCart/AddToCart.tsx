@@ -61,7 +61,7 @@ class AddToCart extends Component<ShoppingCartProps> {
 
                             {/*cart item - restaurant items*/}
                             <div
-                                className="grid grid-cols-1 gap-5 max-w-[820px] items-start justify-start w-full rounded-xl overflow-y-scroll overflow-x-hidden scroll-auto custom1-scrollbar">
+                                className="grid grid-cols-1 gap-5 max-w-[820px] items-start justify-start w-full rounded-xl custom1-scrollbar">
 
                                 {
                                     this.props.itemsList.length === 0
@@ -73,17 +73,19 @@ class AddToCart extends Component<ShoppingCartProps> {
                                         : this.props.itemsList.map((item) => (
                                             <div className="flex items-center justify-between p-2">
 
-                                                <div className="grid grid-cols-1 sm:grid-cols-2 justify-between h-full w-full lg:gap-10 gap-2">
+                                                <div
+                                                    className="grid grid-cols-1 sm:grid-cols-2 justify-between h-full w-full lg:gap-10 gap-2">
 
                                                     {/*item img and description*/}
                                                     <div
                                                         className="flex flex-col lmd:flex-row justify-start gap-2 items-start lmd:items-center">
-                                                        <img className="w-full lmd:max-w-52" src={ResITem} alt=""/>
+                                                        <img className="w-full lmd:max-w-52"
+                                                             src={`data:image/png;base64, ${item.product.image}`} alt=""/>
 
                                                         <div
                                                             className="flex flex-col justify-center items-start gap-2 overflow-hidden p-2 font-poppins">
                                                             <h1 className="overflow-hidden w-full overflow-ellipsis whitespace-nowrap text-normal text-quinary">{item.product.name}</h1>
-                                                            <h1 className="overflow-hidden overflow-ellipsis whitespace-nowrap text-secondary text-smaller">Vegi</h1>
+                                                            <h1 className="overflow-hidden overflow-ellipsis whitespace-nowrap text-secondary text-smaller">{item.product.rating} rating</h1>
                                                         </div>
                                                     </div>
 
@@ -115,7 +117,7 @@ class AddToCart extends Component<ShoppingCartProps> {
                                                         <div
                                                             className="flex justify-center items-center sm:ms-10 text-quinary">
                                                             <button
-                                                                className="px-3 py-2 border-opacity-25 rounded-xl transition-all bg-red-700 text-white font-poppins text-smaller"> Remove
+                                                                className="px-3 py-2 border-opacity-25 rounded-xl transition-all bg-red-500 hover:bg-red-600 text-white font-poppins text-smaller"> Remove
                                                             </button>
                                                         </div>
                                                     </div>
@@ -183,18 +185,18 @@ class AddToCart extends Component<ShoppingCartProps> {
                                 </div>
 
                                 <div className="flex justify-between items-center w-full font-poppins">
-                                    <h1 className="text-normal text-senary">SubTotal:</h1>
-                                    <h1 className="text-topicDescription text-quinary">Rs: 9500/=</h1>
+                                    <h1 className="text-smaller md:text-normal text-senary">SubTotal:</h1>
+                                    <h1 className="text-smaller md:text-normal text-quinary">Rs: 9500/=</h1>
                                 </div>
 
                                 <div className="flex justify-between items-center w-full font-poppins">
-                                    <h1 className="text-normal text-senary">Discount:</h1>
-                                    <h1 className="text-topicDescription text-lime-600">Rs: -500/=</h1>
+                                    <h1 className="text-smaller md:text-normal text-senary">Discount:</h1>
+                                    <h1 className="text-smaller md:text-normal text-lime-600">Rs: -500/=</h1>
                                 </div>
 
                                 <div className="flex justify-between items-center w-full font-poppins">
-                                    <h1 className="text-normal text-senary">Delivery cost:</h1>
-                                    <h1 className="text-topicDescription text-rose-700">Rs: +250/=</h1>
+                                    <h1 className="text-smaller md:text-normal text-senary">Delivery cost:</h1>
+                                    <h1 className="text-smaller md:text-normal text-rose-700">Rs: +250/=</h1>
                                 </div>
 
                                 <div className="w-full py-0.5 px-5">
@@ -202,8 +204,8 @@ class AddToCart extends Component<ShoppingCartProps> {
                                 </div>
 
                                 <div className="flex justify-between items-center w-full font-poppins">
-                                    <h1 className="text-normal text-senary">Total:</h1>
-                                    <h1 className="text-loginpagetopic text-quinary">Rs: 9250/=</h1>
+                                    <h1 className="text-smaller md:text-normal text-senary">Total:</h1>
+                                    <h1 className="text-smaller md:text-normal text-quinary">Rs: 9250/=</h1>
                                 </div>
 
                                 <div className="w-full py-0.5 px-5">

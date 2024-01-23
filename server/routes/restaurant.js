@@ -1,13 +1,24 @@
 var express = require('express');
 var router = express.Router();
-const productController = require('../controller/RestaurantController')
+const restaurantController = require('../controller/RestaurantController')
 
-//
-// router.get('/', function (req, res) {
-//    res.send('Restaurant Router');
-// });
+const multer = require('multer');
+const upload = multer();
 
 /*GET - Get all Product*/
-router.get('/all', productController.submitProductsDetails);
+router.get('/all',
+    restaurantController.getAllRestaurantItem);
+
+router.post('/save', upload.single('image'),
+    restaurantController.saveRestaurantItem);
+
+router.get('/find/:id',
+    restaurantController.getRestaurantItem);
+
+router.put('/update/:id', upload.single('image'),
+    restaurantController.updateRestaurantItem)
+
+router.delete('/delete/:id',
+    restaurantController.deleteRestaurantItem)
 
 module.exports = router;

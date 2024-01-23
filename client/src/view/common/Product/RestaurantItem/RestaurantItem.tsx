@@ -25,7 +25,8 @@ class RestaurantItem extends Component<RestaurantItemsProps, ProductState> {
     render() {
 
         const {data} = this.props;
-        const image = require('../../../../images/RestaurantPage/CardItemsImg/' + data.image);
+
+        /*const image = require(`data:image/png;base64, `);*/
 
         return (
             <div
@@ -34,8 +35,9 @@ class RestaurantItem extends Component<RestaurantItemsProps, ProductState> {
 
                     <div className="overflow-hidden relative">
                         <img className="h-[150px] xs:h-[220px] rounded-lg w-full object-cover"
-                             src={image}
+                             src={`data:image/png;base64, ${data.image}`}
                              alt=""/>
+
 
                         <div
                             className="absolute top-0 right-0 rounded-full bg-black bg-opacity-15 px-2 py-2 m-2 z-10">
@@ -87,7 +89,8 @@ class RestaurantItem extends Component<RestaurantItemsProps, ProductState> {
     }
 
     private addToCartOnClick = () => {
-        this.setState({isActive: !this.state.isActive}, () => {})
+        this.setState({isActive: !this.state.isActive}, () => {
+        })
     }
 }
 
