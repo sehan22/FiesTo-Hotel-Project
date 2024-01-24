@@ -16,6 +16,10 @@ const OrderModel = mongoose.Schema(
             require: true,
             type: [],
         },
+        "delivery": {
+            require: true,
+            type: Boolean
+        },
         "shippingAddress": {
             require: false,
             type: String

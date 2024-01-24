@@ -12,6 +12,7 @@ interface OrderState {
     orderId: string;
     customer: string;
     items: any;
+    delivery: boolean;
     shippingAddress: string;
     paymentSlipImg: any;
     subTotal: number;
@@ -29,17 +30,22 @@ class AddToCart extends Component<ShoppingCartProps, OrderState> {
         this.state = {
             orderId: "",
             customer: "",
+            items: undefined,
+            delivery: false,
+            shippingAddress: "",
+            paymentSlipImg: undefined,
+            subTotal: 0,
             deliveryCost: 0,
             discount: 0,
-            items: undefined,
-            paymentSlipImg: undefined,
-            shippingAddress: "",
-            subTotal: 0,
             total: 0
         }
 
         this.handleImgSelectOnChange = this.handleImgSelectOnChange.bind(this);
     }
+
+    /*import to get request*/
+
+    /*const jsonData = JSON.parse(req.body.jsonData);*/
 
     handleImgSelectOnChange(e: React.ChangeEvent<HTMLInputElement>) {
         console.log(e.target.files)
@@ -52,26 +58,24 @@ class AddToCart extends Component<ShoppingCartProps, OrderState> {
     orderOnAction = () => {
         try {
             const formData = new FormData();
+            formData.append('orderId', JSON.stringify(this.state.orderId));
+            formData.append('customer', JSON.stringify(this.state.customer));
+            formData.append('items', JSON.stringify(this.props.itemsList.toString()));
+
+            formData.append('delivery', JSON.stringify(this.state.delivery));
             formData.append('shippingAddress', this.state.shippingAddress);
             formData.append('paymentSlipImg', this.state.paymentSlipImg);
 
-            const orderJsonData = {
-                orderId: this.state.orderId,
-                customer: this.state.customer,
-                items: this.state.items,
-                subTotal: this.state.subTotal,
-                deliveryCost: this.state.deliveryCost,
-                discount: this.state.discount,
-                total: this.state.total
-            }
-
-            formData.append('json', JSON.stringify(orderJsonData));
+            formData.append('subTotal', JSON.stringify(this.state.subTotal));
+            formData.append('deliveryCost', JSON.stringify(this.state.deliveryCost));
+            formData.append('discount', JSON.stringify(this.state.discount));
+            formData.append('total', JSON.stringify(this.state.total));
 
             this.api
                 .post('/orders/save', formData, {headers: {'Content-Type': 'multipart/form-data'}})
                 .then((res: { data: any }) => {
                     const jsonData = res.data;
-                    console.log(jsonData);
+                    console.log(JSON.parse(jsonData));
 
                     alert('Ordered successfully!');
 
@@ -247,9 +251,10 @@ class AddToCart extends Component<ShoppingCartProps, OrderState> {
                                     <input
                                         id="myInput"
                                         className="bg-nonary font-poppins text-smaller text-quinary rounded-lg focus:outline-none p-4 w-full"
-                                        type="number"
+                                        type="text"
                                         name="shippingAddress"
                                         placeholder="Shipping Address"
+                                        value={this.state.shippingAddress}
                                         onChange={(e) => this.setState({shippingAddress: e.target.value})}
                                     />
                                 </div>
