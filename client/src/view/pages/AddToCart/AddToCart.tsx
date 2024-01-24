@@ -55,6 +55,7 @@ class AddToCart extends Component<ShoppingCartProps, OrderState> {
         this.setState({paymentSlipImg: imgFile})
     }
 
+    /*items array error*/
     orderOnAction = () => {
         try {
             const formData = new FormData();
