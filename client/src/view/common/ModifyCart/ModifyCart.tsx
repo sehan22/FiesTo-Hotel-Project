@@ -11,7 +11,7 @@ interface ModifyCartState {
 
 class ModifyCart extends Component<ModifyCartProps, ModifyCartState> {
 
-    public static itemsList:CartItem[] = [];
+    public static itemsList: CartItem[] = [];
 
     constructor(props: ModifyCartProps) {
         super(props);
@@ -21,7 +21,7 @@ class ModifyCart extends Component<ModifyCartProps, ModifyCartState> {
     }
 
     componentDidMount() {
-        const  {itemCount} = this.state;
+        const {itemCount} = this.state;
 
         if (this.props.data.isAdded) {
             if (!ModifyCart.itemsList
@@ -41,7 +41,7 @@ class ModifyCart extends Component<ModifyCartProps, ModifyCartState> {
 
     componentDidUpdate(prevProps: Readonly<ModifyCartProps>, prevState: Readonly<ModifyCartState>, snapshot?: any) {
         let {itemCount} = this.state;
-        let item =  ModifyCart
+        let item = ModifyCart
             .itemsList
             .find(item =>
                 item.product.id ===
@@ -50,8 +50,10 @@ class ModifyCart extends Component<ModifyCartProps, ModifyCartState> {
         let index = ModifyCart.itemsList.indexOf(item);
         ModifyCart.itemsList.splice(index, 1);
         ModifyCart.itemsList.push(
-            {product: this.props.data.product,
-                itemCount: itemCount}
+            {
+                product: this.props.data.product,
+                itemCount: itemCount
+            }
         );
 
         console.log(ModifyCart.itemsList)
@@ -61,7 +63,7 @@ class ModifyCart extends Component<ModifyCartProps, ModifyCartState> {
 
         let {itemCount} = this.state;
 
-        const onDecreaseItemCount = ()=> {
+        const onDecreaseItemCount = () => {
             if (itemCount > 1) {
                 this.setState({itemCount: --itemCount})
             } else {
@@ -69,7 +71,11 @@ class ModifyCart extends Component<ModifyCartProps, ModifyCartState> {
             }
         }
         const onIncreaseItemCount = () => {
-            this.setState({itemCount: ++itemCount})
+            if (this.state.itemCount < this.props.data.product.itemQTY) {
+                this.setState({itemCount: ++itemCount})
+            } else {
+                alert("There is currently no stock available!");
+            }
         }
 
         return (
