@@ -20,6 +20,7 @@ interface OrderState {
     deliveryCost: number;
     discount: number;
     total: number;
+    lastIndexOrderId: string | null
 }
 
 class AddToCart extends Component<ShoppingCartProps, OrderState> {
@@ -29,7 +30,7 @@ class AddToCart extends Component<ShoppingCartProps, OrderState> {
         super(props);
         this.api = axios.create({baseURL: `http://localhost:4000`});
         this.state = {
-            orderId: "",
+            orderId: "OID00 - 002",
             customer: "",
             items: this.props.itemsList,
             item: [],
@@ -39,7 +40,8 @@ class AddToCart extends Component<ShoppingCartProps, OrderState> {
             subTotal: 0,
             deliveryCost: 250,
             discount: 200,
-            total: 0
+            total: 0,
+            lastIndexOrderId: ""
         }
 
         this.handleImgSelectOnChange = this.handleImgSelectOnChange.bind(this);
@@ -52,7 +54,23 @@ class AddToCart extends Component<ShoppingCartProps, OrderState> {
 
     componentDidMount() {
         this.accountPaymentBalance();
+        this.getLastIndexOrderIdOnAction().then(r => console.log(r));
     }
+
+    getLastIndexOrderIdOnAction = async () => {
+        try {
+            await this.api.get('/orders/lastOrderIndex').then((res: {data: any}) => {
+                const jsonData = res.data;
+                this.setState({
+                    lastIndexOrderId: jsonData
+                });
+            })
+
+        } catch (error) {
+            console.error('Error fetching data:', error);
+        }
+    }
+
 
     accountPaymentBalance = () => {
         let subTotal = 0;
@@ -89,31 +107,30 @@ class AddToCart extends Component<ShoppingCartProps, OrderState> {
             console.log()
             try {
                 const formData = new FormData();
-                // formData.append('orderId', JSON.stringify(this.state.orderId));
-                // formData.append('customer', JSON.stringify(this.state.customer));
+                formData.append('orderId', JSON.stringify(this.state.orderId));
 
-                let orderedItemsList: any[] = [];
+                const username: any = localStorage.getItem("username");
+                formData.append('customer', username.toString());
 
                 for (let item of this.state.items) {
-                    let id = item.product.id;
-                    let name = item.product.name;
-                    let price = item.product.price * item.itemCount;
-                    let orderedQTY = item.itemCount;
+                    formData.append('items[]', JSON.stringify({
+                        id: item.product.id,
+                        name: item.product.name,
+                        price: item.product.price * item.itemCount,
+                        orderedQTY: item.itemCount,
+                    }));
 
-                    let oneOrderedItemData = {
-                        id,
-                        name,
-                        price,
-                        orderedQTY,
-                    }
-                    formData.append('items', JSON.stringify(oneOrderedItemData));
                 }
+
+                /**! problem to pass boolean */
+                /*formData.append('delivery', this.state.delivery.toString());*/
 
                 formData.append('subTotal', this.state.subTotal.toString());
                 formData.append('deliveryCost', this.state.deliveryCost.toString());
                 formData.append('discount', this.state.discount.toString());
                 formData.append('total', this.state.total.toString());
                 formData.append('delivery', this.state.delivery.toString());
+
                 formData.append('shippingAddress', this.state.shippingAddress);
                 formData.append('paymentSlipImg', this.state.paymentSlipImg);
 
@@ -144,14 +161,20 @@ class AddToCart extends Component<ShoppingCartProps, OrderState> {
         }
     }
 
+    isDeliveryOnAction = () => {
+        this.setState((prevState) => ({delivery: !prevState.delivery}));
+    }
+
 
     checkStateOnAction = () => {
-        this.accountPaymentBalance();
-        console.log("state item: \n", this.state.items);
-        console.log("props item: \n", this.props.itemsList);
-        console.log("subtotal :" + this.state.subTotal)
-        console.log("total :" + this.state.total)
-        console.log("\n======================================\n")
+        /*        this.accountPaymentBalance();
+                console.log("state item: \n", this.state.items);
+                console.log("props item: \n", this.props.itemsList);
+                console.log("subtotal :" + this.state.subTotal)
+                console.log("total :" + this.state.total)
+                console.log("\n======================================\n")*/
+        // console.log(this.state.delivery)
+        console.log(this.state.lastIndexOrderId)
     }
 
     render() {
@@ -319,17 +342,19 @@ class AddToCart extends Component<ShoppingCartProps, OrderState> {
                             <form className="grid grid-cols-1 gap2 md:gap-3 p-2 w-full">
 
                                 <div className="flex justify-start gap-5 items-center w-full font-poppins">
-                                    <h1 className="text-normal text-senary">Delivery:</h1>
 
                                     <div className="flex items-center justify-center gap-5">
 
-                                        <div className="flex items-center">
-                                            <input id="default-checkbox" type="checkbox" value=""
-                                                   className="w-3.5 h-3.5 text-secondary bg-gray-100 border-gray-300 rounded focus:ring-secondary dark:focus:ring-transparent dark:ring-offset-gray-800 focus:ring-2 dark:bg-gray-700 dark:border-gray-600"/>
+                                        <div className="flex items-center gap-2">
                                             <label htmlFor="default-checkbox"
-                                                   className="ms-2 text-smaller font-medium text-gray-900 dark:text-gray-300">
-                                                Yes
+                                                   className="ms-2 text-smaller font-medium text-senary">
+                                                Delivery(Yes or No)
                                             </label>
+                                            <input id="default-checkbox" type="checkbox"
+                                                   checked={this.state.delivery}
+                                                   onChange={this.isDeliveryOnAction}
+                                                   className="w-3.5 h-3.5 text-secondary bg-gray-100 border-gray-300 rounded focus:ring-secondary dark:focus:ring-transparent dark:ring-offset-gray-800 focus:ring-2 dark:bg-gray-700 dark:border-gray-600"/>
+
                                         </div>
 
                                     </div>
@@ -338,15 +363,27 @@ class AddToCart extends Component<ShoppingCartProps, OrderState> {
                                 <div className="mb-4 w-full lmd:min-w-full">
                                     <label htmlFor="myInput" className="block text-sm font-medium text-gray-600">
                                     </label>
-                                    <input
-                                        id="myInput"
-                                        className="bg-nonary font-poppins text-smaller text-quinary rounded-lg focus:outline-none p-4 w-full"
-                                        type="text"
-                                        name="shippingAddress"
-                                        placeholder="Shipping Address"
-                                        value={this.state.shippingAddress}
-                                        onChange={(e) => this.setState({shippingAddress: e.target.value})}
-                                    />
+                                    {
+                                        (this.state.delivery)
+                                            ? <input
+                                                id="myInput"
+                                                className="bg-nonary font-poppins text-smaller text-quinary rounded-lg focus:outline-none p-4 w-full"
+                                                type="text"
+                                                name="shippingAddress"
+                                                placeholder="Shipping Address"
+                                                value={this.state.shippingAddress}
+                                                onChange={(e) => this.setState({shippingAddress: e.target.value})}
+                                            />
+                                            : <input
+                                                id="myInput"
+                                                className="bg-nonary font-poppins text-smaller text-quinary rounded-lg focus:outline-none p-4 w-full"
+                                                type="text"
+                                                name="shippingAddress"
+                                                placeholder="Shipping Address"
+                                                value=""
+                                                disabled={true}
+                                            />
+                                    }
                                 </div>
 
                                 <div className="mb-4 w-full lmd:min-w-full">

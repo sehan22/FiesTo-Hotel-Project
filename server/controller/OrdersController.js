@@ -96,6 +96,25 @@ const UsersController = {
             res.status(500).json({error: 'Something Went Wrong!' + err});
         }
     },
+
+    getLatestOrder: async function (req, res, next) {
+        try {
+            const latestOrder = await Order.findOne().sort({ timestampField: 1 }).limit(1);
+
+            if (!latestOrder) {
+                return res.status(200).json({ "orderId": "OID00 - 001" });
+            }
+
+            const orderId = latestOrder.orderId; // Assuming 'id' is the attribute you want
+
+            return res.status(200).json({ orderId });
+        } catch (err) {
+            console.error(err);
+            res.status(500).json({ error: 'Something Went Wrong!' + err });
+        }
+    }
+
+
 }
 
 
