@@ -249,13 +249,17 @@ class AddToCart extends Component<ShoppingCartProps, OrderState> {
                                                             <div
                                                                 className="flex justify-center items-center gap-3 text-quinary">
                                                                 <button
-                                                                    className="w-6 h-6 text-smaller rounded-full bg-black bg-opacity-5 hover:bg-opacity-10 transition-all">-
+                                                                    className="w-6 h-6 text-smaller rounded-full bg-black bg-opacity-5 hover:bg-opacity-10 transition-all"
+                                                                    disabled={true}
+                                                                >-
                                                                 </button>
 
                                                                 <h6 className="text-smaller">{item.itemCount}</h6>
 
                                                                 <button
-                                                                    className="w-6 h-6 text-smaller rounded-full bg-black bg-opacity-5 hover:bg-opacity-10 transition-all">+
+                                                                    className="w-6 h-6 text-smaller rounded-full bg-black bg-opacity-5 hover:bg-opacity-10 transition-all"
+                                                                    disabled={true}
+                                                                >+
                                                                 </button>
                                                             </div>
 
