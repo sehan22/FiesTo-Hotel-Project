@@ -12,6 +12,7 @@ interface OrderState {
     orderId: string;
     customer: string;
     items: CartItem[];
+    item: [];
     delivery: boolean;
     shippingAddress: string;
     paymentSlipImg: any;
@@ -31,6 +32,7 @@ class AddToCart extends Component<ShoppingCartProps, OrderState> {
             orderId: "",
             customer: "",
             items: this.props.itemsList,
+            item: [],
             delivery: false,
             shippingAddress: "",
             paymentSlipImg: undefined,
@@ -58,11 +60,11 @@ class AddToCart extends Component<ShoppingCartProps, OrderState> {
         let items = this.state.items;
 
         for (let item of items) {
-            subTotal += item.product.price;
+            subTotal += item.product.price * item.itemCount;
             this.setState({
                 subTotal: subTotal
             });
-            total += item.product.price;
+            total += item.product.price * item.itemCount;
         }
 
         total -= this.state.discount;
@@ -83,40 +85,62 @@ class AddToCart extends Component<ShoppingCartProps, OrderState> {
 
     /*items array error*/
     orderOnAction = async () => {
-        try {
-            const formData = new FormData();
-            formData.append('orderId', JSON.stringify(this.state.orderId));
-            formData.append('customer', JSON.stringify(this.state.customer));
-            formData.append('items', JSON.stringify(this.props.itemsList));
+        if (this.state.items.length !== 0) {
+            console.log()
+            try {
+                const formData = new FormData();
+                // formData.append('orderId', JSON.stringify(this.state.orderId));
+                // formData.append('customer', JSON.stringify(this.state.customer));
 
-            formData.append('delivery', JSON.stringify(this.state.delivery));
-            formData.append('shippingAddress', this.state.shippingAddress);
-            formData.append('paymentSlipImg', this.state.paymentSlipImg);
+                let orderedItemsList: any[] = [];
 
-            formData.append('subTotal', JSON.stringify(this.state.subTotal));
-            formData.append('deliveryCost', JSON.stringify(this.state.deliveryCost));
-            formData.append('discount', JSON.stringify(this.state.discount));
-            formData.append('total', JSON.stringify(this.state.total));
+                for (let item of this.state.items) {
+                    let id = item.product.id;
+                    let name = item.product.name;
+                    let price = item.product.price * item.itemCount;
+                    let orderedQTY = item.itemCount;
 
-            await this.api
-                .post('/orders/save', formData, {headers: {'Content-Type': 'multipart/form-data'}})
-                .then((res: { data: any }) => {
-                    const jsonData = res.data;
-                    console.log(JSON.parse(jsonData));
+                    let oneOrderedItemData = {
+                        id,
+                        name,
+                        price,
+                        orderedQTY,
+                    }
+                    formData.append('items', JSON.stringify(oneOrderedItemData));
+                }
 
-                    alert('Ordered successfully!');
+                formData.append('subTotal', this.state.subTotal.toString());
+                formData.append('deliveryCost', this.state.deliveryCost.toString());
+                formData.append('discount', this.state.discount.toString());
+                formData.append('total', this.state.total.toString());
+                formData.append('delivery', this.state.delivery.toString());
+                formData.append('shippingAddress', this.state.shippingAddress);
+                formData.append('paymentSlipImg', this.state.paymentSlipImg);
 
-                    /*setInterval(() => {
-                        window.location.href = '/login';
-                    }, 1000);*/
-                })
-                .catch((err: any) => {
-                    console.error('Axios Error' + err);
-                    alert(err);
-                });
-        } catch (err) {
-            console.error('Error submitting data:', err);
-            alert("Client Error" + err);
+                await this.api
+                    .post('/orders/save', formData,
+                        {
+                            headers: {'Content-Type': 'multipart/form-data'},
+                        })
+                    .then((res: { data: any }) => {
+                        const jsonData = res.data;
+                        console.log(jsonData);
+                        alert('Ordered successfully!');
+
+                        /*setInterval(() => {
+                            window.location.href = '/login';
+                        }, 1000);*/
+                    })
+                    .catch((err: any) => {
+                        console.error('Axios Error - Client Side: ' + err.message);
+                        alert(err);
+                    });
+            } catch (err) {
+                console.error('Error submitting data:', err);
+                alert("Client Error" + err);
+            }
+        } else {
+            alert("Add Items to your cart first!")
         }
     }
 
@@ -127,6 +151,7 @@ class AddToCart extends Component<ShoppingCartProps, OrderState> {
         console.log("props item: \n", this.props.itemsList);
         console.log("subtotal :" + this.state.subTotal)
         console.log("total :" + this.state.total)
+        console.log("\n======================================\n")
     }
 
     render() {
@@ -258,10 +283,8 @@ class AddToCart extends Component<ShoppingCartProps, OrderState> {
 
                                                                     this.setState({
                                                                         subTotal: this.state.subTotal - (item.product.price * item.itemCount),
-                                                                        total: this.state.subTotal - (item.product.price * item.itemCount)
+                                                                        total: this.state.subTotal - ((item.product.price * item.itemCount))
                                                                     });
-
-                                                                    alert("item remove successfully");
                                                                 }}
                                                             > Remove
                                                             </button>
