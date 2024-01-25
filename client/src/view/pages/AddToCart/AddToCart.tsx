@@ -48,6 +48,31 @@ class AddToCart extends Component<ShoppingCartProps, OrderState> {
 
     /*const jsonData = JSON.parse(req.body.jsonData);*/
 
+    componentDidMount() {
+        this.accountPaymentBalance();
+    }
+
+    accountPaymentBalance = () => {
+        let subTotal = 0;
+        let total = 0;
+        let items = this.state.items;
+
+        for (let item of items) {
+            subTotal += item.product.price;
+            this.setState({
+                subTotal: subTotal
+            });
+            total += item.product.price;
+        }
+
+        total -= this.state.discount;
+        total += this.state.deliveryCost;
+
+        this.setState({
+            total: total
+        });
+    }
+
     handleImgSelectOnChange(e: React.ChangeEvent<HTMLInputElement>) {
         console.log(e.target.files)
 
@@ -95,39 +120,13 @@ class AddToCart extends Component<ShoppingCartProps, OrderState> {
         }
     }
 
-    accountPaymentBalance = () => {
-        let subTotal = 0;
-        let total = 0;
-        let items = this.state.items;
-
-        for (let item of items) {
-            subTotal += item.product.price;
-            this.setState({
-                subTotal: subTotal
-            });
-
-            total += item.product.price;
-        }
-
-        total -= this.state.discount;
-        total += this.state.deliveryCost;
-
-        this.setState({
-            total: total
-        });
-
-
-    }
-
-    componentDidMount() {
-        this.accountPaymentBalance();
-    }
-
 
     checkStateOnAction = () => {
         this.accountPaymentBalance();
         console.log("state item: \n", this.state.items);
         console.log("props item: \n", this.props.itemsList);
+        console.log("subtotal :" + this.state.subTotal)
+        console.log("total :" + this.state.total)
     }
 
     render() {
@@ -257,7 +256,10 @@ class AddToCart extends Component<ShoppingCartProps, OrderState> {
                                                                         items: updatedItemsList
                                                                     });
 
-                                                                    this.accountPaymentBalance();
+                                                                    this.setState({
+                                                                        subTotal: this.state.subTotal - (item.product.price * item.itemCount),
+                                                                        total: this.state.subTotal - (item.product.price * item.itemCount)
+                                                                    });
 
                                                                     alert("item remove successfully");
                                                                 }}
