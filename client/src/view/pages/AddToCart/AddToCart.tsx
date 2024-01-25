@@ -11,7 +11,7 @@ interface ShoppingCartProps {
 interface OrderState {
     orderId: string;
     customer: string;
-    items: any;
+    items: CartItem[];
     delivery: boolean;
     shippingAddress: string;
     paymentSlipImg: any;
@@ -30,17 +30,18 @@ class AddToCart extends Component<ShoppingCartProps, OrderState> {
         this.state = {
             orderId: "",
             customer: "",
-            items: undefined,
+            items: this.props.itemsList,
             delivery: false,
             shippingAddress: "",
             paymentSlipImg: undefined,
             subTotal: 0,
-            deliveryCost: 0,
-            discount: 0,
+            deliveryCost: 250,
+            discount: 200,
             total: 0
         }
 
         this.handleImgSelectOnChange = this.handleImgSelectOnChange.bind(this);
+
     }
 
     /*import to get request*/
@@ -56,12 +57,12 @@ class AddToCart extends Component<ShoppingCartProps, OrderState> {
     }
 
     /*items array error*/
-    orderOnAction = () => {
+    orderOnAction = async () => {
         try {
             const formData = new FormData();
             formData.append('orderId', JSON.stringify(this.state.orderId));
             formData.append('customer', JSON.stringify(this.state.customer));
-            formData.append('items', JSON.stringify(this.props.itemsList.toString()));
+            formData.append('items', JSON.stringify(this.props.itemsList));
 
             formData.append('delivery', JSON.stringify(this.state.delivery));
             formData.append('shippingAddress', this.state.shippingAddress);
@@ -72,7 +73,7 @@ class AddToCart extends Component<ShoppingCartProps, OrderState> {
             formData.append('discount', JSON.stringify(this.state.discount));
             formData.append('total', JSON.stringify(this.state.total));
 
-            this.api
+            await this.api
                 .post('/orders/save', formData, {headers: {'Content-Type': 'multipart/form-data'}})
                 .then((res: { data: any }) => {
                     const jsonData = res.data;
@@ -94,6 +95,41 @@ class AddToCart extends Component<ShoppingCartProps, OrderState> {
         }
     }
 
+    accountPaymentBalance = () => {
+        let subTotal = 0;
+        let total = 0;
+        let items = this.state.items;
+
+        for (let item of items) {
+            subTotal += item.product.price;
+            this.setState({
+                subTotal: subTotal
+            });
+
+            total += item.product.price;
+        }
+
+        total -= this.state.discount;
+        total += this.state.deliveryCost;
+
+        this.setState({
+            total: total
+        });
+
+
+    }
+
+    componentDidMount() {
+        this.accountPaymentBalance();
+    }
+
+
+    checkStateOnAction = () => {
+        this.accountPaymentBalance();
+        console.log("state item: \n", this.state.items);
+        console.log("props item: \n", this.props.itemsList);
+    }
+
     render() {
 
         return (
@@ -113,7 +149,7 @@ class AddToCart extends Component<ShoppingCartProps, OrderState> {
 
                         <button
                             className="px-5 py-2 bg-secondary rounded-xl text-white"
-
+                            onClick={this.checkStateOnAction}
                         >
                             Check State
                         </button>
@@ -136,7 +172,16 @@ class AddToCart extends Component<ShoppingCartProps, OrderState> {
 
                             <div className="flex items-center justify-between font-poppins w-full">
                                 <h1 className="text-quinary text-topictwo">Your Order Cart</h1>
-                                <h1 className="text-normal text-senary">Items 0</h1>
+                                <h1 className="text-normal text-senary">Items
+                                    {
+                                        (this.state.items.length !== 0)
+                                            ? (this.state.items.length >= 10)
+                                                ? this.state.items.length
+                                                : ` 0${this.state.items.length}`
+
+                                            : ` 0`
+                                    }
+                                </h1>
                             </div>
 
                             <div className="w-full p-5">
@@ -148,14 +193,14 @@ class AddToCart extends Component<ShoppingCartProps, OrderState> {
                                 className="grid grid-cols-1 gap-5 max-w-[820px] items-start justify-start w-full rounded-xl custom1-scrollbar">
 
                                 {
-                                    this.props.itemsList.length === 0
+                                    this.state.items.length === 0
                                         ? <div className="flex justify-center items-center w-full h-full">
                                             <h5 className="font-poppins text-smaller text-quinary">No Items to
                                                 Display!</h5>
                                         </div>
 
-                                        : this.props.itemsList.map((item) => (
-                                            <div className="flex items-center justify-between p-2">
+                                        : this.state.items.map((item, index) => (
+                                            <div key={index} className="flex items-center justify-between p-2">
 
                                                 <div
                                                     className="grid grid-cols-1 sm:grid-cols-2 justify-between h-full w-full lg:gap-10 gap-2">
@@ -201,7 +246,22 @@ class AddToCart extends Component<ShoppingCartProps, OrderState> {
                                                         <div
                                                             className="flex justify-center items-center sm:ms-10 text-quinary">
                                                             <button
-                                                                className="px-3 py-2 border-opacity-25 rounded-xl transition-all bg-red-500 hover:bg-red-600 text-white font-poppins text-smaller"> Remove
+                                                                className="px-3 py-2 border-opacity-25 rounded-xl transition-all bg-red-500 hover:bg-red-600 text-white font-poppins text-smaller"
+                                                                onClick={() => {
+                                                                    const updatedItemsList = [...this.state.items]
+                                                                    updatedItemsList.splice(index, 1);
+
+                                                                    this.props.itemsList.splice(index, 1);
+
+                                                                    this.setState({
+                                                                        items: updatedItemsList
+                                                                    });
+
+                                                                    this.accountPaymentBalance();
+
+                                                                    alert("item remove successfully");
+                                                                }}
+                                                            > Remove
                                                             </button>
                                                         </div>
                                                     </div>
@@ -276,19 +336,38 @@ class AddToCart extends Component<ShoppingCartProps, OrderState> {
 
                                 <div className="flex justify-between items-center w-full font-poppins">
                                     <h1 className="text-smaller md:text-normal text-senary">SubTotal:</h1>
-                                    <h1 className="text-smaller md:text-normal text-quinary">Rs: {this.state.subTotal}/=</h1>
+                                    <h1 className="text-smaller md:text-normal text-quinary"> Rs.
+                                        {
+                                            (this.state.items.length !== 0)
+                                                ? ` ${this.state.subTotal}`
+                                                : ` 0`
+                                        }
+                                        /=
+                                    </h1>
                                 </div>
 
                                 <div className="flex justify-between items-center w-full font-poppins">
                                     <h1 className="text-smaller md:text-normal text-senary">Discount:</h1>
-                                    <h1 className="text-smaller md:text-normal text-lime-600">Rs:
-                                        -{this.state.discount}/=</h1>
+                                    <h1 className="text-smaller md:text-normal text-lime-600">Rs: -
+                                        {
+                                            (this.state.items.length !== 0)
+                                                ? ` ${this.state.discount}`
+                                                : ` 0`
+                                        }
+                                        /=
+                                    </h1>
                                 </div>
 
                                 <div className="flex justify-between items-center w-full font-poppins">
                                     <h1 className="text-smaller md:text-normal text-senary">Delivery cost:</h1>
-                                    <h1 className="text-smaller md:text-normal text-rose-700">Rs:
-                                        +{this.state.deliveryCost}/=</h1>
+                                    <h1 className="text-smaller md:text-normal text-rose-700">Rs: +
+                                        {
+                                            (this.state.items.length !== 0)
+                                                ? ` ${this.state.deliveryCost}`
+                                                : ` 0`
+                                        }
+                                        /=
+                                    </h1>
                                 </div>
 
                                 <div className="w-full py-0.5 px-5">
@@ -297,7 +376,14 @@ class AddToCart extends Component<ShoppingCartProps, OrderState> {
 
                                 <div className="flex justify-between items-center w-full font-poppins">
                                     <h1 className="text-smaller md:text-normal text-senary">Total:</h1>
-                                    <h1 className="text-smaller md:text-normal text-quinary">Rs: {this.state.total}/=</h1>
+                                    <h1 className="text-smaller md:text-normal text-quinary">Rs:
+                                        {
+                                            (this.state.items.length !== 0)
+                                                ? ` ${this.state.total}`
+                                                : ` 0`
+                                        }
+                                        /=
+                                    </h1>
                                 </div>
 
                                 <div className="w-full py-0.5 px-5">
