@@ -71,11 +71,10 @@ class ModifyCart extends Component<ModifyCartProps, ModifyCartState> {
             }
         }
         const onIncreaseItemCount = () => {
-            if (this.state.itemCount < this.props.data.product.itemQTY) {
-                this.setState({itemCount: ++itemCount})
-            } else {
-                alert("There is currently no stock available!");
-            }
+            (this.state.itemCount < this.props.data.product.itemQTY)
+                ? this.setState({itemCount: ++itemCount})
+                : alert("There is currently no stock available!");
+
         }
 
         return (

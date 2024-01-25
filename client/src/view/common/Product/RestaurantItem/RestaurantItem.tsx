@@ -18,7 +18,7 @@ class RestaurantItem extends Component<RestaurantItemsProps, ProductState> {
     constructor(props: RestaurantItemsProps) {
         super(props);
         this.state = {
-            isActive: false
+            isActive: false,
         }
     }
 
