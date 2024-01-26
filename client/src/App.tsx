@@ -4,7 +4,8 @@ import {BrowserRouter, Route, Routes} from "react-router-dom";
 import {DefaultLayout} from "./view/common/DefaultLayout/DefaultLayout";
 import {Login} from "./view/pages/Login/Login";
 import {SignUp} from "./view/pages/SignUp/SignUp";
-import Dashboard from "./view/pages/Dashboard/Dashboard";
+import Dashboard from "./view/pages/Admin/AdminDashboard/AdminDashboard";
+import AdminDefaultLayout from "./view/common/Admin/DefaultLayout/AdminDefaultLayout";
 
 function App() {
     return (
@@ -41,8 +42,8 @@ function App() {
                        Component={SignUp}>
                 </Route>
 
-                <Route path="/dashboard"
-                       Component={Dashboard}>
+                <Route path="/admin/*"
+                       Component={AdminDefaultLayout}>
                 </Route>
             </Routes>
         </BrowserRouter>
