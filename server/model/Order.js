@@ -6,7 +6,7 @@ const OrderModel = mongoose.Schema(
             require: true,
             type: String,
             unique: true,
-            index: true
+            index: true,
         },
         "customer": {
             require: true,
@@ -41,6 +41,10 @@ const OrderModel = mongoose.Schema(
         "total": {
             require: true,
             type: Number
+        },
+        "status": {
+            require: true,
+            type: String
         }
     },
     {versionKey: false}

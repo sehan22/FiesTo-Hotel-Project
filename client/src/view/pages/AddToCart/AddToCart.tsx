@@ -20,6 +20,7 @@ interface OrderState {
     deliveryCost: number;
     discount: number;
     total: number;
+    status: string;
     lastIndexOrderId: string | null
 }
 
@@ -30,7 +31,7 @@ class AddToCart extends Component<ShoppingCartProps, OrderState> {
         super(props);
         this.api = axios.create({baseURL: `http://localhost:4000`});
         this.state = {
-            orderId: "OID00 - 002",
+            orderId: "",
             customer: "",
             items: this.props.itemsList,
             item: [],
@@ -41,6 +42,7 @@ class AddToCart extends Component<ShoppingCartProps, OrderState> {
             deliveryCost: 250,
             discount: 200,
             total: 0,
+            status: "Incomplete",
             lastIndexOrderId: ""
         }
 
@@ -59,16 +61,32 @@ class AddToCart extends Component<ShoppingCartProps, OrderState> {
 
     getLastIndexOrderIdOnAction = async () => {
         try {
-            await this.api.get('/orders/lastOrderIndex').then((res: {data: any}) => {
-                const jsonData = res.data;
-                this.setState({
-                    lastIndexOrderId: jsonData
+            await this.api.get('/orders/lastOrderIndex')
+                .then((res: { data: any }) => {
+                    const jsonData = JSON.parse(res.data.orderId);
+                    console.log("orderID: " + jsonData.orderId)
+                    this.setState({
+                        orderId: jsonData
+                    });
+                }).catch((err: any) => {
+                    console.error('Axios Error - Client Side: ' + err.message);
+                    alert(err);
                 });
-            })
 
         } catch (error) {
             console.error('Error fetching data:', error);
         }
+    }
+
+    checkStateOnAction = () => {
+        /*        this.accountPaymentBalance();
+                console.log("state item: \n", this.state.items);
+                console.log("props item: \n", this.props.itemsList);
+                console.log("subtotal :" + this.state.subTotal)
+                console.log("total :" + this.state.total)
+                console.log("\n======================================\n")*/
+        // console.log(this.state.delivery)
+        console.log(this.state.orderId)
     }
 
 
@@ -104,10 +122,9 @@ class AddToCart extends Component<ShoppingCartProps, OrderState> {
     /*items array error*/
     orderOnAction = async () => {
         if (this.state.items.length !== 0) {
-            console.log()
             try {
                 const formData = new FormData();
-                formData.append('orderId', JSON.stringify(this.state.orderId));
+                formData.append('orderId', this.state.orderId);
 
                 const username: any = localStorage.getItem("username");
                 formData.append('customer', username.toString());
@@ -130,6 +147,7 @@ class AddToCart extends Component<ShoppingCartProps, OrderState> {
                 formData.append('discount', this.state.discount.toString());
                 formData.append('total', this.state.total.toString());
                 formData.append('delivery', this.state.delivery.toString());
+                formData.append('status', this.state.status.toString());
 
                 formData.append('shippingAddress', this.state.shippingAddress);
                 formData.append('paymentSlipImg', this.state.paymentSlipImg);
@@ -163,18 +181,6 @@ class AddToCart extends Component<ShoppingCartProps, OrderState> {
 
     isDeliveryOnAction = () => {
         this.setState((prevState) => ({delivery: !prevState.delivery}));
-    }
-
-
-    checkStateOnAction = () => {
-        /*        this.accountPaymentBalance();
-                console.log("state item: \n", this.state.items);
-                console.log("props item: \n", this.props.itemsList);
-                console.log("subtotal :" + this.state.subTotal)
-                console.log("total :" + this.state.total)
-                console.log("\n======================================\n")*/
-        // console.log(this.state.delivery)
-        console.log(this.state.lastIndexOrderId)
     }
 
     render() {

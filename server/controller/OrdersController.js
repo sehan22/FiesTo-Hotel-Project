@@ -99,13 +99,13 @@ const UsersController = {
 
     getLatestOrder: async function (req, res, next) {
         try {
-            const latestOrder = await Order.findOne().sort({ timestampField: 1 }).limit(1);
+            const latestOrder = await Order.findOne().sort({ $natural: -1 }).limit(1);
 
             if (!latestOrder) {
                 return res.status(200).json({ "orderId": "OID00 - 001" });
             }
 
-            const orderId = latestOrder.orderId; // Assuming 'id' is the attribute you want
+            const orderId = latestOrder.orderId;
 
             return res.status(200).json({ orderId });
         } catch (err) {
