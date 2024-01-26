@@ -63,10 +63,10 @@ class AddToCart extends Component<ShoppingCartProps, OrderState> {
         try {
             await this.api.get('/orders/lastOrderIndex')
                 .then((res: { data: any }) => {
-                    const jsonData = JSON.parse(res.data.orderId);
+                    const jsonData = res.data;
                     console.log("orderID: " + jsonData.orderId)
                     this.setState({
-                        orderId: jsonData
+                        orderId: jsonData.orderId
                     });
                 }).catch((err: any) => {
                     console.error('Axios Error - Client Side: ' + err.message);
@@ -86,7 +86,7 @@ class AddToCart extends Component<ShoppingCartProps, OrderState> {
                 console.log("total :" + this.state.total)
                 console.log("\n======================================\n")*/
         // console.log(this.state.delivery)
-        console.log(this.state.orderId)
+        console.log(this.state.orderId.toString())
     }
 
 
@@ -160,6 +160,8 @@ class AddToCart extends Component<ShoppingCartProps, OrderState> {
                     .then((res: { data: any }) => {
                         const jsonData = res.data;
                         console.log(jsonData);
+                        this.getLastIndexOrderIdOnAction();
+                        this.props.itemsList.splice(0, this.props.itemsList.length);
                         alert('Ordered successfully!');
 
                         /*setInterval(() => {

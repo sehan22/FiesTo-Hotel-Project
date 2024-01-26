@@ -101,11 +101,24 @@ const UsersController = {
         try {
             const latestOrder = await Order.findOne().sort({ $natural: -1 }).limit(1);
 
+            let orderId = "OID00 - 001";
+
             if (!latestOrder) {
-                return res.status(200).json({ "orderId": "OID00 - 001" });
+                return res.status(200).json({ orderId });
             }
 
-            const orderId = latestOrder.orderId;
+            /*const orderId = latestOrder.orderId;*/
+            orderId = latestOrder.orderId
+            const newOrderId = orderId.split(`OID00 - 00`);
+
+            for (let i of newOrderId) {
+                orderId = ++i;
+            }
+
+            let lastOrderIdLatNumber = orderId;
+            orderId = "OID00 - 00" + (lastOrderIdLatNumber).toString();
+
+            console.log(orderId)
 
             return res.status(200).json({ orderId });
         } catch (err) {
