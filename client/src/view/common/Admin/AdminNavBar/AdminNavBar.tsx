@@ -1,14 +1,19 @@
 import React, {Component} from 'react';
+import fIcon from '../../../../images/Admin/NavBar/ficon.png'
 
 class AdminNavBar extends Component {
     render() {
         return (
             <div
                 className="flex justify-center items-center fixed left-0 p-5 max-h-[100%] h-[100%] text-white font-poppins">
-                <div className="flex flex-col justify-between items-center rounded-3xl p-5 bg-neutral-800 h-[100%]">
+                <div className="flex flex-col justify-between items-center rounded-3xl p-5 bg-neutral-800 h-[100%] shadow-xl transition-all">
 
                     {/*main grid*/}
                     <div className="grid grid-cols-1 gap-8">
+
+                        <div className="w-8 h-8 ">
+                            <img className="w-full object-scale-down" src={fIcon} alt=""/>
+                        </div>
 
                         {/*grid item*/}
                         <div className="w-9 h-9 p-2">

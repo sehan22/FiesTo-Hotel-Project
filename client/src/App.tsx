@@ -5,7 +5,7 @@ import {DefaultLayout} from "./view/common/DefaultLayout/DefaultLayout";
 import {Login} from "./view/pages/Login/Login";
 import {SignUp} from "./view/pages/SignUp/SignUp";
 import Dashboard from "./view/pages/Admin/AdminDashboard/AdminDashboard";
-import AdminDefaultLayout from "./view/common/Admin/DefaultLayout/AdminDefaultLayout";
+import AdminDefaultLayout from "./view/common/Admin/AdminDefaultLayout/AdminDefaultLayout";
 
 function App() {
     return (

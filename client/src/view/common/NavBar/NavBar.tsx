@@ -105,7 +105,6 @@ export class NavBar extends Component {
                         <li><Link to="/restaurant">Restaurant</Link></li>
                         <li><Link to="/about">About</Link></li>
                         <li><Link to="/contact">Contact</Link></li>
-                        <li><Link to="/dashboard">Dashboard</Link></li>
                     </ul>
 
                     <div className="hidden md:flex justify-center items-center gap-2">
