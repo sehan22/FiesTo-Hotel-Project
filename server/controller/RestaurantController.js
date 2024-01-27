@@ -1,6 +1,7 @@
 const multer = require('multer');
 const upload = multer();
 const RestaurantItem = require('../model/RestaurantItem')
+const Order = require("../model/Order");
 
 const ProductController = {
 
@@ -109,6 +110,36 @@ const ProductController = {
         } catch (err) {
             console.error(err);
             res.status(500).json({error: 'Something Went Wrong!'});
+        }
+    },
+
+    getLatestRestaurantOrderId: async function (req, res, next) {
+        try {
+            const latestRestaurantItemId = await Order.findOne().sort({ $natural: -1 }).limit(1);
+
+            let restaurantItemId = "RID00 - 001";
+
+            if (!latestRestaurantItemId) {
+                return res.status(200).json({ orderId: restaurantItemId });
+            }
+
+            /*const restaurantItemId = latestRestaurantItem.restaurantItemId;*/
+            restaurantItemId = latestRestaurantItemId.orderId
+            const newRestaurantItem = restaurantItemId.split(`RID00 - 00`);
+
+            for (let i of newRestaurantItem) {
+                restaurantItemId = ++i;
+            }
+
+            let lastRestaurantItemIdLatNumber = restaurantItemId;
+            restaurantItemId = "RID00 - 00" + (lastRestaurantItemIdLatNumber).toString();
+
+            console.log(restaurantItemId)
+
+            return res.status(200).json({ orderId: restaurantItemId });
+        } catch (err) {
+            console.error(err);
+            res.status(500).json({ error: 'Something Went Wrong!' + err });
         }
     }
 }
