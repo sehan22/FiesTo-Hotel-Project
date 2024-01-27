@@ -11,7 +11,7 @@ class AdminNavBar extends Component {
                     className="flex flex-col justify-between items-center rounded-3xl p-5 bg-secondary h-[100%] shadow-xl transition-all">
 
                     <div className="flex flex-col justify-center items-center gap-16">
-                        <div className="w-8 h-8 ">
+                        <div className="w-7 h-7 ">
                             <img className="w-full object-scale-down" src={fIcon} alt=""/>
                         </div>
                         {/*main grid*/}
