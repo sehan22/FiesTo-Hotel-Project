@@ -79,15 +79,15 @@ class ModifyCart extends Component<ModifyCartProps, ModifyCartState> {
 
         return (
             <div
-                className="flex me-[-4px] justify-center items-center border-septenary rounded-s-xl border-[.5px] gap-1 px-3 py-1.5">
+                className="flex me-[-4px] justify-center items-center border-septenary rounded-xl border-[.5px] gap-1 px-3 py-1.5">
                 <button
-                    className="text-quinary text-smaller hover:bg-black hover:rounded-full hover:bg-opacity-10 px-2 py-0.5"
+                    className="text-quinary text-smaller hover:bg-black hover:rounded-full transition-all hover:bg-opacity-10 px-2 py-0.5"
                     onClick={onDecreaseItemCount}
                 >-
                 </button>
                 <h6 className="text-quinary text-smaller min-w-6 text-center">{itemCount}</h6>
                 <button
-                    className="text-quinary text-smaller hover:bg-black hover:rounded-full hover:bg-opacity-10 px-2 py-0.5"
+                    className="text-quinary text-smaller hover:bg-black hover:rounded-full transition-all hover:bg-opacity-10 px-2 py-0.5"
                     onClick={onIncreaseItemCount}
                 >+
                 </button>

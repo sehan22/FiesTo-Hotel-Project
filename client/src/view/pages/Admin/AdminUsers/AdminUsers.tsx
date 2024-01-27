@@ -1,7 +1,48 @@
 import React, {Component} from 'react';
+import axios from "axios";
 
-class AdminUsers extends Component {
+interface usersData {
+    data: [];
+}
+
+class AdminUsers extends Component<{}, usersData> {
+
+    private api: any;
+
+    constructor(props: {}) {
+        super(props);
+        this.api = axios.create({baseURL: `http://localhost:4000`});
+        this.state = {
+            data: []
+        }
+    }
+
+    componentDidMount() {
+        this.fetchUsersData().then(value => {
+            console.log("Data fetch completed" + value)
+        })
+    }
+
+    fetchUsersData = async () => {
+        try {
+            await this.api.get('/users/all')
+                .then((res: { data: any }) => {
+                    const jsonData = res.data;
+                    console.log(jsonData)
+                    this.setState({data: jsonData});
+                }).catch((err: any) => {
+                    console.error('Axios Error:', err)
+                    alert('Axios Error:' + err)
+                })
+        } catch (err) {
+            console.log('Error fetching data: ', err);
+        }
+    }
+
+
     render() {
+        const {data} = this.state;
+
         return (
             <div>
                 <div className="flex justify-center items-center p-5 w-full mx-auto font-poppins gap-5">
@@ -10,10 +51,11 @@ class AdminUsers extends Component {
 
                         <div className="flex justify-between items-start gap-8 w-full">
 
+
+                            {/*main flex item - 1*/}
                             <div className="w-[28%] bg-white rounded-xl p-5">
                                 {/*User Form*/}
-                                <form
-                                    className="flex flex-col justify-center items-center bg-white p-5 w rounded-xl">
+                                <form className="flex flex-col justify-center items-center bg-white p-5 w rounded-xl">
                                     <div className="flex flex-col justify-between items-center w-full p-5 gap-2">
                                         <div className="flex justify-between items-center w-full">
                                             <h1 className="text-quinary text-normal">User Registration</h1>
@@ -169,7 +211,56 @@ class AdminUsers extends Component {
                                 </form>
                             </div>
 
-                            <div className="w-[72%] bg-white rounded-xl p-5"></div>
+                            {/*main flex item - 2*/}
+                            <div className="w-[72%] bg-white rounded-xl p-5">
+
+                                <div className="flex justify-center items-center p-5">
+
+                                    {/*user details tables*/}
+                                    <table className="w-full shadow-lg rounded-xl">
+                                        <tbody className="">
+                                        <tr className="bg-black bg-opacity-[2%]">
+                                            <th className="text-quinary text-smaller py-3 p-5 text-start rounded-tl-xl">Name</th>
+                                            <th className="text-quinary text-smaller py-3 p-5 text-start">Email</th>
+                                            <th className="text-quinary text-smaller py-3 p-5 text-start">Address</th>
+                                            <th className="text-quinary text-smaller py-3 p-5 text-start rounded-tr-xl">Contact</th>
+                                        </tr>
+                                        </tbody>
+
+                                        {
+                                            this.state.data.length === 0
+                                                ? <tr>
+                                                    <td colSpan={5}
+                                                        className="border-black border-[0.5px] px-1">
+                                                        <p className="text-center text-[8px]">No Items to Display!</p>
+                                                    </td>
+                                                </tr>
+
+                                                : this.state.data.map((user: any) => (
+                                                    <tr className="bg-black bg-opacity-0 transition-all hover:bg-opacity-5">
+                                                        <td className="flex justify-start items-center p-5 gap-2 text-quinary text-smaller py-2 text-start">
+                                                            <img
+                                                                src={`data:image/png;base64, ${user.profileImgUrl}`}
+                                                                className="w-14 relative h-14 rounded-full bg-nonary"
+                                                                alt=""/>
+                                                            {user.fullName}
+                                                        </td>
+
+                                                        <td className="text-quinary text-smaller py-2 p-5 text-start">{user.email}</td>
+                                                        <td className="text-quinary text-smaller py-2 p-5 text-start">{user.address}</td>
+                                                        <td className="text-quinary text-smaller py-2 p-5 text-start">+94 {user.contact}</td>
+                                                    </tr>
+                                                ))
+                                        }
+                                    </table>
+
+                                </div>
+                                {/*                                {
+                                    data.map((user: any) => (
+                                        <h1>{user.fullName}</h1>
+                                    ))
+                                }*/}
+                            </div>
                         </div>
 
                     </div>

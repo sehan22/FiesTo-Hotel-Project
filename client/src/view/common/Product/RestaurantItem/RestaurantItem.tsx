@@ -64,7 +64,7 @@ class RestaurantItem extends Component<RestaurantItemsProps, ProductState> {
                         <p className="romCardPara text-quinary text-smaller overflow-hidden overflow-y-visible whitespace-pre-wrap h-[55px]">{data.description}</p>
 
                         <div className="flex justify-between items-center p-1">
-                            <h1 className="text-topicDescription text-gray-800">{data.price} $</h1>
+                            <h1 className="text-topicDescription text-gray-800">{data.currency}. {data.price}/=</h1>
 
                             <div className="flex justify-center items-center">
                                 {
