@@ -38,6 +38,92 @@ class AdminRestaurant extends Component<{}, usersData> {
         this.handleUserInputOnChange = this.handleUserInputOnChange.bind(this);
     }
 
+    componentDidMount() {
+        this.fetchRestaurantItemData().then(value => {
+            console.log("Data fetch completed" + value)
+        })
+        this.getLatestIndexRestaurantItemIdOnAction().then(r => {
+            console.log("Data fetch completed" + r)
+        });
+    }
+
+    getLatestIndexRestaurantItemIdOnAction = async () => {
+        try {
+            await this.api.get('/restaurant/lastRestaurantItemId')
+                .then((res: { data: any }) => {
+                    const jsonData = res.data;
+                    console.log("id: " + jsonData.id)
+                    this.setState({
+                        newGeneratedId: jsonData.id
+                    });
+                }).catch((err: any) => {
+                    console.error('Axios Error - Client Side: ' + err.message);
+                    alert(err);
+                });
+
+        } catch (error) {
+            console.error('Error fetching data:', error);
+        }
+    }
+
+    private onAddRestaurantItemFromAdminBtnClick = () => {
+
+        if (this.state.currency !== "" && this.state.description !== "" &&
+            this.state.itemQTY !== "" && this.state.name !== "" && this.state.price !== "" &&
+            this.state.rating !== "" && this.state.newGeneratedId !== "" && this.state.image !== null) {
+            try {
+                const restaurantItemFormData = new FormData();
+                restaurantItemFormData.append('id', this.state.newGeneratedId);
+                restaurantItemFormData.append('name', this.state.name);
+                restaurantItemFormData.append('rating', this.state.rating);
+                restaurantItemFormData.append('description', this.state.description);
+                restaurantItemFormData.append('price', this.state.price);
+                restaurantItemFormData.append('currency', this.state.currency);
+                restaurantItemFormData.append('itemQTY', this.state.itemQTY);
+                restaurantItemFormData.append('image', this.state.image);
+
+                this.api
+                    .post('/restaurant/save', restaurantItemFormData, {headers: {'Content-Type': 'multipart/form-data'}})
+                    .then((res: { data: any }) => {
+                        const jsonData = res.data;
+                        console.log(jsonData);
+
+                        this.fetchRestaurantItemData().then(r => {
+                        });
+                        this.getLatestIndexRestaurantItemIdOnAction().then(r => {
+                        });
+                        this.clearTextFieldsOnAction();
+
+                        alert('Restaurant Item Added successfully!');
+                    })
+                    .catch((err: any) => {
+                        console.error('Axios Error' + err);
+                        alert(err);
+                    });
+            } catch (err) {
+                console.error('Error submitting data:', err);
+            }
+        } else {
+            alert("Fill all fields before submission!")
+        }
+    };
+
+    fetchRestaurantItemData = async () => {
+        try {
+            await this.api.get('/restaurant/all')
+                .then((res: { data: any }) => {
+                    const jsonData = res.data;
+                    console.log(jsonData)
+                    this.setState({data: jsonData});
+                }).catch((err: any) => {
+                    console.error('Axios Error:', err)
+                    alert('Axios Error:' + err)
+                })
+        } catch (err) {
+            console.log('Error fetching data: ', err);
+        }
+    }
+
     handleImgSelectOnChange(e: React.ChangeEvent<HTMLInputElement>) {
         console.log(e.target.files)
         // @ts-ignore
@@ -56,58 +142,16 @@ class AdminRestaurant extends Component<{}, usersData> {
         );
     }
 
-    private onAddRestaurantItemFromAdminBtnClick = () => {
-        try {
-            const restaurantItemFormData = new FormData();
-            restaurantItemFormData.append('name', this.state.name);
-            restaurantItemFormData.append('name', this.state.name);
-            restaurantItemFormData.append('rating', this.state.rating);
-            restaurantItemFormData.append('description', this.state.description);
-            restaurantItemFormData.append('price', this.state.price);
-            restaurantItemFormData.append('currency', this.state.currency);
-            restaurantItemFormData.append('itemQTY', this.state.itemQTY);
-            restaurantItemFormData.append('image', this.state.image);
-
-            this.api
-                .post('/restaurant/save', restaurantItemFormData, {headers: {'Content-Type': 'multipart/form-data'}})
-                .then((res: { data: any }) => {
-                    const jsonData = res.data;
-                    console.log(jsonData);
-
-                    this.fetchUsersData().then(r => {});
-                    alert('Restaurant Item Added successfully!');
-
-                })
-                .catch((err: any) => {
-                    console.error('Axios Error' + err);
-                    alert(err);
-                });
-        } catch (err) {
-            console.error('Error submitting data:', err);
-        }
-    };
-
-
-    componentDidMount() {
-        this.fetchUsersData().then( value => {
-            console.log("Data fetch completed" + value)
-        })
-    }
-
-    fetchUsersData = async () => {
-        try {
-            await this.api.get('/restaurant/all')
-                .then((res: { data: any }) => {
-                    const jsonData = res.data;
-                    console.log(jsonData)
-                    this.setState({data: jsonData});
-                }).catch((err: any) => {
-                    console.error('Axios Error:', err)
-                    alert('Axios Error:' + err)
-                })
-        } catch (err) {
-            console.log('Error fetching data: ', err);
-        }
+    clearTextFieldsOnAction = () => {
+        this.setState(
+            {
+                image: null,
+                description: "",
+                itemQTY: "",
+                name: "",
+                price: ""
+            }
+        );
     }
 
     render() {
@@ -154,7 +198,7 @@ class AdminRestaurant extends Component<{}, usersData> {
                                                 <input
                                                     className="peer w-full h-full bg-transparent text-blue-gray-700 font-normal outline outline-0 focus:outline-0 disabled:bg-blue-gray-50 disabled:border-0 transition-all placeholder-shown:border placeholder-shown:border-blue-gray-200 placeholder-shown:border-t-blue-gray-200 border focus:border-2 border-t-transparent focus:border-t-transparent text-smaller px-3 py-2.5 rounded-[7px] border-blue-gray-200 focus:border-gray-900"
                                                     placeholder=" "
-                                                    type="email"
+                                                    type="text"
                                                     name="description"
                                                     value={this.state.description}
                                                     onChange={this.handleUserInputOnChange}
@@ -242,7 +286,10 @@ class AdminRestaurant extends Component<{}, usersData> {
 
                                         <div className="flex justify-center items-center gap-2 w-full">
                                             <button
-                                                className="w-[50%] py-2 border-2 border-octonary border-opacity-25 hover:border-opacity-40 transition-all text-quinary text-normal rounded-lg">Clear
+                                                className="w-[50%] py-2 border-2 border-octonary border-opacity-25 hover:border-opacity-40 transition-all text-quinary text-normal rounded-lg"
+                                                type="button"
+                                                onClick={this.clearTextFieldsOnAction}
+                                            >Clear
                                             </button>
                                             <button
                                                 className="w-[50%] bg-secondary hover:bg-opacity-95 py-2 text-white border-2 border-transparent text-normal transition-all rounded-lg"
@@ -269,7 +316,9 @@ class AdminRestaurant extends Component<{}, usersData> {
                                             <th className="text-quinary text-smaller py-3 p-5 text-start rounded-tl-xl">Name</th>
                                             <th className="text-quinary text-smaller py-3 p-5 text-start">Description</th>
                                             <th className="text-quinary text-smaller py-3 p-5 text-start">Price</th>
-                                            <th className="text-quinary text-smaller py-3 p-5 text-start rounded-tr-xl">Item Quantity</th>
+                                            <th className="text-quinary text-smaller py-3 p-5 text-start rounded-tr-xl">Item
+                                                Quantity
+                                            </th>
                                         </tr>
 
                                         {

@@ -11,7 +11,7 @@ const productsList = [
     {
         "id": 2,
         "image": "mixrice.png",
-        "name": "Shrimp Fried Rice",
+        "name": "prawn Fried Rice",
         "price": "60",
         "currency": "$",
         "rating": "4.7",
