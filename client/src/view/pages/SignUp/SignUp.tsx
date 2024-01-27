@@ -82,17 +82,17 @@ export class SignUp extends Component<UserProps, UserState> {
 
     private onCreateAccountBtnClick = () => {
         try {
-            const formData = new FormData();
-            formData.append('fullName', this.state.fullName);
-            formData.append('email', this.state.email);
-            formData.append('address', this.state.address);
-            formData.append('contact', String(this.state.contact));
-            formData.append('username', this.state.username);
-            formData.append('password', this.state.password);
-            formData.append('profileImgUrl', this.state.profileImgUrl);
+            const formUserData = new FormData();
+            formUserData.append('fullName', this.state.fullName);
+            formUserData.append('email', this.state.email);
+            formUserData.append('address', this.state.address);
+            formUserData.append('contact', String(this.state.contact));
+            formUserData.append('username', this.state.username);
+            formUserData.append('password', this.state.password);
+            formUserData.append('profileImgUrl', this.state.profileImgUrl);
 
             this.api
-                .post('/users/save', formData, {headers: {'Content-Type': 'multipart/form-data'}})
+                .post('/users/save', formUserData, {headers: {'Content-Type': 'multipart/form-data'}})
                 .then((res: { data: any }) => {
                     const jsonData = res.data;
                     console.log(jsonData);
