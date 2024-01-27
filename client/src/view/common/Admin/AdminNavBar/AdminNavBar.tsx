@@ -31,7 +31,7 @@ class AdminNavBar extends Component {
 
                             {/*grid item*/}
                             <div className="w-9 h-9 p-2">
-                                <Link to="">
+                                <Link to="/admin/adminusers">
                                     <svg xmlns="http://www.w3.org/2000/svg"
                                          viewBox="0 0 640 512">
                                         <path fill="#ffffff"
@@ -42,7 +42,7 @@ class AdminNavBar extends Component {
 
                             {/*grid item*/}
                             <div className="w-9 h-9 p-2">
-                                <Link to="">
+                                <Link to="/admin/adminorders">
                                     <svg xmlns="http://www.w3.org/2000/svg"
                                          viewBox="0 0 448 512">
                                         <path fill="#ffffff"
@@ -53,7 +53,7 @@ class AdminNavBar extends Component {
 
                             {/*grid item*/}
                             <div className="w-9 h-9 p-2">
-                                <Link to="">
+                                <Link to="/admin/admincompleteorders">
                                     <svg xmlns="http://www.w3.org/2000/svg"
                                          viewBox="0 0 576 512">
                                         <path fill="#ffffff"
@@ -64,7 +64,7 @@ class AdminNavBar extends Component {
 
                             {/*grid item*/}
                             <div className="w-9 h-9 p-2">
-                                <Link to="">
+                                <Link to="/admin/adminpayment">
                                     <svg xmlns="http://www.w3.org/2000/svg"
                                          viewBox="0 0 576 512">
                                         <path fill="#ffffff"
@@ -75,7 +75,7 @@ class AdminNavBar extends Component {
 
                             {/*grid item*/}
                             <div className="w-9 h-9 p-2">
-                                <Link to="">
+                                <Link to="/admin/adminchart">
                                     <svg xmlns="http://www.w3.org/2000/svg"
                                          viewBox="0 0 448 512">
                                         <path fill="#ffffff"
