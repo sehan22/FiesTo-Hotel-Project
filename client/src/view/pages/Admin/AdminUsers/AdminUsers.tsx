@@ -3,6 +3,13 @@ import axios from "axios";
 
 interface usersData {
     data: [];
+    fullName: string;
+    email: string;
+    address: string;
+    contact: number | string;
+    username: string;
+    password: string;
+    profileImgUrl: any;
 }
 
 class AdminUsers extends Component<{}, usersData> {
@@ -13,9 +20,65 @@ class AdminUsers extends Component<{}, usersData> {
         super(props);
         this.api = axios.create({baseURL: `http://localhost:4000`});
         this.state = {
-            data: []
+            data: [],
+            fullName: '',
+            email: '',
+            address: '',
+            contact: '',
+            username: '',
+            password: '',
+            profileImgUrl: null,
         }
+
+        this.handleAdminImgSelectOnChange = this.handleAdminImgSelectOnChange.bind(this);
+        this.handleAdminUserInputOnChange = this.handleAdminUserInputOnChange.bind(this);
     }
+
+    handleAdminImgSelectOnChange(e: React.ChangeEvent<HTMLInputElement>) {
+        console.log(e.target.files)
+        // @ts-ignore
+        const imgFile = e.target.files[0];
+        this.setState({profileImgUrl: imgFile})
+    }
+
+    handleAdminUserInputOnChange(event: { target: { value: any; name: any; } }) {
+        const target = event.target;
+        const name = target.name;
+        const value = target.value;
+        //@ts-ignore
+        this.setState({
+                [name]: value,
+            }
+        );
+    }
+
+    private onCreateAccountFromAdminBtnClick = () => {
+        try {
+            const UserFormData = new FormData();
+            UserFormData.append('fullName', this.state.fullName);
+            UserFormData.append('email', this.state.email);
+            UserFormData.append('address', this.state.address);
+            UserFormData.append('contact', String(this.state.contact));
+            UserFormData.append('username', this.state.username);
+            UserFormData.append('password', this.state.password);
+            UserFormData.append('profileImgUrl', this.state.profileImgUrl);
+
+            this.api
+                .post('/users/save', UserFormData, {headers: {'Content-Type': 'multipart/form-data'}})
+                .then((res: { data: any }) => {
+                    const jsonData = res.data;
+                    console.log(jsonData);
+
+                    alert('User Registration successfully!');
+                })
+                .catch((err: any) => {
+                    console.error('Axios Error' + err);
+                    alert(err);
+                });
+        } catch (err) {
+            console.error('Error submitting data:', err);
+        }
+    };
 
     componentDidMount() {
         this.fetchUsersData().then(value => {
@@ -54,6 +117,7 @@ class AdminUsers extends Component<{}, usersData> {
 
                             {/*main flex item - 1*/}
                             <div className="w-[28%] bg-white rounded-xl p-5">
+
                                 {/*User Form*/}
                                 <form className="flex flex-col justify-center items-center bg-white p-5 w rounded-xl">
                                     <div className="flex flex-col justify-between items-center w-full p-5 gap-2">
@@ -72,8 +136,8 @@ class AdminUsers extends Component<{}, usersData> {
                                                     placeholder=" "
                                                     type="text"
                                                     name="fullName"
-                                                    // value={this.state.fullName}
-                                                    // onChange={this.handleUserInputOnChange}
+                                                    value={this.state.fullName}
+                                                    onChange={this.handleAdminUserInputOnChange}
                                                     required/><label
                                                 className="flex w-full h-full select-none pointer-events-none absolute left-0 font-normal !overflow-visible truncate peer-placeholder-shown:text-blue-gray-500 leading-tight peer-focus:leading-tight peer-disabled:text-transparent peer-disabled:peer-placeholder-shown:text-blue-gray-500 transition-all -top-1.5 peer-placeholder-shown:text-normal text-[11px] peer-focus:text-[11px] before:content[' '] before:block before:box-border before:w-2.5 before:h-1.5 before:mt-[6.5px] before:mr-1 peer-placeholder-shown:before:border-transparent before:rounded-tl-md before:border-t peer-focus:before:border-t-2 before:border-l peer-focus:before:border-l-2 before:pointer-events-none before:transition-all peer-disabled:before:border-transparent after:content[' '] after:block after:flex-grow after:box-border after:w-2.5 after:h-1.5 after:mt-[6.5px] after:ml-1 peer-placeholder-shown:after:border-transparent after:rounded-tr-md after:border-t peer-focus:after:border-t-2 after:border-r peer-focus:after:border-r-2 after:pointer-events-none after:transition-all peer-disabled:after:border-transparent peer-placeholder-shown:leading-[3.75] text-gray-500 peer-focus:text-gray-900 before:border-blue-gray-200 peer-focus:before:!border-gray-900 after:border-blue-gray-200 peer-focus:after:!border-gray-900">Full
                                                 Name
@@ -88,8 +152,8 @@ class AdminUsers extends Component<{}, usersData> {
                                                     placeholder=" "
                                                     type="email"
                                                     name="email"
-                                                    // value={this.state.email}
-                                                    // onChange={this.handleUserInputOnChange}
+                                                    value={this.state.email}
+                                                    onChange={this.handleAdminUserInputOnChange}
                                                     required/><label
                                                 className="flex w-full h-full select-none pointer-events-none absolute left-0 font-normal !overflow-visible truncate peer-placeholder-shown:text-blue-gray-500 leading-tight peer-focus:leading-tight peer-disabled:text-transparent peer-disabled:peer-placeholder-shown:text-blue-gray-500 transition-all -top-1.5 peer-placeholder-shown:text-normal text-[11px] peer-focus:text-[11px] before:content[' '] before:block before:box-border before:w-2.5 before:h-1.5 before:mt-[6.5px] before:mr-1 peer-placeholder-shown:before:border-transparent before:rounded-tl-md before:border-t peer-focus:before:border-t-2 before:border-l peer-focus:before:border-l-2 before:pointer-events-none before:transition-all peer-disabled:before:border-transparent after:content[' '] after:block after:flex-grow after:box-border after:w-2.5 after:h-1.5 after:mt-[6.5px] after:ml-1 peer-placeholder-shown:after:border-transparent after:rounded-tr-md after:border-t peer-focus:after:border-t-2 after:border-r peer-focus:after:border-r-2 after:pointer-events-none after:transition-all peer-disabled:after:border-transparent peer-placeholder-shown:leading-[3.75] text-gray-500 peer-focus:text-gray-900 before:border-blue-gray-200 peer-focus:before:!border-gray-900 after:border-blue-gray-200 peer-focus:after:!border-gray-900">Email
                                             </label>
@@ -103,8 +167,8 @@ class AdminUsers extends Component<{}, usersData> {
                                                     placeholder=" "
                                                     type="text"
                                                     name="address"
-                                                    // value={this.state.address}
-                                                    // onChange={this.handleUserInputOnChange}
+                                                    value={this.state.address}
+                                                    onChange={this.handleAdminUserInputOnChange}
                                                     required/><label
                                                 className="flex w-full h-full select-none pointer-events-none absolute left-0 font-normal !overflow-visible truncate peer-placeholder-shown:text-blue-gray-500 leading-tight peer-focus:leading-tight peer-disabled:text-transparent peer-disabled:peer-placeholder-shown:text-blue-gray-500 transition-all -top-1.5 peer-placeholder-shown:text-normal text-[11px] peer-focus:text-[11px] before:content[' '] before:block before:box-border before:w-2.5 before:h-1.5 before:mt-[6.5px] before:mr-1 peer-placeholder-shown:before:border-transparent before:rounded-tl-md before:border-t peer-focus:before:border-t-2 before:border-l peer-focus:before:border-l-2 before:pointer-events-none before:transition-all peer-disabled:before:border-transparent after:content[' '] after:block after:flex-grow after:box-border after:w-2.5 after:h-1.5 after:mt-[6.5px] after:ml-1 peer-placeholder-shown:after:border-transparent after:rounded-tr-md after:border-t peer-focus:after:border-t-2 after:border-r peer-focus:after:border-r-2 after:pointer-events-none after:transition-all peer-disabled:after:border-transparent peer-placeholder-shown:leading-[3.75] text-gray-500 peer-focus:text-gray-900 before:border-blue-gray-200 peer-focus:before:!border-gray-900 after:border-blue-gray-200 peer-focus:after:!border-gray-900">Address
                                             </label>
@@ -118,8 +182,8 @@ class AdminUsers extends Component<{}, usersData> {
                                                     placeholder=" "
                                                     type="text"
                                                     name="contact"
-                                                    // value={this.state.contact}
-                                                    // onChange={this.handleUserInputOnChange}
+                                                    value={this.state.contact}
+                                                    onChange={this.handleAdminUserInputOnChange}
                                                     required/><label
                                                 className="flex w-full h-full select-none pointer-events-none absolute left-0 font-normal !overflow-visible truncate peer-placeholder-shown:text-blue-gray-500 leading-tight peer-focus:leading-tight peer-disabled:text-transparent peer-disabled:peer-placeholder-shown:text-blue-gray-500 transition-all -top-1.5 peer-placeholder-shown:text-normal text-[11px] peer-focus:text-[11px] before:content[' '] before:block before:box-border before:w-2.5 before:h-1.5 before:mt-[6.5px] before:mr-1 peer-placeholder-shown:before:border-transparent before:rounded-tl-md before:border-t peer-focus:before:border-t-2 before:border-l peer-focus:before:border-l-2 before:pointer-events-none before:transition-all peer-disabled:before:border-transparent after:content[' '] after:block after:flex-grow after:box-border after:w-2.5 after:h-1.5 after:mt-[6.5px] after:ml-1 peer-placeholder-shown:after:border-transparent after:rounded-tr-md after:border-t peer-focus:after:border-t-2 after:border-r peer-focus:after:border-r-2 after:pointer-events-none after:transition-all peer-disabled:after:border-transparent peer-placeholder-shown:leading-[3.75] text-gray-500 peer-focus:text-gray-900 before:border-blue-gray-200 peer-focus:before:!border-gray-900 after:border-blue-gray-200 peer-focus:after:!border-gray-900">Contact
                                                 Number
@@ -134,8 +198,8 @@ class AdminUsers extends Component<{}, usersData> {
                                                     placeholder=" "
                                                     type="text"
                                                     name="username"
-                                                    // value={this.state.username}
-                                                    // onChange={this.handleUserInputOnChange}
+                                                    value={this.state.username}
+                                                    onChange={this.handleAdminUserInputOnChange}
                                                     required/><label
                                                 className="flex w-full h-full select-none pointer-events-none absolute left-0 font-normal !overflow-visible truncate peer-placeholder-shown:text-blue-gray-500 leading-tight peer-focus:leading-tight peer-disabled:text-transparent peer-disabled:peer-placeholder-shown:text-blue-gray-500 transition-all -top-1.5 peer-placeholder-shown:text-normal text-[11px] peer-focus:text-[11px] before:content[' '] before:block before:box-border before:w-2.5 before:h-1.5 before:mt-[6.5px] before:mr-1 peer-placeholder-shown:before:border-transparent before:rounded-tl-md before:border-t peer-focus:before:border-t-2 before:border-l peer-focus:before:border-l-2 before:pointer-events-none before:transition-all peer-disabled:before:border-transparent after:content[' '] after:block after:flex-grow after:box-border after:w-2.5 after:h-1.5 after:mt-[6.5px] after:ml-1 peer-placeholder-shown:after:border-transparent after:rounded-tr-md after:border-t peer-focus:after:border-t-2 after:border-r peer-focus:after:border-r-2 after:pointer-events-none after:transition-all peer-disabled:after:border-transparent peer-placeholder-shown:leading-[3.75] text-gray-500 peer-focus:text-gray-900 before:border-blue-gray-200 peer-focus:before:!border-gray-900 after:border-blue-gray-200 peer-focus:after:!border-gray-900">Username
                                             </label>
@@ -149,26 +213,13 @@ class AdminUsers extends Component<{}, usersData> {
                                                     placeholder=" "
                                                     type="password"
                                                     name="password"
-                                                    // value={this.state.password}
-                                                    // onChange={this.handleUserInputOnChange}
+                                                    value={this.state.password}
+                                                    onChange={this.handleAdminUserInputOnChange}
                                                     required/><label
                                                 className="flex w-full h-full select-none pointer-events-none absolute left-0 font-normal !overflow-visible truncate peer-placeholder-shown:text-blue-gray-500 leading-tight peer-focus:leading-tight peer-disabled:text-transparent peer-disabled:peer-placeholder-shown:text-blue-gray-500 transition-all -top-1.5 peer-placeholder-shown:text-normal text-[11px] peer-focus:text-[11px] before:content[' '] before:block before:box-border before:w-2.5 before:h-1.5 before:mt-[6.5px] before:mr-1 peer-placeholder-shown:before:border-transparent before:rounded-tl-md before:border-t peer-focus:before:border-t-2 before:border-l peer-focus:before:border-l-2 before:pointer-events-none before:transition-all peer-disabled:before:border-transparent after:content[' '] after:block after:flex-grow after:box-border after:w-2.5 after:h-1.5 after:mt-[6.5px] after:ml-1 peer-placeholder-shown:after:border-transparent after:rounded-tr-md after:border-t peer-focus:after:border-t-2 after:border-r peer-focus:after:border-r-2 after:pointer-events-none after:transition-all peer-disabled:after:border-transparent peer-placeholder-shown:leading-[3.75] text-gray-500 peer-focus:text-gray-900 before:border-blue-gray-200 peer-focus:before:!border-gray-900 after:border-blue-gray-200 peer-focus:after:!border-gray-900">Password
                                             </label>
                                             </div>
                                         </div>
-
-                                        {/*<div className="w-96 border-gray-400">
-                                    <div className="relative w-full min-w-[200px] h-10">
-                                        <input
-                                            className="peer w-full h-full bg-transparent text-blue-gray-700 font-sans font-normal outline outline-0 focus:outline-0 disabled:bg-blue-gray-50 disabled:border-0 transition-all placeholder-shown:border placeholder-shown:border-blue-gray-200 placeholder-shown:border-t-blue-gray-200 border focus:border-2 border-t-transparent focus:border-t-transparent text-sm px-3 py-2.5 rounded-[7px] border-blue-gray-200 focus:border-gray-900"
-                                            placeholder=" "
-                                            type="password"
-                                            required/><label
-                                        className="flex w-full h-full select-none pointer-events-none absolute left-0 font-normal !overflow-visible truncate peer-placeholder-shown:text-blue-gray-500 leading-tight peer-focus:leading-tight peer-disabled:text-transparent peer-disabled:peer-placeholder-shown:text-blue-gray-500 transition-all -top-1.5 peer-placeholder-shown:text-normal text-[11px] peer-focus:text-[11px] before:content[' '] before:block before:box-border before:w-2.5 before:h-1.5 before:mt-[6.5px] before:mr-1 peer-placeholder-shown:before:border-transparent before:rounded-tl-md before:border-t peer-focus:before:border-t-2 before:border-l peer-focus:before:border-l-2 before:pointer-events-none before:transition-all peer-disabled:before:border-transparent after:content[' '] after:block after:flex-grow after:box-border after:w-2.5 after:h-1.5 after:mt-[6.5px] after:ml-1 peer-placeholder-shown:after:border-transparent after:rounded-tr-md after:border-t peer-focus:after:border-t-2 after:border-r peer-focus:after:border-r-2 after:pointer-events-none after:transition-all peer-disabled:after:border-transparent peer-placeholder-shown:leading-[3.75] text-gray-500 peer-focus:text-gray-900 before:border-blue-gray-200 peer-focus:before:!border-gray-900 after:border-blue-gray-200 peer-focus:after:!border-gray-900">Re-Enter
-                                        Password
-                                    </label>
-                                    </div>
-                                </div>*/}
 
                                         <div className="flex items-center justify-center w-full">
                                             <label htmlFor="dropzone-file"
@@ -190,9 +241,9 @@ class AdminUsers extends Component<{}, usersData> {
                                                 </div>
                                                 <input id="dropzone-file" type="file"
                                                        name="profileImgUrl"
-                                                    // onChange={(e) => {
-                                                    //     this.handleImgSelectOnChange(e)
-                                                    // }}
+                                                       onChange={(e) => {
+                                                           this.handleAdminImgSelectOnChange(e)
+                                                       }}
                                                        className="hidden"/>
                                             </label>
                                         </div>
@@ -202,7 +253,9 @@ class AdminUsers extends Component<{}, usersData> {
                                                 className="w-[50%] py-2 border-2 border-octonary border-opacity-25 hover:border-opacity-40 transition-all text-quinary text-normal rounded-lg">Clear
                                             </button>
                                             <button
-                                                className="w-[50%] bg-secondary hover:bg-opacity-95 py-2 text-white border-2 border-transparent text-normal transition-all rounded-lg">Save
+                                                className="w-[50%] bg-secondary hover:bg-opacity-95 py-2 text-white border-2 border-transparent text-normal transition-all rounded-lg"
+                                                onClick={this.onCreateAccountFromAdminBtnClick}
+                                            >Save
                                             </button>
                                         </div>
 
@@ -217,27 +270,27 @@ class AdminUsers extends Component<{}, usersData> {
                                 <div className="flex justify-center items-center p-5">
 
                                     {/*user details tables*/}
-                                    <table className="w-full shadow-lg rounded-xl">
+                                    <table className="w-full shadow-2xl shadow-gray-100 rounded-xl">
                                         <tbody className="">
-                                        <tr className="bg-black bg-opacity-[2%]">
+                                        <tr className="bg-black bg-opacity-[2.5%]">
                                             <th className="text-quinary text-smaller py-3 p-5 text-start rounded-tl-xl">Name</th>
                                             <th className="text-quinary text-smaller py-3 p-5 text-start">Email</th>
                                             <th className="text-quinary text-smaller py-3 p-5 text-start">Address</th>
                                             <th className="text-quinary text-smaller py-3 p-5 text-start rounded-tr-xl">Contact</th>
                                         </tr>
-                                        </tbody>
+
 
                                         {
                                             this.state.data.length === 0
                                                 ? <tr>
-                                                    <td colSpan={5}
-                                                        className="border-black border-[0.5px] px-1">
-                                                        <p className="text-center text-[8px]">No Items to Display!</p>
+                                                    <td colSpan={4} className="text-center text-quinary text-smaller py-2">
+                                                        <h1 className="p-5">No Items to Display!</h1>
                                                     </td>
                                                 </tr>
 
                                                 : this.state.data.map((user: any) => (
-                                                    <tr className="bg-black bg-opacity-0 transition-all hover:bg-opacity-5">
+                                                    <tr key={user.username}
+                                                        className="hover:bg-black hover:bg-opacity-[2.5%] duration-500 transition-all">
                                                         <td className="flex justify-start items-center p-5 gap-2 text-quinary text-smaller py-2 text-start">
                                                             <img
                                                                 src={`data:image/png;base64, ${user.profileImgUrl}`}
@@ -252,6 +305,7 @@ class AdminUsers extends Component<{}, usersData> {
                                                     </tr>
                                                 ))
                                         }
+                                        </tbody>
                                     </table>
 
                                 </div>
