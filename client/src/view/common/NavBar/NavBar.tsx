@@ -103,6 +103,7 @@ export class NavBar extends Component {
                         <li><Link to="/">Home</Link></li>
                         <li><Link to="/room">Rooms</Link></li>
                         <li><Link to="/restaurant">Restaurant</Link></li>
+                        <li><Link to="/myorders">My Orders</Link></li>
                         <li><Link to="/about">About</Link></li>
                         <li><Link to="/contact">Contact</Link></li>
                     </ul>

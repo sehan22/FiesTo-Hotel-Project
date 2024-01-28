@@ -8,7 +8,7 @@ const OrderModel = mongoose.Schema(
             unique: true,
             index: true,
         },
-        "customer": {
+        "username": {
             require: true,
             type: String
         },

@@ -10,7 +10,7 @@ interface ShoppingCartProps {
 
 interface OrderState {
     orderId: string;
-    customer: string;
+    username: string;
     items: CartItem[];
     item: [];
     delivery: boolean;
@@ -33,7 +33,7 @@ class AddToCart extends Component<ShoppingCartProps, OrderState> {
         this.api = axios.create({baseURL: `http://localhost:4000`});
         this.state = {
             orderId: "",
-            customer: "",
+            username: "",
             items: this.props.itemsList,
             item: [],
             delivery: false,
@@ -123,7 +123,7 @@ class AddToCart extends Component<ShoppingCartProps, OrderState> {
                     formData.append('orderId', this.state.orderId);
 
                     const username: any = localStorage.getItem("username");
-                    formData.append('customer', username.toString());
+                    formData.append('username', username.toString());
 
                     for (let item of this.state.items) {
                         formData.append('items[]', JSON.stringify({

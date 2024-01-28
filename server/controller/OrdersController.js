@@ -34,7 +34,7 @@ const UsersController = {
 
     updateOrder: async function (req, res, next) {
         try {
-            const orderId = req.params.username;
+            const orderId = req.params.orderId;
             const orderData = req.body;
 
             // Check if a file was uploaded
@@ -83,8 +83,8 @@ const UsersController = {
 
     getOrder: async function (req, res, next) {
         try {
-            const orderId = req.params.orderId;
-            const order = await Order.findOne({orderId: orderId});
+            const customer = req.params.customer;
+            const order = await Order.findOne({customer: customer});
 
             if (!order) {
                 return res.status(404).json({error: "User Not Found!"});
@@ -97,14 +97,30 @@ const UsersController = {
         }
     },
 
+    getOneUserAllOrders: async function (req, res, next) {
+        try {
+            const username = req.params.username;
+            const orders = await Order.find({username: username});
+
+            if (orders.length === 0) {
+                return res.status(404).json({error: "No orders found for the customer."});
+            }
+
+            return res.status(200).json(orders);
+        } catch (err) {
+            console.error(err);
+            res.status(500).json({error: 'Something Went Wrong!' + err});
+        }
+    },
+
     getLatestOrder: async function (req, res, next) {
         try {
-            const latestOrder = await Order.findOne().sort({ $natural: -1 }).limit(1);
+            const latestOrder = await Order.findOne().sort({$natural: -1}).limit(1);
 
             let orderId = "OID00 - 001";
 
             if (!latestOrder) {
-                return res.status(200).json({ orderId });
+                return res.status(200).json({orderId});
             }
 
             /*const orderId = latestOrder.orderId;*/
@@ -120,10 +136,10 @@ const UsersController = {
 
             console.log(orderId)
 
-            return res.status(200).json({ orderId });
+            return res.status(200).json({orderId});
         } catch (err) {
             console.error(err);
-            res.status(500).json({ error: 'Something Went Wrong!' + err });
+            res.status(500).json({error: 'Something Went Wrong!' + err});
         }
     }
 

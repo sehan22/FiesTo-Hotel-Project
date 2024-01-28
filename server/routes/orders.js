@@ -10,6 +10,7 @@ router.post('/save', upload.single('paymentSlipImg'), OrderController.saveOrder)
 router.put('/update/:orderId', upload.single('paymentSlipImg'), OrderController.updateOrder);
 router.delete('/delete/:orderId', OrderController.deleteOrder);
 router.get('/find/:orderId', OrderController.getOrder);
+router.get('/findUserOrders/:username', OrderController.getOneUserAllOrders);
 router.get('/lastOrderIndex', OrderController.getLatestOrder);
 
 module.exports = router;
