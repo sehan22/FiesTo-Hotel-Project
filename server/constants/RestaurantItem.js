@@ -20,7 +20,7 @@ const RestaurantItemsList = [
         "name": "Grand Executive Suite",
         "price": "750",
         "currency": "$",
-        "image": "luxury-bedroom-hotel.jpg",
+        "image": "bgimg.png",
         "rating": "4.8"
     }
 ];

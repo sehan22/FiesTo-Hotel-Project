@@ -60,8 +60,6 @@ export class Restaurant extends Component<{}, RestaurantItemState> {
                         <div className="h-0.5 opacity-50 bg-septenary w-44"></div>
                         <h6 className="font-poppins text-topictwo md:text-subtopic text-nonary">Join With Us</h6>
                         <div className="hidden lmd:block h-0.5 opacity-50 bg-septenary w-32"></div>
-                        <button type="button" className="text-white bg-secondary p-2" onClick={() => {
-                            console.log(data[0].image)}}>check status</button>
                     </div>
                 </div>
 

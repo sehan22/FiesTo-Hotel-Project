@@ -481,14 +481,13 @@ export class Home extends Component {
                     <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-2 xl:gap-5 p-5 lg:px-10">
 
                         <div
-                            className="flex flex-col justify-center items-start  p-5 rounded-md bg-white hover:scale-105 lg:min-h-[220px] transition-all duration-300">
+                            className="flex flex-col justify-center items-start  p-10 rounded-md bg-white hover:scale-105 lg:min-h-[220px] transition-all duration-300">
                             <div className="flex flex-col gap-3 font-poppins">
                                 <div className="flex items-center gap-3">
                                     <img className="w-[80px]" src={FirstManImg} alt=""/>
 
                                     <div>
-                                        <h1 className="text-loginpagetopic md:text-topictwo text-quinary tracking-[2px]">Roger
-                                            Scott</h1>
+                                        <h1 className="text-loginpagetopic md:text-topictwo text-quinary tracking-[2px]">Sehan Ranaweera</h1>
                                         <h6 className="text-smaller text-secondary">Marketing Manager</h6>
                                     </div>
                                 </div>
@@ -502,14 +501,13 @@ export class Home extends Component {
                         </div>
 
                         <div
-                            className="flex flex-col justify-center items-start  p-5 rounded-md bg-white hover:scale-105 lg:min-h-[220px] transition-all duration-300">
+                            className="flex flex-col justify-center items-start  p-10 rounded-md bg-white hover:scale-105 lg:min-h-[220px] transition-all duration-300">
                             <div className="flex flex-col gap-3 font-poppins">
                                 <div className="flex items-center gap-3">
                                     <img className="w-[80px]" src={SecondManImg} alt=""/>
 
                                     <div>
-                                        <h1 className="text-loginpagetopic md:text-topictwo text-quinary tracking-[2px]">Roger
-                                            Scott</h1>
+                                        <h1 className="text-loginpagetopic md:text-topictwo text-quinary tracking-[2px]">Sehan Ranaweera</h1>
                                         <h6 className="text-smaller text-secondary">Marketing Manager</h6>
                                     </div>
                                 </div>
@@ -523,14 +521,13 @@ export class Home extends Component {
                         </div>
 
                         <div
-                            className="flex flex-col justify-center items-start  p-5 rounded-md bg-white hover:scale-105 lg:min-h-[220px] transition-all duration-300">
+                            className="flex flex-col justify-center items-start  p-10 rounded-md bg-white hover:scale-105 lg:min-h-[220px] transition-all duration-300">
                             <div className="flex flex-col gap-3 font-poppins">
                                 <div className="flex items-center gap-3">
                                     <img className="w-[80px]" src={ThirdManImg} alt=""/>
 
                                     <div>
-                                        <h1 className="text-loginpagetopic md:text-topictwo text-quinary tracking-[2px]">Roger
-                                            Scott</h1>
+                                        <h1 className="text-loginpagetopic md:text-topictwo text-quinary tracking-[2px]">Sehan Ranaweera</h1>
                                         <h6 className="text-smaller text-secondary">Marketing Manager</h6>
                                     </div>
                                 </div>
@@ -544,14 +541,13 @@ export class Home extends Component {
                         </div>
 
                         <div
-                            className="flex flex-col justify-center items-start  p-5 rounded-md bg-white hover:scale-105 lg:min-h-[220px] transition-all duration-300">
+                            className="flex flex-col justify-center items-start  p-10 rounded-md bg-white hover:scale-105 lg:min-h-[220px] transition-all duration-300">
                             <div className="flex flex-col gap-3 font-poppins">
                                 <div className="flex items-center gap-3">
                                     <img className="w-[80px]" src={SecondManImg} alt=""/>
 
                                     <div>
-                                        <h1 className="text-loginpagetopic md:text-topictwo text-quinary tracking-[2px]">Roger
-                                            Scott</h1>
+                                        <h1 className="text-loginpagetopic md:text-topictwo text-quinary tracking-[2px]">Sehan Ranaweera</h1>
                                         <h6 className="text-smaller text-secondary">Marketing Manager</h6>
                                     </div>
                                 </div>

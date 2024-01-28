@@ -1,7 +1,7 @@
 import React, {Component} from 'react';
 import bgImg from '../../../images/RestaurantPage/bgimg.png'
-import ResITem from "../../../images/RestaurantPage/CardItemsImg/mixrice.png"
 import {CartItem} from "../../../model/CartItem";
+import LoadingIcon from "../../../images/AddToCart/loading.gif";
 import axios from "axios";
 
 interface ShoppingCartProps {
@@ -21,7 +21,8 @@ interface OrderState {
     discount: number;
     total: number;
     status: string;
-    lastIndexOrderId: string | null
+    lastIndexOrderId: string | null;
+    savingOrder: boolean;
 }
 
 class AddToCart extends Component<ShoppingCartProps, OrderState> {
@@ -43,7 +44,9 @@ class AddToCart extends Component<ShoppingCartProps, OrderState> {
             discount: 200,
             total: 0,
             status: "Incomplete",
-            lastIndexOrderId: ""
+            lastIndexOrderId: "",
+            savingOrder: false,
+
         }
 
         this.handleImgSelectOnChange = this.handleImgSelectOnChange.bind(this);
@@ -57,6 +60,7 @@ class AddToCart extends Component<ShoppingCartProps, OrderState> {
     componentDidMount() {
         this.accountPaymentBalance();
         this.getLastIndexOrderIdOnAction().then(r => console.log(r));
+
     }
 
     getLastIndexOrderIdOnAction = async () => {
@@ -76,17 +80,6 @@ class AddToCart extends Component<ShoppingCartProps, OrderState> {
         } catch (error) {
             console.error('Error fetching data:', error);
         }
-    }
-
-    checkStateOnAction = () => {
-        /*        this.accountPaymentBalance();
-                console.log("state item: \n", this.state.items);
-                console.log("props item: \n", this.props.itemsList);
-                console.log("subtotal :" + this.state.subTotal)
-                console.log("total :" + this.state.total)
-                console.log("\n======================================\n")*/
-        // console.log(this.state.delivery)
-        console.log(this.state.orderId.toString())
     }
 
 
@@ -122,59 +115,72 @@ class AddToCart extends Component<ShoppingCartProps, OrderState> {
     /*items array error*/
     orderOnAction = async () => {
         if (this.state.items.length !== 0) {
-            try {
-                const formData = new FormData();
-                formData.append('orderId', this.state.orderId);
+            if (this.state.paymentSlipImg !== undefined) {
+                try {
+                    this.setState({savingOrder: true});
 
-                const username: any = localStorage.getItem("username");
-                formData.append('customer', username.toString());
+                    const formData = new FormData();
+                    formData.append('orderId', this.state.orderId);
 
-                for (let item of this.state.items) {
-                    formData.append('items[]', JSON.stringify({
-                        id: item.product.id,
-                        name: item.product.name,
-                        price: item.product.price * item.itemCount,
-                        orderedQTY: item.itemCount,
-                    }));
+                    const username: any = localStorage.getItem("username");
+                    formData.append('customer', username.toString());
 
-                }
+                    for (let item of this.state.items) {
+                        formData.append('items[]', JSON.stringify({
+                            id: item.product.id,
+                            name: item.product.name,
+                            price: item.product.price * item.itemCount,
+                            orderedQTY: item.itemCount,
+                        }));
 
-                /**! problem to pass boolean */
-                /*formData.append('delivery', this.state.delivery.toString());*/
+                    }
 
-                formData.append('subTotal', this.state.subTotal.toString());
-                formData.append('deliveryCost', this.state.deliveryCost.toString());
-                formData.append('discount', this.state.discount.toString());
-                formData.append('total', this.state.total.toString());
-                formData.append('delivery', this.state.delivery.toString());
-                formData.append('status', this.state.status.toString());
+                    /**! problem to pass boolean */
+                    /*formData.append('delivery', this.state.delivery.toString());*/
 
-                formData.append('shippingAddress', this.state.shippingAddress);
-                formData.append('paymentSlipImg', this.state.paymentSlipImg);
+                    formData.append('subTotal', this.state.subTotal.toString());
+                    formData.append('deliveryCost', this.state.deliveryCost.toString());
+                    formData.append('discount', this.state.discount.toString());
+                    formData.append('total', this.state.total.toString());
+                    formData.append('delivery', this.state.delivery.toString());
+                    formData.append('status', this.state.status.toString());
 
-                await this.api
-                    .post('/orders/save', formData,
-                        {
-                            headers: {'Content-Type': 'multipart/form-data'},
+                    formData.append('shippingAddress', this.state.shippingAddress);
+                    formData.append('paymentSlipImg', this.state.paymentSlipImg);
+
+                    await this.api
+                        .post('/orders/save', formData,
+                            {
+                                headers: {'Content-Type': 'multipart/form-data'},
+                            })
+                        .then((res: { data: any }) => {
+                            const jsonData = res.data;
+                            console.log(jsonData);
+                            this.getLastIndexOrderIdOnAction();
+                            this.props.itemsList.splice(0, this.props.itemsList.length);
+
+                            this.setState({savingOrder: false});
+
+                            setTimeout(() => {
+                                alert('Your Order Place successfully!');
+                            }, 100);
+
+                            /*setInterval(() => {
+                                window.location.href = '/login';
+                            }, 1000);*/
                         })
-                    .then((res: { data: any }) => {
-                        const jsonData = res.data;
-                        console.log(jsonData);
-                        this.getLastIndexOrderIdOnAction();
-                        this.props.itemsList.splice(0, this.props.itemsList.length);
-                        alert('Ordered successfully!');
-
-                        /*setInterval(() => {
-                            window.location.href = '/login';
-                        }, 1000);*/
-                    })
-                    .catch((err: any) => {
-                        console.error('Axios Error - Client Side: ' + err.message);
-                        alert(err);
-                    });
-            } catch (err) {
-                console.error('Error submitting data:', err);
-                alert("Client Error" + err);
+                        .catch((err: any) => {
+                            this.setState({savingOrder: false});
+                            console.error('Axios Error - Client Side: ' + err.message);
+                            alert(err);
+                        });
+                } catch (err) {
+                    this.setState({savingOrder: false});
+                    console.error('Error submitting data:', err);
+                    alert("Client Error" + err);
+                }
+            } else {
+                alert("Add Payment Slip to Required Field")
             }
         } else {
             alert("Add Items to your cart first!")
@@ -201,14 +207,6 @@ class AddToCart extends Component<ShoppingCartProps, OrderState> {
                     <div className="flex flex-col lmd:items-center lmd:justify-center gap-4 p-2 ">
                         <div className="h-0.5 opacity-50 bg-septenary w-44"></div>
                         <h6 className="font-poppins text-topictwo md:text-subtopic text-nonary">Join With Us</h6>
-
-                        <button
-                            className="px-5 py-2 bg-secondary rounded-xl text-white"
-                            onClick={this.checkStateOnAction}
-                        >
-                            Check State
-                        </button>
-
                         <div className="hidden lmd:block h-0.5 opacity-50 bg-septenary w-32"></div>
                     </div>
                 </div>
@@ -478,7 +476,14 @@ class AddToCart extends Component<ShoppingCartProps, OrderState> {
                                         type="button"
                                         onClick={this.orderOnAction}
                                     >
-                                        Purchase Now
+                                        {
+                                            (this.state.savingOrder)
+                                                ? <div className="flex justify-center items-center gap-2">
+                                                    <h1>Processing</h1>
+                                                    <img className="w-4" src={LoadingIcon} alt=""/>
+                                                </div>
+                                                : <h1>Purchase Now</h1>
+                                        }
                                     </button>
 
                                     <button

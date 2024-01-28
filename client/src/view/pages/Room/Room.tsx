@@ -3,11 +3,15 @@ import bannerBackgroundImg from "../../../images/AboutPage/bgimg.png";
 import RoomItem from "../../common/Product/RoomItem/RoomItem";
 import axios from "axios";
 
-export class Room extends Component {
+interface RoomsList {
+    data: [],
+}
+
+export class Room extends Component<{}, RoomsList> {
 
     private api: any;
 
-    constructor(props: {} | Readonly<{}>) {
+    constructor(props: {}) {
         super(props);
         this.api = axios.create({baseURL: `http://localhost:4000`});
         this.state = {
@@ -22,7 +26,7 @@ export class Room extends Component {
 
     fetchData = async () => {
         try {
-            this.api.get('/restaurant/all')
+            this.api.get('/rooms/all')
                 .then((res: { data: any }) => {
                     const jsonData = res.data;
                     this.setState({data: jsonData});
@@ -35,9 +39,6 @@ export class Room extends Component {
     }
 
     render() {
-
-        // @ts-ignore
-        const {data} = this.state;
 
         return (
             <>
@@ -100,8 +101,8 @@ export class Room extends Component {
 
                         {/*card*/}
                         {
-                            data.map((product: any) => (
-                                <RoomItem data={product}/>
+                            this.state.data.map((product: any) => (
+                                <RoomItem key={product.id} data={product}/>
                             ))
                         }
 
