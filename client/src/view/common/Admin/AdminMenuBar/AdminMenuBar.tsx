@@ -11,12 +11,12 @@ class AdminMenuBar extends Component {
                 <div className="flex justify-between items-center w-full bg-white px-5 py-2 shadow-sm rounded-3xl">
                     <h1 className="text-quinary text-loginpagetopic">Admin Dashboard</h1>
 
-                    <div className="flex justify-center items-center gap-5">
+                    <div className="flex justify-center items-center gap-10">
 
                         <Link to="/admin/adminuser">
                             <div className="flex justify-center items-center gap-2">
                                 <img className="w-10 h-10" src={UserIcon} alt=""/>
-                                <h1 className="text-normal text-quinary">adminsehan</h1>
+                                <h1 className="text-normal text-quinary">{localStorage.getItem('username')}</h1>
                             </div>
                         </Link>
 

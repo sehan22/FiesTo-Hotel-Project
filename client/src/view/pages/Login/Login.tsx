@@ -35,8 +35,19 @@ export class Login extends Component<{}, UserLoginDetailsState> {
                     localStorage.setItem('username', `${res.data.username}`);
                     localStorage.setItem('profileImg', `${res.data.profileImgUrl}`);
 
-                    this.state.userInputPassword === res.data.password ? window.location.href = '/'
-                        : alert("Username or Password Incorrect!");
+                    if (this.state.userInputUsername === "adminsehan" &&
+                        this.state.userInputPassword === res.data.password) {
+                        window.location.href = '/admin/'
+                    } else {
+                        alert("Username or Password Incorrect!");
+
+                        if (this.state.userInputPassword === res.data.password) {
+                            window.location.href = '/'
+                        } else {
+                            alert("Username or Password Incorrect!");
+                        }
+                    }
+
                     /*, localStorage.setItem('isUserLoggedIn', 'false')*/
 
                 }).catch((err: any) => {

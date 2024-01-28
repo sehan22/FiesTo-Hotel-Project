@@ -47,6 +47,8 @@ class AdminOrders extends Component<{}, UserOrdersList> {
 
             const response = await this.api.put(`orders/update/${this.state.orderId}`, formData);
 
+            await this.fetchUserAllOrders();
+
             const jsonData = response.data;
             console.log(jsonData);
 
@@ -77,15 +79,15 @@ class AdminOrders extends Component<{}, UserOrdersList> {
                             <div className="flex flex-col justify-center items-center p-5 gap-10">
 
                                 {/*type of orders*/}
-                                <div className="flex items-center justify-around bg-white w-[1200px] rounded-xl">
-                                    <h1 className="text-quinary text-normal">Orders Summery</h1>
+                                <div className="flex items-center bg-nonary justify-around w-[1200px] rounded-xl">
+                                    <h1 className="text-quinary text-loginpagetopic">Orders Summery</h1>
 
                                     <div className="flex justify-around items-center gap-5">
-                                        <h1 className="text-senary text-smaller hover:text-opacity-95 cursor-pointer hover:border-octonary hover:border-opacity-40 transition-all rounded-xl border-[1px] border-transparent p-3">All
+                                        <h1 className="text-senary text-normal hover:text-opacity-95 cursor-pointer hover:border-octonary hover:border-opacity-40 transition-all rounded-xl border-[1px] border-transparent p-3">All
                                             Orders</h1>
-                                        <h1 className="text-senary text-smaller hover:text-opacity-95 cursor-pointer hover:border-octonary hover:border-opacity-40 transition-all rounded-xl border-[1px] border-transparent p-3">Incomplete
+                                        <h1 className="text-senary text-normal hover:text-opacity-95 cursor-pointer hover:border-octonary hover:border-opacity-40 transition-all rounded-xl border-[1px] border-transparent p-3">Incomplete
                                             Orders</h1>
-                                        <h1 className="text-senary text-smaller hover:text-opacity-95 cursor-pointer hover:border-octonary hover:border-opacity-40 transition-all rounded-xl border-[1px] border-transparent p-3">Complete
+                                        <h1 className="text-senary text-normal hover:text-opacity-95 cursor-pointer hover:border-octonary hover:border-opacity-40 transition-all rounded-xl border-[1px] border-transparent p-3">Complete
                                             Orders</h1>
                                     </div>
                                 </div>
@@ -189,13 +191,13 @@ class AdminOrders extends Component<{}, UserOrdersList> {
                                                             }}
                                                         >
                                                             {
-                                                                (order.state === "Completed")
+                                                                (order.status === "Completed")
                                                                     ? <h1 className="text-secondary">Completed</h1>
                                                                     : <h1 className="text-rose-700">InComplete</h1>
                                                             }
 
                                                             {
-                                                                (order.state === "Completed")
+                                                                (order.status === "Completed")
                                                                     ? <div
                                                                         className="w-[10px] h-[10px] bg-secondary rounded-full"></div>
                                                                     : <div
