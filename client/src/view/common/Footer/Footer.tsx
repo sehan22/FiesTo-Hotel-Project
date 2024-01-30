@@ -6,6 +6,14 @@ import LinkedinIcon from '../../../images/Footer/Linkedin.png'
 import GitHubIcon from '../../../images/Footer/GitHub.png'
 import TelegramIcon from '../../../images/Footer/Telegram.png'
 
+/*
+ name
+ school
+ ijse
+ free time
+ social
+*/
+
 export class Footer extends Component {
     render() {
         return (

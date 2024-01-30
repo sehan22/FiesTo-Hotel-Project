@@ -3,8 +3,9 @@ import DollarIcon from '../../../../images/Admin/Dashboard/dollaricon.png'
 import UsersIcon from '../../../../images/Admin/Dashboard/usersicon.png'
 import OrdersIcon from '../../../../images/Admin/Dashboard/ordersicon.png'
 import CompleteOrderIcon from '../../../../images/Admin/Dashboard/completeordericon.png'
-
-import {Chart} from 'chart.js'
+import PieChart from '../../../../images/Admin/Dashboard/piechart.png'
+import ChartImg from '../../../../images/Admin/Dashboard/chart.png'
+import ChartOneImg from '../../../../images/Admin/Dashboard/chart1.png'
 
 
 class AdminDashboard extends Component {
@@ -76,9 +77,15 @@ class AdminDashboard extends Component {
                     </div>
 
 
-                    <div className="flex justify-between items-center gap-8 w-full">
-                        <div className="w-[60%] bg-white rounded-xl p-5"></div>
-                        <div className="w-[40%] bg-white rounded-xl p-5"></div>
+                    <div className="flex h-[435px] justify-between items-center gap-8 w-full">
+                        <div className="h-[435px] w-[70%] flex gap-10 justify-center items-center bg-white rounded-xl p-5">
+                            <img className="object-scale-down h-[270px] w-[450px]" src={ChartImg} alt=""/>
+                            <img className="object-scale-down h-[270px] w-[450px]" src={ChartOneImg} alt=""/>
+                        </div>
+
+                        <div className="h-[435px] w-[30%] flex justify-center items-center bg-white rounded-xl p-5">
+                            <img src={PieChart} alt=""/>
+                        </div>
                     </div>
 
                 </div>

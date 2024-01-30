@@ -38,14 +38,10 @@ export class Login extends Component<{}, UserLoginDetailsState> {
                     if (this.state.userInputUsername === "adminsehan" &&
                         this.state.userInputPassword === res.data.password) {
                         window.location.href = '/admin/'
+                    } else if (this.state.userInputPassword === res.data.password) {
+                        window.location.href = '/'
                     } else {
                         alert("Username or Password Incorrect!");
-
-                        if (this.state.userInputPassword === res.data.password) {
-                            window.location.href = '/'
-                        } else {
-                            alert("Username or Password Incorrect!");
-                        }
                     }
 
                     /*, localStorage.setItem('isUserLoggedIn', 'false')*/

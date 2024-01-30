@@ -49,14 +49,6 @@ class YourOrders extends Component<{}, UserOrdersList> {
                         <div className="h-0.5 opacity-50 bg-septenary w-44"></div>
                         <h6 className="font-poppins text-topictwo md:text-subtopic text-nonary">Join With Us</h6>
                         <div className="hidden lmd:block h-0.5 opacity-50 bg-septenary w-32"></div>
-                        <button type="button" className="px-4 py-2 bg-secondary text-white rounded-xl"
-                                onClick={() => {
-                                    for (const datum of this.state.data) {
-                                        console.log(datum);
-                                    }
-                                }}
-                        >Check State
-                        </button>
                     </div>
                 </div>
 
@@ -86,7 +78,9 @@ class YourOrders extends Component<{}, UserOrdersList> {
                                     </div>
                                     : this.state.data.map((order: any) => (
                                         <div
-                                            className="flex flex-col bg-white shadow-2xl hover:shadow-lg hover:shadow-gray-200 transition-all duration-300 shadow-gray-200 rounded-xl px-5 py-10 justify-center items-center w-[1000px] h-[325px] gap-5">
+                                            className="flex flex-col bg-white shadow-2xl hover:shadow-lg hover:shadow-gray-200 transition-all duration-300 shadow-gray-200 rounded-xl px-5 py-10 justify-center items-center w-[1000px] h-[325px] gap-5"
+                                            key={order.orderId}
+                                        >
 
                                             <div
                                                 className="flex justify-around items-center w-full text-normal text-quinary">
@@ -113,7 +107,9 @@ class YourOrders extends Component<{}, UserOrdersList> {
                                                         order.items.map((orderItem: any, index: number) => (
 
                                                             <div
-                                                                className="flex justify-between w-[350px] hover:bg-nonary transition-all rounded-xl p-3 items-center gap-16">
+                                                                className="flex justify-between w-[350px] hover:bg-nonary transition-all rounded-xl p-3 items-center gap-16"
+                                                                key={index}
+                                                            >
                                                                 <div
                                                                     className="flex flex-col justify-center items-start text-senary text-smaller">
                                                                     <h1>RID00 - 001</h1>
